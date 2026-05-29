@@ -122,6 +122,25 @@ section {
   padding: 40px 18px;
   position: relative;
 }
+.hero .refresh-btn {
+  position: fixed;
+  top: 16px; right: 16px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(15,23,42,0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  color: rgba(255,255,255,0.7);
+  transition: transform 0.3s, background 0.2s;
+}
+.hero .refresh-btn:active { transform: rotate(180deg); background: rgba(15,23,42,0.8); }
 .hero-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.4rem, 8vw, 4rem);
@@ -792,6 +811,7 @@ section {
 
 <!-- ===== HERO ===== -->
 <section class="hero">
+  <button class="refresh-btn" id="refreshBtn" aria-label="刷新">↻</button>
   <div class="hero-badge">小红书验证 · 真实用户反馈</div>
   <h1 class="hero-title">2026 挪威极光之旅</h1>
   <p class="hero-sub">成都出发 · 13天极光之旅 · 特罗姆瑟 + 罗弗敦群岛</p>
@@ -1195,6 +1215,9 @@ section {
 </div><!-- /container -->
 
 <script>
+/* ===== Refresh button ===== */
+document.getElementById('refreshBtn')?.addEventListener('click', () => window.location.reload(true));
+
 /* ===== Countdown ===== */
 (function(){
   const target = new Date('2026-09-25T20:00:00+08:00').getTime();
