@@ -806,61 +806,36 @@ section {
     <span style="font-size:0.65rem;background:rgba(125,211,252,0.1);color:var(--ice-blue);border:1px solid rgba(125,211,252,0.2);border-radius:12px;padding:3px 10px;">太阳活动峰值期</span>
     <span style="font-size:0.65rem;background:rgba(57,255,20,0.1);color:var(--aurora-green);border:1px solid rgba(57,255,20,0.2);border-radius:12px;padding:3px 10px;">近十年最佳时机</span>
   </div>
+  <!-- ===== HERO TIMELINE ===== -->
+  <div class="hero-timeline" style="width:100%;max-width:420px;margin:14px auto 0;background:var(--bg-card);backdrop-filter:var(--glass-blur);border:1px solid rgba(255,215,0,0.3);border-left:3px solid var(--amber-warn);border-radius:var(--radius-sm);padding:10px 14px;text-align:left;">
+    <div style="font-size:0.7rem;font-weight:600;color:var(--amber-warn);margin-bottom:6px;">⏰ 时间提醒 · 距出发还有 <span id="monthsLeft" style="color:#fff;font-weight:700;">--</span> 个月</div>
+    <div style="display:flex;flex-direction:column;gap:5px;">
+      <div style="display:flex;align-items:center;gap:8px;font-size:0.68rem;">
+        <span style="color:var(--red-warn);font-weight:600;min-width:70px;">🔥 6月中前</span>
+        <span style="color:var(--text-secondary);">机票最低价窗口 · 现在就是最佳时机</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:0.68rem;">
+        <span style="color:var(--amber-warn);font-weight:600;min-width:70px;">⚠️ 6月底前</span>
+        <span style="color:var(--text-secondary);">住宿 · 国庆罗弗敦房源极抢手</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:0.68rem;">
+        <span style="color:var(--amber-warn);font-weight:600;min-width:70px;">⚠️ 7月底前</span>
+        <span style="color:var(--text-secondary);">申根签证 · 成都领区提前2个月办</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:0.68rem;">
+        <span style="color:var(--aurora-green);font-weight:600;min-width:70px;">✅ 8月底前</span>
+        <span style="color:var(--text-secondary);">极光团/租车/活动预约</span>
+      </div>
+    </div>
+  </div>
   <div class="aurora-wave"></div>
   <div class="scroll-hint">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
   </div>
 </section>
 
-<!-- ===== TIMELINE REMINDER ===== -->
-<div class="container">
-<section class="fade-in">
-  <div class="section-header">
-    <h2 class="section-title">⏰ 现在就该做的事</h2>
-    <p class="section-subtitle" id="todayInfo">今天是2026年5月29日 · 距出发还有 <span id="monthsLeft" style="color:var(--aurora-green);font-weight:600;">--</span> 个月</p>
-  </div>
-  <div class="card" style="border-color:rgba(255,215,0,0.4);background:var(--bg-card);border-left:3px solid var(--amber-warn);">
-    <div style="display:flex;flex-direction:column;gap:14px;">
-      <div style="display:flex;align-items:center;gap:12px;">
-        <div style="width:4px;height:36px;border-radius:2px;background:var(--red-warn);flex-shrink:0;"></div>
-        <div style="flex:1;">
-          <div style="font-size:0.82rem;font-weight:600;color:var(--red-warn);">🎫 国际机票</div>
-          <div style="font-size:0.72rem;color:var(--text-secondary);"><strong style="color:var(--text-primary);">现在就是最佳购票窗口！</strong>国际长途提前3-6个月买最便宜，你正处在黄金期。
-          <br>• 推荐路线：成都→赫尔辛基（芬兰航空AY）→奥斯陆，全程约13-15h
-          <br>• 价格参考：往返5,000-8,000RMB算好价，超过10,000偏贵
-          <br>• 周三出发最便宜，周五订票价格更低
-          <br>• 建议Skyscanner+天巡+航司官网比价，设置降价提醒</div>
-        </div>
-        <div style="font-size:0.65rem;color:var(--red-warn);background:rgba(239,68,68,0.12);padding:3px 10px;border-radius:10px;white-space:nowrap;">🔥 6月中前</div>
-      </div>
-      <div style="display:flex;align-items:center;gap:12px;">
-        <div style="width:4px;height:36px;border-radius:2px;background:var(--amber-warn);flex-shrink:0;"></div>
-        <div style="flex:1;">
-          <div style="font-size:0.82rem;font-weight:600;color:var(--amber-warn);">🏠 住宿预订（特罗姆瑟+罗弗敦）</div>
-          <div style="font-size:0.72rem;color:var(--text-secondary);">国庆期间罗弗敦房源极抢手，传统Rorbu红木屋提前3-6个月订。建议6月底前锁定</div>
-        </div>
-        <div style="font-size:0.65rem;color:var(--amber-warn);background:rgba(251,146,60,0.12);padding:3px 10px;border-radius:10px;white-space:nowrap;">⚠️ 6月底前</div>
-      </div>
-      <div style="display:flex;align-items:center;gap:12px;">
-        <div style="width:4px;height:36px;border-radius:2px;background:var(--amber-warn);flex-shrink:0;"></div>
-        <div style="flex:1;">
-          <div style="font-size:0.82rem;font-weight:600;color:var(--amber-warn);">🪪 申根签证</div>
-          <div style="font-size:0.72rem;color:var(--text-secondary);">成都领区处理可能较慢，建议提前2个月提交。最晚7月底前递交，拿到签证再买不可退的票</div>
-        </div>
-        <div style="font-size:0.65rem;color:var(--amber-warn);background:rgba(251,146,60,0.12);padding:3px 10px;border-radius:10px;white-space:nowrap;">⚠️ 7月底前</div>
-      </div>
-      <div style="display:flex;align-items:center;gap:12px;">
-        <div style="width:4px;height:36px;border-radius:2px;background:var(--aurora-green);flex-shrink:0;"></div>
-        <div style="flex:1;">
-          <div style="font-size:0.82rem;font-weight:600;color:var(--aurora-green);">🚐 极光团 + 狗拉雪橇 + 租车</div>
-          <div style="font-size:0.72rem;color:var(--text-secondary);">极光团建议提前1-2个月预约（Hello Tromsø用折扣码EN-JOY-25），租车预订+超级全险</div>
-        </div>
-        <div style="font-size:0.65rem;color:var(--aurora-green);background:rgba(57,255,20,0.12);padding:3px 10px;border-radius:10px;white-space:nowrap;">✅ 8月底前</div>
-      </div>
-    </div>
-  </div>
-</section>
 
+<div class="container">
 <!-- ===== ROUTE ===== -->
 <section class="fade-in">
   <div class="section-header">
