@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="挪威资讯">
+<meta name="theme-color" content="#050a1a">
+<link rel="apple-touch-icon" sizes="180x180" href="norway-icon.svg">
+<title>挪威资讯归档</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --bg-deep: #050a1a;
+  --bg-card: rgba(13, 27, 42, 0.75);
+  --aurora-green: #39ff14;
+  --aurora-purple: #b44dff;
+  --ice-blue: #7dd3fc;
+  --text-primary: #e8edf5;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-subtle: rgba(125, 211, 252, 0.1);
+  --radius: 14px;
+  --radius-sm: 8px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--aurora-green); border-radius: 2px; }
+
+/* Aurora BG */
+.aurora-bg {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+}
+.aurora-bg .orb {
+  position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.5;
+}
+.aurora-bg .orb-1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(57,255,20,0.12), transparent 70%);
+  top: -200px; right: -200px;
+  animation: drift 14s ease-in-out infinite alternate;
+}
+.aurora-bg .orb-2 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(180,77,255,0.10), transparent 70%);
+  bottom: 10%; left: -150px;
+  animation: drift 18s ease-in-out infinite alternate-reverse;
+}
+@keyframes drift {
+  0% { transform: translate(0,0) scale(1); }
+  100% { transform: translate(80px,50px) scale(1.2); }
+}
+
+.container {
+  max-width: 680px; margin: 0 auto; padding: 0 18px; position: relative; z-index: 1;
+}
+
+/* Header */
+.header {
+  padding: 24px 0 16px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, var(--aurora-green), var(--ice-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.header .back-link {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  transition: all 0.2s;
+}
+.header .back-link:active { border-color: var(--aurora-green); color: var(--aurora-green); }
+
+/* Stats bar */
+.stats-bar {
+  display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.stats-bar .stat {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+}
+.stats-bar .stat strong { color: var(--aurora-green); }
+
+/* Entry card */
+.entry {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+.entry:active { transform: scale(0.98); }
+.entry-date {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  color: var(--aurora-green);
+  margin-bottom: 8px;
+  display: flex; align-items: center; gap: 8px;
+}
+.entry-date .badge {
+  font-size: 0.55rem;
+  background: rgba(57,255,20,0.08);
+  border: 1px solid rgba(57,255,20,0.15);
+  border-radius: 10px;
+  padding: 2px 8px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.entry-meta {
+  display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px;
+}
+.entry-meta .tag {
+  font-size: 0.6rem;
+  background: rgba(57,255,20,0.06);
+  border: 1px solid rgba(57,255,20,0.1);
+  border-radius: 6px;
+  padding: 2px 8px;
+  color: var(--text-secondary);
+}
+.entry-rate {
+  font-size: 0.6rem; color: var(--text-muted);
+  padding: 4px 8px; margin-bottom: 8px;
+  background: rgba(255,215,0,0.04);
+  border-radius: 6px;
+  border: 1px solid rgba(255,215,0,0.08);
+}
+.entry-news { margin-top: 6px; }
+.entry-news .src-label {
+  font-size: 0.6rem; font-weight: 600; color: var(--text-muted); margin: 6px 0 2px;
+}
+.entry-news .item {
+  font-size: 0.64rem; color: var(--text-secondary);
+  padding: 3px 0 3px 10px;
+  border-left: 2px solid rgba(57,255,20,0.15);
+  border-bottom: 1px solid rgba(148,163,184,0.06);
+  margin-bottom: 2px;
+}
+
+/* Loading / Empty / Error states */
+.state-msg {
+  text-align: center; padding: 60px 20px; color: var(--text-muted); font-size: 0.85rem;
+}
+.state-msg .spinner {
+  width: 24px; height: 24px; margin: 0 auto 12px;
+  border: 2px solid var(--border-subtle); border-top-color: var(--aurora-green);
+  border-radius: 50%; animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Back to top */
+.back-top {
+  text-align: center; padding: 20px 0 40px;
+}
+.back-top a {
+  font-size: 0.7rem; color: var(--text-muted);
+  text-decoration: none; border: 1px solid var(--border-subtle);
+  border-radius: 20px; padding: 8px 20px;
+}
+</style>
+</head>
+<body>
+<div class="aurora-bg"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+
+<div class="container">
+  <div class="header">
+    <h1>📡 挪威资讯归档</h1>
+    <a class="back-link" href="travel_plan_v2.html">← 返回攻略</a>
+  </div>
+
+  <div id="stats-bar" class="stats-bar"></div>
+  <div id="entries"></div>
+</div>
+
+<script>
+const DATA_URL = 'norway-news-data.json';
+const entriesEl = document.getElementById('entries');
+const statsEl = document.getElementById('stats-bar');
+
+function render() {
+  entriesEl.innerHTML = '<div class="state-msg"><div class="spinner"></div>加载中...</div>';
+
+  fetch(DATA_URL + '?_=' + Date.now())
+    .then(r => {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(data => {
+      if (!Array.isArray(data) || data.length === 0) throw new Error('empty');
+      renderEntries(data);
+    })
+    .catch(err => {
+      entriesEl.innerHTML = '<div class="state-msg">📭 暂无历史资讯<br><span style="font-size:0.7rem;color:var(--text-muted);">每日自动更新，明天再来看看吧</span></div>';
+      statsEl.innerHTML = '';
+    });
+}
+
+function renderEntries(data) {
+  // Stats
+  const totalNews = data.reduce((sum, d) => {
+    let c = 0;
+    for (const src in d.news || {}) c += d.news[src].length;
+    return sum + c;
+  }, 0);
+  const firstDate = data[data.length - 1]?.date || '';
+  const lastDate = data[0]?.date || '';
+  statsEl.innerHTML = `
+    <div class="stat">📅 收录 <strong>${data.length}</strong> 天</div>
+    <div class="stat">📰 <strong>${totalNews}</strong> 条资讯</div>
+    <div class="stat" style="font-size:0.6rem;">${firstDate} ~ ${lastDate}</div>
+  `;
+
+  // Entries
+  let html = '';
+  data.forEach(d => {
+    const kpColor = d.kp_color || '#94a3b8';
+    html += `<div class="entry">
+      <div class="entry-date">${d.date} <span class="badge">Kp ${d.kp} <span style="color:${kpColor};">●</span> ${d.kp_label || ''}</span></div>`;
+
+    if (d.forecast && d.forecast.length) {
+      html += '<div class="entry-meta">';
+      d.forecast.forEach(f => {
+        html += `<span class="tag">🌌 ${f}</span>`;
+      });
+      html += '</div>';
+    }
+
+    if (d.exchange_rate) {
+      html += `<div class="entry-rate">💱 ${d.exchange_rate}</div>`;
+    }
+
+    if (d.news && Object.keys(d.news).length) {
+      html += '<div class="entry-news">';
+      for (const [src, items] of Object.entries(d.news)) {
+        html += `<div class="src-label">📰 ${src}</div>`;
+        items.forEach(item => {
+          const title = item.length > 100 ? item.slice(0, 97) + '...' : item;
+          html += `<div class="item">${title}</div>`;
+        });
+      }
+      html += '</div>';
+    }
+
+    html += '</div>';
+  });
+  entriesEl.innerHTML = html;
+}
+
+render();
+</script>
+</body>
+</html>
