@@ -641,13 +641,13 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
     </div>
     <div class="timeline-item">
       <div class="timeline-time">14:00</div>
-      <div class="timeline-content"><strong>圣水洞 ☕</strong></div>
-      <div class="timeline-detail">🚇 2号线圣水站 · 小众买手店 · 香水店 · Camel Coffee · 探店拍照</div>
+      <div class="timeline-content"><strong>圣水洞 · 逛街探店 🛍️</strong></div>
+      <div class="timeline-detail">🚇 2号线圣水站 · Tamburins香水 · Matin Kim · Stand Oil包包 · Cafe Onion · Olive Young N扫货</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-time">16:00</div>
-      <div class="timeline-content"><strong>弘大</strong></div>
-      <div class="timeline-detail">🚇 2号线弘大入口站 · 年轻人街区 · 平价韩系衣服店 · 饰品 · 自由市场氛围</div>
+      <div class="timeline-content"><strong>弘大 · 平价潮牌街 👗</strong></div>
+      <div class="timeline-detail">🚇 2号线弘大入口站 · COVERNAT · thisisneverthat · ÅLAND · Object文创 · 街头表演</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-time">17:30</div>
@@ -656,34 +656,67 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
     </div>
   </div>
 
+  <style>
+  .shop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 4px 0 0; }
+  .shop-grid .area-label { grid-column: 1 / -1; font-size: 13px; font-weight: 700; padding: 10px 0 4px; color: var(--text); border-top: 1px solid var(--border); margin-top: 4px; }
+  .shop-grid .area-label:first-of-type { border-top: none; margin-top: 0; }
+  .shop-item { padding: 3px 4px 3px 0; font-size: 11.5px; line-height: 1.4; }
+  .shop-item .shop-name { font-weight: 500; color: var(--text); }
+  .shop-item .shop-tag { display: inline-block; font-size: 9px; padding: 0 5px; border-radius: 3px; margin-left: 4px; vertical-align: middle; }
+  .shop-tag-perfume { background: #F3E5F5; color: #7B1FA2; }
+  .shop-tag-cos { background: #FCE4EC; color: #C62828; }
+  .shop-tag-cloth { background: #E3F2FD; color: #1565C0; }
+  .shop-tag-cafe { background: #FFF3E0; color: #E65100; }
+  .shop-tag-food { background: #E8F5E9; color: #2E7D32; }
+  </style>
+
   <div class="card">
-    <div class="card-title"><span class="icon">🛍️</span> 逛街购物 · 必去</div>
-    <div class="place-list">
-      <div class="place-item">
-        <div class="place-emoji">💄</div>
-        <div class="place-info"><div class="place-name">明洞 Olive Young 旗舰店</div><div class="place-desc">韩国最大药妆集合店 · 化妆品 · 面膜 · 护肤品 · 可直接退税</div></div>
-        <span class="place-tag">化妆品</span>
-      </div>
-      <div class="place-item">
-        <div class="place-emoji">🧴</div>
-        <div class="place-info"><div class="place-name">明洞 · 品牌旗舰店</div><div class="place-desc">Innisfree · Laneige · Sulwhasoo · Missha · 连排旗舰店一次逛完</div></div>
-      </div>
-      <div class="place-item">
-        <div class="place-emoji">👗</div>
-        <div class="place-info"><div class="place-name">弘大 · 年轻人时装街</div><div class="place-desc">韩国大学生最爱逛 · 平价韩系穿搭 · 饰品 · 小众设计品牌</div></div>
-        <span class="place-tag">衣服</span>
-      </div>
-      <div class="place-item">
-        <div class="place-emoji">🧥</div>
-        <div class="place-info"><div class="place-name">圣水洞 · 买手店</div><div class="place-desc">韩国本土设计师品牌 · 复古vintage · 小众香水集合店</div></div>
-        <span class="place-tag">香水/设计</span>
-      </div>
-      <div class="place-item">
-        <div class="place-emoji">🌸</div>
-        <div class="place-info"><div class="place-name">狎鸥亭 · 高端精品街</div><div class="place-desc">Galleria百货 · 韩国轻奢品牌 · 香水专门店 · Jennie同款打卡</div></div>
-        <span class="place-tag">精品</span>
-      </div>
+    <div class="card-title"><span class="icon">🛍️</span> 逛街购物 · 小红书攻略</div>
+    <p style="font-size:12px; color:var(--text-secondary); margin-bottom:8px;">按区域整理，同一个地铁站附近集中逛</p>
+    <div class="shop-grid">
+
+      <div class="area-label">🏭 圣水洞 · 首尔潮流心脏（2号线圣水站）</div>
+      <div class="shop-item"><span class="shop-name">Tamburins</span><span class="shop-tag shop-tag-perfume">香水</span><br>Jennie代言 · 链条护手霜 · 蛋形香水 · 工业风旗舰店</div>
+      <div class="shop-item"><span class="shop-name">Nonfiction</span><span class="shop-tag shop-tag-perfume">香水</span><br>极简高级香 · GENTLE NIGHT · 伴手礼首选</div>
+      <div class="shop-item"><span class="shop-name">Kinfolk Notes</span><span class="shop-tag shop-tag-perfume">香水</span><br>巴黎灵感香调 · Garden Shower · 店面极美</div>
+      <div class="shop-item"><span class="shop-name">LOE 圣水</span><span class="shop-tag shop-tag-perfume">香水</span><br>BTS同款 · 可免费刻字 · ~46,000韩元 · 必买伴手礼</div>
+      <div class="shop-item"><span class="shop-name">Matin Kim</span><span class="shop-tag shop-tag-cloth">衣服</span><br>最火铁牌包包 · 中性街头风 · 旗舰店必逛</div>
+      <div class="shop-item"><span class="shop-name">Stand Oil</span><span class="shop-tag shop-tag-cloth">衣服</span><br>红到发紫平价包包 · Red Velvet/Seventeen同款</div>
+      <div class="shop-item"><span class="shop-name">ADERERROR</span><span class="shop-tag shop-tag-cloth">衣服</span><br>先锋街头 · 未来主义艺术装置店</div>
+      <div class="shop-item"><span class="shop-name">emis</span><span class="shop-tag shop-tag-cloth">衣服</span><br>Jisoo/Jennie同款复古老帽 · 碎花环保袋</div>
+      <div class="shop-item"><span class="shop-name">Rockfish</span><span class="shop-tag shop-tag-cloth">衣服</span><br>英伦雨靴 · 芭蕾舞鞋 · 梦幻店装</div>
+      <div class="shop-item"><span class="shop-name">OLIVE YOUNG N</span><span class="shop-tag shop-tag-cos">化妆品</span><br>全韩最大旗舰店 · 美妆+咖啡厅一站式</div>
+      <div class="shop-item"><span class="shop-name">Dasique 圣水</span><span class="shop-tag shop-tag-cos">化妆品</span><br>粉嫩法式风 · 九宫格眼影盘必买</div>
+      <div class="shop-item"><span class="shop-name">Cafe Onion</span><span class="shop-tag shop-tag-cafe">咖啡</span><br>废墟工业风 · 雪山面包Pandoro必点</div>
+      <div class="shop-item"><span class="shop-name">大林仓库</span><span class="shop-tag shop-tag-cafe">咖啡</span><br>复古工业风 · 咖啡+展览空间 · 出片</div>
+
+      <div class="area-label">🏠 弘大 · 年轻平价潮流（2号线弘大入口站）</div>
+      <div class="shop-item"><span class="shop-name">COVERNAT</span><span class="shop-tag shop-tag-cloth">衣服</span><br>高磅数大学T · 久洗不变形 · 撞色老帽必买</div>
+      <div class="shop-item"><span class="shop-name">thisisneverthat</span><span class="shop-tag shop-tag-cloth">衣服</span><br>"韩国的Supreme" · 复古街头风</div>
+      <div class="shop-item"><span class="shop-name">Lee（韩版）</span><span class="shop-tag shop-tag-cloth">衣服</span><br>韩版复古牛仔 · 直筒裤 · 性价比高</div>
+      <div class="shop-item"><span class="shop-name">ÅLAND</span><span class="shop-tag shop-tag-cloth">衣服</span><br>5层楼选物店 · 集合韩国本土设计师品牌</div>
+      <div class="shop-item"><span class="shop-name">Object</span><span class="shop-tag shop-tag-cloth">杂货</span><br>平价文创 · 插画小物 · 可爱伴手礼</div>
+      <div class="shop-item"><span class="shop-name">SHOOPEN</span><span class="shop-tag shop-tag-cloth">鞋包</span><br>超高性价比鞋包店</div>
+
+      <div class="area-label">🏙️ 明洞 · 美妆扫货（4号线明洞站）</div>
+      <div class="shop-item"><span class="shop-name">Olive Young 旗舰店</span><span class="shop-tag shop-tag-cos">化妆品</span><br>全韩最大 · 货最全 · 游客退税柜台 · 必去</div>
+      <div class="shop-item"><span class="shop-name">hetras. 明洞</span><span class="shop-tag shop-tag-perfume">香水</span><br>营业到22:30 · 香氛平价 · 晚归补货</div>
+      <div class="shop-item"><span class="shop-name">Wiggle Wiggle</span><span class="shop-tag shop-tag-cloth">杂货</span><br>缤纷可爱包包 · 保温杯 · 3层免费打卡</div>
+      <div class="shop-item"><span class="shop-name">Nyunyu 饰品</span><span class="shop-tag shop-tag-cloth">饰品</span><br>东大门饰品名店 · 整面墙挑到手软</div>
+      <div class="shop-item"><span class="shop-name">ept 小白鞋</span><span class="shop-tag shop-tag-cloth">鞋</span><br>韩剧爆款复古小白鞋 · 宽脚板友好</div>
+      <div class="shop-item"><span class="shop-name">BLUE ELEPHANT</span><span class="shop-tag shop-tag-cloth">墨镜</span><br>平替GM · ~¥400以内</div>
+
+      <div class="area-label">✨ 狎鸥亭/汉南洞 · 高级感探店（盆唐线/6号线）</div>
+      <div class="shop-item"><span class="shop-name">Tamburins HAUS</span><span class="shop-tag shop-tag-perfume">香水</span><br>与GM同楼 · 整栋艺术空间</div>
+      <div class="shop-item"><span class="shop-name">Perfumer H 岛山</span><span class="shop-tag shop-tag-perfume">香水</span><br>英国小众沙龙香 · 二楼有咖啡厅</div>
+      <div class="shop-item"><span class="shop-name">DEAR:DRACENA</span><span class="shop-tag shop-tag-perfume">香水</span><br>95%天然成分 · 不含酒精 · 高级疗愈</div>
+      <div class="shop-item"><span class="shop-name">Mardi Mercredi</span><span class="shop-tag shop-tag-cloth">衣服</span><br>小雏菊T恤/卫衣 · 韩国爆火</div>
+      <div class="shop-item"><span class="shop-name">Marithé</span><span class="shop-tag shop-tag-cloth">衣服</span><br>法式贝雷帽+Logo T · 韩国穿红的法国牌</div>
+      <div class="shop-item"><span class="shop-name">MSMR 袜子</span><span class="shop-tag shop-tag-cloth">杂货</span><br>自选包装+贴纸 · 送哈密瓜热茶</div>
+      <div class="shop-item"><span class="shop-name">HAUS NOWHERE</span><span class="shop-tag shop-tag-cloth">综合体</span><br>GM 13层潮流综合体 · 逛店如看展</div>
+
     </div>
+    <p style="margin-top:10px; font-size:11px; color:var(--text-secondary);">💡 大部分店11:00开门 · 带护照现场退税(满30,000韩元) · Naver Map导航</p>
   </div>
 
   <div class="card">
@@ -697,9 +730,19 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
     </div>
   </div>
 
-</div>
+  <div class="card" style="border-left: 3px solid var(--green);">
+    <div class="card-title"><span class="icon">💡</span> 购物小贴士</div>
+    <div style="font-size:12px; color:var(--text-secondary); line-height:1.7;">
+      🕐 大部分店铺 <strong>11:00开门</strong>，不用太早去<br>
+      🧾 消费满 <strong>30,000韩元</strong> 可退税，带护照现场扣除<br>
+      🗺️ 导航用 <strong>Naver Map</strong>（Google在韩国不好使）<br>
+      💳 国际信用卡基本通用，备少量现金<br>
+      📅 周末圣水洞热店要排队，能平日去最好<br>
+      🌧️ 下雨天去 <strong>汝矣岛现代百货</strong> B2层，潮牌一站式买齐
+    </div>
+  </div>
 
-<!-- ═══ 清单 ═══ -->
+</div>
 <div id="page-checklist" class="page">
 
   <div class="card" style="background: linear-gradient(135deg, #E8F5E8, #E0F0E8);">
