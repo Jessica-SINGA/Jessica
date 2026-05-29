@@ -99,7 +99,9 @@ def clean_html(raw):
 
 def fetch_rss(url, source_label, max_items=3):
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        # Encode URL for non-ASCII characters
+        url_encoded = urllib.parse.quote(url, safe='/:?=&')
+        req = urllib.request.Request(url_encoded, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=10) as r:
             xml = r.read().decode("utf-8", errors="ignore")
             items = re.findall(r'<item>(.*?)</item>', xml, re.DOTALL)
@@ -155,10 +157,15 @@ def fetch_rss(url, source_label, max_items=3):
 # English sources (will be translated)
 fetch_rss("https://news.google.com/rss/search?q=norway+travel+aurora+2026&hl=en-US&gl=US&ceid=US:en", "Google News")
 fetch_rss("https://www.lonelyplanet.com/rss/articles", "Lonely Planet")
-fetch_rss("https://www.thelocal.no/feed/rss", "The Local Norway")
 
-# Chinese keyword sources
-fetch_rss("https://news.google.com/rss/search?q=Norway+travel+aurora+guide+2026&hl=zh-CN&gl=CN&ceid=CN:zh-Hans", "Google News CN")
+# Chinese social & travel platform content via Google News search
+fetch_rss("https://news.google.com/rss/search?q=site:xiaohongshu.com+挪威+旅游+攻略+2026&hl=zh-CN&gl=CN&ceid=CN:zh-Hans", "小红书攻略")
+fetch_rss("https://news.google.com/rss/search?q=site:mafengwo.cn+挪威+极光+攻略&hl=zh-CN&gl=CN&ceid=CN:zh-Hans", "马蜂窝攻略")
+fetch_rss("https://news.google.com/rss/search?q=挪威+旅游+最新攻略+费用+路线+2026&hl=zh-CN&gl=CN&ceid=CN:zh-Hans", "Google News CN")
+fetch_rss("https://news.google.com/rss/search?q=挪威+极光+自由行+住宿+交通+签证&hl=zh-CN&gl=CN&ceid=CN:zh-Hans", "Google News CN")
+
+# Bing News as backup Chinese source
+fetch_rss("https://www.bing.com/news/search?q=挪威+旅游+极光+2026&format=rss", "Bing News")
 
 # Build display
 news_by_source = {}
