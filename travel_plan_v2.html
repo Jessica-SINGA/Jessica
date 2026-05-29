@@ -311,17 +311,21 @@ section {
 }
 .route-line {
   flex: 1;
-  height: 1px;
+  height: 2px;
   background: linear-gradient(90deg, var(--aurora-green), var(--aurora-purple));
-  min-width: 20px;
+  min-width: 30px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .route-line .arrow {
   position: absolute;
-  right: -4px;
-  top: -3px;
-  font-size: 0.6rem;
+  font-size: 0.85rem;
   color: var(--aurora-purple);
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 1;
 }
 .stats-row {
   display: flex;
@@ -889,8 +893,8 @@ section {
 <!-- DAILY_UPDATES_START -->
 <div class="section-header" style="border-left:3px solid var(--aurora-green);background:linear-gradient(135deg,rgba(57,255,20,0.06),rgba(180,77,255,0.06));">
   <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
-    <span style="font-weight:600;color:var(--aurora-green);font-size:0.75rem;">Daily Norway News 2026-05-30</span>
-    <span style="font-size:0.55rem;color:var(--text-secondary);background:rgba(57,255,20,0.08);padding:2px 8px;border-radius:10px;border:1px solid rgba(57,255,20,0.15);">Kp: 3.0 <span style="color:#39ff14;">●</span> mid ✅</span>
+    <span style="font-weight:600;color:var(--aurora-green);font-size:0.75rem;">Norway Daily News 2026-05-30</span>
+    <span style="font-size:0.55rem;color:var(--text-secondary);background:rgba(57,255,20,0.08);padding:2px 8px;border-radius:10px;border:1px solid rgba(57,255,20,0.15);">Kp: 3.0 <span style="color:#39ff14;">●</span> 中等 ✅</span>
   </div>
   <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;align-items:center;">
     <span style="font-size:0.65rem;color:var(--aurora-green);">3-day forecast:</span>
@@ -900,12 +904,12 @@ section {
     1 NOK = 0.733 CNY / 1 NOK = 0.108 USD
   </div>
   <div style="margin-top:10px;border-top:1px solid rgba(148,163,184,0.15);padding-top:8px;">
-    <div style="font-size:0.7rem;font-weight:600;color:var(--text-primary);margin-bottom:4px;">Norway Travel News</div>
-    <div style="font-size:0.65rem;font-weight:600;color:var(--text-secondary);margin-top:6px;"> Google News EN</div><div style="font-size:0.68rem;padding:3px 0 3px 10px;color:var(--text-secondary);border-bottom:1px solid rgba(148,163,184,0.08);border-left:2px solid rgba(57,255,20,0.2);margin-bottom:2px;">13 of the best northern lights cruises: 2026-27 expert guide - The Times</div><div style="font-size:0.68rem;padding:3px 0 3px 10px;color:var(--text-secondary);border-bottom:1px solid rgba(148,163,184,0.08);border-left:2px solid rgba(57,255,20,0.2);margin-bottom:2px;">The northern lights have peaked. Here’s how to see them before they fade. - The Washing...</div><div style="font-size:0.68rem;padding:3px 0 3px 10px;color:var(--text-secondary);border-bottom:1px solid rgba(148,163,184,0.08);border-left:2px solid rgba(57,255,20,0.2);margin-bottom:2px;">An aurora chaser's guide to the Northern Lights - BBC</div><div style="font-size:0.68rem;padding:3px 0 3px 10px;color:var(--text-secondary);border-bottom:1px solid rgba(148,163,184,0.08);border-left:2px solid rgba(57,255,20,0.2);margin-bottom:2px;">Shadows Over the Arctic: How Norway is Combating Northern Lights Tourism Scams in 2026 ...</div><div style="font-size:0.65rem;font-weight:600;color:var(--text-secondary);margin-top:6px;"> Google News CN</div><div style="font-size:0.68rem;padding:3px 0 3px 10px;color:var(--text-secondary);border-bottom:1px solid rgba(148,163,184,0.08);border-left:2px solid rgba(57,255,20,0.2);margin-bottom:2px;">"Norway travel aurora 2026" - Google 新闻</div><div style="font-size:0.68rem;padding:3px 0 3px 10px;color:var(--text-secondary);border-bottom:1px solid rgba(148,163,184,0.08);border-left:2px solid rgba(57,255,20,0.2);margin-bottom:2px;">Google 新闻</div><div style="font-size:0.68rem;padding:3px 0 3px 10px;color:var(--text-secondary);border-bottom:1px solid rgba(148,163,184,0.08);border-left:2px solid rgba(57,255,20,0.2);margin-bottom:2px;">"Norway Travel guide" - Google 新闻</div><div style="font-size:0.68rem;padding:3px 0 3px 10px;color:var(--text-secondary);border-bottom:1px solid rgba(148,163,184,0.08);border-left:2px solid rgba(57,255,20,0.2);margin-bottom:2px;">Where I Am - Exhibition, Concert, Charity @ TCG诺地卡 – CALENDAR - L'Orient Espace</div>
+    <div style="font-size:0.7rem;font-weight:600;color:var(--text-primary);margin-bottom:4px;">Norway Travel News Summary</div>
+    <div style="font-size:0.62rem;font-weight:600;color:var(--text-secondary);margin-top:8px;">Google News</div><div style="font-size:0.67rem;padding:4px 0 1px 10px;color:var(--text-primary);border-left:2px solid rgba(57,255,20,0.25);">+ 13 条最佳北极光巡游：2026-27 专家指南 - 泰晤士报</div><div style="font-size:0.6rem;padding:0 0 5px 10px;color:var(--text-muted);border-left:2px solid rgba(57,255,20,0.25);border-bottom:1px solid rgba(148,163,184,0.06);margin-bottom:4px;line-height:1.5;">  <a href=" target="_blank">13 条最佳北极光巡游：2026-27 年专家指南</a>&nbsp;&nbsp;<font color="#6f6f6f">《泰晤士报》</font></div><div style="font-size:0.67rem;padding:4px 0 1px 10px;color:var(--text-primary);border-left:2px solid rgba(57,255,20,0.25);">+ 北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报</div><div style="font-size:0.6rem;padding:0 0 5px 10px;color:var(--text-muted);border-left:2px solid rgba(57,255,20,0.25);border-bottom:1px solid rgba(148,163,184,0.06);margin-bottom:4px;line-height:1.5;">  <a href=" target="_blank">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color="#6f6f6f">华盛顿邮报</font></div><div style="font-size:0.67rem;padding:4px 0 1px 10px;color:var(--text-primary);border-left:2px solid rgba(57,255,20,0.25);">+ 极光追逐者的北极光指南 - BBC</div><div style="font-size:0.6rem;padding:0 0 5px 10px;color:var(--text-muted);border-left:2px solid rgba(57,255,20,0.25);border-bottom:1px solid rgba(148,163,184,0.06);margin-bottom:4px;line-height:1.5;">  <a href=" target="_blank">极光追逐者的北极光指南</a>&nbsp;&nbsp;<font color="#6f6f6f">BBC</font></div>
   </div>
   <div style="margin-top:8px;display:flex;justify-content:space-between;align-items:center;font-size:0.55rem;color:var(--text-secondary);">
-    <span style="opacity:0.4;">NOAA Google News Visit Norway auto update</span>
-    <a href="norway-news-archive.html" style="color:var(--aurora-green);text-decoration:none;border:1px solid rgba(57,255,20,0.2);border-radius:12px;padding:3px 10px;font-size:0.6rem;">View history →</a>
+    <span style="opacity:0.4;">NOAA Google News Lonely Planet auto update</span>
+    <a href="norway-news-archive.html" style="color:var(--aurora-green);text-decoration:none;border:1px solid rgba(57,255,20,0.2);border-radius:12px;padding:3px 10px;font-size:0.6rem;">View history -></a>
   </div>
 </div>
 <!-- DAILY_UPDATES_END -->
