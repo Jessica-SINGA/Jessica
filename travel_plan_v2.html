@@ -812,8 +812,56 @@ section {
   </div>
 </section>
 
-<!-- ===== ROUTE ===== -->
+<!-- ===== TIMELINE REMINDER ===== -->
 <div class="container">
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">⏰ 现在就该做的事</h2>
+    <p class="section-subtitle" id="todayInfo">今天是2026年5月29日 · 距出发还有 <span id="monthsLeft" style="color:var(--aurora-green);font-weight:600;">--</span> 个月</p>
+  </div>
+  <div class="card" style="border-color:rgba(255,215,0,0.4);background:var(--bg-card);border-left:3px solid var(--amber-warn);">
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:4px;height:36px;border-radius:2px;background:var(--red-warn);flex-shrink:0;"></div>
+        <div style="flex:1;">
+          <div style="font-size:0.82rem;font-weight:600;color:var(--red-warn);">🎫 国际机票</div>
+          <div style="font-size:0.72rem;color:var(--text-secondary);"><strong style="color:var(--text-primary);">现在就是最佳购票窗口！</strong>国际长途提前3-6个月买最便宜，你正处在黄金期。
+          <br>• 推荐路线：成都→赫尔辛基（芬兰航空AY）→奥斯陆，全程约13-15h
+          <br>• 价格参考：往返5,000-8,000RMB算好价，超过10,000偏贵
+          <br>• 周三出发最便宜，周五订票价格更低
+          <br>• 建议Skyscanner+天巡+航司官网比价，设置降价提醒</div>
+        </div>
+        <div style="font-size:0.65rem;color:var(--red-warn);background:rgba(239,68,68,0.12);padding:3px 10px;border-radius:10px;white-space:nowrap;">🔥 6月中前</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:4px;height:36px;border-radius:2px;background:var(--amber-warn);flex-shrink:0;"></div>
+        <div style="flex:1;">
+          <div style="font-size:0.82rem;font-weight:600;color:var(--amber-warn);">🏠 住宿预订（特罗姆瑟+罗弗敦）</div>
+          <div style="font-size:0.72rem;color:var(--text-secondary);">国庆期间罗弗敦房源极抢手，传统Rorbu红木屋提前3-6个月订。建议6月底前锁定</div>
+        </div>
+        <div style="font-size:0.65rem;color:var(--amber-warn);background:rgba(251,146,60,0.12);padding:3px 10px;border-radius:10px;white-space:nowrap;">⚠️ 6月底前</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:4px;height:36px;border-radius:2px;background:var(--amber-warn);flex-shrink:0;"></div>
+        <div style="flex:1;">
+          <div style="font-size:0.82rem;font-weight:600;color:var(--amber-warn);">🪪 申根签证</div>
+          <div style="font-size:0.72rem;color:var(--text-secondary);">成都领区处理可能较慢，建议提前2个月提交。最晚7月底前递交，拿到签证再买不可退的票</div>
+        </div>
+        <div style="font-size:0.65rem;color:var(--amber-warn);background:rgba(251,146,60,0.12);padding:3px 10px;border-radius:10px;white-space:nowrap;">⚠️ 7月底前</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:4px;height:36px;border-radius:2px;background:var(--aurora-green);flex-shrink:0;"></div>
+        <div style="flex:1;">
+          <div style="font-size:0.82rem;font-weight:600;color:var(--aurora-green);">🚐 极光团 + 狗拉雪橇 + 租车</div>
+          <div style="font-size:0.72rem;color:var(--text-secondary);">极光团建议提前1-2个月预约（Hello Tromsø用折扣码EN-JOY-25），租车预订+超级全险</div>
+        </div>
+        <div style="font-size:0.65rem;color:var(--aurora-green);background:rgba(57,255,20,0.12);padding:3px 10px;border-radius:10px;white-space:nowrap;">✅ 8月底前</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ROUTE ===== -->
 <section class="fade-in">
   <div class="section-header">
     <h2 class="section-title">路线概览</h2>
@@ -1047,8 +1095,8 @@ section {
     <div class="warn-card amber">
       <div class="warn-icon">🧊</div>
       <div class="warn-content">
-        <div class="warn-title">Reinebringen 10月有冰</div>
-        <div class="warn-desc">1978级台阶，10月初可能结冰。务必穿防滑登山鞋，带登山杖，量力而行</div>
+                <div class="warn-title">Reinebringen 10月有冰 · 有轻松替代方案</div>
+        <div class="warn-desc">1978级台阶10月初可能结冰。不能久走的朋友可选：Olenilsøya kystfort（仅200米/30min，风景媲美）、Hamnøy桥/Reine桥上拍照（零步行）、Å村观景台（平坦好走）。详见D9行程。</div>
       </div>
     </div>
   </div>
@@ -1192,6 +1240,15 @@ section {
   setInterval(tick, 1000);
 })();
 
+/* ===== Months until departure ===== */
+(function(){
+  const now = new Date();
+  const depart = new Date('2026-09-25T20:00:00+08:00');
+  const months = (depart.getFullYear() - now.getFullYear()) * 12 + (depart.getMonth() - now.getMonth());
+  const el = document.getElementById('monthsLeft');
+  if(el) el.textContent = months;
+})();
+
 /* ===== Timeline Data ===== */
 const days = [
   { day:1, date:'9.25', loc:'成都 → 奥斯陆', tag:'flight',
@@ -1211,7 +1268,7 @@ const days = [
   { day:8, date:'10.2', loc:'罗弗敦 E10 自驾 · 全线', tag:'',
     detail:'<strong>🚗 全程自驾约100km，走走停停一整天</strong><br><strong>📍 路线：</strong>雷讷→Å镇（10min）→ Hamnøy（5min）→ 亨宁斯维尔（1h车程）<br><strong>📸 打卡点：</strong>世界最北足球场 · 白沙滩 · 孤独星球封面红木屋<br><strong>⚠️ 注意：</strong>10:00-16:00峡湾公路必堵，建议早上8点出发<br><strong>🍜 美食：</strong>北极小厨中餐馆（提前微信预约）' },
   { day:9, date:'10.3', loc:'Reinebringen 徒步', tag:'',
-    detail:'<strong>🥾 徒步时长：上山约1.5-2h，下山约1-1.5h，全程3h左右</strong><br>1978级台阶，海拔落差约450m，山顶360°俯瞰雷讷群岛<br>⚠️ <strong>10月可能有冰，务必穿防滑登山鞋！带登山杖</strong><br><strong>📸 摄影：</strong>山顶是孤独星球同款机位，建议上午去光线好<br><strong>下午：</strong>休闲逛渔村，拍红木屋+峡湾倒影' },
+    detail:'<strong>🥾 Reinebringen 登山（适合体力好的朋友）</strong><br>上山约1.5-2h，下山约1-1.5h，全程3h左右。1978级台阶，山顶360°俯瞰雷讷群岛。⚠️ 10月可能有冰，务必穿防滑登山鞋+登山杖。<br><br><strong>🌿 替代方案A：Olenilsøya kystfort（零难度！适合不能久走的朋友）</strong><br>来回路程仅200米，步行30-40分钟如散步般轻松。以Sakrisøy黄渔屋+E10公路+Olstinden雪山为前景，风景媲美Reinebringen！从Anita\'s Sjømat鱼堡店步行200米即达路口。<br><br><strong>🚗 替代方案B：开车直达观景点（完全不走路）</strong><br>• Hamnøy桥 — 经典红屋渔村+雪山倒影机位<br>• Reine进村桥上 — Reine全景随手拍都是明信片<br>• E10公路拐角（Sakrisøy附近）— &quot;三角饭团山&quot;同框黄色小木屋<br>• Å村观景台 — 柏油路面平坦好走，免费停车<br><br><strong>💡 建议：</strong>上午分组行动，登山组去Reinebringen，轻松组去Olenilsøya+开车打卡，中午汇合吃饭' },
   { day:10, date:'10.4', loc:'出海钓鱼 + 古渔村', tag:'',
     detail:'<strong>🎣 上午：</strong>出海钓鱼（当地渔村报名，约2-3h，500-800NOK）<br><strong>🏘️ 下午：</strong>探访Nusfjord古渔村（距雷讷车程30min）· 摄影自由活动<br><strong>🛒 美食：</strong>Coop超市采购（雷讷镇上步行可达），民宿自炊省钱<br>钓上来的鱼可以直接当晚餐！' },
   { day:11, date:'10.5', loc:'罗弗敦 → 奥斯陆', tag:'flight',
