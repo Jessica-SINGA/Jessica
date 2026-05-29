@@ -1,0 +1,5 @@
+*
+!.gitignore
+!generate_travel_plan.py
+!travel_plan.html
+!2026*.docx
