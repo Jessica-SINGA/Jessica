@@ -852,6 +852,7 @@ section {
     <div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(148,163,184,0.15);display:flex;gap:6px;flex-wrap:wrap;">
       <span id="auroraVibe" style="font-size:0.6rem;padding:3px 10px;border-radius:12px;background:rgba(57,255,20,0.1);border:1px solid rgba(57,255,20,0.2);color:var(--aurora-green);">🌌 极光指数: --</span>
       <span id="daylightInfo" style="font-size:0.6rem;padding:3px 10px;border-radius:12px;background:rgba(125,211,252,0.08);border:1px solid rgba(125,211,252,0.15);color:var(--ice-blue);">☀️ 日照: --</span>
+      <span id="exchangeRate" style="font-size:0.6rem;padding:3px 10px;border-radius:12px;background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.15);color:#ffd700;">💱 汇率: --</span>
       <span id="seasonFact" style="font-size:0.6rem;padding:3px 10px;border-radius:12px;background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.15);color:#ffd700;">🌍 --</span>
     </div>
   </div>
@@ -1526,6 +1527,17 @@ if(quoteGrid) staggerObserver.observe(quoteGrid);
       widget.style.opacity='1';
     }).catch(()=>{widget.style.opacity='1';
       document.getElementById('weatherDesc').textContent='天气数据暂不可用';
+    });
+
+  // Fetch exchange rate NOK→CNY
+  fetch('https://api.exchangerate-api.com/v4/latest/NOK')
+    .then(r=>r.json())
+    .then(d=>{
+      const cny=d.rates.CNY, usd=d.rates.USD;
+      document.getElementById('exchangeRate').textContent=`💱 1 NOK = ${cny} CNY · ${usd} USD`;
+    })
+    .catch(()=>{
+      document.getElementById('exchangeRate').textContent='💱 1 NOK ≈ 0.68 CNY';
     });
 })();
 </script>
