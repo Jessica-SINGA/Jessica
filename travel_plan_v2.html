@@ -831,6 +831,30 @@ section {
     <span style="font-size:0.65rem;background:rgba(125,211,252,0.1);color:var(--ice-blue);border:1px solid rgba(125,211,252,0.2);border-radius:12px;padding:3px 10px;">太阳活动峰值期</span>
     <span style="font-size:0.65rem;background:rgba(57,255,20,0.1);color:var(--aurora-green);border:1px solid rgba(57,255,20,0.2);border-radius:12px;padding:3px 10px;">近十年最佳时机</span>
   </div>
+
+  <!-- ===== TODAY IN NORWAY ===== -->
+  <div id="todayWidget" style="width:100%;max-width:420px;margin:12px auto 0;background:var(--bg-card);backdrop-filter:var(--glass-blur);border:1px solid rgba(125,211,252,0.2);border-radius:var(--radius-sm);padding:14px;text-align:left;opacity:0;transition:opacity 0.6s ease;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+      <span style="font-size:0.75rem;font-weight:600;color:var(--ice-blue);">🇳🇴 今日挪威 · <span id="norwayDate">--</span></span>
+      <span id="norwayTime" style="font-size:0.6rem;color:var(--text-secondary);font-variant-numeric:tabular-nums;"></span>
+    </div>
+    <div id="weatherContent" style="display:flex;align-items:center;gap:12px;">
+      <div id="weatherIcon" style="font-size:2rem;line-height:1;">🌡️</div>
+      <div style="flex:1;">
+        <div id="weatherTemp" style="font-size:1.1rem;font-weight:700;color:var(--text-primary);">--°C</div>
+        <div id="weatherDesc" style="font-size:0.65rem;color:var(--text-secondary);">加载中...</div>
+      </div>
+      <div style="text-align:right;font-size:0.6rem;color:var(--text-secondary);line-height:1.6;">
+        <div>体感 <span id="feelsLike">--</span>°C</div>
+        <div>风速 <span id="windSpeed">--</span>m/s</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(148,163,184,0.15);display:flex;gap:6px;flex-wrap:wrap;">
+      <span id="auroraVibe" style="font-size:0.6rem;padding:3px 10px;border-radius:12px;background:rgba(57,255,20,0.1);border:1px solid rgba(57,255,20,0.2);color:var(--aurora-green);">🌌 极光指数: --</span>
+      <span id="daylightInfo" style="font-size:0.6rem;padding:3px 10px;border-radius:12px;background:rgba(125,211,252,0.08);border:1px solid rgba(125,211,252,0.15);color:var(--ice-blue);">☀️ 日照: --</span>
+      <span id="seasonFact" style="font-size:0.6rem;padding:3px 10px;border-radius:12px;background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.15);color:#ffd700;">🌍 --</span>
+    </div>
+  </div>
   <!-- ===== HERO TIMELINE ===== -->
   <div class="hero-timeline" style="width:100%;max-width:420px;margin:14px auto 0;background:var(--bg-card);backdrop-filter:var(--glass-blur);border:1px solid rgba(255,215,0,0.3);border-left:3px solid var(--amber-warn);border-radius:var(--radius-sm);padding:10px 14px;text-align:left;">
     <div style="font-size:0.7rem;font-weight:600;color:var(--amber-warn);margin-bottom:6px;">⏰ 时间提醒 · 距出发还有 <span id="monthsLeft" style="color:#fff;font-weight:700;">--</span> 个月</div>
@@ -1453,6 +1477,57 @@ const staggerObserver = new IntersectionObserver(entries => {
 
 const quoteGrid = document.getElementById('quoteGrid');
 if(quoteGrid) staggerObserver.observe(quoteGrid);
+
+/* ===== Today in Norway Widget ===== */
+(function(){
+  const widget = document.getElementById('todayWidget');
+  if(!widget) return;
+  const LAT=69.6496, LON=18.956, TZ='Europe/Berlin';
+  const WMO={0:['☀️','晴空'],1:['🌤️','少云'],2:['⛅','多云'],3:['☁️','阴天'],45:['🌫️','雾'],48:['🌫️','雾凇'],51:['🌦️','小毛毛雨'],53:['🌦️','毛毛雨'],55:['🌧️','大毛毛雨'],61:['🌧️','小雨'],63:['🌧️','中雨'],65:['🌧️','大雨'],71:['🌨️','小雪'],73:['🌨️','中雪'],75:['❄️','大雪'],77:['❄️','雪粒'],80:['🌦️','阵雨'],85:['🌨️','小阵雪'],86:['🌨️','大阵雪'],95:['⛈️','雷暴']};
+  const SEASONS=[
+    {m:5,f:'🌙 午夜太阳将近 · 夏季极昼'},{m:6,f:'🌙 极昼季 · 午夜太阳高挂'},{m:7,f:'🌙 盛夏极昼 · 凌晨天仍亮'},
+    {m:8,f:'🌙 夏末 · 黑夜逐渐回归'},{m:9,f:'🌌 极光季即将开始！9月底出发刚刚好'},{m:10,f:'🌌 极光旺季 · 黑夜漫长'},
+    {m:11,f:'🌌 极光高频期 · 漫天星辰'},{m:12,f:'🌌 极夜 · 24小时看极光的机会'},{m:1,f:'🌌 极夜尾声 · 极光依然活跃'},
+    {m:2,f:'🌌 冬末 · 极光+滑雪黄金期'},{m:3,f:'🌌 春分极光 · 地磁活动高峰'},{m:4,f:'🌙 春季 · 白天渐长'}
+  ];
+  function updateTime(){
+    const now=new Date();
+    document.getElementById('norwayDate').textContent=new Intl.DateTimeFormat('zh-CN',{timeZone:TZ,year:'numeric',month:'long',day:'numeric',weekday:'long'}).format(now);
+    document.getElementById('norwayTime').textContent='⏰ '+new Intl.DateTimeFormat('zh-CN',{timeZone:TZ,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(now);
+  }
+  updateTime(); setInterval(updateTime,1000);
+  fetch(`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,cloud_cover&timezone=${TZ}`)
+    .then(r=>r.json()).then(d=>{
+      const c=d.current; if(!c)return;
+      const w=WMO[c.weather_code]||['🌡️','未知'];
+      document.getElementById('weatherIcon').textContent=w[0];
+      document.getElementById('weatherTemp').textContent=Math.round(c.temperature_2m)+'°C';
+      document.getElementById('weatherDesc').textContent=w[1];
+      document.getElementById('feelsLike').textContent=Math.round(c.apparent_temperature);
+      document.getElementById('windSpeed').textContent=c.wind_speed_10m;
+      let vibe,vC;
+      if(c.cloud_cover<20){vibe='最佳观测 ☀️';vC='#39ff14';}
+      else if(c.cloud_cover<50){vibe='有机会 🌤️';vC='#fb923c';}
+      else if(c.cloud_cover<80){vibe='有云遮挡 ☁️';vC='#94a3b8';}
+      else{vibe='云层较厚 ❌';vC='#ef4444';}
+      const av=document.getElementById('auroraVibe');
+      av.textContent='🌌 极光可见度: '+vibe; av.style.color=vC; av.style.borderColor=vC;
+      const s=SEASONS.find(s=>s.m===new Date().getMonth()+1);
+      if(s) document.getElementById('seasonFact').textContent=s.f;
+      const di=document.getElementById('daylightInfo');
+      const dy=(new Date()-new Date(new Date().getFullYear(),0,0))/86400000;
+      const hr=LAT*Math.PI/180, dc=23.44*Math.PI/180*Math.cos(2*Math.PI/365*(dy-173));
+      const ha=Math.acos(-Math.tan(hr)*Math.tan(dc));
+      if(!isNaN(ha)){const dl=2*ha*180/Math.PI/15, sr=12-dl/2, ss=12+dl/2;
+        di.textContent=`☀️ 日出 ${Math.floor(sr)}:${Math.round((sr%1)*60).toString().padStart(2,'0')} · 日落 ${Math.floor(ss)}:${Math.round((ss%1)*60).toString().padStart(2,'0')} · 昼长 ${Math.floor(dl)}h${Math.round((dl%1)*60)}min`;
+      }else{
+        di.textContent=23.44*Math.cos(2*Math.PI/365*(dy-173))>90-LAT?'☀️ 极昼 · 24小时白昼':'🌙 极夜 · 24小时黑夜';
+      }
+      widget.style.opacity='1';
+    }).catch(()=>{widget.style.opacity='1';
+      document.getElementById('weatherDesc').textContent='天气数据暂不可用';
+    });
+})();
 </script>
 </body>
 </html>
