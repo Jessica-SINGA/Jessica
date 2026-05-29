@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="首尔计划">
+<meta name="theme-color" content="#F5E6E8">
+<meta name="description" content="韩国首尔周末旅行计划 2026">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='36' fill='%23F5E6E8'/%3E%3Ctext x='90' y='120' font-size='100' text-anchor='middle' fill='%233D2C3A'%3E%F0%9F%87%B0%F0%9F%87%B7%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-startup-image" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 393 852'%3E%3Crect width='393' height='852' fill='%23F5E6E8'/%3E%3Ctext x='196' y='400' font-size='60' text-anchor='middle' fill='%23C47088'%3E%F0%9F%87%B0%F0%9F%87%B7%3C/text%3E%3Ctext x='196' y='470' font-size='18' text-anchor='middle' fill='%238A7A87'%3E%EC%84%9C%EC%9A%B8%3C/text%3E%3C/svg%3E">
+<title>首尔计划 · 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;600;700&display=swap');
+
+:root {
+  --bg: #FBF5F3;
+  --card: #FFFFFF;
+  --cream: #FFF8F5;
+  --rose: #E8A0B4;
+  --rose-light: #F5D6DE;
+  --rose-dark: #C47088;
+  --lavender: #C4B5D4;
+  --lavender-light: #E8DFF0;
+  --text: #3D2C3A;
+  --text-secondary: #8A7A87;
+  --text-light: #B5A8B2;
+  --border: #F0E4E8;
+  --green: #8DBD8D;
+  --green-bg: #E8F5E8;
+  --gold: #D4A85A;
+  --gold-bg: #F8F0E0;
+  --shadow: 0 2px 16px rgba(200, 160, 180, 0.12);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --tab-height: 64px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: 'Noto Sans SC', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding-bottom: calc(var(--tab-height) + 8px + var(--safe-bottom));
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========== SPLASH SCREEN ========== */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: linear-gradient(135deg, #F5E6E8 0%, #E8DFF0 50%, #F5E6E8 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.splash-emoji { font-size: 64px; margin-bottom: 12px; animation: splashPulse 1.2s ease-in-out; }
+.splash-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 20px;
+  color: var(--text);
+  opacity: 0;
+  animation: splashFade 0.8s ease 0.3s forwards;
+}
+.splash-sub {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  letter-spacing: 3px;
+  opacity: 0;
+  animation: splashFade 0.8s ease 0.6s forwards;
+}
+@keyframes splashPulse {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes splashFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== HEADER ========== */
+.header {
+  background: linear-gradient(135deg, #F5E6E8 0%, #E8DFF0 50%, #F5E6E8 100%);
+  padding: 56px 20px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  top: -60%; left: -20%;
+  width: 140%; height: 140%;
+  background:
+    radial-gradient(circle at 25% 35%, rgba(232,160,180,0.2) 0%, transparent 55%),
+    radial-gradient(circle at 75% 55%, rgba(196,181,212,0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+.header-emoji { font-size: 42px; display: block; margin-bottom: 6px; position: relative; }
+.header h1 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 700;
+  font-size: 23px;
+  color: var(--text);
+  position: relative;
+  line-height: 1.4;
+}
+.header h1 small {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-top: 2px;
+  font-family: 'Noto Sans SC', sans-serif;
+  letter-spacing: 0.5px;
+}
+.header .header-tagline {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+/* ========== TAB BAR ========== */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(var(--tab-height) + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-top: 1px solid var(--border);
+  display: flex;
+  z-index: 100;
+}
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  border: none;
+  background: none;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 10px;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: color 0.2s;
+  position: relative;
+}
+.tab-item .tab-icon { font-size: 22px; line-height: 1.2; transition: transform 0.2s; }
+.tab-item .tab-label { font-size: 9px; font-weight: 500; letter-spacing: 0.3px; }
+.tab-item.active .tab-icon { transform: scale(1.1); }
+.tab-item.active .tab-label { color: var(--rose-dark); }
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: var(--rose);
+  border-radius: 2px;
+}
+
+/* ========== PAGES ========== */
+.main { max-width: 420px; margin: 0 auto; padding: 12px 12px 0; }
+.page { display: none; }
+.page.active { display: block; animation: pageIn 0.3s ease; }
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== CARDS ========== */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+.card-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-title .icon { font-size: 18px; }
+
+/* ========== BADGES ========== */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 500;
+}
+.badge-rose { background: var(--rose-light); color: var(--rose-dark); }
+.badge-lavender { background: var(--lavender-light); color: #8B7AA8; }
+.badge-green { background: var(--green-bg); color: #5A9A5A; }
+.badge-gold { background: var(--gold-bg); color: #B89040; }
+
+/* ========== INFO ROWS ========== */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.info-row:last-child { border-bottom: none; }
+.info-row .label { color: var(--text-secondary); }
+.info-row .value { font-weight: 500; text-align: right; flex: 1; margin-left: 12px; }
+
+/* ========== TIMELINE ========== */
+.timeline { position: relative; padding-left: 24px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--rose-light), var(--lavender-light));
+  border-radius: 2px;
+}
+.timeline-item {
+  position: relative;
+  padding: 0 0 18px 12px;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--rose);
+  border: 2px solid var(--card);
+  box-shadow: 0 0 0 2px var(--rose);
+}
+.timeline-time {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 2px;
+  letter-spacing: 0.3px;
+}
+.timeline-content { font-size: 13px; line-height: 1.5; }
+.timeline-content strong { color: var(--rose-dark); }
+.timeline-detail { font-size: 12px; color: var(--text-secondary); margin-top: 2px; line-height: 1.4; }
+
+/* ========== CHIPS ========== */
+.chip-group { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 11px;
+  background: var(--cream);
+  border-radius: 20px;
+  font-size: 11px;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* ========== BUDGET TABLE ========== */
+.budget-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.budget-table td { padding: 8px 0; border-bottom: 1px solid var(--border); }
+.budget-table tr:last-child td { border-bottom: none; }
+.budget-table .item { color: var(--text-secondary); }
+.budget-table .amount { text-align: right; font-weight: 500; }
+.budget-table .total { font-weight: 700; color: var(--rose-dark); font-size: 14px; }
+.budget-table .total .amount { font-size: 16px; }
+
+/* ========== CHECKLIST ========== */
+.checklist { list-style: none; }
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: opacity 0.2s;
+}
+.checklist-item:active { opacity: 0.7; }
+.checklist-item:last-child { border-bottom: none; }
+.checklist-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  transition: all 0.25s ease;
+  color: transparent;
+}
+.checklist-item.done .checklist-check {
+  background: var(--green);
+  border-color: var(--green);
+  color: white;
+}
+.checklist-item.done .checklist-text {
+  text-decoration: line-through;
+  color: var(--text-light);
+}
+.checklist-text {
+  font-size: 13px;
+  line-height: 1.4;
+  flex: 1;
+}
+.checklist-tag { font-size: 10px; padding: 1px 6px; border-radius: 4px; margin-left: 6px; }
+
+/* ========== APP GRID ========== */
+.app-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.app-card {
+  background: var(--cream);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  border: 1px solid var(--border);
+  transition: transform 0.2s;
+}
+.app-card:active { transform: scale(0.97); }
+.app-card .app-icon { font-size: 26px; margin-bottom: 4px; }
+.app-card .app-name { font-size: 13px; font-weight: 500; }
+.app-card .app-desc { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+
+/* ========== PLACE LIST ========== */
+.place-list { display: flex; flex-direction: column; gap: 8px; }
+.place-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--cream);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+.place-emoji { font-size: 26px; flex-shrink: 0; }
+.place-info { flex: 1; }
+.place-name { font-size: 13px; font-weight: 500; }
+.place-desc { font-size: 11px; color: var(--text-secondary); margin-top: 1px; }
+.place-tag { font-size: 10px; padding: 1px 6px; border-radius: 4px; background: var(--rose-light); color: var(--rose-dark); flex-shrink: 0; }
+
+/* ========== PROGRESS ========== */
+.progress-bar {
+  height: 4px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--rose), var(--lavender));
+  border-radius: 4px;
+  transition: width 0.5s ease;
+  width: 0%;
+}
+.progress-text {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* ========== UTILITY ========== */
+p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
+.section-spacer { height: 6px; }
+.strong { font-weight: 500; color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- SPLASH -->
+<div class="splash" id="splash">
+  <div class="splash-emoji">🇰🇷</div>
+  <div class="splash-title">首尔周末旅行计划</div>
+  <div class="splash-sub">2026 · 盛夏</div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <span class="header-emoji">🇰🇷</span>
+  <h1>
+    首尔周末旅行计划
+    <small>2026.07 — 08  ·  成都出发</small>
+  </h1>
+  <div class="header-tagline">和闺蜜一起去首尔 · 追星 · 逛街 · 吃吃喝喝</div>
+</header>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- ═══ 概览 ═══ -->
+<div id="page-overview" class="page active">
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🛂</span> 签证 · 10年多次</div>
+    <div class="info-row"><span class="label">通道</span><span class="value">澳洲硕士学历</span></div>
+    <div class="info-row"><span class="label">材料</span><span class="value">认证报告 + 学位证</span></div>
+    <div class="info-row"><span class="label">出签</span><span class="value">5-7个工作日</span></div>
+    <div class="info-row"><span class="label">费用</span><span class="value">≈¥1,000-1,200</span></div>
+    <div class="info-row"><span class="label">状态</span><span class="value"><span class="badge badge-gold">📋 准备提交</span></span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">✈️</span> 成都 → 首尔</div>
+    <div class="info-row"><span class="label">飞行时间</span><span class="value">3.5 - 4小时</span></div>
+    <div class="info-row"><span class="label">往返参考价</span><span class="value">≈¥2,000 - 3,000</span></div>
+    <div class="info-row"><span class="label">推荐航司</span><span class="value">川航 · 国航 · 大韩 · 韩亚</span></div>
+    <div class="chip-group">
+      <span class="chip">🕐 周五晚去</span>
+      <span class="chip">🕐 周日晚回</span>
+      <span class="chip">🎧 提前选座</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">📅</span> 关键时间线</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">6月上旬 · 现在</div>
+        <div class="timeline-content"><strong>提交签证</strong> → 找淘宝代办</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">6月中下旬</div>
+        <div class="timeline-content"><strong>出签</strong> → 10年多次到手</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">6月底</div>
+        <div class="timeline-content"><strong>订机票 + 订酒店</strong></div>
+        <div class="timeline-detail">弘大或明洞附近</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">出发前1-2周</div>
+        <div class="timeline-content"><strong>买eSIM + 下载App</strong></div>
+        <div class="timeline-detail">Papago · Naver Map · KakaoT</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">出发前72h</div>
+        <div class="timeline-content"><strong>填写 e-arrival 卡</strong></div>
+        <div class="timeline-detail">电子入境申报</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">💡</span> 不会韩语？没问题</div>
+    <div class="app-grid">
+      <div class="app-card"><div class="app-icon">🗺️</div><div class="app-name">Naver Map</div><div class="app-desc">导航，有中文界面</div></div>
+      <div class="app-card"><div class="app-icon">📷</div><div class="app-name">Papago</div><div class="app-desc">拍照翻译菜单</div></div>
+      <div class="app-card"><div class="app-icon">🚕</div><div class="app-name">KakaoT</div><div class="app-desc">打车自动扣款</div></div>
+      <div class="app-card"><div class="app-icon">💳</div><div class="app-name">T-money</div><div class="app-desc">公交地铁通用</div></div>
+    </div>
+    <p style="margin-top: 10px;">首尔地铁有中文报站+站点编号，认编号不会错。明洞·弘大很多店有中文店员。菜单有图，指图+比数字搞定。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">💰</span> 预算（每人）</div>
+    <table class="budget-table">
+      <tr><td class="item">签证（10年多次）</td><td class="amount">≈¥1,000-1,200</td></tr>
+      <tr><td class="item">成都↔首尔机票</td><td class="amount">≈¥2,000-3,000</td></tr>
+      <tr><td class="item">住宿（2晚）</td><td class="amount">≈¥800-1,500</td></tr>
+      <tr><td class="item">餐饮（2天）</td><td class="amount">≈¥600-1,000</td></tr>
+      <tr><td class="item">交通+门票</td><td class="amount">≈¥300-500</td></tr>
+      <tr><td class="item">购物（化妆品/香水/衣服）</td><td class="amount">💰 丰俭由人</td></tr>
+      <tr class="total"><td class="item">合计（不含购物）</td><td class="amount">≈¥4,700-7,200</td></tr>
+    </table>
+  </div>
+
+</div>
+
+<!-- ═══ Day 1 ═══ -->
+<div id="page-day1" class="page">
+
+  <div class="card" style="background: linear-gradient(135deg, #FCE4EC, #F3E5F5);">
+    <div class="card-title" style="font-size:19px;">🌟 Day 1 · 追星日</div>
+    <p style="color:var(--text); font-size:13px;">周六 · 你的主场</p>
+  </div>
+
+  <div class="timeline card" style="padding-left: 32px;">
+    <div class="timeline-item">
+      <div class="timeline-time">10:00</div>
+      <div class="timeline-content"><strong>SM KWANGYA@SEOUL ✦</strong></div>
+      <div class="timeline-detail">🚇 盆唐线首尔林站 · SM新大楼B1 · 旷野概念店 · 免费入场 · 周一休</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">11:30</div>
+      <div class="timeline-content"><strong>圣水洞探店 ☕</strong></div>
+      <div class="timeline-detail">SM就在圣水！顺路逛小众买手店 · 香水店 · Camel Coffee · 拍照打卡</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">14:00</div>
+      <div class="timeline-content"><strong>HYBE 龙山总部 🟣</strong></div>
+      <div class="timeline-detail">🚇 龙山站 · INSIGHT已永久关闭 · 外部大楼打卡+应援咖啡厅 · BTS/SEVENTEEN/TXT/NewJeans/LE SSERAFIM</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">16:00</div>
+      <div class="timeline-content"><strong>明洞</strong></div>
+      <div class="timeline-detail">🚇 4号线明洞站 · K-pop周边店 · Music Korea · 💄 Olive Young旗舰店 · 化妆品牌 · 🥩 韩式烤肉</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">21:00</div>
+      <div class="timeline-content"><strong>南山首尔塔 🌙</strong></div>
+      <div class="timeline-detail">明洞坐缆车上山 · 夜景 · 爱情锁墙 · 首尔夜景太绝了</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🏪</span> 追星购物点</div>
+    <div class="place-list">
+      <div class="place-item">
+        <div class="place-emoji">🎵</div>
+        <div class="place-info"><div class="place-name">明洞 Music Korea</div><div class="place-desc">专辑 · 海报 · 官方周边</div></div>
+        <span class="place-tag">必去</span>
+      </div>
+      <div class="place-item">
+        <div class="place-emoji">🛍️</div>
+        <div class="place-info"><div class="place-name">明洞 Kpopnara</div><div class="place-desc">二手专辑 · 绝版周边</div></div>
+      </div>
+      <div class="place-item">
+        <div class="place-emoji">🏢</div>
+        <div class="place-info"><div class="place-name">COEX WithMu-k</div><div class="place-desc">SM艺人官方周边集合店</div></div>
+      </div>
+      <div class="place-item">
+        <div class="place-emoji">⭐</div>
+        <div class="place-info"><div class="place-name">狎鸥亭罗德奥</div><div class="place-desc">各大娱乐公司周边店集中地</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🏢</span> 打卡娱乐公司</div>
+    <div class="place-list">
+      <div class="place-item">
+        <div class="place-emoji">💎</div>
+        <div class="place-info"><div class="place-name">SM KWANGYA@SEOUL</div><div class="place-desc">🆕 圣水新大楼B1 · 盆唐线首尔林站 · 免费 · 10:30-20:00 · 周一休馆</div></div>
+        <span class="place-tag">必去</span>
+      </div>
+      <div class="place-item">
+        <div class="place-emoji">💜</div>
+        <div class="place-info"><div class="place-name">HYBE 龙山总部</div><div class="place-desc">🚫 INSIGHT已永久关闭 · 只可外部打卡 · 应援咖啡厅还在</div></div>
+        <span class="place-tag">外部打卡</span>
+      </div>
+      <div class="place-item">
+        <div class="place-emoji">🖤</div>
+        <div class="place-info"><div class="place-name">JYP Center</div><div class="place-desc">江东区 · 门口打卡+周边店</div></div>
+      </div>
+      <div class="place-item">
+        <div class="place-emoji">💛</div>
+        <div class="place-info"><div class="place-name">YG Place</div><div class="place-desc">麻浦区 · 打卡+周边</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="border-left: 3px solid var(--gold);">
+    <div class="card-title"><span class="icon">⚠️</span> 追星避雷 · 小红书总结</div>
+    <div class="place-list">
+      <div class="place-item" style="background: var(--gold-bg);">
+        <div class="place-emoji">🚫</div>
+        <div class="place-info"><div class="place-name">不要蹲点堵艺人</div><div class="place-desc">公司门口堵人非常不礼貌，被抓到会被请走</div></div>
+      </div>
+      <div class="place-item" style="background: var(--gold-bg);">
+        <div class="place-emoji">🗺️</div>
+        <div class="place-info"><div class="place-name">不要用Google Maps</div><div class="place-desc">用 Naver Map！Google在韩国定位不准且无步行导航</div></div>
+      </div>
+      <div class="place-item" style="background: var(--gold-bg);">
+        <div class="place-emoji">📅</div>
+        <div class="place-info"><div class="place-name">KWANGYA 周一休馆</div><div class="place-desc">SM KWANGYA@SEOUL 每周一休息，务必避开周一</div></div>
+      </div>
+      <div class="place-item" style="background: var(--gold-bg);">
+        <div class="place-emoji">📸</div>
+        <div class="place-info"><div class="place-name">HYBE INSIGHT已永久关闭</div><div class="place-desc">别跑空！龙山总部只可外部拍照，想逛周边去Weverse Shop</div></div>
+      </div>
+    </div>
+    <p style="margin-top:8px; font-size:11px; color:var(--text-secondary);">💡 去之前追星行程最好在Twitter/Weverse确认一下当日营业状态</p>
+  </div>
+
+</div>
+
+<!-- ═══ Day 2 ═══ -->
+<div id="page-day2" class="page">
+
+  <div class="card" style="background: linear-gradient(135deg, #E8DFF0, #FCE4EC);">
+    <div class="card-title" style="font-size:19px;">🌿 Day 2 · 治愈日</div>
+    <p style="color:var(--text); font-size:13px;">周日 · 闺蜜轻松逛</p>
+  </div>
+
+  <div class="timeline card" style="padding-left: 32px;">
+    <div class="timeline-item">
+      <div class="timeline-time">09:00</div>
+      <div class="timeline-content"><strong>景福宫 + 穿韩服 👘</strong></div>
+      <div class="timeline-detail">🚇 3号线景福宫站 · 穿韩服免门票 · 两人拍照超有仪式感</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">11:00</div>
+      <div class="timeline-content"><strong>北村韩屋村</strong></div>
+      <div class="timeline-detail">景福宫步行可达 · 传统韩屋街道散步拍照</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">12:30</div>
+      <div class="timeline-content"><strong>土俗村参鸡汤 🍲</strong></div>
+      <div class="timeline-detail">景福宫附近名店 · 来韩国必吃</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">14:00</div>
+      <div class="timeline-content"><strong>圣水洞 ☕</strong></div>
+      <div class="timeline-detail">🚇 2号线圣水站 · 小众买手店 · 香水店 · Camel Coffee · 探店拍照</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">16:00</div>
+      <div class="timeline-content"><strong>弘大</strong></div>
+      <div class="timeline-detail">🚇 2号线弘大入口站 · 年轻人街区 · 平价韩系衣服店 · 饰品 · 自由市场氛围</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">17:30</div>
+      <div class="timeline-content"><strong>出发去机场 ✈️</strong></div>
+      <div class="timeline-detail">AREX机场快线 首尔站→仁川 约45分钟</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🛍️</span> 逛街购物 · 必去</div>
+    <div class="place-list">
+      <div class="place-item">
+        <div class="place-emoji">💄</div>
+        <div class="place-info"><div class="place-name">明洞 Olive Young 旗舰店</div><div class="place-desc">韩国最大药妆集合店 · 化妆品 · 面膜 · 护肤品 · 可直接退税</div></div>
+        <span class="place-tag">化妆品</span>
+      </div>
+      <div class="place-item">
+        <div class="place-emoji">🧴</div>
+        <div class="place-info"><div class="place-name">明洞 · 品牌旗舰店</div><div class="place-desc">Innisfree · Laneige · Sulwhasoo · Missha · 连排旗舰店一次逛完</div></div>
+      </div>
+      <div class="place-item">
+        <div class="place-emoji">👗</div>
+        <div class="place-info"><div class="place-name">弘大 · 年轻人时装街</div><div class="place-desc">韩国大学生最爱逛 · 平价韩系穿搭 · 饰品 · 小众设计品牌</div></div>
+        <span class="place-tag">衣服</span>
+      </div>
+      <div class="place-item">
+        <div class="place-emoji">🧥</div>
+        <div class="place-info"><div class="place-name">圣水洞 · 买手店</div><div class="place-desc">韩国本土设计师品牌 · 复古vintage · 小众香水集合店</div></div>
+        <span class="place-tag">香水/设计</span>
+      </div>
+      <div class="place-item">
+        <div class="place-emoji">🌸</div>
+        <div class="place-info"><div class="place-name">狎鸥亭 · 高端精品街</div><div class="place-desc">Galleria百货 · 韩国轻奢品牌 · 香水专门店 · Jennie同款打卡</div></div>
+        <span class="place-tag">精品</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🌤️</span> 天气提醒</div>
+    <p>首尔7-8月夏季，气温 <strong>28-35°C</strong>，记得带：</p>
+    <div class="chip-group">
+      <span class="chip">👕 轻薄衣物</span>
+      <span class="chip">🧴 防晒</span>
+      <span class="chip">☂️ 雨伞（梅雨季）</span>
+      <span class="chip">😷 备用口罩</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ 清单 ═══ -->
+<div id="page-checklist" class="page">
+
+  <div class="card" style="background: linear-gradient(135deg, #E8F5E8, #E0F0E8);">
+    <div class="card-title" style="font-size:18px;">✅ 准备工作清单</div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="progress-text" id="progressText">0 / 10 已完成</div>
+  </div>
+
+  <div class="card">
+    <ul class="checklist" id="checklist">
+      <li class="checklist-item" data-idx="0">
+        <div class="checklist-check">✓</div>
+        <div class="checklist-text">准备签证材料 + 找淘宝代办提交 <span class="checklist-tag badge badge-rose">现在做</span></div>
+      </li>
+      <li class="checklist-item" data-idx="1">
+        <div class="checklist-check">✓</div>
+        <div class="checklist-text">确认出签（10年多次到手）</div>
+      </li>
+      <li class="checklist-item" data-idx="2">
+        <div class="checklist-check">✓</div>
+        <div class="checklist-text">预订机票（川航/国航/携程比价）</div>
+      </li>
+      <li class="checklist-item" data-idx="3">
+        <div class="checklist-check">✓</div>
+        <div class="checklist-text">预订酒店（弘大或明洞附近）</div>
+      </li>
+      <li class="checklist-item" data-idx="4">
+        <div class="checklist-check">✓</div>
+        <div class="checklist-text">买韩国eSIM/流量卡（淘宝/Klook）</div>
+      </li>
+      <li class="checklist-item" data-idx="5">
+        <div class="checklist-check">✓</div>
+        <div class="checklist-text">下载 App：Papago · Naver Map · KakaoT</div>
+      </li>
+      <li class="checklist-item" data-idx="6">
+        <div class="checklist-check">✓</div>
+        <div class="checklist-text">填写 e-arrival 电子入境卡（出发前72h）</div>
+      </li>
+      <li class="checklist-item" data-idx="7">
+        <div class="checklist-check">✓</div>
+        <div class="checklist-text">收拾行李：转换插头 · 防晒 · 雨伞</div>
+      </li>
+      <li class="checklist-item" data-idx="8">
+        <div class="checklist-check">✓</div>
+        <div class="checklist-text">换少量韩元现金</div>
+      </li>
+      <li class="checklist-item" data-idx="9">
+        <div class="checklist-check">✓</div>
+        <div class="checklist-text">机场买 T-money 交通卡 + 充值</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🎯</span> 追星提前关注</div>
+    <p>出发前看看你喜欢的团在7-8月有没有——</p>
+    <div class="chip-group">
+      <span class="chip">🎤 回归</span>
+      <span class="chip">🎫 演唱会</span>
+      <span class="chip">🤝 粉丝见面会</span>
+      <span class="chip">📺 音乐银行录影</span>
+    </div>
+    <p style="margin-top:8px; font-size:12px; color:var(--text-secondary);">可以提前抢票安排进去！</p>
+  </div>
+
+  <div class="card" style="background: var(--lavender-light); border-color: transparent;">
+    <div class="card-title"><span class="icon">💡</span> 怎么用这个「App」</div>
+    <p style="color:var(--text); font-size:12px;">
+      1. 点 Safari 分享按钮 → <strong>添加到主屏幕</strong><br>
+      2. 桌面出现 🇰🇷 图标，点开即全屏App<br>
+      3. Checklist勾选后自动保存，关闭再开还在
+    </p>
+  </div>
+
+</div>
+
+</div>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <button class="tab-item active" data-page="page-overview">
+    <span class="tab-icon">🏠</span>
+    <span class="tab-label">概览</span>
+  </button>
+  <button class="tab-item" data-page="page-day1">
+    <span class="tab-icon">🌟</span>
+    <span class="tab-label">Day1追星</span>
+  </button>
+  <button class="tab-item" data-page="page-day2">
+    <span class="tab-icon">🌿</span>
+    <span class="tab-label">Day2治愈</span>
+  </button>
+  <button class="tab-item" data-page="page-checklist">
+    <span class="tab-icon">✅</span>
+    <span class="tab-label">清单</span>
+  </button>
+</div>
+
+<script>
+// Splash screen
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('splash').classList.add('hidden');
+  }, 800);
+});
+
+// Tab switching
+document.querySelectorAll('.tab-item').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.page).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// Checklist with localStorage
+const checklist = document.getElementById('checklist');
+const items = checklist.querySelectorAll('.checklist-item');
+const progressFill = document.getElementById('progressFill');
+const progressText = document.getElementById('progressText');
+
+function updateProgress() {
+  const done = document.querySelectorAll('.checklist-item.done').length;
+  const total = items.length;
+  const pct = Math.round((done / total) * 100);
+  progressFill.style.width = pct + '%';
+  progressText.textContent = `${done} / ${total} 已完成`;
+}
+
+function saveState() {
+  const state = {};
+  items.forEach(item => { state[item.dataset.idx] = item.classList.contains('done'); });
+  try { localStorage.setItem('seoul-checklist', JSON.stringify(state)); } catch(e) {}
+}
+
+function loadState() {
+  try {
+    const saved = localStorage.getItem('seoul-checklist');
+    if (!saved) return;
+    const state = JSON.parse(saved);
+    items.forEach(item => {
+      if (state[item.dataset.idx]) item.classList.add('done');
+    });
+    updateProgress();
+  } catch(e) {}
+}
+
+items.forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('done');
+    updateProgress();
+    saveState();
+  });
+});
+
+loadState();
+</script>
+</body>
+</html>
