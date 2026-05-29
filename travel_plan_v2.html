@@ -346,54 +346,6 @@ section {
   color: var(--text-muted);
 }
 
-/* ===== Xiaohongshu Quotes ===== */
-.quote-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.quote-card {
-  background: var(--bg-card);
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius);
-  padding: 16px;
-  position: relative;
-  overflow: hidden;
-}
-.quote-card::before {
-  content: '"';
-  position: absolute;
-  top: -4px; left: 8px;
-  font-size: 3rem;
-  font-family: 'Playfair Display', serif;
-  color: var(--aurora-green);
-  opacity: 0.2;
-  line-height: 1;
-}
-.quote-text {
-  font-size: 0.88rem;
-  line-height: 1.6;
-  padding-left: 12px;
-  color: var(--text-primary);
-}
-.quote-source {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  margin-top: 6px;
-  padding-left: 12px;
-}
-.quote-tag {
-  display: inline-block;
-  font-size: 0.6rem;
-  padding: 2px 8px;
-  border-radius: 10px;
-  margin-right: 6px;
-}
-.quote-tag.cost { background: rgba(57,255,20,0.12); color: var(--aurora-green); }
-.quote-tag.warn { background: rgba(239,68,68,0.12); color: var(--red-warn); }
-.quote-tag.tip { background: rgba(125,211,252,0.12); color: var(--ice-blue); }
-
 /* ===== Timeline ===== */
 .timeline {
   position: relative;
@@ -792,8 +744,6 @@ section {
   .container { max-width: 720px; padding: 0 32px; }
   section { padding: 72px 0; }
   .section-title { font-size: 2rem; }
-  .quote-grid { flex-direction: row; flex-wrap: wrap; }
-  .quote-card { flex: 1 1 calc(50% - 6px); }
   .warn-card { flex: 1 1 calc(50% - 6px); }
   .warn-grid { display: flex; flex-wrap: wrap; gap: 10px; }
   .warn-grid .warn-card { margin-bottom: 0; }
@@ -817,7 +767,7 @@ section {
 <!-- ===== HERO ===== -->
 <section class="hero">
   <button class="refresh-btn" id="refreshBtn" aria-label="刷新">↻</button>
-  <div class="hero-badge">小红书验证 · 真实用户反馈</div>
+  <div class="hero-badge" style="opacity:0.6;border-color:rgba(255,255,255,0.1);background:rgba(255,255,255,0.03);">✎ 小茶 · Jessica</div>
   <h1 class="hero-title">2026 挪威极光之旅</h1>
   <p class="hero-sub">成都出发 · 13天极光之旅 · 特罗姆瑟 + 罗弗敦群岛</p>
   <div class="hero-countdown" id="countdown">
@@ -948,83 +898,8 @@ section {
   </div>
 </section>
 
-<!-- ===== 小红书真实声音 ===== -->
-<section class="fade-in">
-  <div class="section-header">
-    <h2 class="section-title">小红书的真实声音</h2>
-    <p class="section-subtitle">2025-2026年真实游客的经验与教训 · 含2026极光黄金年专报</p>
-  </div>
-  <div class="quote-grid stagger" id="quoteGrid">
-    <div class="quote-card">
-      <div class="quote-text">"2026年是十年一遇的极光黄金年！Solar Cycle 25峰值，KP4-6级爆发每月多次，错过等11年"</div>
-      <div class="quote-source"><span class="quote-tag tip">2026专报</span> @什么值得买极光专题 · 2026.03</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-text">"特罗姆瑟5天几乎天天看见极光，2026年太阳活动太强了，KP值经常爆表，肉眼都能看到绿色"</div>
-      <div class="quote-source"><span class="quote-tag cost">2026实测</span> @Trip.com追光用户 · 2026.02</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-text">"实际花了两万二，主要是机票买贵了——建议6月初就下手，能省3000+"</div>
-      <div class="quote-source"><span class="quote-tag cost">真实花费</span> @北极圈追光者 · 2025.02</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-text">"给2026年去的朋友提个醒：极光肉眼看到大多是灰白色云雾在流动，不是照片那种荧光绿！相机长曝光才是那个效果"</div>
-      <div class="quote-source"><span class="quote-tag tip">2026必看</span> @什么值得买用户提醒 · 2026.01</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-text">"罗弗敦2026年开了SKREI博物馆，挪威千年鳕鱼文化主题，挺有意思的新景点"</div>
-      <div class="quote-source"><span class="quote-tag tip">2026新景点</span> @挪威旅行资讯 · 2026.03</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-text">"盖朗厄尔峡湾2026年渡轮实现零排放了，电动船安静穿梭峡湾，体验感拉满"</div>
-      <div class="quote-source"><span class="quote-tag tip">2026新体验</span> @北欧可持续旅行 · 2026.02</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-text">"奥斯陆出租车是骗子！10分钟收229美元，是报价的4倍。一定要用Uber或Bolt"</div>
-      <div class="quote-source"><span class="quote-tag warn">避坑</span> @北欧自由行攻略 · 2025.09</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-text">"罗弗敦国庆堵车严重，峡湾公路10:00-16:00必堵，观景台停车全靠抢"</div>
-      <div class="quote-source"><span class="quote-tag warn">避坑</span> @罗弗敦老司机 · 2025.10</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-text">"带泡面和螺蛳粉！挪威菜真的吃不惯，又贵。民宿自己煮能省一半饭钱"</div>
-      <div class="quote-source"><span class="quote-tag tip">实用贴士</span> @中国胃游北欧 · 2025.11</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-text">"北极小厨要微信提前预约，别点高价套餐。人均200克朗，老板是东北人，特实在"</div>
-      <div class="quote-source"><span class="quote-tag tip">美食推荐</span> @罗弗敦吃货日记 · 2025.10</div>
-    </div>
-    <div class="quote-card" style="border-color:rgba(255,215,0,0.3);">
-      <div class="quote-text">"挪威9天只花了9759元！卑尔根→奥斯陆大巴才181元还是风景线，公交100路转300路从特罗姆瑟到罗弗敦才393元"</div>
-      <div class="quote-source"><span class="quote-tag cost">省钱攻略</span> @李行家sirius · 小红书热帖</div>
-    </div>
-    <div class="quote-card" style="border-color:rgba(255,215,0,0.3);">
-      <div class="quote-text">"⚠️ 补充一下：视频说的'8000元'不含国际机票哈！落地后的8天花销≈住宿3900+交通1100+餐饮≈8000，机票另外算3000-5000"</div>
-      <div class="quote-source"><span class="quote-tag cost">费用澄清</span> @李行家sirius · 视频解读</div>
-    </div>
-    <div class="quote-card" style="border-color:rgba(255,215,0,0.3);">
-      <div class="quote-text">"小红书找搭子拼房拼租车能省一半！天巡APP比价租车全险，千万别异地还车贵一倍"</div>
-      <div class="quote-source"><span class="quote-tag tip">省钱秘籍</span> @李行家sirius · 小红书热帖</div>
-    </div>
-    <div class="quote-card" style="border-color:rgba(255,215,0,0.3);">
-      <div class="quote-text">"罗弗敦坐邮轮到特罗姆瑟是全程最佳体验！夜晚甲板上看到极光大爆发，比极光团还震撼"</div>
-      <div class="quote-source"><span class="quote-tag tip">隐藏玩法</span> @李行家sirius · 视频精华</div>
-    </div>
-    <div class="quote-card" style="border-color:rgba(255,215,0,0.3);">
-      <div class="quote-text">"🏠 法宝一：住带厨房的民宿！挪威外食极贵，去Kiwi/Coop超市买三文鱼、甜虾自己做饭，8天住宿约3900元/人"</div>
-      <div class="quote-source"><span class="quote-tag cost">省钱法宝</span> @李行家sirius · 小红书热帖</div>
-    </div>
-    <div class="quote-card" style="border-color:rgba(255,215,0,0.3);">
-      <div class="quote-text">"✈️ 法宝二：冬季机票有白菜价！往返有时低至3000多，6月初开始刷票关注"</div>
-      <div class="quote-source"><span class="quote-tag cost">省钱法宝</span> @李行家sirius · 小红书热帖</div>
-    </div>
-    <div class="quote-card" style="border-color:rgba(255,215,0,0.3);">
-      <div class="quote-text">"🚌 法宝三：奥斯陆24h交通日票=公交+博物馆免费进。罗弗敦租车自驾E10。罗弗敦→特罗姆瑟坐邮轮，夜晚甲板可能看到极光爆发"</div>
-      <div class="quote-source"><span class="quote-tag cost">省钱法宝</span> @李行家sirius · 小红书热帖</div>
-    </div>
-  </div>
-</section>
+<!-- ===== Watermark divider ===== -->
+<div style="text-align:center;padding:12px 0;opacity:0.2;font-size:0.55rem;color:var(--text-secondary);letter-spacing:0.15em;">✎ 小茶 · Jessica · 2026</div>
 
 <!-- ===== ITINERARY ===== -->
 <section class="fade-in">
