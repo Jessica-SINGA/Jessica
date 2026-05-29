@@ -7,3 +7,6 @@
 !2026*.docx
 !seoul_plan.html
 !manifest.json
+!.github
+!.github/workflows
+!.github/scripts
