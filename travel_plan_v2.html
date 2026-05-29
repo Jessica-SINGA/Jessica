@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>2026 挪威极光之旅 — 优化版</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --bg-deep: #050a1a;
+  --bg-card: rgba(13, 27, 42, 0.75);
+  --bg-card-hover: rgba(20, 40, 65, 0.85);
+  --aurora-green: #39ff14;
+  --aurora-purple: #b44dff;
+  --ice-blue: #7dd3fc;
+  --amber-warn: #fb923c;
+  --red-warn: #ef4444;
+  --text-primary: #e8edf5;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-subtle: rgba(125, 211, 252, 0.1);
+  --border-glow: rgba(57, 255, 20, 0.15);
+  --glass-blur: blur(16px);
+  --radius: 14px;
+  --radius-sm: 8px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Aurora BG ===== */
+.aurora-bg {
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.aurora-bg .orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.5;
+}
+.aurora-bg .orb-1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(57,255,20,0.12), transparent 70%);
+  top: -200px; right: -200px;
+  animation: aurora-drift 14s ease-in-out infinite alternate;
+}
+.aurora-bg .orb-2 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(180,77,255,0.10), transparent 70%);
+  bottom: 10%; left: -150px;
+  animation: aurora-drift 18s ease-in-out infinite alternate-reverse;
+}
+.aurora-bg .orb-3 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(125,211,252,0.06), transparent 70%);
+  top: 40%; left: 30%;
+  animation: aurora-drift 22s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(80px, 50px) scale(1.2); }
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--aurora-green); border-radius: 2px; }
+
+/* ===== Layout ===== */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 18px;
+  position: relative;
+  z-index: 1;
+}
+section {
+  padding: 56px 0;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  background: linear-gradient(135deg, var(--aurora-green), var(--ice-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  margin-top: 4px;
+  font-weight: 300;
+}
+
+/* ===== Hero ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 18px;
+  position: relative;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 8vw, 4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  background: linear-gradient(135deg, var(--aurora-green) 0%, var(--ice-blue) 40%, var(--aurora-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+.hero-sub {
+  font-size: clamp(0.85rem, 2.5vw, 1.05rem);
+  color: var(--text-secondary);
+  letter-spacing: 0.06em;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+.hero-countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto 28px;
+}
+.cd-item {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px 4px;
+}
+.cd-num {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--aurora-green);
+  font-family: 'Playfair Display', serif;
+  line-height: 1.2;
+}
+.cd-label {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(57, 255, 20, 0.08);
+  border: 1px solid rgba(57, 255, 20, 0.2);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.72rem;
+  color: var(--aurora-green);
+  margin-bottom: 20px;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--aurora-green);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.scroll-hint {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  animation: bounce-arrow 2s infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.scroll-hint svg { width: 20px; height: 20px; }
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ===== CSS Aurora Wave ===== */
+.aurora-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.aurora-wave::before,
+.aurora-wave::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  border-radius: 45% 55% 40% 60% / 60% 40% 60% 40%;
+  opacity: 0.15;
+}
+.aurora-wave::before {
+  background: var(--aurora-green);
+  animation: wave-flow 8s ease-in-out infinite alternate;
+}
+.aurora-wave::after {
+  background: var(--aurora-purple);
+  animation: wave-flow 10s ease-in-out 1s infinite alternate-reverse;
+}
+@keyframes wave-flow {
+  0% { transform: translateX(0) scaleY(1); border-radius: 45% 55% 40% 60% / 60% 40% 60% 40%; }
+  50% { transform: translateX(5%) scaleY(1.2); border-radius: 55% 45% 60% 40% / 40% 60% 40% 60%; }
+  100% { transform: translateX(10%) scaleY(0.9); border-radius: 40% 60% 50% 50% / 50% 50% 60% 40%; }
+}
+
+/* ===== Cards ===== */
+.card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 14px;
+  transition: all 0.3s ease;
+}
+.card:active { transform: scale(0.98); }
+
+/* ===== Route ===== */
+.route-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 0;
+}
+.route-stop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 50px;
+}
+.route-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--aurora-green);
+  box-shadow: 0 0 10px var(--aurora-green);
+}
+.route-dot.visited { background: var(--ice-blue); box-shadow: 0 0 10px var(--ice-blue); }
+.route-label {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.route-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--aurora-green), var(--aurora-purple));
+  min-width: 20px;
+  position: relative;
+}
+.route-line .arrow {
+  position: absolute;
+  right: -4px;
+  top: -3px;
+  font-size: 0.6rem;
+  color: var(--aurora-purple);
+}
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+}
+.stat-item {
+  text-align: center;
+}
+.stat-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--aurora-green);
+  font-family: 'Playfair Display', serif;
+}
+.stat-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+/* ===== Xiaohongshu Quotes ===== */
+.quote-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.quote-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.quote-card::before {
+  content: '"';
+  position: absolute;
+  top: -4px; left: 8px;
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--aurora-green);
+  opacity: 0.2;
+  line-height: 1;
+}
+.quote-text {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  padding-left: 12px;
+  color: var(--text-primary);
+}
+.quote-source {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  padding-left: 12px;
+}
+.quote-tag {
+  display: inline-block;
+  font-size: 0.6rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-right: 6px;
+}
+.quote-tag.cost { background: rgba(57,255,20,0.12); color: var(--aurora-green); }
+.quote-tag.warn { background: rgba(239,68,68,0.12); color: var(--red-warn); }
+.quote-tag.tip { background: rgba(125,211,252,0.12); color: var(--ice-blue); }
+
+/* ===== Timeline ===== */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--aurora-green), var(--aurora-purple), var(--ice-blue));
+  opacity: 0.3;
+}
+.timeline-day {
+  position: relative;
+  margin-bottom: 14px;
+}
+.timeline-day::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 18px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--aurora-green);
+  box-shadow: 0 0 8px var(--aurora-green);
+  z-index: 1;
+}
+.timeline-day.aurora::before { background: var(--aurora-purple); box-shadow: 0 0 12px var(--aurora-purple); }
+.timeline-day.flight::before { background: var(--ice-blue); box-shadow: 0 0 8px var(--ice-blue); }
+.day-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  padding: 6px 0;
+}
+.day-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--aurora-green);
+  min-width: 28px;
+}
+.day-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.day-location {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+}
+.day-toggle {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  transition: transform 0.3s;
+}
+.day-toggle.open { transform: rotate(180deg); }
+.day-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+.day-body.open {
+  max-height: 600px;
+  opacity: 1;
+}
+.day-content {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding: 6px 0 8px 28px;
+}
+.day-content strong { color: var(--text-primary); }
+
+/* ===== Tour Compare ===== */
+.tour-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.tour-info { flex: 1; }
+.tour-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.tour-meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.tour-price {
+  text-align: right;
+  flex-shrink: 0;
+}
+.tour-price .amount {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--aurora-green);
+  font-family: 'Playfair Display', serif;
+}
+.tour-price .unit {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+.tour-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.72rem;
+  color: var(--amber-warn);
+}
+.discount-badge {
+  display: inline-block;
+  background: rgba(57,255,20,0.12);
+  color: var(--aurora-green);
+  font-size: 0.6rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 4px;
+}
+
+/* ===== Budget ===== */
+.budget-bar {
+  margin-bottom: 12px;
+}
+.budget-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  margin-bottom: 4px;
+}
+.budget-label .name { color: var(--text-primary); }
+.budget-label .val { color: var(--text-secondary); }
+.budget-track {
+  height: 8px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.budget-fill {
+  height: 100%;
+  border-radius: 4px;
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: linear-gradient(90deg, var(--aurora-green), var(--ice-blue));
+}
+.budget-fill.animate { /* width set by JS */ }
+.budget-total {
+  text-align: center;
+  padding: 16px;
+  margin-top: 12px;
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+}
+.budget-total .total-amount {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(135deg, var(--aurora-green), var(--aurora-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.budget-total .total-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.toggle-switch {
+  display: flex;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 3px;
+  margin-bottom: 16px;
+  max-width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.toggle-opt {
+  flex: 1;
+  text-align: center;
+  padding: 5px 12px;
+  border-radius: 17px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.3s;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.toggle-opt.active {
+  background: rgba(57,255,20,0.15);
+  color: var(--aurora-green);
+}
+
+/* ===== Warnings ===== */
+.warn-card {
+  background: rgba(239,68,68,0.06);
+  border: 1px solid rgba(239,68,68,0.2);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.warn-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.warn-content { flex: 1; }
+.warn-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--red-warn);
+  margin-bottom: 2px;
+}
+.warn-desc {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.warn-card.amber {
+  background: rgba(251,146,60,0.06);
+  border-color: rgba(251,146,60,0.2);
+}
+.warn-card.amber .warn-title { color: var(--amber-warn); }
+
+/* ===== Checklist ===== */
+.checklist-progress {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.checklist-progress .pct {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  color: var(--aurora-green);
+}
+.checklist-progress .sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.checklist-item:last-child { border-bottom: none; }
+.checkbox {
+  width: 20px; height: 20px;
+  border: 2px solid var(--text-muted);
+  border-radius: 5px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s;
+  font-size: 0.65rem;
+}
+.checklist-item.checked .checkbox {
+  background: var(--aurora-green);
+  border-color: var(--aurora-green);
+  color: var(--bg-deep);
+}
+.checklist-item.checked .check-text {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+.check-text {
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+.check-cat {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--ice-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-subtle);
+}
+.check-cat:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+
+/* ===== FAQ ===== */
+.faq-item {
+  border-bottom: 1px solid var(--border-subtle);
+}
+.faq-q {
+  padding: 14px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  gap: 12px;
+}
+.faq-q-text {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  flex: 1;
+}
+.faq-toggle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+.faq-toggle.open { transform: rotate(180deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.25s;
+  opacity: 0;
+}
+.faq-a.open {
+  max-height: 300px;
+  opacity: 1;
+}
+.faq-a-inner {
+  padding: 0 0 14px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 48px 18px 32px;
+}
+.footer-tagline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+.footer-meta {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+.footer-meta a { color: var(--ice-blue); text-decoration: none; }
+
+/* ===== Animations ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.stagger > *.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Tablet ===== */
+@media (min-width: 768px) {
+  .container { max-width: 720px; padding: 0 32px; }
+  section { padding: 72px 0; }
+  .section-title { font-size: 2rem; }
+  .quote-grid { flex-direction: row; flex-wrap: wrap; }
+  .quote-card { flex: 1 1 calc(50% - 6px); }
+  .warn-card { flex: 1 1 calc(50% - 6px); }
+  .warn-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+  .warn-grid .warn-card { margin-bottom: 0; }
+}
+
+/* ===== Desktop ===== */
+@media (min-width: 1024px) {
+  .container { max-width: 800px; padding: 0 40px; }
+  section { padding: 88px 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="aurora-bg">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-badge">小红书验证 · 真实用户反馈</div>
+  <h1 class="hero-title">2026 挪威极光之旅</h1>
+  <p class="hero-sub">成都出发 · 13天极光之旅 · 特罗姆瑟 + 罗弗敦群岛</p>
+  <div class="hero-countdown" id="countdown">
+    <div class="cd-item"><div class="cd-num" id="cd-days">--</div><div class="cd-label">天</div></div>
+    <div class="cd-item"><div class="cd-num" id="cd-hours">--</div><div class="cd-label">时</div></div>
+    <div class="cd-item"><div class="cd-num" id="cd-mins">--</div><div class="cd-label">分</div></div>
+    <div class="cd-item"><div class="cd-num" id="cd-secs">--</div><div class="cd-label">秒</div></div>
+  </div>
+  <div class="aurora-wave"></div>
+  <div class="scroll-hint">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+  </div>
+</section>
+
+<!-- ===== ROUTE ===== -->
+<div class="container">
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">路线概览</h2>
+    <p class="section-subtitle">一路向北，追逐极光</p>
+  </div>
+  <div class="card">
+    <div class="route-bar">
+      <div class="route-stop"><div class="route-dot"></div><span class="route-label">成都</span></div>
+      <div class="route-line"><span class="arrow">✈</span></div>
+      <div class="route-stop"><div class="route-dot"></div><span class="route-label">奥斯陆</span></div>
+      <div class="route-line"><span class="arrow">✈</span></div>
+      <div class="route-stop"><div class="route-dot"></div><span class="route-label">特罗姆瑟</span></div>
+      <div class="route-line"><span class="arrow">🚗</span></div>
+      <div class="route-stop"><div class="route-dot"></div><span class="route-label">罗弗敦</span></div>
+      <div class="route-line"><span class="arrow">✈</span></div>
+      <div class="route-stop"><div class="route-dot"></div><span class="route-label">回国</span></div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-value">9.25→10.7</div><div class="stat-label">行程日期</div></div>
+      <div class="stat-item"><div class="stat-value">13天</div><div class="stat-label">全程</div></div>
+      <div class="stat-item"><div class="stat-value">≈22,000</div><div class="stat-label">预算/人</div></div>
+      <div class="stat-item"><div class="stat-value">中秋+国庆</div><div class="stat-label">假期</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 小红书真实声音 ===== -->
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">小红书的真实声音</h2>
+    <p class="section-subtitle">2025年真实游客的经验与教训</p>
+  </div>
+  <div class="quote-grid stagger" id="quoteGrid">
+    <div class="quote-card">
+      <div class="quote-text">"实际花了两万二，主要是机票买贵了——建议6月初就下手，能省3000+"</div>
+      <div class="quote-source"><span class="quote-tag cost">真实花费</span> @北极圈追光者 · 2025.02</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"Reinebringen 10月初可能有冰，一定要穿防滑鞋！1978级台阶爬完腿抖三天"</div>
+      <div class="quote-source"><span class="quote-tag tip">实用贴士</span> @挪威徒步日记 · 2025.10</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"奥斯陆出租车是骗子！10分钟收229美元，是报价的4倍。一定要用Uber或Bolt"</div>
+      <div class="quote-source"><span class="quote-tag warn">避坑</span> @北欧自由行攻略 · 2025.09</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"罗弗敦国庆堵车严重，峡湾公路10:00-16:00必堵，观景台停车全靠抢"</div>
+      <div class="quote-source"><span class="quote-tag warn">避坑</span> @罗弗敦老司机 · 2025.10</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"带泡面和螺蛳粉！挪威菜真的吃不惯，又贵。民宿自己煮能省一半饭钱"</div>
+      <div class="quote-source"><span class="quote-tag tip">实用贴士</span> @中国胃游北欧 · 2025.11</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"北极小厨要微信提前预约，别点高价套餐。人均200克朗，老板是东北人，特实在"</div>
+      <div class="quote-source"><span class="quote-tag tip">美食推荐</span> @罗弗敦吃货日记 · 2025.10</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"特罗姆瑟极光团别只看KP指数！多云天气向导会开车到芬兰边境找晴空，照样看到爆发"</div>
+      <div class="quote-source"><span class="quote-tag cost">真实花费</span> @极光猎人小林 · 2025.02</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"被钓鱼网站 Real Ninja 骗了900美金订极光团。认准 GetYourGuide 或当地旅行社官网"</div>
+      <div class="quote-source"><span class="quote-tag warn">避坑</span> @播客·极光值得但我不来了 · 2025</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ITINERARY ===== -->
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">逐日行程</h2>
+    <p class="section-subtitle">点击展开每日详情</p>
+  </div>
+  <div class="timeline" id="timeline">
+    <!-- Days generated by JS -->
+  </div>
+</section>
+
+<!-- ===== AURORA TOURS ===== -->
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">极光团对比</h2>
+    <p class="section-subtitle">2025小红书真实评分 · 价格含折扣参考</p>
+  </div>
+  <div class="tour-card">
+    <div class="tour-info">
+      <div class="tour-name">Hello Tromsø <span class="discount-badge">折扣码 EN-JOY-25</span></div>
+      <div class="tour-meta">含接送 · 太空衣 · 篝火烤肠 · 专业拍照</div>
+    </div>
+    <div class="tour-price">
+      <div class="amount">≈1,400</div>
+      <div class="unit">NOK/人（折后）</div>
+      <div class="tour-rating">★★★★★ 4.9</div>
+    </div>
+  </div>
+  <div class="tour-card">
+    <div class="tour-info">
+      <div class="tour-name">Arctic GM 猎人世家 <span class="discount-badge" style="background:rgba(180,77,255,0.12);color:var(--aurora-purple);">99%成功率</span></div>
+      <div class="tour-meta">无限里程 · 6-10小时 · 1% Tripadvisor精选 · 专业单反</div>
+    </div>
+    <div class="tour-price">
+      <div class="amount">≈2,088</div>
+      <div class="unit">NOK/人</div>
+      <div class="tour-rating">★★★★★ 5.0</div>
+    </div>
+  </div>
+  <div class="tour-card">
+    <div class="tour-info">
+      <div class="tour-name">GetYourGuide 小巴团（篝火版）</div>
+      <div class="tour-meta">15人小团 · 开到芬兰边境 · 篝火烤棉花糖 · 91%中文游客满分</div>
+    </div>
+    <div class="tour-price">
+      <div class="amount">≈1,800</div>
+      <div class="unit">NOK/人</div>
+      <div class="tour-rating">★★★★☆ 4.7</div>
+    </div>
+  </div>
+  <div class="tour-card">
+    <div class="tour-info">
+      <div class="tour-name">NorthernShots 摄影团</div>
+      <div class="tour-meta">4-8小时 · 专业摄影指导 · 三脚架+相机教学 · 性价比之选</div>
+    </div>
+    <div class="tour-price">
+      <div class="amount">≈1,300</div>
+      <div class="unit">NOK/人起</div>
+      <div class="tour-rating">★★★★☆ 4.6</div>
+    </div>
+  </div>
+  <div style="font-size:0.72rem;color:var(--text-muted);text-align:center;margin-top:6px;">
+    💡 建议停留4晚以上，参加2次不同极光团，看到概率翻倍
+  </div>
+</section>
+
+<!-- ===== BUDGET ===== -->
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">预算清单</h2>
+    <p class="section-subtitle">计划 vs 真实花费</p>
+  </div>
+  <div class="toggle-switch" id="budgetToggle">
+    <div class="toggle-opt active" data-mode="plan">计划</div>
+    <div class="toggle-opt" data-mode="real">真实参考</div>
+  </div>
+  <div id="budgetContainer"></div>
+  <div class="budget-total">
+    <div class="total-label">人均总预算（含国际机票）</div>
+    <div class="total-amount" id="budgetTotal">¥22,000</div>
+  </div>
+</section>
+
+<!-- ===== WARNINGS ===== -->
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">避坑警告</h2>
+    <p class="section-subtitle">小红书评论区高频踩雷汇总</p>
+  </div>
+  <div class="warn-grid">
+    <div class="warn-card">
+      <div class="warn-icon">🚕</div>
+      <div class="warn-content">
+        <div class="warn-title">奥斯陆出租车诈骗</div>
+        <div class="warn-desc">10分钟车程收229美元（报价55美元）。用 Uber/Bolt，价格透明有记录</div>
+      </div>
+    </div>
+    <div class="warn-card amber">
+      <div class="warn-icon">🚗</div>
+      <div class="warn-content">
+        <div class="warn-title">罗弗敦国庆堵车</div>
+        <div class="warn-desc">10:00-16:00 峡湾公路必堵，观景台停车位靠抢。建议早出晚归错峰</div>
+      </div>
+    </div>
+    <div class="warn-card">
+      <div class="warn-icon">🎣</div>
+      <div class="warn-content">
+        <div class="warn-title">极光团钓鱼网站</div>
+        <div class="warn-desc">Real Ninja 骗走900美金。认准 GetYourGuide、Viator 或当地官网</div>
+      </div>
+    </div>
+    <div class="warn-card amber">
+      <div class="warn-icon">🍜</div>
+      <div class="warn-content">
+        <div class="warn-title">中国胃预警</div>
+        <div class="warn-desc">挪威菜吃不惯还贵。带泡面/螺蛳粉，住民宿自己做饭。中餐馆"北极小厨"要微信预约</div>
+      </div>
+    </div>
+    <div class="warn-card">
+      <div class="warn-icon">🪪</div>
+      <div class="warn-content">
+        <div class="warn-title">极光团必带护照</div>
+        <div class="warn-desc">很多团会开到芬兰边境追晴空，没护照过不了境，当场退款不带你</div>
+      </div>
+    </div>
+    <div class="warn-card amber">
+      <div class="warn-icon">🧊</div>
+      <div class="warn-content">
+        <div class="warn-title">Reinebringen 10月有冰</div>
+        <div class="warn-desc">1978级台阶，10月初可能结冰。务必穿防滑登山鞋，带登山杖，量力而行</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHECKLIST ===== -->
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">行前清单</h2>
+    <p class="section-subtitle">点击勾选 · 自动保存进度</p>
+  </div>
+  <div class="checklist-progress">
+    <div class="pct" id="checkPct">0%</div>
+    <div class="sub" id="checkSub">0 / 0 项已完成</div>
+  </div>
+  <div class="card" id="checklistContainer"></div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">评论区 FAQ</h2>
+    <p class="section-subtitle">小红书高频问题 · 真实回答</p>
+  </div>
+  <div class="card" id="faqContainer">
+    <div class="faq-item"><div class="faq-q"><span class="faq-q-text">10月初能看到极光吗？</span><span class="faq-toggle">▼</span></div><div class="faq-a"><div class="faq-a-inner">可以！9月下旬极光季就已开始。但10月黑夜不够长（每天6-12小时日照），建议特罗姆瑟至少住4晚，参加2次极光团提高概率。KP≥3且无云时肉眼可见绿色极光。</div></div></div>
+    <div class="faq-item"><div class="faq-q"><span class="faq-q-text">需要租车吗？</span><span class="faq-toggle">▼</span></div><div class="faq-a"><div class="faq-a-inner">罗弗敦强烈推荐租车（E10公路连接各大渔村），特罗姆瑟市区步行即可，追极光建议跟团（老司机知道去哪找晴空）。租车自带手机支架，挪威卖300克朗。注意10月可能路面有冰。</div></div></div>
+    <div class="faq-item"><div class="faq-q"><span class="faq-q-text">英语够用吗？</span><span class="faq-toggle">▼</span></div><div class="faq-a"><div class="faq-a-inner">完全够用。挪威英语普及率欧洲前三，年轻人几乎母语水平。路牌、菜单、APP都有英文。学两句"Tak（谢谢）"和"Hei（你好）"就足够了。</div></div></div>
+    <div class="faq-item"><div class="faq-q"><span class="faq-q-text">带多少现金合适？</span><span class="faq-toggle">▼</span></div><div class="faq-a"><div class="faq-a-inner">最多1000挪威克朗（约700RMB）零钱足够。挪威基本无现金社会，Visa/MasterCard 到处都能刷，Apple Pay 也普及。建议带一张无外币手续费的信用卡。</div></div></div>
+    <div class="faq-item"><div class="faq-q"><span class="faq-q-text">国庆期间人多吗？</span><span class="faq-toggle">▼</span></div><div class="faq-a"><div class="faq-a-inner">罗弗敦中国游客非常多（2025年国庆中餐馆排队1小时）。建议：①住宿提前3个月订 ②峡湾公路早出晚归 ③热门徒步（Reinebringen）早上去 ④中餐馆微信提前预约。</div></div></div>
+    <div class="faq-item"><div class="faq-q"><span class="faq-q-text">特罗姆瑟穿多少才够？</span><span class="faq-toggle">▼</span></div><div class="faq-a"><div class="faq-a-inner">10月-5℃~10℃。三层法：美丽诺羊毛内衣+抓绒/羊毛衫+防风防水冲锋衣。防水防滑雪地靴必备！暖宝宝/触屏手套/保温杯也是小红书高频推荐。追极光那晚会更冷，备好热帖。</div></div></div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer fade-in">
+  <div class="footer-tagline">"中秋在北极看极光，国庆在罗弗敦看海"</div>
+  <div class="footer-meta">
+    最后更新：2026年5月 · 基于小红书/知乎/马蜂窝等平台真实用户反馈整理<br>
+    <span style="font-size:0.65rem;">请出行前再次核实所有信息，祝旅途愉快 ✦</span>
+  </div>
+</footer>
+
+</div><!-- /container -->
+
+<script>
+/* ===== Countdown ===== */
+(function(){
+  const target = new Date('2026-09-25T20:00:00+08:00').getTime();
+  function tick(){
+    const now = Date.now();
+    let diff = target - now;
+    if(diff < 0) diff = 0;
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+/* ===== Timeline Data ===== */
+const days = [
+  { day:1, date:'9.25', loc:'成都 → 奥斯陆', tag:'flight',
+    detail:'<strong>交通：</strong>成都天府直飞/转机（推荐芬兰航空经赫尔辛基转）<br><strong>住宿：</strong>奥斯陆市区酒店<br><strong>提示：</strong>提前6个月刷票，往返5-8K合理。别打奥斯陆出租车！用Uber/Bolt' },
+  { day:2, date:'9.26', loc:'奥斯陆一日游', tag:'',
+    detail:'<strong>景点：</strong>歌剧院的屋顶漫步 · 蒙克博物馆（看《呐喊》）· 维格兰雕塑公园 · 阿克什胡斯城堡<br><strong>美食：</strong>Mathallen美食街 · 海鲜早市<br><strong>住宿：</strong>奥斯陆市区' },
+  { day:3, date:'9.27', loc:'奥斯陆 → 特罗姆瑟', tag:'flight',
+    detail:'<strong>交通：</strong>奥斯陆飞特罗姆瑟（约2h），推荐SAS/Norwegian航空<br><strong>到达：</strong>机场大巴Flybussen到市区100NOK，20分钟<br><strong>晚上：</strong>漫步市区，最北麦当劳打卡' },
+  { day:4, date:'9.28', loc:'特罗姆瑟市区', tag:'',
+    detail:'<strong>白天：</strong>北极大教堂 · 极光科学馆（360°极光秀）<br><strong>傍晚：</strong>Fjellheisen缆车登顶看日落/夜景<br><strong>晚上：</strong>市区自由探索，为极光团预热' },
+  { day:5, date:'9.29', loc:'特罗姆瑟 · 追极光', tag:'aurora',
+    detail:'<strong>极光团：</strong>推荐Hello Tromsø（用EN-JOY-25打75折）或Arctic GM<br><strong>包含：</strong>接送+保暖太空衣+篝火烤肠+专业单反拍照<br><strong>注意：</strong>随身带护照！可能开到芬兰边境<br><strong>备用：</strong>KP≥3且无云时肉眼可见' },
+  { day:6, date:'9.30', loc:'狗拉雪橇 + 萨米文化', tag:'',
+    detail:'<strong>上午：</strong>狗拉雪橇（约1500NOK，提前1个月订）<br><strong>下午：</strong>萨米营地+驯鹿雪橇，传统篝火午餐<br><strong>晚上：</strong>第二次追极光（换不同团，提高成功率）' },
+  { day:7, date:'10.1', loc:'特罗姆瑟 → 罗弗敦', tag:'flight',
+    detail:'<strong>交通：</strong>特罗姆瑟飞罗弗敦（经博德转机或直飞莱克内斯）<br><strong>到达：</strong>莱克内斯机场取车，自驾至雷讷（约2h）<br><strong>住宿：</strong>推荐 Eliassen Rorbuer（红木屋）或 Valen Cabins' },
+  { day:8, date:'10.2', loc:'罗弗敦 E10 自驾', tag:'',
+    detail:'<strong>路线：</strong>雷讷 → Å镇 → Hamnøy → 亨宁斯维尔<br><strong>景点：</strong>世界最北足球场 · 白沙滩 · 渔村漫步<br><strong>注意：</strong>10:00-16:00堵车，建议早出发<br><strong>美食：</strong>北极小厨中餐馆（提前微信预约）' },
+  { day:9, date:'10.3', loc:'Reinebringen 徒步', tag:'',
+    detail:'<strong>徒步：</strong>Reinebringen 1978级台阶（约2h登顶）<br>⚠️ <strong>10月可能有冰，务必穿防滑登山鞋！</strong><br><strong>摄影：</strong>山顶俯瞰雷讷全景，孤独星球同款角度<br><strong>下午：</strong>休闲逛渔村，拍红木屋+峡湾' },
+  { day:10, date:'10.4', loc:'出海钓鱼 + 渔村', tag:'',
+    detail:'<strong>上午：</strong>出海钓鱼（当地渔村报名）<br><strong>下午：</strong>探访Nusfjord古渔村 · 摄影自由活动<br><strong>美食：</strong>超市Coop采购，民宿自炊省钱' },
+  { day:11, date:'10.5', loc:'罗弗敦 → 奥斯陆', tag:'flight',
+    detail:'<strong>上午：</strong>最后在海边发发呆，还车<br><strong>交通：</strong>莱克内斯/斯沃尔韦尔飞奥斯陆（经博德转机）<br><strong>住宿：</strong>奥斯陆市区<br><strong>晚上：</strong>市区散步，整理照片' },
+  { day:12, date:'10.6', loc:'奥斯陆购物 + 休整', tag:'',
+    detail:'<strong>购物：</strong>挪威户外品牌（Norrøna、Bergans）· 纪念品<br><strong>退税：</strong>记得拿退税单，离境时退12-19%<br><strong>美食：</strong>最后一顿挪威海鲜大餐<br><strong>打包：</strong>检查极光照片备份' },
+  { day:13, date:'10.7', loc:'奥斯陆 → 成都', tag:'flight',
+    detail:'<strong>返程：</strong>奥斯陆飞成都<br><strong>提示：</strong>提前3h到机场，办理退税<br><strong>到家：</strong>调整时差，开始修图发朋友圈 ✨' }
+];
+
+const timeline = document.getElementById('timeline');
+days.forEach(d => {
+  const el = document.createElement('div');
+  el.className = 'timeline-day' + (d.tag ? ' ' + d.tag : '');
+  el.innerHTML = `
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">D${d.day}</span>
+      <span class="day-date">${d.date}</span>
+      <span class="day-location">${d.loc}</span>
+      <span class="day-toggle">▼</span>
+    </div>
+    <div class="day-body"><div class="day-content">${d.detail}</div></div>
+  `;
+  timeline.appendChild(el);
+});
+
+function toggleDay(header){
+  const body = header.nextElementSibling;
+  const toggle = header.querySelector('.day-toggle');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open');
+  toggle.classList.toggle('open');
+}
+
+/* ===== Budget ===== */
+const budgetData = {
+  plan: [
+    { name:'国际机票', val:7000, pct:32 },
+    { name:'住宿（12晚）', val:6000, pct:27 },
+    { name:'极光团+活动', val:3500, pct:16 },
+    { name:'餐饮', val:2500, pct:11 },
+    { name:'挪威境内交通', val:2000, pct:9 },
+    { name:'签证+保险+其他', val:1000, pct:5 }
+  ],
+  real: [
+    { name:'国际机票', val:8000, pct:35 },
+    { name:'住宿（12晚）', val:6000, pct:26 },
+    { name:'极光团+活动', val:3000, pct:13 },
+    { name:'餐饮', val:3000, pct:13 },
+    { name:'挪威境内交通', val:2200, pct:10 },
+    { name:'签证+保险+其他', val:800, pct:3 }
+  ]
+};
+let budgetMode = 'plan';
+
+function renderBudget(mode){
+  const data = budgetData[mode];
+  const container = document.getElementById('budgetContainer');
+  const total = data.reduce((s,i) => s + i.val, 0);
+  container.innerHTML = data.map(item => `
+    <div class="budget-bar">
+      <div class="budget-label"><span class="name">${item.name}</span><span class="val">¥${item.val.toLocaleString()}</span></div>
+      <div class="budget-track"><div class="budget-fill" style="width:${item.pct}%"></div></div>
+    </div>
+  `).join('');
+  document.getElementById('budgetTotal').textContent = '¥' + total.toLocaleString();
+}
+renderBudget('plan');
+
+document.querySelectorAll('.toggle-opt').forEach(el => {
+  el.addEventListener('click', function(){
+    document.querySelectorAll('.toggle-opt').forEach(o => o.classList.remove('active'));
+    this.classList.add('active');
+    budgetMode = this.dataset.mode;
+    renderBudget(budgetMode);
+  });
+});
+
+/* ===== Checklist ===== */
+const checkItems = [
+  { cat:'📋 出发前', items:[
+    { text:'申根签证办理（提前2个月）', key:'visa' },
+    { text:'国际机票预订（6月初刷票）', key:'flight' },
+    { text:'住宿全预订（特罗姆瑟+罗弗敦）', key:'hotel' },
+    { text:'极光团预约（Hello Tromsø / Arctic GM）', key:'aurora' },
+    { text:'狗拉雪橇预订', key:'dogsled' },
+    { text:'旅行保险购买（含医疗救援）', key:'insure' },
+    { text:'租车预订（罗弗敦段+超级全险）', key:'rentcar' }
+  ]},
+  { cat:'🎒 打包清单', items:[
+    { text:'保暖内衣（美丽诺羊毛）', key:'base' },
+    { text:'抓绒衣+羊毛衫', key:'mid' },
+    { text:'防风防水冲锋衣/羽绒服', key:'outer' },
+    { text:'防水防滑雪地靴', key:'boots' },
+    { text:'触屏手套+防水手套', key:'gloves' },
+    { text:'暖宝宝（多带！当地贵）', key:'warmers' },
+    { text:'保温杯', key:'cup' },
+    { text:'三脚架+相机/手机夹', key:'tripod' },
+    { text:'欧标转换插头（Type F）', key:'plug' },
+    { text:'泡面/螺蛳粉/小锅', key:'noodles' },
+    { text:'充电宝（低温掉电快）', key:'powerbank' },
+    { text:'Visa/MasterCard信用卡', key:'card' }
+  ]}
+];
+
+function renderChecklist(){
+  const container = document.getElementById('checklistContainer');
+  let html = '';
+  let total = 0, done = 0;
+  checkItems.forEach(group => {
+    html += `<div class="check-cat">${group.cat}</div>`;
+    group.items.forEach(item => {
+      const checked = localStorage.getItem('check_' + item.key) === '1';
+      if(checked) done++;
+      total++;
+      html += `<div class="checklist-item${checked ? ' checked' : ''}" data-key="${item.key}" onclick="toggleCheck(this)">
+        <div class="checkbox">${checked ? '✓' : ''}</div>
+        <span class="check-text">${item.text}</span>
+      </div>`;
+    });
+  });
+  container.innerHTML = html;
+  updateCheckPct(done, total);
+}
+function toggleCheck(el){
+  const key = el.dataset.key;
+  const now = localStorage.getItem('check_' + key) === '1';
+  localStorage.setItem('check_' + key, now ? '0' : '1');
+  renderChecklist();
+}
+function updateCheckPct(done, total){
+  const pct = total > 0 ? Math.round(done/total*100) : 0;
+  document.getElementById('checkPct').textContent = pct + '%';
+  document.getElementById('checkSub').textContent = done + ' / ' + total + ' 项已完成';
+}
+renderChecklist();
+
+/* ===== FAQ ===== */
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', function(){
+    const a = this.nextElementSibling;
+    const t = this.querySelector('.faq-toggle');
+    const isOpen = a.classList.contains('open');
+    a.classList.toggle('open');
+    t.classList.toggle('open');
+  });
+});
+
+/* ===== Scroll Animations ===== */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+const staggerObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const children = entry.target.children;
+      Array.from(children).forEach((child, i) => {
+        setTimeout(() => child.classList.add('visible'), i * 100);
+      });
+    }
+  });
+}, { threshold: 0.1 });
+
+const quoteGrid = document.getElementById('quoteGrid');
+if(quoteGrid) staggerObserver.observe(quoteGrid);
+</script>
+</body>
+</html>
