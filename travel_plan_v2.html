@@ -899,6 +899,14 @@ section {
       <div class="quote-text">"北极小厨要微信提前预约，别点高价套餐。人均200克朗，老板是东北人，特实在"</div>
       <div class="quote-source"><span class="quote-tag tip">美食推荐</span> @罗弗敦吃货日记 · 2025.10</div>
     </div>
+    <div class="quote-card" style="border-color:rgba(255,215,0,0.3);">
+      <div class="quote-text">"挪威9天只花了9759元！卑尔根→奥斯陆大巴才181元还是风景线，公交100路转300路从特罗姆瑟到罗弗敦才393元"</div>
+      <div class="quote-source"><span class="quote-tag cost">省钱攻略</span> @李行家sirius · 小红书热帖</div>
+    </div>
+    <div class="quote-card" style="border-color:rgba(255,215,0,0.3);">
+      <div class="quote-text">"小红书找搭子拼房拼租车能省一半！天巡APP比价租车全险，千万别异地还车贵一倍"</div>
+      <div class="quote-source"><span class="quote-tag tip">省钱秘籍</span> @李行家sirius · 小红书热帖</div>
+    </div>
   </div>
 </section>
 
@@ -972,11 +980,12 @@ section {
 <section class="fade-in">
   <div class="section-header">
     <h2 class="section-title">预算清单</h2>
-    <p class="section-subtitle">计划 vs 真实花费</p>
+    <p class="section-subtitle">计划 vs 真实花费 vs 穷游版（李行家sirius）</p>
   </div>
   <div class="toggle-switch" id="budgetToggle">
-    <div class="toggle-opt active" data-mode="plan">计划</div>
+    <div class="toggle-opt active" data-mode="plan">舒适版</div>
     <div class="toggle-opt" data-mode="real">真实参考</div>
+    <div class="toggle-opt" data-mode="budget">穷游版</div>
   </div>
   <div id="budgetContainer"></div>
   <div class="budget-total">
@@ -1170,6 +1179,14 @@ const budgetData = {
     { name:'餐饮', val:3000, pct:13 },
     { name:'挪威境内交通', val:2200, pct:10 },
     { name:'签证+保险+其他', val:800, pct:3 }
+  ],
+  budget: [
+    { name:'国际机票', val:2800, pct:29 },
+    { name:'住宿（8晚拼房/青旅）', val:2090, pct:21 },
+    { name:'交通（大巴+公交+租车AA）', val:2780, pct:28 },
+    { name:'餐饮（自炊为主）', val:1500, pct:15 },
+    { name:'活动（Senja一日游）', val:589, pct:6 },
+    { name:'签证+其他', val:500, pct:5 }
   ]
 };
 let budgetMode = 'plan';
