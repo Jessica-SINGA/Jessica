@@ -2,7 +2,7 @@
   "name": "小茶的学习计划",
   "short_name": "学习计划",
   "description": "记录每个项目的学习用时",
-  "start_url": "清单钟.html",
+  "start_url": "study.html",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#1a1a2e",

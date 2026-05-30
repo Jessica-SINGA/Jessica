@@ -1,10 +1,10 @@
 {
   "builds": [
     { "src": "seoul_plan.html", "use": "@vercel/static" },
-    { "src": "清单钟.html", "use": "@vercel/static" }
+    { "src": "study.html", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/seoul", "dest": "/seoul_plan.html" },
-    { "src": "/", "dest": "/清单钟.html" }
+    { "src": "/", "dest": "/study.html" }
   ]
 }
