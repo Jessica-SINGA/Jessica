@@ -97,24 +97,6 @@ body {
   position: relative;
   overflow: hidden;
 }
-.header .refresh-btn {
-  position: absolute;
-  top: 52px; right: 16px;
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(8px);
-  font-size: 16px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s, background 0.2s;
-  z-index: 10;
-  color: var(--text-secondary);
-}
-.header .refresh-btn:active { transform: rotate(180deg); background: rgba(255,255,255,0.9); }
 .header::before {
   content: '';
   position: absolute;
@@ -436,12 +418,11 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
 <!-- HEADER -->
 <header class="header">
   <span class="header-emoji">🇰🇷</span>
-  <button class="refresh-btn" id="refreshBtn" aria-label="刷新">↻</button>
   <h1>
     首尔周末旅行计划
     <small>2026.07 — 08  ·  成都出发</small>
   </h1>
-  <div class="header-tagline">我的首尔周末计划 · 追星 · 逛街 · 吃吃喝喝</div>
+  <div class="header-tagline">和闺蜜一起去首尔 · 追星 · 逛街 · 吃吃喝喝</div>
 </header>
 
 <!-- MAIN -->
@@ -449,6 +430,15 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
 
 <!-- ═══ 概览 ═══ -->
 <div id="page-overview" class="page active">
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🛂</span> 签证 · 10年多次</div>
+    <div class="info-row"><span class="label">通道</span><span class="value">澳洲硕士学历</span></div>
+    <div class="info-row"><span class="label">材料</span><span class="value">认证报告 + 学位证</span></div>
+    <div class="info-row"><span class="label">出签</span><span class="value">5-7个工作日</span></div>
+    <div class="info-row"><span class="label">费用</span><span class="value">≈¥1,000-1,200</span></div>
+    <div class="info-row"><span class="label">状态</span><span class="value"><span class="badge badge-gold">📋 准备提交</span></span></div>
+  </div>
 
   <div class="card">
     <div class="card-title"><span class="icon">✈️</span> 成都 → 首尔</div>
@@ -466,9 +456,12 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
     <div class="card-title"><span class="icon">📅</span> 关键时间线</div>
     <div class="timeline">
       <div class="timeline-item">
-        <div class="timeline-time">6月</div>
-        <div class="timeline-content"><strong>订机票 + 订酒店</strong></div>
-        <div class="timeline-detail">弘大或明洞附近</div>
+        <div class="timeline-time">6月上旬 · 现在</div>
+        <div class="timeline-content"><strong>提交签证</strong> → 找淘宝代办</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">6月中下旬</div>
+        <div class="timeline-content"><strong>出签</strong> → 10年多次到手</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-time">6月底</div>
@@ -502,12 +495,13 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
   <div class="card">
     <div class="card-title"><span class="icon">💰</span> 预算（每人）</div>
     <table class="budget-table">
+      <tr><td class="item">签证（10年多次）</td><td class="amount">≈¥1,000-1,200</td></tr>
       <tr><td class="item">成都↔首尔机票</td><td class="amount">≈¥2,000-3,000</td></tr>
       <tr><td class="item">住宿（2晚）</td><td class="amount">≈¥800-1,500</td></tr>
       <tr><td class="item">餐饮（2天）</td><td class="amount">≈¥600-1,000</td></tr>
       <tr><td class="item">交通+门票</td><td class="amount">≈¥300-500</td></tr>
       <tr><td class="item">购物（化妆品/香水/衣服）</td><td class="amount">💰 丰俭由人</td></tr>
-      <tr class="total"><td class="item">合计（不含购物）</td><td class="amount">≈¥3,700-6,000</td></tr>
+      <tr class="total"><td class="item">合计（不含购物）</td><td class="amount">≈¥4,700-7,200</td></tr>
     </table>
   </div>
 
@@ -517,35 +511,35 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
 <div id="page-day1" class="page">
 
   <div class="card" style="background: linear-gradient(135deg, #FCE4EC, #F3E5F5);">
-    <div class="card-title" style="font-size:19px;">🌟 Day 1</div>
-    <p style="color:var(--text); font-size:13px;">周六 · 🟣 ENHYPEN · 🌙 aespa · 💜 BTS</p>
+    <div class="card-title" style="font-size:19px;">🌟 Day 1 · 追星日</div>
+    <p style="color:var(--text); font-size:13px;">周六 · 你的主场</p>
   </div>
 
   <div class="timeline card" style="padding-left: 32px;">
     <div class="timeline-item">
       <div class="timeline-time">10:00</div>
-      <div class="timeline-content"><strong>SM KWANGYA@SEOUL ✦</strong></div>
-      <div class="timeline-detail">🚇 盆唐线首尔林站 · SM新大楼B1 · 🌟 aespa旷野概念店 · 免费入场 · 周一休馆</div>
+      <div class="timeline-content"><strong>SM Coex Artium</strong></div>
+      <div class="timeline-detail">🚇 2号线三成站 · 旷野概念店 · SMTOWN博物馆 · 周边购物</div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-time">11:30</div>
-      <div class="timeline-content"><strong>圣水洞探店 ☕</strong></div>
-      <div class="timeline-detail">SM就在圣水！顺路逛小众买手店 · 香水店 · Camel Coffee · 拍照打卡</div>
+      <div class="timeline-time">12:00</div>
+      <div class="timeline-content"><strong>三成洞午餐</strong></div>
+      <div class="timeline-detail">附近韩食或现代韩餐</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-time">14:00</div>
-      <div class="timeline-content"><strong>HYBE 龙山总部 🟣</strong></div>
-      <div class="timeline-detail">🚇 龙山站 · INSIGHT已永久关闭 · 外部大楼打卡+应援咖啡厅 · BTS/SEVENTEEN/ENHYPEN/TXT/NewJeans/LE SSERAFIM · ENHYPEN所属BELIFT LAB在本楼</div>
+      <div class="timeline-content"><strong>狎鸥亭 / 清潭洞</strong></div>
+      <div class="timeline-detail">🚇 盆唐线狎鸥亭罗德奥站 · SM旧楼 · JYP/YG周边店 · K-pop专门店集中区</div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-time">16:00</div>
+      <div class="timeline-time">18:00</div>
       <div class="timeline-content"><strong>明洞</strong></div>
-      <div class="timeline-detail">🚇 4号线明洞站 · K-pop周边店 · Music Korea · 💄 Olive Young旗舰店 · 化妆品牌 · 🥩 韩式烤肉</div>
+      <div class="timeline-detail">🚇 4号线明洞站 · K-pop周边店 · Music Korea · 💄 Olive Young旗舰店·化妆品牌店 · 🥩 韩式烤肉</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-time">21:00</div>
       <div class="timeline-content"><strong>南山首尔塔 🌙</strong></div>
-      <div class="timeline-detail">明洞坐缆车上山 · 夜景 · 爱情锁墙 · 首尔夜景太绝了</div>
+      <div class="timeline-detail">明洞坐缆车上山 · 夜景 · 爱情锁墙 · 首尔夜景绝了</div>
     </div>
   </div>
 
@@ -554,25 +548,20 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
     <div class="place-list">
       <div class="place-item">
         <div class="place-emoji">🎵</div>
-        <div class="place-info"><div class="place-name">明洞 Music Korea</div><div class="place-desc">专辑 · 海报 · 官方周边 · ENHYPEN/BTS/aespa专辑齐</div></div>
+        <div class="place-info"><div class="place-name">明洞 Music Korea</div><div class="place-desc">专辑 · 海报 · 官方周边</div></div>
         <span class="place-tag">必去</span>
       </div>
       <div class="place-item">
         <div class="place-emoji">🛍️</div>
-        <div class="place-info"><div class="place-name">明洞 Kpopnara</div><div class="place-desc">二手专辑 · 绝版周边 · ENHYPEN旧专挖宝</div></div>
+        <div class="place-info"><div class="place-name">明洞 Kpopnara</div><div class="place-desc">二手专辑 · 绝版周边</div></div>
       </div>
       <div class="place-item">
         <div class="place-emoji">🏢</div>
-        <div class="place-info"><div class="place-name">COEX WithMu-k</div><div class="place-desc">SM艺人官方周边集合店 · aespa周边必逛</div></div>
+        <div class="place-info"><div class="place-name">COEX WithMu-k</div><div class="place-desc">SM艺人官方周边集合店</div></div>
       </div>
       <div class="place-item">
         <div class="place-emoji">⭐</div>
         <div class="place-info"><div class="place-name">狎鸥亭罗德奥</div><div class="place-desc">各大娱乐公司周边店集中地</div></div>
-      </div>
-      <div class="place-item">
-        <div class="place-emoji">💜</div>
-        <div class="place-info"><div class="place-name">Weverse Shop 线上</div><div class="place-desc">ENHYPEN/BTS官方周边在线购买 · 可邮寄到酒店</div></div>
-        <span class="place-tag">必看</span>
       </div>
     </div>
   </div>
@@ -582,13 +571,11 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
     <div class="place-list">
       <div class="place-item">
         <div class="place-emoji">💎</div>
-        <div class="place-info"><div class="place-name">SM KWANGYA@SEOUL</div><div class="place-desc">🆕 圣水新大楼B1 · 盆唐线首尔林站 · 免费 · 10:30-20:00 · 周一休馆 · 🌟 aespa/SM全明星</div></div>
-        <span class="place-tag">必去</span>
+        <div class="place-info"><div class="place-name">SM Coex Artium</div><div class="place-desc">旷野概念店 · SMTOWN @coex</div></div>
       </div>
       <div class="place-item">
         <div class="place-emoji">💜</div>
-        <div class="place-info"><div class="place-name">HYBE 龙山总部 + BELIFT LAB</div><div class="place-desc">🚫 INSIGHT已永久关闭 · 大楼打卡+应援咖啡厅 · 🟣 ENHYPEN(BELIFT LAB) 🟣 BTS/Big Hit Music · SEVENTEEN/TXT/NJ/LSFM</div></div>
-        <span class="place-tag">必去</span>
+        <div class="place-info"><div class="place-name">HYBE Insight</div><div class="place-desc">龙山区 · BTS/SEVENTEEN/TXT/NewJeans/LE SSERAFIM</div></div>
       </div>
       <div class="place-item">
         <div class="place-emoji">🖤</div>
@@ -601,37 +588,14 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
     </div>
   </div>
 
-  <div class="card" style="border-left: 3px solid var(--gold);">
-    <div class="card-title"><span class="icon">⚠️</span> 追星避雷 · 小红书总结</div>
-    <div class="place-list">
-      <div class="place-item" style="background: var(--gold-bg);">
-        <div class="place-emoji">🚫</div>
-        <div class="place-info"><div class="place-name">不要蹲点堵艺人</div><div class="place-desc">公司门口堵人非常不礼貌，被抓到会被请走</div></div>
-      </div>
-      <div class="place-item" style="background: var(--gold-bg);">
-        <div class="place-emoji">🗺️</div>
-        <div class="place-info"><div class="place-name">不要用Google Maps</div><div class="place-desc">用 Naver Map！Google在韩国定位不准且无步行导航</div></div>
-      </div>
-      <div class="place-item" style="background: var(--gold-bg);">
-        <div class="place-emoji">📅</div>
-        <div class="place-info"><div class="place-name">KWANGYA 周一休馆</div><div class="place-desc">SM KWANGYA@SEOUL 每周一休息，务必避开周一</div></div>
-      </div>
-      <div class="place-item" style="background: var(--gold-bg);">
-        <div class="place-emoji">📸</div>
-        <div class="place-info"><div class="place-name">HYBE INSIGHT已永久关闭</div><div class="place-desc">别跑空！龙山总部只可外部拍照，想逛周边去Weverse Shop</div></div>
-      </div>
-    </div>
-    <p style="margin-top:8px; font-size:11px; color:var(--text-secondary);">💡 去之前追星行程最好在Twitter/Weverse确认一下当日营业状态</p>
-  </div>
-
 </div>
 
 <!-- ═══ Day 2 ═══ -->
 <div id="page-day2" class="page">
 
   <div class="card" style="background: linear-gradient(135deg, #E8DFF0, #FCE4EC);">
-    <div class="card-title" style="font-size:19px;">🌿 Day 2</div>
-    <p style="color:var(--text); font-size:13px;">周日 · 首尔逛逛</p>
+    <div class="card-title" style="font-size:19px;">🌿 Day 2 · 治愈日</div>
+    <p style="color:var(--text); font-size:13px;">周日 · 闺蜜轻松逛</p>
   </div>
 
   <div class="timeline card" style="padding-left: 32px;">
@@ -652,13 +616,13 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
     </div>
     <div class="timeline-item">
       <div class="timeline-time">14:00</div>
-      <div class="timeline-content"><strong>圣水洞 · 逛街探店 🛍️</strong></div>
-      <div class="timeline-detail">🚇 2号线圣水站 · Tamburins香水 · Matin Kim · Stand Oil包包 · Cafe Onion · Olive Young N扫货</div>
+      <div class="timeline-content"><strong>圣水洞 ☕</strong></div>
+      <div class="timeline-detail">🚇 2号线圣水站 · 小众买手店 · 香水店 · Camel Coffee · 探店拍照</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-time">16:00</div>
-      <div class="timeline-content"><strong>弘大 · 平价潮牌街 👗</strong></div>
-      <div class="timeline-detail">🚇 2号线弘大入口站 · COVERNAT · thisisneverthat · ÅLAND · Object文创 · 街头表演</div>
+      <div class="timeline-content"><strong>弘大</strong></div>
+      <div class="timeline-detail">🚇 2号线弘大入口站 · 年轻人街区 · 平价韩系衣服店 · 饰品 · 自由市场氛围</div>
     </div>
     <div class="timeline-item">
       <div class="timeline-time">17:30</div>
@@ -667,67 +631,34 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
     </div>
   </div>
 
-  <style>
-  .shop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 4px 0 0; }
-  .shop-grid .area-label { grid-column: 1 / -1; font-size: 13px; font-weight: 700; padding: 10px 0 4px; color: var(--text); border-top: 1px solid var(--border); margin-top: 4px; }
-  .shop-grid .area-label:first-of-type { border-top: none; margin-top: 0; }
-  .shop-item { padding: 3px 4px 3px 0; font-size: 11.5px; line-height: 1.4; }
-  .shop-item .shop-name { font-weight: 500; color: var(--text); }
-  .shop-item .shop-tag { display: inline-block; font-size: 9px; padding: 0 5px; border-radius: 3px; margin-left: 4px; vertical-align: middle; }
-  .shop-tag-perfume { background: #F3E5F5; color: #7B1FA2; }
-  .shop-tag-cos { background: #FCE4EC; color: #C62828; }
-  .shop-tag-cloth { background: #E3F2FD; color: #1565C0; }
-  .shop-tag-cafe { background: #FFF3E0; color: #E65100; }
-  .shop-tag-food { background: #E8F5E9; color: #2E7D32; }
-  </style>
-
   <div class="card">
-    <div class="card-title"><span class="icon">🛍️</span> 逛街购物 · 小红书攻略</div>
-    <p style="font-size:12px; color:var(--text-secondary); margin-bottom:8px;">按区域整理，同一个地铁站附近集中逛</p>
-    <div class="shop-grid">
-
-      <div class="area-label">🏭 圣水洞 · 首尔潮流心脏（2号线圣水站）</div>
-      <div class="shop-item"><span class="shop-name">Tamburins</span><span class="shop-tag shop-tag-perfume">香水</span><br>Jennie代言 · 链条护手霜 · 蛋形香水 · 工业风旗舰店</div>
-      <div class="shop-item"><span class="shop-name">Nonfiction</span><span class="shop-tag shop-tag-perfume">香水</span><br>极简高级香 · GENTLE NIGHT · 伴手礼首选</div>
-      <div class="shop-item"><span class="shop-name">Kinfolk Notes</span><span class="shop-tag shop-tag-perfume">香水</span><br>巴黎灵感香调 · Garden Shower · 店面极美</div>
-      <div class="shop-item"><span class="shop-name">LOE 圣水</span><span class="shop-tag shop-tag-perfume">香水</span><br>BTS同款 · 可免费刻字 · ~46,000韩元 · 必买伴手礼</div>
-      <div class="shop-item"><span class="shop-name">Matin Kim</span><span class="shop-tag shop-tag-cloth">衣服</span><br>最火铁牌包包 · 中性街头风 · 旗舰店必逛</div>
-      <div class="shop-item"><span class="shop-name">Stand Oil</span><span class="shop-tag shop-tag-cloth">衣服</span><br>红到发紫平价包包 · Red Velvet/Seventeen同款</div>
-      <div class="shop-item"><span class="shop-name">ADERERROR</span><span class="shop-tag shop-tag-cloth">衣服</span><br>先锋街头 · 未来主义艺术装置店</div>
-      <div class="shop-item"><span class="shop-name">emis</span><span class="shop-tag shop-tag-cloth">衣服</span><br>Jisoo/Jennie同款复古老帽 · 碎花环保袋</div>
-      <div class="shop-item"><span class="shop-name">Rockfish</span><span class="shop-tag shop-tag-cloth">衣服</span><br>英伦雨靴 · 芭蕾舞鞋 · 梦幻店装</div>
-      <div class="shop-item"><span class="shop-name">OLIVE YOUNG N</span><span class="shop-tag shop-tag-cos">化妆品</span><br>全韩最大旗舰店 · 美妆+咖啡厅一站式</div>
-      <div class="shop-item"><span class="shop-name">Dasique 圣水</span><span class="shop-tag shop-tag-cos">化妆品</span><br>粉嫩法式风 · 九宫格眼影盘必买</div>
-      <div class="shop-item"><span class="shop-name">Cafe Onion</span><span class="shop-tag shop-tag-cafe">咖啡</span><br>废墟工业风 · 雪山面包Pandoro必点</div>
-      <div class="shop-item"><span class="shop-name">大林仓库</span><span class="shop-tag shop-tag-cafe">咖啡</span><br>复古工业风 · 咖啡+展览空间 · 出片</div>
-
-      <div class="area-label">🏠 弘大 · 年轻平价潮流（2号线弘大入口站）</div>
-      <div class="shop-item"><span class="shop-name">COVERNAT</span><span class="shop-tag shop-tag-cloth">衣服</span><br>高磅数大学T · 久洗不变形 · 撞色老帽必买</div>
-      <div class="shop-item"><span class="shop-name">thisisneverthat</span><span class="shop-tag shop-tag-cloth">衣服</span><br>"韩国的Supreme" · 复古街头风</div>
-      <div class="shop-item"><span class="shop-name">Lee（韩版）</span><span class="shop-tag shop-tag-cloth">衣服</span><br>韩版复古牛仔 · 直筒裤 · 性价比高</div>
-      <div class="shop-item"><span class="shop-name">ÅLAND</span><span class="shop-tag shop-tag-cloth">衣服</span><br>5层楼选物店 · 集合韩国本土设计师品牌</div>
-      <div class="shop-item"><span class="shop-name">Object</span><span class="shop-tag shop-tag-cloth">杂货</span><br>平价文创 · 插画小物 · 可爱伴手礼</div>
-      <div class="shop-item"><span class="shop-name">SHOOPEN</span><span class="shop-tag shop-tag-cloth">鞋包</span><br>超高性价比鞋包店</div>
-
-      <div class="area-label">🏙️ 明洞 · 美妆扫货（4号线明洞站）</div>
-      <div class="shop-item"><span class="shop-name">Olive Young 旗舰店</span><span class="shop-tag shop-tag-cos">化妆品</span><br>全韩最大 · 货最全 · 游客退税柜台 · 必去</div>
-      <div class="shop-item"><span class="shop-name">hetras. 明洞</span><span class="shop-tag shop-tag-perfume">香水</span><br>营业到22:30 · 香氛平价 · 晚归补货</div>
-      <div class="shop-item"><span class="shop-name">Wiggle Wiggle</span><span class="shop-tag shop-tag-cloth">杂货</span><br>缤纷可爱包包 · 保温杯 · 3层免费打卡</div>
-      <div class="shop-item"><span class="shop-name">Nyunyu 饰品</span><span class="shop-tag shop-tag-cloth">饰品</span><br>东大门饰品名店 · 整面墙挑到手软</div>
-      <div class="shop-item"><span class="shop-name">ept 小白鞋</span><span class="shop-tag shop-tag-cloth">鞋</span><br>韩剧爆款复古小白鞋 · 宽脚板友好</div>
-      <div class="shop-item"><span class="shop-name">BLUE ELEPHANT</span><span class="shop-tag shop-tag-cloth">墨镜</span><br>平替GM · ~¥400以内</div>
-
-      <div class="area-label">✨ 狎鸥亭/汉南洞 · 高级感探店（盆唐线/6号线）</div>
-      <div class="shop-item"><span class="shop-name">Tamburins HAUS</span><span class="shop-tag shop-tag-perfume">香水</span><br>与GM同楼 · 整栋艺术空间</div>
-      <div class="shop-item"><span class="shop-name">Perfumer H 岛山</span><span class="shop-tag shop-tag-perfume">香水</span><br>英国小众沙龙香 · 二楼有咖啡厅</div>
-      <div class="shop-item"><span class="shop-name">DEAR:DRACENA</span><span class="shop-tag shop-tag-perfume">香水</span><br>95%天然成分 · 不含酒精 · 高级疗愈</div>
-      <div class="shop-item"><span class="shop-name">Mardi Mercredi</span><span class="shop-tag shop-tag-cloth">衣服</span><br>小雏菊T恤/卫衣 · 韩国爆火</div>
-      <div class="shop-item"><span class="shop-name">Marithé</span><span class="shop-tag shop-tag-cloth">衣服</span><br>法式贝雷帽+Logo T · 韩国穿红的法国牌</div>
-      <div class="shop-item"><span class="shop-name">MSMR 袜子</span><span class="shop-tag shop-tag-cloth">杂货</span><br>自选包装+贴纸 · 送哈密瓜热茶</div>
-      <div class="shop-item"><span class="shop-name">HAUS NOWHERE</span><span class="shop-tag shop-tag-cloth">综合体</span><br>GM 13层潮流综合体 · 逛店如看展</div>
-
+    <div class="card-title"><span class="icon">🛍️</span> 逛街购物 · 必去</div>
+    <div class="place-list">
+      <div class="place-item">
+        <div class="place-emoji">💄</div>
+        <div class="place-info"><div class="place-name">明洞 Olive Young 旗舰店</div><div class="place-desc">韩国最大药妆集合店 · 化妆品 · 面膜 · 护肤品 · 可直接退税</div></div>
+        <span class="place-tag">化妆品</span>
+      </div>
+      <div class="place-item">
+        <div class="place-emoji">🧴</div>
+        <div class="place-info"><div class="place-name">明洞 · 品牌旗舰店</div><div class="place-desc">Innisfree · Laneige · Sulwhasoo · Missha · 连排旗舰店一次逛完</div></div>
+      </div>
+      <div class="place-item">
+        <div class="place-emoji">👗</div>
+        <div class="place-info"><div class="place-name">弘大 · 年轻人时装街</div><div class="place-desc">韩国大学生最爱逛 · 平价韩系穿搭 · 饰品 · 小众设计品牌</div></div>
+        <span class="place-tag">衣服</span>
+      </div>
+      <div class="place-item">
+        <div class="place-emoji">🧥</div>
+        <div class="place-info"><div class="place-name">圣水洞 · 买手店</div><div class="place-desc">韩国本土设计师品牌 · 复古vintage · 小众香水集合店</div></div>
+        <span class="place-tag">香水/设计</span>
+      </div>
+      <div class="place-item">
+        <div class="place-emoji">🌸</div>
+        <div class="place-info"><div class="place-name">狎鸥亭 · 高端精品街</div><div class="place-desc">Galleria百货 · 韩国轻奢品牌 · 香水专门店 · Jennie同款打卡</div></div>
+        <span class="place-tag">精品</span>
+      </div>
     </div>
-    <p style="margin-top:10px; font-size:11px; color:var(--text-secondary);">💡 大部分店11:00开门 · 带护照现场退税(满30,000韩元) · Naver Map导航</p>
   </div>
 
   <div class="card">
@@ -741,59 +672,9 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
     </div>
   </div>
 
-  <div class="card" style="border-left: 3px solid var(--green);">
-    <div class="card-title"><span class="icon">💡</span> 购物小贴士</div>
-    <div style="font-size:12px; color:var(--text-secondary); line-height:1.7;">
-      🕐 大部分店铺 <strong>11:00开门</strong>，不用太早去<br>
-      🧾 消费满 <strong>30,000韩元</strong> 可退税，带护照现场扣除<br>
-      🗺️ 导航用 <strong>Naver Map</strong>（Google在韩国不好使）<br>
-      💳 国际信用卡基本通用，备少量现金<br>
-      📅 周末圣水洞热店要排队，能平日去最好<br>
-      🌧️ 下雨天去 <strong>汝矣岛现代百货</strong> B2层，潮牌一站式买齐
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title"><span class="icon">📸</span> 人生四格 · 推荐店铺</div>
-    <p style="font-size:12px; color:var(--text-secondary); margin-bottom:6px;">和闺蜜一起拍韩式人生四格，留个纪念～</p>
-    <div class="shop-grid">
-      <div class="area-label">🎯 弘大 · 最密集最好拍</div>
-      <div class="shop-item"><span class="shop-name">BYTP</span><br>沉浸式场景 · 地铁车厢/复古电梯 · 复古颗粒感</div>
-      <div class="shop-item"><span class="shop-name">Picdot</span><br>模拟飞机机舱 · 照片印登机证样式 · 超有旅行纪念感</div>
-      <div class="shop-item"><span class="shop-name">Movement</span><br>Y2K赛博朋克风 · 透明地板仰拍 · 极限俯拍</div>
-      <div class="shop-item"><span class="shop-name">The Film</span><br>透明菲林底片 · 对光拍照梦幻 · SEVENTEEN去过</div>
-      <div class="shop-item"><span class="shop-name">Plan.B Studio</span><br>洗衣机视角 · 港式电梯 · 搞怪场景 · 24小时</div>
-
-      <div class="area-label">🌟 明洞 · 游客友好+K-pop联名</div>
-      <div class="shop-item"><span class="shop-name">Life Four Cuts 旗舰店</span><br>人生四格鼻祖 · 道具最全 · 爱豆联名相框最多 · ENHYPEN/BTS/aespa可能有限定框</div>
-      <div class="shop-item"><span class="shop-name">Photoism Box</span><br>高清自然风 · 爱豆合拍模板(Seventeen/IVE/NJ/ZB1/ENHYPEN)</div>
-      <div class="shop-item"><span class="shop-name">Haru Film</span><br>少女清透感 · 拍出来皮肤很白 · 取景半身自然</div>
-
-      <div class="area-label">🎨 圣水/汉南 · 文青质感</div>
-      <div class="shop-item"><span class="shop-name">Mono Mansion</span><br>黑白灰INS风 · 低饱和胶片感 · 常与韩星联名</div>
-      <div class="shop-item"><span class="shop-name">Photo Object</span><br>金鱼缸/洗衣房场景 · 氛围感十足</div>
-      <div class="shop-item"><span class="shop-name">Made Fannie</span><br>复古报纸风 · 照片印成英文报纸头版 · 送收纳袋</div>
-    </div>
-    <p style="margin-top:8px; font-size:11px; color:var(--text-secondary);">💡 拍完记得扫码下载电子档 · 备小额韩元现金 · 弘大店多24小时营业</p>
-  </div>
-
-  <div class="card" style="border-left: 3px solid #E53935;">
-    <div class="card-title"><span class="icon">⚠️</span> 避坑指南 · 小红书总结</div>
-    <div style="font-size:12px; color:var(--text-secondary); line-height:1.7;">
-      🕐 <strong>明洞街边摊</strong>——化妆品可能有假，只在官方品牌店/Olive Young/免税店买<br>
-      💄 <strong>Olive Young</strong>——门店遍布到处都有，不用挤旗舰店。用App销量榜参考，不盲目跟风<br>
-      💰 <strong>免税返点</strong>——返点规则复杂，LV/香奈儿等无返点。出发前获取当日点数表比价<br>
-      🧾 <strong>退税留时间</strong>——机场退税流程较慢，建议提早3-4小时到机场<br>
-      🚕 <strong>打车</strong>——黑色出租车最贵！用Kakao T叫车，显示全额车费避免纠纷<br>
-      📍 <strong>导航</strong>——Google Maps在韩国定位不准，用 <strong>Naver Map</strong> 才是正解<br>
-      🚇 <strong>地铁礼仪</strong>——黄色=老人专座，红色=孕妇专座，再挤也别坐<br>
-      🚫 <strong>边走边吃</strong>——路边摊小吃要当场吃完或打包，不能拿着边走边吃<br>
-      📸 <strong>不要拍路人</strong>——韩国对偷拍很敏感，拍照注意避开陌生人
-    </div>
-  </div>
-
 </div>
 
+<!-- ═══ 清单 ═══ -->
 <div id="page-checklist" class="page">
 
   <div class="card" style="background: linear-gradient(135deg, #E8F5E8, #E0F0E8);">
@@ -801,40 +682,48 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
     <div class="progress-bar">
       <div class="progress-fill" id="progressFill"></div>
     </div>
-    <div class="progress-text" id="progressText">0 / 8 已完成</div>
+    <div class="progress-text" id="progressText">0 / 10 已完成</div>
   </div>
 
   <div class="card">
     <ul class="checklist" id="checklist">
       <li class="checklist-item" data-idx="0">
         <div class="checklist-check">✓</div>
-        <div class="checklist-text">订机票（川航/国航/携程比价）</div>
+        <div class="checklist-text">准备签证材料 + 找淘宝代办提交 <span class="checklist-tag badge badge-rose">现在做</span></div>
       </li>
       <li class="checklist-item" data-idx="1">
         <div class="checklist-check">✓</div>
-        <div class="checklist-text">订酒店（弘大或明洞附近）</div>
+        <div class="checklist-text">确认出签（10年多次到手）</div>
       </li>
       <li class="checklist-item" data-idx="2">
         <div class="checklist-check">✓</div>
-        <div class="checklist-text">买韩国eSIM/流量卡（淘宝/Klook）</div>
+        <div class="checklist-text">预订机票（川航/国航/携程比价）</div>
       </li>
       <li class="checklist-item" data-idx="3">
         <div class="checklist-check">✓</div>
-        <div class="checklist-text">下载 App：Papago · Naver Map · KakaoT</div>
+        <div class="checklist-text">预订酒店（弘大或明洞附近）</div>
       </li>
       <li class="checklist-item" data-idx="4">
         <div class="checklist-check">✓</div>
-        <div class="checklist-text">填写 e-arrival 电子入境卡（出发前72h）</div>
+        <div class="checklist-text">买韩国eSIM/流量卡（淘宝/Klook）</div>
       </li>
       <li class="checklist-item" data-idx="5">
         <div class="checklist-check">✓</div>
-        <div class="checklist-text">收拾行李：转换插头 · 防晒 · 雨伞</div>
+        <div class="checklist-text">下载 App：Papago · Naver Map · KakaoT</div>
       </li>
       <li class="checklist-item" data-idx="6">
         <div class="checklist-check">✓</div>
-        <div class="checklist-text">换少量韩元现金</div>
+        <div class="checklist-text">填写 e-arrival 电子入境卡（出发前72h）</div>
       </li>
       <li class="checklist-item" data-idx="7">
+        <div class="checklist-check">✓</div>
+        <div class="checklist-text">收拾行李：转换插头 · 防晒 · 雨伞</div>
+      </li>
+      <li class="checklist-item" data-idx="8">
+        <div class="checklist-check">✓</div>
+        <div class="checklist-text">换少量韩元现金</div>
+      </li>
+      <li class="checklist-item" data-idx="9">
         <div class="checklist-check">✓</div>
         <div class="checklist-text">机场买 T-money 交通卡 + 充值</div>
       </li>
@@ -843,19 +732,14 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
 
   <div class="card">
     <div class="card-title"><span class="icon">🎯</span> 追星提前关注</div>
-    <p>出发前看看——</p>
-    <div style="margin:8px 0; font-size:13px; line-height:1.8;">
-      <strong>🌟 ENHYPEN</strong> — 关注回归/BELIFT LAB动态 · Weverse确认 · 应援咖啡厅可能随回归开放<br>
-      <strong>🌙 aespa</strong> — SM新大楼旷野体验 · COEX WithMu-k周边 · 关注SM演唱会消息<br>
-      <strong>💜 BTS</strong> — 留意HYBE公告 · 成员个资活动 · 龙山区应援咖啡厅<br>
-    </div>
+    <p>出发前看看你喜欢的团在7-8月有没有——</p>
     <div class="chip-group">
       <span class="chip">🎤 回归</span>
       <span class="chip">🎫 演唱会</span>
       <span class="chip">🤝 粉丝见面会</span>
       <span class="chip">📺 音乐银行录影</span>
     </div>
-    <p style="margin-top:8px; font-size:12px; color:var(--text-secondary);">可以提前抢票安排进去！关注 Twitter/Weverse 官方公告</p>
+    <p style="margin-top:8px; font-size:12px; color:var(--text-secondary);">可以提前抢票安排进去！</p>
   </div>
 
   <div class="card" style="background: var(--lavender-light); border-color: transparent;">
@@ -863,8 +747,7 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
     <p style="color:var(--text); font-size:12px;">
       1. 点 Safari 分享按钮 → <strong>添加到主屏幕</strong><br>
       2. 桌面出现 🇰🇷 图标，点开即全屏App<br>
-      3. Checklist勾选后自动保存，关闭再开还在<br>
-      4. 🔄 想要刷新 → 回到Safari打开链接，或下拉页面松手刷新
+      3. Checklist勾选后自动保存，关闭再开还在
     </p>
   </div>
 
@@ -880,11 +763,11 @@ p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
   </button>
   <button class="tab-item" data-page="page-day1">
     <span class="tab-icon">🌟</span>
-    <span class="tab-label">Day1 周六</span>
+    <span class="tab-label">Day1追星</span>
   </button>
   <button class="tab-item" data-page="page-day2">
     <span class="tab-icon">🌿</span>
-    <span class="tab-label">Day2 周日</span>
+    <span class="tab-label">Day2治愈</span>
   </button>
   <button class="tab-item" data-page="page-checklist">
     <span class="tab-icon">✅</span>
@@ -898,11 +781,6 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('splash').classList.add('hidden');
   }, 800);
-});
-
-// Refresh button — force full reload with cache busting
-document.getElementById('refreshBtn').addEventListener('click', () => {
-  window.location.href = window.location.href.split('?')[0] + '?t=' + Date.now();
 });
 
 // Tab switching

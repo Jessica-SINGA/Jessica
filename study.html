@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>📋 小茶的学习计划</title>
 <link rel="manifest" href="study_manifest.json">
-<link rel="apple-touch-icon" href="sunoo/微信图片_20260512105215_69_2.jpg">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -32,10 +32,6 @@ body {
   justify-content: center;
   padding: 24px 12px;
   background: #1a1a2e;
-  background-size: contain;
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
   transition: background 1s ease;
   position: relative;
 }
@@ -285,11 +281,11 @@ body::after {
     </div>
   </div>
 
-  <!-- Photo Bar -->
+  <!-- Theme Switcher -->
   <div class="photo-bar">
-    <button id="prevPhotoBtn">◀ 上一张</button>
-    <button id="shuffleBtn">🎲 换图</button>
-    <button id="nextPhotoBtn">下一张 ▶</button>
+    <button id="prevThemeBtn">◀ 上一个</button>
+    <button id="shuffleBtn">🎲 换主题</button>
+    <button id="nextThemeBtn">下一个 ▶</button>
   </div>
 
   <!-- Add Form -->
@@ -320,52 +316,37 @@ body::after {
 <script>
 const STORAGE_KEY = 'study_plan_v4';
 
-const PHOTOS = [
-  "sunoo/微信图片_20260512105215_69_2.jpg","sunoo/微信图片_20260512105225_72_2.jpg",
-  "sunoo/微信图片_20260512105208_67_2.jpg","sunoo/微信图片_20260512105211_68_2.jpg",
-  "sunoo/微信图片_20260512105221_71_2.jpg","sunoo/微信图片_20260512105236_75_2.jpg",
-  "sunoo/微信图片_20260512105232_74_2.jpg","sunoo/微信图片_20260512105241_76_2.jpg",
-  "sunoo/微信图片_20260512105218_70_2.jpg","sunoo/微信图片_20260512105228_73_2.jpg",
-  "sunoo/微信图片_20260512105205_66_2.jpg","sunoo/微信图片_20260512105203_65_2.jpg",
-  "sunoo/微信图片_20260512105201_64_2.jpg","sunoo/微信图片_20260512105157_63_2.jpg",
-  "sunoo/微信图片_20260512105154_62_2.jpg","sunoo/微信图片_20260512105152_61_2.jpg",
-  "sunoo/微信图片_20260512105147_60_2.jpg","sunoo/微信图片_20260512105145_59_2.jpg",
-  "sunoo/微信图片_20260512105143_58_2.jpg","sunoo/微信图片_20260512105141_57_2.jpg",
-  "sunoo/微信图片_20260512105138_56_2.jpg","sunoo/微信图片_20260512105135_55_2.jpg",
-  "sunoo/微信图片_20260512105132_54_2.jpg","sunoo/微信图片_20260512105130_53_2.jpg",
-  "sunoo/微信图片_20260512105128_52_2.jpg","sunoo/微信图片_20260512105125_51_2.jpg",
-  "sunoo/微信图片_20260512105123_50_2.jpg","sunoo/微信图片_20260512105122_49_2.jpg",
-  "sunoo/微信图片_20260512105120_48_2.jpg","sunoo/微信图片_20260512105117_47_2.jpg",
-  "sunoo/微信图片_20260512105116_46_2.jpg","sunoo/微信图片_20260512105113_45_2.jpg",
-  "sunoo/微信图片_20260512105111_44_2.jpg","sunoo/微信图片_20260512105110_43_2.jpg",
-  "sunoo/微信图片_20260512105109_42_2.jpg","sunoo/微信图片_20260512105107_41_2.jpg",
-  "sunoo/微信图片_20260512105106_40_2.jpg","sunoo/微信图片_20260512105104_39_2.jpg",
-  "sunoo/微信图片_20260512105101_38_2.jpg","sunoo/微信图片_20260512105059_37_2.jpg",
-  "sunoo/微信图片_20260512105058_36_2.jpg","sunoo/微信图片_20260512105057_35_2.jpg",
-  "sunoo/微信图片_20260512105056_34_2.jpg","sunoo/微信图片_20260512105055_33_2.jpg",
-  "sunoo/微信图片_20260512105054_32_2.jpg","sunoo/微信图片_20260512105053_31_2.jpg",
-  "sunoo/微信图片_20260512105052_30_2.jpg","sunoo/微信图片_20260512105052_29_2.jpg",
-  "sunoo/微信图片_20260512105051_28_2.jpg","sunoo/微信图片_20260512105050_27_2.jpg",
-  "sunoo/微信图片_20260512105049_26_2.jpg","sunoo/微信图片_20260512105048_25_2.jpg",
-  "sunoo/微信图片_20260512105046_24_2.jpg","sunoo/微信图片_20260512105044_23_2.jpg",
-  "sunoo/微信图片_20260512105043_22_2.jpg","sunoo/微信图片_20260512105041_21_2.jpg",
-  "sunoo/微信图片_20260512105038_20_2.jpg","sunoo/微信图片_20260512105028_19_2.jpg",
-  "sunoo/微信图片_20260512105026_18_2.jpg","sunoo/微信图片_20260512105024_17_2.jpg",
-  "sunoo/微信图片_20260512105023_16_2.jpg","sunoo/微信图片_20260512105021_15_2.jpg",
-  "sunoo/微信图片_20260512105020_14_2.jpg","sunoo/微信图片_20260512105019_13_2.jpg",
-  "sunoo/微信图片_20260512105018_12_2.jpg","sunoo/微信图片_20260512105015_11_2.jpg"
+const THEMES = [
+  { name: '樱花粉', bg: 'linear-gradient(135deg, #2d1b2e, #1a1a2e, #2d1b2e)' },
+  { name: '薰衣草', bg: 'linear-gradient(135deg, #1a1a2e, #2d1b3e, #1a1a2e)' },
+  { name: '日落橘', bg: 'linear-gradient(135deg, #2d1b1e, #1a1a2e, #2d1b1e)' },
+  { name: '薄荷绿', bg: 'linear-gradient(135deg, #1b2d1e, #1a1a2e, #1b2d1e)' },
+  { name: '星空紫', bg: 'linear-gradient(135deg, #1a1a2e, #1b1a3e, #1a1a2e)' },
+  { name: '蜜桃粉', bg: 'linear-gradient(135deg, #2d1a2e, #1a1a2e, #1a2d2e)' },
 ];
 
-let currentPhotoIdx = 0;
+const accentThemes = [
+  { accent: '#f5a8d0', accent3: '#c8a8f5' },
+  { accent: '#c8a8f5', accent3: '#89b4fa' },
+  { accent: '#f9e2af', accent3: '#f5a8d0' },
+  { accent: '#a6e3a1', accent3: '#89b4fa' },
+  { accent: '#89b4fa', accent3: '#c8a8f5' },
+  { accent: '#f5a8d0', accent3: '#f9e2af' },
+];
 
-function setBackground(index) {
-  currentPhotoIdx = (index + PHOTOS.length) % PHOTOS.length;
-  document.body.style.backgroundImage = `url(${PHOTOS[currentPhotoIdx]})`;
-  localStorage.setItem('study_photo_idx', currentPhotoIdx);
+let currentThemeIdx = 0;
+
+function setTheme(index) {
+  currentThemeIdx = (index + THEMES.length) % THEMES.length;
+  document.body.style.background = THEMES[currentThemeIdx].bg;
+  const a = accentThemes[currentThemeIdx];
+  document.documentElement.style.setProperty('--accent', a.accent);
+  document.documentElement.style.setProperty('--accent3', a.accent3);
+  localStorage.setItem('study_theme_idx', currentThemeIdx);
 }
-function nextPhoto() { setBackground(currentPhotoIdx + 1); }
-function prevPhoto() { setBackground(currentPhotoIdx - 1); }
-function randomPhoto() { setBackground(Math.floor(Math.random() * PHOTOS.length)); }
+function nextTheme() { setTheme(currentThemeIdx + 1); }
+function prevTheme() { setTheme(currentThemeIdx - 1); }
+function randomTheme() { setTheme(Math.floor(Math.random() * THEMES.length)); }
 
 // ---- Data Model ----
 // items: [{ id, name, records: [{ date: "YYYY-MM-DD", hours: number }] }]
@@ -598,18 +579,18 @@ itemInput.addEventListener('keydown', e => { if (e.key === 'Enter') addItem(); }
 addBtn.addEventListener('click', addItem);
 document.addEventListener('keydown', e => {
   if (e.target.tagName === 'INPUT') return;
-  if (e.key === 'ArrowRight') nextPhoto();
-  if (e.key === 'ArrowLeft') prevPhoto();
+  if (e.key === 'ArrowRight') nextTheme();
+  if (e.key === 'ArrowLeft') prevTheme();
 });
-$('nextPhotoBtn').addEventListener('click', nextPhoto);
-$('prevPhotoBtn').addEventListener('click', prevPhoto);
-$('shuffleBtn').addEventListener('click', randomPhoto);
+$('nextThemeBtn').addEventListener('click', nextTheme);
+$('prevThemeBtn').addEventListener('click', prevTheme);
+$('shuffleBtn').addEventListener('click', randomTheme);
 
 // ---- Init ----
 function init() {
-  const savedIdx = localStorage.getItem('study_photo_idx');
-  if (savedIdx !== null) setBackground(parseInt(savedIdx));
-  else randomPhoto();
+  const savedIdx = localStorage.getItem('study_theme_idx');
+  if (savedIdx !== null) setTheme(parseInt(savedIdx));
+  else setTheme(0);
   items = loadData();
   // Ensure all items have records array
   items.forEach(i => { if (!i.records) i.records = []; });
