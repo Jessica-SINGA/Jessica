@@ -1,0 +1,10 @@
+{
+  "builds": [
+    { "src": "seoul_plan.html", "use": "@vercel/static" },
+    { "src": "study.html", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/study", "dest": "/study.html" },
+    { "src": "/(.*)", "dest": "/seoul_plan.html" }
+  ]
+}
