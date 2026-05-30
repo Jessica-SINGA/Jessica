@@ -900,9 +900,9 @@ window.addEventListener('load', () => {
   }, 800);
 });
 
-// Refresh button
+// Refresh button — force full reload with cache busting
 document.getElementById('refreshBtn').addEventListener('click', () => {
-  window.location.reload(true);
+  window.location.href = window.location.href.split('?')[0] + '?t=' + Date.now();
 });
 
 // Tab switching
