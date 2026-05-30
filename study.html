@@ -286,6 +286,7 @@ body::after {
     <button id="prevThemeBtn">◀ 上一个</button>
     <button id="shuffleBtn">🎲 换主题</button>
     <button id="nextThemeBtn">下一个 ▶</button>
+    <button id="refreshBtn">🔄 刷新</button>
   </div>
 
   <!-- Add Form -->
@@ -585,6 +586,9 @@ document.addEventListener('keydown', e => {
 $('nextThemeBtn').addEventListener('click', nextTheme);
 $('prevThemeBtn').addEventListener('click', prevTheme);
 $('shuffleBtn').addEventListener('click', randomTheme);
+$('refreshBtn').addEventListener('click', () => {
+  window.location.href = window.location.href.split('?')[0] + '?t=' + Date.now();
+});
 
 // ---- Init ----
 function init() {
