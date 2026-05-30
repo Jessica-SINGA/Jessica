@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>📋 小茶的学习计划</title>
 <link rel="manifest" href="study_manifest.json">
 <link rel="apple-touch-icon" href="sunoo/微信图片_20260512105215_69_2.jpg">
@@ -12,12 +12,15 @@
 :root {
   --accent: #f5a8d0;
   --accent2: #ffb7c5;
+  --accent3: #c8a8f5;
   --fg: #f0e6ef;
   --sub: rgba(255,255,255,.5);
   --surface: rgba(17, 17, 27, 0.55);
   --surface-hover: rgba(17, 17, 27, 0.7);
   --border: rgba(255,255,255,.08);
   --danger: #f38ba8;
+  --green: #a6e3a1;
+  --yellow: #f9e2af;
   --shadow: 0 8px 32px rgba(0,0,0,.4);
 }
 
@@ -27,7 +30,7 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 32px 16px;
+  padding: 24px 12px;
   background: #1a1a2e;
   background-size: contain;
   background-position: center center;
@@ -41,7 +44,7 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: linear-gradient(135deg,rgba(0,0,0,.65) 0%,rgba(0,0,0,.45) 50%,rgba(0,0,0,.7) 100%);
+  background: linear-gradient(135deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.45) 50%,rgba(0,0,0,.75) 100%);
   z-index: 0;
   pointer-events: none;
 }
@@ -50,29 +53,59 @@ body::after {
   content: '';
   position: fixed;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(245, 168, 208, .12) 0%, transparent 70%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(245, 168, 208, .1) 0%, transparent 70%);
   z-index: 0;
   pointer-events: none;
 }
 
-.container { width: 100%; max-width: 580px; position: relative; z-index: 1; }
+.container { width: 100%; max-width: 520px; position: relative; z-index: 1; }
 
 /* ---- Header ---- */
-.header { text-align: center; margin-bottom: 24px; }
+.header { text-align: center; margin-bottom: 16px; }
 
 .header h1 {
-  font-size: 28px; color: var(--accent); margin-bottom: 4px;
+  font-size: 26px; color: var(--accent); margin-bottom: 2px;
   text-shadow: 0 2px 12px rgba(245, 168, 208, .3);
 }
 
-.header .subtitle { font-size: 13px; color: var(--sub); }
+.header .subtitle { font-size: 12px; color: var(--sub); }
 
+/* ---- Stats Dashboard ---- */
+.stats-dash {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 8px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.stat-card .stat-icon { font-size: 18px; margin-bottom: 2px; }
+.stat-card .stat-label { font-size: 11px; color: var(--sub); margin-bottom: 4px; }
+.stat-card .stat-value {
+  font-size: 20px; font-weight: 700;
+  font-family: 'Consolas', monospace;
+}
+
+.stat-card.today .stat-value { color: var(--accent); }
+.stat-card.week .stat-value { color: var(--green); }
+.stat-card.month .stat-value { color: var(--accent3); }
+
+/* ---- Photo Bar ---- */
 .photo-bar {
-  display: flex; justify-content: center; gap: 10px; margin-top: 12px;
+  display: flex; justify-content: center; gap: 8px; margin: 12px 0 16px;
 }
 
 .photo-bar button {
-  font-family: inherit; font-size: 12px; padding: 6px 16px;
+  font-family: inherit; font-size: 11px; padding: 5px 14px;
   border: 1px solid var(--border); border-radius: 20px; cursor: pointer;
   background: rgba(255,255,255,.08); color: var(--fg);
   backdrop-filter: blur(10px); transition: all .2s;
@@ -81,48 +114,48 @@ body::after {
 .photo-bar button:hover { background: rgba(255,255,255,.15); transform: translateY(-1px); }
 
 /* ---- Add Form ---- */
-.add-form { display: flex; gap: 10px; margin-bottom: 20px; }
+.add-form { display: flex; gap: 8px; margin-bottom: 12px; }
 
 .add-form input {
-  flex: 1; font-family: inherit; font-size: 14px; padding: 12px 16px;
+  flex: 1; font-family: inherit; font-size: 14px; padding: 11px 14px;
   border: 1px solid var(--border); border-radius: 12px;
   background: rgba(255,255,255,.06); color: var(--fg); outline: none;
-  transition: border-color .2s, background .2s; backdrop-filter: blur(10px);
+  transition: border-color .2s; backdrop-filter: blur(10px);
 }
 
 .add-form input::placeholder { color: var(--sub); }
 .add-form input:focus { border-color: var(--accent); background: rgba(255,255,255,.1); }
 
 .add-form button {
-  font-family: inherit; font-size: 14px; font-weight: 600; padding: 12px 20px;
+  font-family: inherit; font-size: 14px; font-weight: 600; padding: 11px 18px;
   border: none; border-radius: 12px; cursor: pointer; background: var(--accent);
   color: #1a1a2e; transition: all .2s; white-space: nowrap;
   box-shadow: 0 4px 16px rgba(245, 168, 208, .3);
 }
 
-.add-form button:hover { opacity: .9; transform: translateY(-2px); }
+.add-form button:hover { opacity: .9; transform: translateY(-1px); }
 
-/* ---- Stats Bar ---- */
-.stats {
+/* ---- Stats total bar ---- */
+.stats-bar {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 12px 16px; margin-bottom: 12px; font-size: 14px; color: var(--sub);
-  background: var(--surface); border-radius: 14px; backdrop-filter: blur(16px);
+  padding: 10px 14px; margin-bottom: 10px; font-size: 13px; color: var(--sub);
+  background: var(--surface); border-radius: 12px; backdrop-filter: blur(16px);
   border: 1px solid var(--border); box-shadow: var(--shadow);
 }
 
-.stats .total-hours { color: var(--accent); font-weight: 700; font-size: 16px; }
+.stats-bar .total-hours { color: var(--accent); font-weight: 700; font-size: 15px; }
 
 /* ---- Empty State ---- */
-.empty-state { text-align: center; padding: 60px 20px; color: var(--sub); }
-.empty-state .icon { font-size: 48px; margin-bottom: 12px; }
-.empty-state p { font-size: 14px; line-height: 1.6; }
+.empty-state { text-align: center; padding: 50px 20px; color: var(--sub); }
+.empty-state .icon { font-size: 42px; margin-bottom: 10px; }
+.empty-state p { font-size: 13px; line-height: 1.6; }
 
 /* ---- Item List ---- */
-.item-list { display: flex; flex-direction: column; gap: 10px; }
+.item-list { display: flex; flex-direction: column; gap: 8px; }
 
 /* ---- Item Card ---- */
 .item-card {
-  background: var(--surface); border-radius: 16px; padding: 18px 20px;
+  background: var(--surface); border-radius: 14px; padding: 14px 16px;
   border: 1px solid var(--border); backdrop-filter: blur(16px);
   box-shadow: var(--shadow); transition: all .3s;
 }
@@ -132,11 +165,11 @@ body::after {
 }
 
 .item-card-header {
-  display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
 }
 
 .item-name {
-  font-size: 16px; font-weight: 600; cursor: pointer; padding: 2px 4px;
+  font-size: 15px; font-weight: 600; cursor: pointer; padding: 2px 4px;
   border-radius: 4px; transition: background .2s; flex: 1; min-width: 0;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
@@ -150,8 +183,8 @@ body::after {
 }
 
 .item-delete-btn {
-  background: transparent; border: none; color: var(--sub); font-size: 18px;
-  cursor: pointer; padding: 4px 8px; border-radius: 6px; transition: all .2s;
+  background: transparent; border: none; color: var(--sub); font-size: 16px;
+  cursor: pointer; padding: 4px 6px; border-radius: 6px; transition: all .2s;
   opacity: .4; line-height: 1;
 }
 
@@ -159,33 +192,31 @@ body::after {
 
 /* Total display */
 .item-total {
-  text-align: center; padding: 4px 0 12px;
+  text-align: center; padding: 2px 0 8px;
 }
 
 .item-total .hours-big {
-  font-size: 36px; font-weight: 700;
+  font-size: 30px; font-weight: 700;
   color: var(--accent); letter-spacing: 1px;
 }
 
 .item-total .hours-label {
-  font-size: 13px; color: var(--sub); margin-left: 4px;
+  font-size: 12px; color: var(--sub); margin-left: 4px;
 }
 
 /* Record row */
 .record-row {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 8px;
   justify-content: center; border-top: 1px solid var(--border);
-  padding-top: 12px;
+  padding-top: 10px;
 }
 
-.record-row label {
-  font-size: 13px; color: var(--sub); white-space: nowrap;
-}
+.record-row label { font-size: 12px; color: var(--sub); white-space: nowrap; }
 
 .record-row input {
-  width: 72px; padding: 8px 10px; border: 1px solid var(--border);
-  border-radius: 10px; background: rgba(0,0,0,.25); color: var(--fg);
-  font-family: inherit; font-size: 15px; font-weight: 600; text-align: center;
+  width: 64px; padding: 7px 8px; border: 1px solid var(--border);
+  border-radius: 8px; background: rgba(0,0,0,.25); color: var(--fg);
+  font-family: inherit; font-size: 14px; font-weight: 600; text-align: center;
   outline: none; transition: border-color .2s;
 }
 
@@ -194,11 +225,11 @@ body::after {
 .record-row input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
 .record-row input[type=number] { -moz-appearance: textfield; }
 
-.record-row .unit { font-size: 13px; color: var(--sub); }
+.record-row .unit { font-size: 12px; color: var(--sub); }
 
 .record-btn {
-  font-family: inherit; font-size: 13px; font-weight: 600; padding: 8px 18px;
-  border: none; border-radius: 10px; cursor: pointer;
+  font-family: inherit; font-size: 12px; font-weight: 600; padding: 7px 16px;
+  border: none; border-radius: 8px; cursor: pointer;
   background: var(--accent); color: #1a1a2e; transition: all .2s;
   box-shadow: 0 2px 10px rgba(245, 168, 208, .25);
 }
@@ -206,22 +237,24 @@ body::after {
 .record-btn:hover { opacity: .85; transform: translateY(-1px); }
 
 /* ---- Footer ---- */
-.footer { text-align: center; margin-top: 24px; padding: 20px 0 10px; }
-.watermark { font-size: 13px; color: var(--sub); opacity: .35; letter-spacing: 1px; margin-top: 8px; }
+.footer { text-align: center; margin-top: 24px; padding: 16px 0 8px; }
+.watermark { font-size: 12px; color: var(--sub); opacity: .3; letter-spacing: 1px; }
 
 /* ---- Animations ---- */
 @keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
 .item-card { animation: fadeIn .25s ease; }
 
-/* Flash animation when recording */
-@keyframes flash { 0%,100% { } 50% { color: #a6e3a1; transform: scale(1.05); } }
+@keyframes flash { 0%,100% { } 50% { color: var(--green); transform: scale(1.1); } }
 .flash { animation: flash .5s ease; }
 
+@keyframes statPop { 0% { transform: scale(1); } 50% { transform: scale(1.15); } 100% { transform: scale(1); } }
+.stat-pop .stat-value { animation: statPop .4s ease; }
+
 /* ---- Responsive ---- */
-@media (max-width: 480px) {
-  body { padding: 16px 12px; }
-  .item-card { padding: 14px 16px; }
-  .item-total .hours-big { font-size: 28px; }
+@media (max-width: 400px) {
+  .stats-dash { gap: 6px; }
+  .stat-card .stat-value { font-size: 16px; }
+  .item-total .hours-big { font-size: 26px; }
 }
 </style>
 </head>
@@ -231,23 +264,47 @@ body::after {
   <div class="header">
     <h1>📋 小茶的学习计划</h1>
     <p class="subtitle">记录每个项目用了多少时间</p>
-    <div class="photo-bar">
-      <button id="prevPhotoBtn">◀ 上一张</button>
-      <button id="shuffleBtn">🎲 随机</button>
-      <button id="nextPhotoBtn">下一张 ▶</button>
+  </div>
+
+  <!-- Stats Dashboard -->
+  <div class="stats-dash">
+    <div class="stat-card today" id="statToday">
+      <div class="stat-icon">📅</div>
+      <div class="stat-label">今日</div>
+      <div class="stat-value" id="todayValue">0</div>
+    </div>
+    <div class="stat-card week" id="statWeek">
+      <div class="stat-icon">📊</div>
+      <div class="stat-label">本周</div>
+      <div class="stat-value" id="weekValue">0</div>
+    </div>
+    <div class="stat-card month" id="statMonth">
+      <div class="stat-icon">📈</div>
+      <div class="stat-label">本月</div>
+      <div class="stat-value" id="monthValue">0</div>
     </div>
   </div>
 
+  <!-- Photo Bar -->
+  <div class="photo-bar">
+    <button id="prevPhotoBtn">◀ 上一张</button>
+    <button id="shuffleBtn">🎲 换图</button>
+    <button id="nextPhotoBtn">下一张 ▶</button>
+  </div>
+
+  <!-- Add Form -->
   <div class="add-form">
     <input type="text" id="itemInput" placeholder="添加新项目..." maxlength="50" autocomplete="off">
     <button id="addBtn">+ 添加</button>
   </div>
 
-  <div class="stats">
+  <!-- Stats -->
+  <div class="stats-bar">
     <span id="itemCount">共 0 个项目</span>
     <span>累计 <span class="total-hours" id="totalHours">0</span> 小时</span>
   </div>
 
+  <!-- List -->
   <div class="item-list" id="itemList">
     <div class="empty-state" id="emptyState">
       <div class="icon">📝</div>
@@ -261,7 +318,7 @@ body::after {
 </div>
 
 <script>
-const STORAGE_KEY = 'project_hours_v3';
+const STORAGE_KEY = 'study_plan_v4';
 
 const PHOTOS = [
   "sunoo/微信图片_20260512105215_69_2.jpg","sunoo/微信图片_20260512105225_72_2.jpg",
@@ -304,14 +361,16 @@ let currentPhotoIdx = 0;
 function setBackground(index) {
   currentPhotoIdx = (index + PHOTOS.length) % PHOTOS.length;
   document.body.style.backgroundImage = `url(${PHOTOS[currentPhotoIdx]})`;
-  localStorage.setItem('checklist_photo_idx', currentPhotoIdx);
+  localStorage.setItem('study_photo_idx', currentPhotoIdx);
 }
 function nextPhoto() { setBackground(currentPhotoIdx + 1); }
 function prevPhoto() { setBackground(currentPhotoIdx - 1); }
 function randomPhoto() { setBackground(Math.floor(Math.random() * PHOTOS.length)); }
 
-// ---- Data ----
+// ---- Data Model ----
+// items: [{ id, name, records: [{ date: "YYYY-MM-DD", hours: number }] }]
 let items = [];
+
 const $ = id => document.getElementById(id);
 const itemInput = $('itemInput');
 const addBtn = $('addBtn');
@@ -319,6 +378,9 @@ const itemList = $('itemList');
 const emptyState = $('emptyState');
 const itemCount = $('itemCount');
 const totalHours = $('totalHours');
+const todayValue = $('todayValue');
+const weekValue = $('weekValue');
+const monthValue = $('monthValue');
 
 function loadData() {
   try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) return JSON.parse(raw); } catch {}
@@ -328,7 +390,63 @@ function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); 
 function escapeHtml(text) { const d = document.createElement('div'); d.textContent = text; return d.innerHTML; }
 function genId() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
 function roundHours(h) { return Math.round(h * 100) / 100; }
-function getTotalHours() { return items.reduce((s, i) => s + (i.hours || 0), 0); }
+
+function todayStr() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+
+function getWeekBounds() {
+  const now = new Date();
+  const day = now.getDay();
+  const diff = now.getDate() - day + (day === 0 ? -6 : 1);
+  const mon = new Date(now.getFullYear(), now.getMonth(), diff);
+  const sun = new Date(mon);
+  sun.setDate(mon.getDate() + 6);
+  return { start: mon, end: sun };
+}
+
+function getMonthBounds() {
+  const now = new Date();
+  return {
+    start: new Date(now.getFullYear(), now.getMonth(), 1),
+    end: new Date(now.getFullYear(), now.getMonth() + 1, 0)
+  };
+}
+
+function isDateInRange(dateStr, start, end) {
+  const d = new Date(dateStr + 'T00:00:00');
+  return d >= start && d <= end;
+}
+
+function getStats() {
+  const today = todayStr();
+  const week = getWeekBounds();
+  const month = getMonthBounds();
+
+  let dailyTotal = 0, weeklyTotal = 0, monthlyTotal = 0, grandTotal = 0;
+
+  items.forEach(item => {
+    (item.records || []).forEach(rec => {
+      const h = rec.hours || 0;
+      grandTotal += h;
+      if (rec.date === today) dailyTotal += h;
+      if (isDateInRange(rec.date, week.start, week.end)) weeklyTotal += h;
+      if (isDateInRange(rec.date, month.start, month.end)) monthlyTotal += h;
+    });
+  });
+
+  return {
+    daily: roundHours(dailyTotal),
+    weekly: roundHours(weeklyTotal),
+    monthly: roundHours(monthlyTotal),
+    grandTotal: roundHours(grandTotal)
+  };
+}
+
+function getItemTotal(item) {
+  return roundHours((item.records || []).reduce((s, r) => s + (r.hours || 0), 0));
+}
 
 // ---- Render ----
 function render() {
@@ -341,7 +459,7 @@ function render() {
     const card = document.createElement('div');
     card.className = 'item-card';
     card.dataset.id = item.id;
-    const h = roundHours(item.hours || 0);
+    const total = getItemTotal(item);
 
     card.innerHTML = `
       <div class="item-card-header">
@@ -349,8 +467,8 @@ function render() {
         <button class="item-delete-btn" data-id="${item.id}">✕</button>
       </div>
       <div class="item-total">
-        <span class="hours-big" id="total-${item.id}">${h}</span>
-        <span class="hours-label">小时</span>
+        <span class="hours-big" id="total-${item.id}">${total}</span>
+        <span class="hours-label">累计小时</span>
       </div>
       <div class="record-row">
         <label>🔖 今天学了</label>
@@ -363,27 +481,40 @@ function render() {
 
     itemList.insertBefore(card, emptyState);
 
-    // Name → rename
     const nameSpan = card.querySelector('.item-name');
     nameSpan.addEventListener('click', () => startRename(item.id, nameSpan));
 
-    // Record button
     const recBtn = card.querySelector('.record-btn');
     recBtn.addEventListener('click', () => recordTime(item.id));
 
-    // Enter in input → also record
     const recInput = card.querySelector('.record-input');
     recInput.addEventListener('keydown', e => {
       if (e.key === 'Enter') recordTime(item.id);
     });
     recInput.addEventListener('focus', () => recInput.select());
 
-    // Delete
     const delBtn = card.querySelector('.item-delete-btn');
     delBtn.addEventListener('click', () => deleteItem(item.id));
   });
 
-  updateStats();
+  updateAllStats();
+}
+
+function updateAllStats() {
+  const stats = getStats();
+  todayValue.textContent = stats.daily;
+  weekValue.textContent = stats.weekly;
+  monthValue.textContent = stats.monthly;
+  itemCount.textContent = `共 ${items.length} 个项目`;
+  totalHours.textContent = stats.grandTotal;
+}
+
+function animateStat(cardId) {
+  const el = document.getElementById(cardId);
+  if (!el) return;
+  el.classList.remove('stat-pop');
+  void el.offsetWidth;
+  el.classList.add('stat-pop');
 }
 
 function recordTime(id) {
@@ -392,36 +523,31 @@ function recordTime(id) {
 
   const input = document.getElementById(`input-${id}`);
   const val = parseFloat(input.value);
-  if (isNaN(val) || val <= 0) {
-    input.focus();
-    return;
-  }
+  if (isNaN(val) || val <= 0) { input.focus(); return; }
 
-  // Add to total
-  item.hours = (item.hours || 0) + val;
+  if (!item.records) item.records = [];
+
+  // Add record with today's date
+  item.records.push({ date: todayStr(), hours: val });
   saveData();
 
   // Update display
   const totalEl = document.getElementById(`total-${id}`);
-  const h = roundHours(item.hours);
-  totalEl.textContent = h;
-
-  // Flash animation
+  totalEl.textContent = getItemTotal(item);
   totalEl.classList.remove('flash');
-  void totalEl.offsetWidth; // force reflow
+  void totalEl.offsetWidth;
   totalEl.classList.add('flash');
 
-  // Reset input to 1 for next record
+  // Reset input
   input.value = 1;
   input.focus();
   input.select();
 
-  updateStats();
-}
-
-function updateStats() {
-  itemCount.textContent = `共 ${items.length} 个项目`;
-  totalHours.textContent = roundHours(getTotalHours());
+  updateAllStats();
+  // Animate stat cards
+  animateStat('statToday');
+  animateStat('statWeek');
+  animateStat('statMonth');
 }
 
 // ---- Rename, Delete, Add ----
@@ -448,7 +574,7 @@ function startRename(id, spanEl) {
 function deleteItem(id) {
   const item = items.find(i => i.id === id);
   if (!item) return;
-  if (!confirm(`确定要删除「${item.name}」吗？已累计 ${roundHours(item.hours || 0)} 小时将被清除。`)) return;
+  if (!confirm(`确定要删除「${item.name}」吗？\n所有学习记录将被清除。`)) return;
   items = items.filter(i => i.id !== id);
   saveData();
   render();
@@ -457,13 +583,12 @@ function deleteItem(id) {
 function addItem() {
   const name = itemInput.value.trim();
   if (!name) { itemInput.focus(); return; }
-  const item = { id: genId(), name, hours: 0 };
+  const item = { id: genId(), name, records: [] };
   items.push(item);
   itemInput.value = '';
   itemInput.focus();
   saveData();
   render();
-  // Auto-focus the record input of the new item
   const newInput = document.getElementById(`input-${item.id}`);
   if (newInput) setTimeout(() => newInput.focus(), 100);
 }
@@ -482,10 +607,12 @@ $('shuffleBtn').addEventListener('click', randomPhoto);
 
 // ---- Init ----
 function init() {
-  const savedIdx = localStorage.getItem('checklist_photo_idx');
+  const savedIdx = localStorage.getItem('study_photo_idx');
   if (savedIdx !== null) setBackground(parseInt(savedIdx));
   else randomPhoto();
   items = loadData();
+  // Ensure all items have records array
+  items.forEach(i => { if (!i.records) i.records = []; });
   render();
   itemInput.focus();
 }
