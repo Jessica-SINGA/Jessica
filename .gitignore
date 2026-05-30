@@ -12,3 +12,6 @@
 !.github
 !.github/workflows
 !.github/scripts
+!清单钟.html
+!study_manifest.json
+!vercel.json
