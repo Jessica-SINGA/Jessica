@@ -20,7 +20,6 @@
   --border: rgba(255,255,255,.08);
   --danger: #f38ba8;
   --green: #a6e3a1;
-  --yellow: #f9e2af;
   --shadow: 0 8px 32px rgba(0,0,0,.4);
 }
 
@@ -38,97 +37,93 @@ body {
 
 body::before {
   content: '';
-  position: fixed;
-  inset: 0;
+  position: fixed; inset: 0;
   background: linear-gradient(135deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.45) 50%,rgba(0,0,0,.75) 100%);
-  z-index: 0;
-  pointer-events: none;
+  z-index: 0; pointer-events: none;
 }
 
 body::after {
   content: '';
-  position: fixed;
-  inset: 0;
+  position: fixed; inset: 0;
   background: radial-gradient(ellipse at 50% 0%, rgba(245, 168, 208, .1) 0%, transparent 70%);
-  z-index: 0;
-  pointer-events: none;
+  z-index: 0; pointer-events: none;
 }
 
 .container { width: 100%; max-width: 520px; position: relative; z-index: 1; }
 
 /* ---- Header ---- */
-.header { text-align: center; margin-bottom: 16px; }
-
-.header h1 {
-  font-size: 26px; color: var(--accent); margin-bottom: 2px;
-  text-shadow: 0 2px 12px rgba(245, 168, 208, .3);
-}
-
+.header { text-align: center; margin-bottom: 14px; }
+.header h1 { font-size: 26px; color: var(--accent); margin-bottom: 2px; text-shadow: 0 2px 12px rgba(245,168,208,.3); }
 .header .subtitle { font-size: 12px; color: var(--sub); }
 
-/* ---- Stats Dashboard ---- */
-.stats-dash {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-bottom: 16px;
+/* ---- Top Card (Date + Weather + Quote) ---- */
+.top-card {
+  background: var(--surface); backdrop-filter: blur(16px);
+  border: 1px solid var(--border); border-radius: 16px;
+  padding: 16px; box-shadow: var(--shadow); margin-bottom: 12px;
 }
+
+.top-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 8px; font-size: 13px;
+}
+
+.date-display { color: var(--fg); font-weight: 600; }
+.weather-display { color: var(--sub); }
+
+.quote-display {
+  font-size: 14px; line-height: 1.6; color: var(--accent2);
+  padding: 10px 12px; background: rgba(255,255,255,.04);
+  border-radius: 10px; border-left: 3px solid var(--accent);
+  font-style: italic;
+}
+
+.quote-display::before { content: '"'; }
+.quote-display::after { content: '"'; }
+
+/* ---- Stats Dashboard ---- */
+.stats-dash { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
 
 .stat-card {
-  background: var(--surface);
-  backdrop-filter: blur(16px);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 12px 8px;
-  text-align: center;
-  box-shadow: var(--shadow);
+  background: var(--surface); backdrop-filter: blur(16px);
+  border: 1px solid var(--border); border-radius: 14px;
+  padding: 12px 8px; text-align: center; box-shadow: var(--shadow);
 }
-
 .stat-card .stat-icon { font-size: 18px; margin-bottom: 2px; }
 .stat-card .stat-label { font-size: 11px; color: var(--sub); margin-bottom: 4px; }
-.stat-card .stat-value {
-  font-size: 20px; font-weight: 700;
-  font-family: 'Consolas', monospace;
-}
-
+.stat-card .stat-value { font-size: 20px; font-weight: 700; font-family: 'Consolas', monospace; }
 .stat-card.today .stat-value { color: var(--accent); }
 .stat-card.week .stat-value { color: var(--green); }
 .stat-card.month .stat-value { color: var(--accent3); }
 
-/* ---- Photo Bar ---- */
-.photo-bar {
-  display: flex; justify-content: center; gap: 8px; margin: 12px 0 16px;
+/* ---- Tool Bar ---- */
+.tool-bar {
+  display: flex; justify-content: center; gap: 6px; margin: 10px 0 14px; flex-wrap: wrap;
 }
-
-.photo-bar button {
-  font-family: inherit; font-size: 11px; padding: 5px 14px;
+.tool-bar button {
+  font-family: inherit; font-size: 11px; padding: 5px 12px;
   border: 1px solid var(--border); border-radius: 20px; cursor: pointer;
   background: rgba(255,255,255,.08); color: var(--fg);
   backdrop-filter: blur(10px); transition: all .2s;
 }
-
-.photo-bar button:hover { background: rgba(255,255,255,.15); transform: translateY(-1px); }
+.tool-bar button:hover { background: rgba(255,255,255,.15); transform: translateY(-1px); }
 
 /* ---- Add Form ---- */
 .add-form { display: flex; gap: 8px; margin-bottom: 12px; }
-
 .add-form input {
   flex: 1; font-family: inherit; font-size: 14px; padding: 11px 14px;
   border: 1px solid var(--border); border-radius: 12px;
   background: rgba(255,255,255,.06); color: var(--fg); outline: none;
   transition: border-color .2s; backdrop-filter: blur(10px);
 }
-
 .add-form input::placeholder { color: var(--sub); }
 .add-form input:focus { border-color: var(--accent); background: rgba(255,255,255,.1); }
-
 .add-form button {
   font-family: inherit; font-size: 14px; font-weight: 600; padding: 11px 18px;
   border: none; border-radius: 12px; cursor: pointer; background: var(--accent);
   color: #1a1a2e; transition: all .2s; white-space: nowrap;
-  box-shadow: 0 4px 16px rgba(245, 168, 208, .3);
+  box-shadow: 0 4px 16px rgba(245,168,208,.3);
 }
-
 .add-form button:hover { opacity: .9; transform: translateY(-1px); }
 
 /* ---- Stats total bar ---- */
@@ -138,7 +133,6 @@ body::after {
   background: var(--surface); border-radius: 12px; backdrop-filter: blur(16px);
   border: 1px solid var(--border); box-shadow: var(--shadow);
 }
-
 .stats-bar .total-hours { color: var(--accent); font-weight: 700; font-size: 15px; }
 
 /* ---- Empty State ---- */
@@ -155,81 +149,29 @@ body::after {
   border: 1px solid var(--border); backdrop-filter: blur(16px);
   box-shadow: var(--shadow); transition: all .3s;
 }
-
-.item-card:hover {
-  background: var(--surface-hover); border-color: rgba(255,255,255,.15);
-}
+.item-card:hover { background: var(--surface-hover); border-color: rgba(255,255,255,.15); }
 
 .item-card-header {
   display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
 }
-
-.item-name {
-  font-size: 15px; font-weight: 600; cursor: pointer; padding: 2px 4px;
-  border-radius: 4px; transition: background .2s; flex: 1; min-width: 0;
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-}
-
+.item-name { font-size: 15px; font-weight: 600; cursor: pointer; padding: 2px 4px; border-radius: 4px; transition: background .2s; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .item-name:hover { background: rgba(255,255,255,.08); }
+.item-name-input { font-family: inherit; font-size: 15px; font-weight: 600; padding: 2px 6px; border: 1px solid var(--accent); border-radius: 4px; background: rgba(0,0,0,.3); color: var(--fg); outline: none; width: 100%; }
+.item-delete-btn { background: transparent; border: none; color: var(--sub); font-size: 16px; cursor: pointer; padding: 4px 6px; border-radius: 6px; transition: all .2s; opacity: .4; line-height: 1; }
+.item-delete-btn:hover { color: var(--danger); opacity: 1; background: rgba(243,139,168,.15); }
 
-.item-name-input {
-  font-family: inherit; font-size: 15px; font-weight: 600; padding: 2px 6px;
-  border: 1px solid var(--accent); border-radius: 4px; background: rgba(0,0,0,.3);
-  color: var(--fg); outline: none; width: 100%;
-}
+.item-total { text-align: center; padding: 2px 0 8px; }
+.item-total .hours-big { font-size: 30px; font-weight: 700; color: var(--accent); letter-spacing: 1px; }
+.item-total .hours-label { font-size: 12px; color: var(--sub); margin-left: 4px; }
 
-.item-delete-btn {
-  background: transparent; border: none; color: var(--sub); font-size: 16px;
-  cursor: pointer; padding: 4px 6px; border-radius: 6px; transition: all .2s;
-  opacity: .4; line-height: 1;
-}
-
-.item-delete-btn:hover { color: var(--danger); opacity: 1; background: rgba(243, 139, 168, 0.15); }
-
-/* Total display */
-.item-total {
-  text-align: center; padding: 2px 0 8px;
-}
-
-.item-total .hours-big {
-  font-size: 30px; font-weight: 700;
-  color: var(--accent); letter-spacing: 1px;
-}
-
-.item-total .hours-label {
-  font-size: 12px; color: var(--sub); margin-left: 4px;
-}
-
-/* Record row */
-.record-row {
-  display: flex; align-items: center; gap: 8px;
-  justify-content: center; border-top: 1px solid var(--border);
-  padding-top: 10px;
-}
-
+.record-row { display: flex; align-items: center; gap: 8px; justify-content: center; border-top: 1px solid var(--border); padding-top: 10px; }
 .record-row label { font-size: 12px; color: var(--sub); white-space: nowrap; }
-
-.record-row input {
-  width: 64px; padding: 7px 8px; border: 1px solid var(--border);
-  border-radius: 8px; background: rgba(0,0,0,.25); color: var(--fg);
-  font-family: inherit; font-size: 14px; font-weight: 600; text-align: center;
-  outline: none; transition: border-color .2s;
-}
-
+.record-row input { width: 64px; padding: 7px 8px; border: 1px solid var(--border); border-radius: 8px; background: rgba(0,0,0,.25); color: var(--fg); font-family: inherit; font-size: 14px; font-weight: 600; text-align: center; outline: none; transition: border-color .2s; }
 .record-row input:focus { border-color: var(--accent); }
-.record-row input[type=number]::-webkit-inner-spin-button,
-.record-row input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.record-row input[type=number]::-webkit-inner-spin-button, .record-row input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
 .record-row input[type=number] { -moz-appearance: textfield; }
-
 .record-row .unit { font-size: 12px; color: var(--sub); }
-
-.record-btn {
-  font-family: inherit; font-size: 12px; font-weight: 600; padding: 7px 16px;
-  border: none; border-radius: 8px; cursor: pointer;
-  background: var(--accent); color: #1a1a2e; transition: all .2s;
-  box-shadow: 0 2px 10px rgba(245, 168, 208, .25);
-}
-
+.record-btn { font-family: inherit; font-size: 12px; font-weight: 600; padding: 7px 16px; border: none; border-radius: 8px; cursor: pointer; background: var(--accent); color: #1a1a2e; transition: all .2s; box-shadow: 0 2px 10px rgba(245,168,208,.25); }
 .record-btn:hover { opacity: .85; transform: translateY(-1px); }
 
 /* ---- Footer ---- */
@@ -239,14 +181,11 @@ body::after {
 /* ---- Animations ---- */
 @keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
 .item-card { animation: fadeIn .25s ease; }
-
 @keyframes flash { 0%,100% { } 50% { color: var(--green); transform: scale(1.1); } }
 .flash { animation: flash .5s ease; }
-
 @keyframes statPop { 0% { transform: scale(1); } 50% { transform: scale(1.15); } 100% { transform: scale(1); } }
 .stat-pop .stat-value { animation: statPop .4s ease; }
 
-/* ---- Responsive ---- */
 @media (max-width: 400px) {
   .stats-dash { gap: 6px; }
   .stat-card .stat-value { font-size: 16px; }
@@ -259,33 +198,42 @@ body::after {
 <div class="container">
   <div class="header">
     <h1>📋 小茶的学习计划</h1>
-    <p class="subtitle">记录每个项目用了多少时间</p>
+    <p class="subtitle">慢慢来，每一步都算数</p>
+  </div>
+
+  <!-- Top Card: Date + Weather + Quote -->
+  <div class="top-card">
+    <div class="top-row">
+      <span class="date-display" id="dateDisplay">--</span>
+      <span class="weather-display" id="weatherDisplay">🌤 --</span>
+    </div>
+    <div class="quote-display" id="quoteDisplay">--</div>
   </div>
 
   <!-- Stats Dashboard -->
   <div class="stats-dash">
-    <div class="stat-card today" id="statToday">
+    <div class="stat-card today">
       <div class="stat-icon">📅</div>
       <div class="stat-label">今日</div>
       <div class="stat-value" id="todayValue">0</div>
     </div>
-    <div class="stat-card week" id="statWeek">
+    <div class="stat-card week">
       <div class="stat-icon">📊</div>
       <div class="stat-label">本周</div>
       <div class="stat-value" id="weekValue">0</div>
     </div>
-    <div class="stat-card month" id="statMonth">
+    <div class="stat-card month">
       <div class="stat-icon">📈</div>
       <div class="stat-label">本月</div>
       <div class="stat-value" id="monthValue">0</div>
     </div>
   </div>
 
-  <!-- Theme Switcher -->
-  <div class="photo-bar">
-    <button id="prevThemeBtn">◀ 上一个</button>
+  <!-- Tool Bar -->
+  <div class="tool-bar">
+    <button id="prevThemeBtn">◀ 主题</button>
     <button id="shuffleBtn">🎲 换主题</button>
-    <button id="nextThemeBtn">下一个 ▶</button>
+    <button id="nextThemeBtn">主题 ▶</button>
     <button id="refreshBtn">🔄 刷新</button>
   </div>
 
@@ -295,13 +243,11 @@ body::after {
     <button id="addBtn">+ 添加</button>
   </div>
 
-  <!-- Stats -->
   <div class="stats-bar">
     <span id="itemCount">共 0 个项目</span>
     <span>累计 <span class="total-hours" id="totalHours">0</span> 小时</span>
   </div>
 
-  <!-- List -->
   <div class="item-list" id="itemList">
     <div class="empty-state" id="emptyState">
       <div class="icon">📝</div>
@@ -315,8 +261,44 @@ body::after {
 </div>
 
 <script>
-const STORAGE_KEY = 'study_plan_v4';
+const STORAGE_KEY = 'study_plan_v5';
 
+// ---- 每日鼓励语（针对焦虑和ADHD） ----
+const QUOTES = [
+  "今天不用做完所有事，做一件事就够了。",
+  "休息不是偷懒，是大脑需要的保养。",
+  "你的节奏没有错，只是和别人的不一样。",
+  "焦虑是大脑在保护你，但你现在很安全。",
+  "写下来，就不用大脑一直记着了。",
+  "能起床，就已经是今天的胜利。",
+  "五分钟的开始，胜过两小时的计划。",
+  "做不好也没关系，做完就好。",
+  "你的感受是真实的，但它不代表全部事实。",
+  "专注于当下这一刻，其他的等到了再说。",
+  "允许自己慢慢来。",
+  "你已经坚持到了今天，这本身就了不起。",
+  "分心不是失败，是大脑在休息。",
+  "不需要完美，只需要继续。",
+  "深呼吸，你现在很好。",
+  "给自己一朵小红花，因为你又努力了一天。",
+  "完成比完美更重要。",
+  "今天比昨天进步一点点就够了。",
+  "停下来看看路边的花，也是重要的事。",
+  "你已经做得很好了，真的。",
+  "不要和别人比，和昨天的自己比。",
+  "即使只是刷牙洗脸，也是值得肯定的。",
+  "混乱也没关系，慢慢整理就好。",
+  "大脑像蝴蝶一样飞舞也没事，重要的是你还在前进。",
+  "对自己温柔一点，你正在努力生活。",
+  "把大目标拆成小步骤，每一步都值得庆祝。",
+  "今天也是充满可能的一天。",
+  "你不需要一个人扛着，求助也是一种力量。",
+  "放空时间不是浪费，是大脑在整理。",
+  "做得再少，也比什么都不做强。",
+  "你是足够好的，不需要额外证明什么。",
+];
+
+// ---- 渐变主题 ----
 const THEMES = [
   { name: '樱花粉', bg: 'linear-gradient(135deg, #2d1b2e, #1a1a2e, #2d1b2e)' },
   { name: '薰衣草', bg: 'linear-gradient(135deg, #1a1a2e, #2d1b3e, #1a1a2e)' },
@@ -325,7 +307,6 @@ const THEMES = [
   { name: '星空紫', bg: 'linear-gradient(135deg, #1a1a2e, #1b1a3e, #1a1a2e)' },
   { name: '蜜桃粉', bg: 'linear-gradient(135deg, #2d1a2e, #1a1a2e, #1a2d2e)' },
 ];
-
 const accentThemes = [
   { accent: '#f5a8d0', accent3: '#c8a8f5' },
   { accent: '#c8a8f5', accent3: '#89b4fa' },
@@ -336,7 +317,6 @@ const accentThemes = [
 ];
 
 let currentThemeIdx = 0;
-
 function setTheme(index) {
   currentThemeIdx = (index + THEMES.length) % THEMES.length;
   document.body.style.background = THEMES[currentThemeIdx].bg;
@@ -349,10 +329,61 @@ function nextTheme() { setTheme(currentThemeIdx + 1); }
 function prevTheme() { setTheme(currentThemeIdx - 1); }
 function randomTheme() { setTheme(Math.floor(Math.random() * THEMES.length)); }
 
-// ---- Data Model ----
-// items: [{ id, name, records: [{ date: "YYYY-MM-DD", hours: number }] }]
-let items = [];
+// ---- Date & Quote ----
+function updateDateAndQuote() {
+  const now = new Date();
+  const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+  const dateStr = `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日 ${weekdays[now.getDay()]}`;
+  document.getElementById('dateDisplay').textContent = dateStr;
 
+  // Pick quote based on day of year so it's consistent all day
+  const startOfYear = new Date(now.getFullYear(), 0, 0);
+  const diff = now - startOfYear;
+  const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
+  document.getElementById('quoteDisplay').textContent = QUOTES[dayOfYear % QUOTES.length];
+}
+
+// ---- Weather ----
+function fetchWeather() {
+  const savedCity = localStorage.getItem('study_city');
+  if (savedCity) {
+    document.getElementById('weatherDisplay').textContent = `📍 ${savedCity}`;
+  }
+  // Try auto-detect city via browser geolocation → reverse geocode
+  if ('geolocation' in navigator) {
+    navigator.geolocation.getCurrentPosition(pos => {
+      const { latitude, longitude } = pos.coords;
+      // Use Open-Meteo free API for weather (no API key needed)
+      fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&timezone=auto`)
+        .then(r => r.json())
+        .then(data => {
+          const w = data.current_weather;
+          const temp = w.temperature;
+          const code = w.weathercode;
+          const emoji = getWeatherEmoji(code);
+          document.getElementById('weatherDisplay').textContent = `${emoji} ${temp}°C`;
+        })
+        .catch(() => {
+          // weather fetch failed, keep city display
+        });
+    }, () => {
+      // geolocation denied, keep whatever was shown
+    });
+  }
+}
+
+function getWeatherEmoji(code) {
+  if (code === 0) return '☀️';
+  if (code <= 3) return '⛅';
+  if (code <= 20) return '🌫';
+  if (code <= 30) return '🌧';
+  if (code <= 50) return '🌧';
+  if (code <= 70) return '❄️';
+  return '🌦';
+}
+
+// ---- Data Model ----
+let items = [];
 const $ = id => document.getElementById(id);
 const itemInput = $('itemInput');
 const addBtn = $('addBtn');
@@ -390,10 +421,7 @@ function getWeekBounds() {
 
 function getMonthBounds() {
   const now = new Date();
-  return {
-    start: new Date(now.getFullYear(), now.getMonth(), 1),
-    end: new Date(now.getFullYear(), now.getMonth() + 1, 0)
-  };
+  return { start: new Date(now.getFullYear(), now.getMonth(), 1), end: new Date(now.getFullYear(), now.getMonth() + 1, 0) };
 }
 
 function isDateInRange(dateStr, start, end) {
@@ -405,9 +433,7 @@ function getStats() {
   const today = todayStr();
   const week = getWeekBounds();
   const month = getMonthBounds();
-
   let dailyTotal = 0, weeklyTotal = 0, monthlyTotal = 0, grandTotal = 0;
-
   items.forEach(item => {
     (item.records || []).forEach(rec => {
       const h = rec.hours || 0;
@@ -417,20 +443,13 @@ function getStats() {
       if (isDateInRange(rec.date, month.start, month.end)) monthlyTotal += h;
     });
   });
-
-  return {
-    daily: roundHours(dailyTotal),
-    weekly: roundHours(weeklyTotal),
-    monthly: roundHours(monthlyTotal),
-    grandTotal: roundHours(grandTotal)
-  };
+  return { daily: roundHours(dailyTotal), weekly: roundHours(weeklyTotal), monthly: roundHours(monthlyTotal), grandTotal: roundHours(grandTotal) };
 }
 
 function getItemTotal(item) {
   return roundHours((item.records || []).reduce((s, r) => s + (r.hours || 0), 0));
 }
 
-// ---- Render ----
 function render() {
   const hasItems = items.length > 0;
   emptyState.style.display = hasItems ? 'none' : 'block';
@@ -442,7 +461,6 @@ function render() {
     card.className = 'item-card';
     card.dataset.id = item.id;
     const total = getItemTotal(item);
-
     card.innerHTML = `
       <div class="item-card-header">
         <span class="item-name" data-id="${item.id}">${escapeHtml(item.name)}</span>
@@ -454,31 +472,22 @@ function render() {
       </div>
       <div class="record-row">
         <label>🔖 今天学了</label>
-        <input type="number" class="record-input" id="input-${item.id}"
-               value="1" min="0.1" step="0.5" placeholder="0">
+        <input type="number" class="record-input" id="input-${item.id}" value="1" min="0.1" step="0.5" placeholder="0">
         <span class="unit">小时</span>
         <button class="record-btn" data-id="${item.id}">✓ 记录</button>
-      </div>
-    `;
-
+      </div>`;
     itemList.insertBefore(card, emptyState);
 
     const nameSpan = card.querySelector('.item-name');
     nameSpan.addEventListener('click', () => startRename(item.id, nameSpan));
-
     const recBtn = card.querySelector('.record-btn');
     recBtn.addEventListener('click', () => recordTime(item.id));
-
     const recInput = card.querySelector('.record-input');
-    recInput.addEventListener('keydown', e => {
-      if (e.key === 'Enter') recordTime(item.id);
-    });
+    recInput.addEventListener('keydown', e => { if (e.key === 'Enter') recordTime(item.id); });
     recInput.addEventListener('focus', () => recInput.select());
-
     const delBtn = card.querySelector('.item-delete-btn');
     delBtn.addEventListener('click', () => deleteItem(item.id));
   });
-
   updateAllStats();
 }
 
@@ -491,8 +500,8 @@ function updateAllStats() {
   totalHours.textContent = stats.grandTotal;
 }
 
-function animateStat(cardId) {
-  const el = document.getElementById(cardId);
+function animateStat(id) {
+  const el = document.getElementById(id);
   if (!el) return;
   el.classList.remove('stat-pop');
   void el.offsetWidth;
@@ -502,37 +511,24 @@ function animateStat(cardId) {
 function recordTime(id) {
   const item = items.find(i => i.id === id);
   if (!item) return;
-
   const input = document.getElementById(`input-${id}`);
   const val = parseFloat(input.value);
   if (isNaN(val) || val <= 0) { input.focus(); return; }
-
   if (!item.records) item.records = [];
-
-  // Add record with today's date
   item.records.push({ date: todayStr(), hours: val });
   saveData();
-
-  // Update display
   const totalEl = document.getElementById(`total-${id}`);
   totalEl.textContent = getItemTotal(item);
   totalEl.classList.remove('flash');
   void totalEl.offsetWidth;
   totalEl.classList.add('flash');
-
-  // Reset input
   input.value = 1;
   input.focus();
   input.select();
-
   updateAllStats();
-  // Animate stat cards
-  animateStat('statToday');
-  animateStat('statWeek');
-  animateStat('statMonth');
+  ['statToday', 'statWeek', 'statMonth'].forEach(id => animateStat(id));
 }
 
-// ---- Rename, Delete, Add ----
 function startRename(id, spanEl) {
   const item = items.find(i => i.id === id);
   if (!item) return;
@@ -567,10 +563,8 @@ function addItem() {
   if (!name) { itemInput.focus(); return; }
   const item = { id: genId(), name, records: [] };
   items.push(item);
-  itemInput.value = '';
-  itemInput.focus();
-  saveData();
-  render();
+  itemInput.value = ''; itemInput.focus();
+  saveData(); render();
   const newInput = document.getElementById(`input-${item.id}`);
   if (newInput) setTimeout(() => newInput.focus(), 100);
 }
@@ -595,8 +589,11 @@ function init() {
   const savedIdx = localStorage.getItem('study_theme_idx');
   if (savedIdx !== null) setTheme(parseInt(savedIdx));
   else setTheme(0);
+
+  updateDateAndQuote();
+  fetchWeather();
+
   items = loadData();
-  // Ensure all items have records array
   items.forEach(i => { if (!i.records) i.records = []; });
   render();
   itemInput.focus();
