@@ -31,7 +31,9 @@ body {
   justify-content: center;
   padding: 24px 12px;
   background: #1a1a2e;
-  transition: background 1s ease;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease;
   position: relative;
 }
 
@@ -231,9 +233,9 @@ body::after {
 
   <!-- Tool Bar -->
   <div class="tool-bar">
-    <button id="prevThemeBtn">◀ 主题</button>
-    <button id="shuffleBtn">🎲 换主题</button>
-    <button id="nextThemeBtn">主题 ▶</button>
+    <button id="prevPhotoBtn">◀ 上一张</button>
+    <button id="shuffleBtn">🎲 随机照片</button>
+    <button id="nextPhotoBtn">下一张 ▶</button>
     <button id="refreshBtn">🔄 刷新</button>
   </div>
 
@@ -299,35 +301,84 @@ const QUOTES = [
 ];
 
 // ---- 渐变主题 ----
-const THEMES = [
-  { name: '樱花粉', bg: 'linear-gradient(135deg, #2d1b2e, #1a1a2e, #2d1b2e)' },
-  { name: '薰衣草', bg: 'linear-gradient(135deg, #1a1a2e, #2d1b3e, #1a1a2e)' },
-  { name: '日落橘', bg: 'linear-gradient(135deg, #2d1b1e, #1a1a2e, #2d1b1e)' },
-  { name: '薄荷绿', bg: 'linear-gradient(135deg, #1b2d1e, #1a1a2e, #1b2d1e)' },
-  { name: '星空紫', bg: 'linear-gradient(135deg, #1a1a2e, #1b1a3e, #1a1a2e)' },
-  { name: '蜜桃粉', bg: 'linear-gradient(135deg, #2d1a2e, #1a1a2e, #1a2d2e)' },
-];
-const accentThemes = [
-  { accent: '#f5a8d0', accent3: '#c8a8f5' },
-  { accent: '#c8a8f5', accent3: '#89b4fa' },
-  { accent: '#f9e2af', accent3: '#f5a8d0' },
-  { accent: '#a6e3a1', accent3: '#89b4fa' },
-  { accent: '#89b4fa', accent3: '#c8a8f5' },
-  { accent: '#f5a8d0', accent3: '#f9e2af' },
+const PHOTOS = [
+  "https://i.ibb.co/4ns3Sts3/20260512105111-44-2.jpg",
+  "https://i.ibb.co/4RCJX8C5/20260512105208-67-2.jpg",
+  "https://i.ibb.co/5xzTLmS4/20260512105132-54-2.jpg",
+  "https://i.ibb.co/67mrwpJZ/20260512105128-52-2.jpg",
+  "https://i.ibb.co/6R7Qz7Rb/20260512105211-68-2.jpg",
+  "https://i.ibb.co/9kCBq4Bf/20260512105221-71-2.jpg",
+  "https://i.ibb.co/bMzZznv1/20260512105116-46-2.jpg",
+  "https://i.ibb.co/BVh0x0R2/20260512105154-62-2.jpg",
+  "https://i.ibb.co/d4RRrxjc/20260512105205-66-2.jpg",
+  "https://i.ibb.co/DDY7PZ8b/20260512105143-58-2.jpg",
+  "https://i.ibb.co/DHwnFsB6/20260512105147-60-2.jpg",
+  "https://i.ibb.co/Dx4K8vS/20260512105122-49-2.jpg",
+  "https://i.ibb.co/G3kX1V5N/20260512105123-50-2.jpg",
+  "https://i.ibb.co/gLmSfGQV/20260512105236-75-2.jpg",
+  "https://i.ibb.co/HfphXCFd/20260512105228-73-2.jpg",
+  "https://i.ibb.co/Kj3W1dfk/20260512105203-65-2.jpg",
+  "https://i.ibb.co/ks7P3VrZ/20260512105135-55-2.jpg",
+  "https://i.ibb.co/LzL5KxJ6/20260512105120-48-2.jpg",
+  "https://i.ibb.co/MDZ6gHhy/20260512105215-69-2.jpg",
+  "https://i.ibb.co/NgtjtYWj/20260512105201-64-2.jpg",
+  "https://i.ibb.co/nsLsMm3P/20260512105141-57-2.jpg",
+  "https://i.ibb.co/pBr33tLL/20260512105225-72-2.jpg",
+  "https://i.ibb.co/qLYkc6mq/20260512105130-53-2.jpg",
+  "https://i.ibb.co/r2RrWn35/20260512105145-59-2.jpg",
+  "https://i.ibb.co/svwB2hYT/20260512105218-70-2.jpg",
+  "https://i.ibb.co/twb6BM6r/20260512105152-61-2.jpg",
+  "https://i.ibb.co/v4qD68kz/20260512105117-47-2.jpg",
+  "https://i.ibb.co/v6Kt2cCb/20260512105138-56-2.jpg",
+  "https://i.ibb.co/vC0ncb1Y/20260512105232-74-2.jpg",
+  "https://i.ibb.co/vCYgmLnk/20260512105113-45-2.jpg",
+  "https://i.ibb.co/wZdvVsC6/20260512105157-63-2.jpg",
+  "https://i.ibb.co/ycQZPVnq/20260512105125-51-2.jpg",
+  "https://i.ibb.co/2LZGsMJ/20260512105021-15-2.jpg",
+  "https://i.ibb.co/5hkQNLx0/20260512105109-42-2.jpg",
+  "https://i.ibb.co/CpdWHTDg/20260512105110-43-2.jpg",
+  "https://i.ibb.co/DZrDvsc/20260512105023-16-2.jpg",
+  "https://i.ibb.co/HT2vfB9f/20260512105028-19-2.jpg",
+  "https://i.ibb.co/JjGkxybg/20260512105015-11-2.jpg",
+  "https://i.ibb.co/JjM5X6MQ/20260512105044-23-2.jpg",
+  "https://i.ibb.co/jkVPbLWt/20260512105056-34-2.jpg",
+  "https://i.ibb.co/JWNQB24r/20260512105104-39-2.jpg",
+  "https://i.ibb.co/LD96TbpQ/20260512105019-13-2.jpg",
+  "https://i.ibb.co/LDyK6Wts/20260512105052-30-2.jpg",
+  "https://i.ibb.co/LXH4yr4y/20260512105106-40-2.jpg",
+  "https://i.ibb.co/Lz8pYPXs/20260512105059-37-2.jpg",
+  "https://i.ibb.co/mF8b47vc/20260512105020-14-2.jpg",
+  "https://i.ibb.co/PG2xrHtH/20260512105046-24-2.jpg",
+  "https://i.ibb.co/pjM9JWqy/20260512105043-22-2.jpg",
+  "https://i.ibb.co/pv5xSfwt/20260512105024-17-2.jpg",
+  "https://i.ibb.co/PZqgbxfq/20260512105054-32-2.jpg",
+  "https://i.ibb.co/QFWrbpxj/20260512105055-33-2.jpg",
+  "https://i.ibb.co/rGp33yNp/20260512105041-21-2.jpg",
+  "https://i.ibb.co/rK9Stshg/20260512105053-31-2.jpg",
+  "https://i.ibb.co/RTSWjj3d/20260512105049-26-2.jpg",
+  "https://i.ibb.co/TBCbws7x/20260512105026-18-2.jpg",
+  "https://i.ibb.co/TM7nndNS/20260512105058-36-2.jpg",
+  "https://i.ibb.co/tPZJNHs4/20260512105048-25-2.jpg",
+  "https://i.ibb.co/VWQdVgxD/20260512105050-27-2.jpg",
+  "https://i.ibb.co/Wv6mdkMs/20260512105052-29-2.jpg",
+  "https://i.ibb.co/WvtWdzgZ/20260512105107-41-2.jpg",
+  "https://i.ibb.co/xq6WpmZs/20260512105057-35-2.jpg",
+  "https://i.ibb.co/ychdYkPx/20260512105101-38-2.jpg",
+  "https://i.ibb.co/YFhV2t5M/20260512105038-20-2.jpg",
 ];
 
-let currentThemeIdx = 0;
-function setTheme(index) {
-  currentThemeIdx = (index + THEMES.length) % THEMES.length;
-  document.body.style.background = THEMES[currentThemeIdx].bg;
-  const a = accentThemes[currentThemeIdx];
-  document.documentElement.style.setProperty('--accent', a.accent);
-  document.documentElement.style.setProperty('--accent3', a.accent3);
-  localStorage.setItem('study_theme_idx', currentThemeIdx);
+let currentPhotoIdx = 0;
+
+function setPhoto(index) {
+  currentPhotoIdx = (index + PHOTOS.length) % PHOTOS.length;
+  document.body.style.backgroundImage = `url(${PHOTOS[currentPhotoIdx]})`;
+  document.body.style.backgroundSize = 'cover';
+  document.body.style.backgroundPosition = 'center';
+  localStorage.setItem('study_photo_idx', currentPhotoIdx);
 }
-function nextTheme() { setTheme(currentThemeIdx + 1); }
-function prevTheme() { setTheme(currentThemeIdx - 1); }
-function randomTheme() { setTheme(Math.floor(Math.random() * THEMES.length)); }
+function nextPhoto() { setPhoto(currentPhotoIdx + 1); }
+function prevPhoto() { setPhoto(currentPhotoIdx - 1); }
+function randomPhoto() { setPhoto(Math.floor(Math.random() * PHOTOS.length)); }
 
 // ---- Date & Quote ----
 function updateDateAndQuote() {
@@ -574,21 +625,21 @@ itemInput.addEventListener('keydown', e => { if (e.key === 'Enter') addItem(); }
 addBtn.addEventListener('click', addItem);
 document.addEventListener('keydown', e => {
   if (e.target.tagName === 'INPUT') return;
-  if (e.key === 'ArrowRight') nextTheme();
-  if (e.key === 'ArrowLeft') prevTheme();
+  if (e.key === 'ArrowRight') nextPhoto();
+  if (e.key === 'ArrowLeft') prevPhoto();
 });
-$('nextThemeBtn').addEventListener('click', nextTheme);
-$('prevThemeBtn').addEventListener('click', prevTheme);
-$('shuffleBtn').addEventListener('click', randomTheme);
+$('nextPhotoBtn').addEventListener('click', nextPhoto);
+$('prevPhotoBtn').addEventListener('click', prevPhoto);
+$('shuffleBtn').addEventListener('click', randomPhoto);
 $('refreshBtn').addEventListener('click', () => {
   window.location.href = window.location.href.split('?')[0] + '?t=' + Date.now();
 });
 
 // ---- Init ----
 function init() {
-  const savedIdx = localStorage.getItem('study_theme_idx');
-  if (savedIdx !== null) setTheme(parseInt(savedIdx));
-  else setTheme(0);
+  const savedIdx = localStorage.getItem('study_photo_idx');
+  if (savedIdx !== null) setPhoto(parseInt(savedIdx));
+  else randomPhoto();
 
   updateDateAndQuote();
   fetchWeather();
