@@ -245,7 +245,7 @@ body::after {
 
   <div class="stats-bar">
     <span id="itemCount">共 0 个项目</span>
-    <span>累计 <span class="total-hours" id="totalHours">0</span> 小时</span>
+    <span>累计 <span class="total-hours" id="totalHours">0</span> 分钟</span>
   </div>
 
   <div class="item-list" id="itemList">
@@ -468,12 +468,12 @@ function render() {
       </div>
       <div class="item-total">
         <span class="hours-big" id="total-${item.id}">${total}</span>
-        <span class="hours-label">累计小时</span>
+        <span class="hours-label">累计分钟</span>
       </div>
       <div class="record-row">
         <label>🔖 今天学了</label>
-        <input type="number" class="record-input" id="input-${item.id}" value="1" min="0.1" step="0.5" placeholder="0">
-        <span class="unit">小时</span>
+        <input type="number" class="record-input" id="input-${item.id}" value="30" min="1" step="5" placeholder="0">
+        <span class="unit">分钟</span>
         <button class="record-btn" data-id="${item.id}">✓ 记录</button>
       </div>`;
     itemList.insertBefore(card, emptyState);
