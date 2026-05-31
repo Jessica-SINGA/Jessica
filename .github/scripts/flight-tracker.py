@@ -143,7 +143,7 @@ for p in prices:
 card = f"""<!-- FLIGHT_PRICES_START -->
   <div style="width:100%;max-width:420px;margin:8px auto 0;background:var(--bg-card);backdrop-filter:var(--glass-blur);border:1px solid rgba(57,255,20,0.2);border-left:3px solid var(--aurora-green);border-radius:var(--radius-sm);padding:10px 14px;text-align:left;">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-      <span style="font-size:0.7rem;font-weight:600;color:var(--aurora-green);">✈️ 机票价格追踪 · 成都→奥斯陆</span>
+      <span style="font-size:0.7rem;font-weight:600;color:var(--aurora-green);">✈️ 机票价格追踪 · 成都⇄奥斯陆（往返含税）</span>
       <span style="font-size:0.55rem;background:{rec_colors[recommendation]};color:#050a1a;padding:2px 8px;border-radius:10px;font-weight:700;">{rec_icons[recommendation]} {rec_labels[recommendation]}</span>
     </div>
     <div style="display:flex;gap:12px;align-items:stretch;">
