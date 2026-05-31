@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 挪威极光之旅</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0a1628;
+  --navy-light: #0f1f3a;
+  --aurora-green: #00ff88;
+  --aurora-purple: #8b5cf6;
+  --ice-blue: #4facfe;
+  --text-primary: #e8edf5;
+  --text-secondary: #8a9bb5;
+  --card-bg: rgba(15, 31, 58, 0.7);
+  --border: rgba(79, 172, 254, 0.12);
+  --glow: rgba(0, 255, 136, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--navy);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* --- Starfield --- */
+#starfield {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- Aurora glow orb --- */
+.aurora-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+.aurora-orb.green {
+  width: 500px; height: 500px;
+  background: rgba(0, 255, 136, 0.06);
+  top: -100px; right: -100px;
+  animation: aurora-drift 12s ease-in-out infinite alternate;
+}
+.aurora-orb.purple {
+  width: 400px; height: 400px;
+  background: rgba(139, 92, 246, 0.05);
+  bottom: 10%; left: -80px;
+  animation: aurora-drift 15s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes aurora-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(60px, 40px) scale(1.15); }
+}
+
+/* --- Layout --- */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+
+/* --- Hero --- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 24px;
+  position: relative;
+}
+
+.hero-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--aurora-green);
+  margin-bottom: 24px;
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.2s forwards;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.4s forwards;
+}
+
+.hero h1 em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--aurora-green), var(--ice-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin-bottom: 32px;
+  font-weight: 300;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.6s forwards;
+}
+
+.hero-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--aurora-green), var(--aurora-purple));
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.7s forwards;
+}
+
+/* --- Countdown --- */
+.countdown {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.8s forwards;
+}
+
+.countdown-item {
+  text-align: center;
+}
+
+.countdown-num {
+  font-size: 2.2rem;
+  font-weight: 600;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(135deg, var(--aurora-green), var(--ice-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.countdown-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: bounce 2s infinite;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* --- Route Banner --- */
+.route-banner {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 40px;
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.route-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.route-step {
+  padding: 6px 14px;
+  background: rgba(0, 255, 136, 0.08);
+  border-radius: 20px;
+  color: var(--aurora-green);
+  font-weight: 500;
+}
+
+.route-arrow {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.route-meta {
+  display: flex;
+  gap: 24px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.route-meta span strong {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* --- Cards --- */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  backdrop-filter: blur(20px);
+  margin-bottom: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+}
+
+/* --- Checklist --- */
+.checklist-group {
+  margin-bottom: 20px;
+}
+
+.checklist-group:last-child {
+  margin-bottom: 0;
+}
+
+.checklist-group-header {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--ice-blue);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.checklist-item:last-child {
+  border-bottom: none;
+}
+
+.checklist-item input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--text-secondary);
+  border-radius: 4px;
+  flex-shrink: 0;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.checklist-item input:checked + .checkbox-custom {
+  border-color: var(--aurora-green);
+  background: var(--aurora-green);
+}
+
+.checklist-item input:checked + .checkbox-custom::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.checklist-item .check-label {
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  flex: 1;
+}
+
+.checklist-item input:checked ~ .check-label {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+/* --- Timeline --- */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--aurora-green), var(--aurora-purple), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 24px;
+  padding: 20px 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: transform 0.2s;
+}
+
+.timeline-item:hover {
+  transform: translateX(4px);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -33px;
+  top: 24px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--aurora-green);
+  border: 3px solid var(--navy);
+  box-shadow: 0 0 12px var(--glow);
+}
+
+.timeline-item.aurora::before {
+  background: var(--aurora-purple);
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.3);
+}
+
+.timeline-item.special::before {
+  background: var(--ice-blue);
+  box-shadow: 0 0 16px rgba(79, 172, 254, 0.3);
+}
+
+.timeline-date {
+  font-size: 0.75rem;
+  color: var(--aurora-green);
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.timeline-item.aurora .timeline-date { color: var(--aurora-purple); }
+.timeline-item.special .timeline-date { color: var(--ice-blue); }
+
+.timeline-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.timeline-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* --- Strategy Cards --- */
+.strategy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.strategy-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  backdrop-filter: blur(20px);
+}
+
+.strategy-card.recommend {
+  border-color: rgba(0, 255, 136, 0.2);
+  background: rgba(0, 255, 136, 0.04);
+}
+
+.strategy-card.secure {
+  border-color: rgba(139, 92, 246, 0.2);
+  background: rgba(139, 92, 246, 0.04);
+}
+
+.strategy-badge {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.strategy-card.recommend .strategy-badge { color: var(--aurora-green); }
+.strategy-card.secure .strategy-badge { color: var(--aurora-purple); }
+
+.strategy-rate {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
+
+.strategy-detail {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* --- Budget --- */
+.budget-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.budget-item:last-child {
+  border-bottom: none;
+}
+
+.budget-item.total {
+  border-top: 2px solid var(--aurora-green);
+  margin-top: 8px;
+  padding-top: 18px;
+}
+
+.budget-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.budget-value {
+  font-weight: 500;
+}
+
+.budget-item.total .budget-value {
+  color: var(--aurora-green);
+  font-size: 1.1rem;
+}
+
+.budget-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.budget-bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 1s ease;
+}
+
+/* --- Gear Checklist (compact side-by-side) --- */
+.gear-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+}
+
+/* --- Footer --- */
+.site-footer {
+  text-align: center;
+  padding: 60px 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.site-footer .footer-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+/* --- Animations --- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.section-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Responsive --- */
+@media (max-width: 640px) {
+  .countdown { gap: 20px; }
+  .countdown-num { font-size: 1.6rem; }
+  .route-banner { flex-direction: column; align-items: flex-start; padding: 24px; }
+  .route-meta { flex-wrap: wrap; gap: 12px; }
+  .strategy-grid { grid-template-columns: 1fr; }
+  .gear-grid { grid-template-columns: 1fr; }
+  .container { padding: 0 16px; }
+  section { padding: 48px 0; }
+  .card { padding: 20px; }
+  .timeline { padding-left: 32px; }
+  .timeline-item::before { left: -25px; width: 10px; height: 10px; }
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+
+/* --- Progress tracking --- */
+.progress-stats {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 32px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.progress-stats span strong {
+  color: var(--aurora-green);
+  font-weight: 500;
+}
+
+/* --- App list pills --- */
+.app-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.app-pill {
+  padding: 4px 14px;
+  background: rgba(79, 172, 254, 0.08);
+  border: 1px solid rgba(79, 172, 254, 0.15);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: var(--ice-blue);
+}
+</style>
+</head>
+<body>
+
+<!-- Starfield canvas -->
+<canvas id="starfield"></canvas>
+<div class="aurora-orb green"></div>
+<div class="aurora-orb purple"></div>
+
+<!-- === Hero === -->
+<section class="hero">
+  <div class="hero-label">Plan Your Adventure</div>
+  <h1>2026 <em>挪威极光</em>之旅</h1>
+  <p class="hero-sub">成都出发 · 13天深度游 · Tromsø + 罗弗敦群岛</p>
+  <div class="hero-divider"></div>
+
+  <div class="countdown" id="countdown">
+    <div class="countdown-item"><div class="countdown-num" id="cd-days">--</div><div class="countdown-label">天</div></div>
+    <div class="countdown-item"><div class="countdown-num" id="cd-hours">--</div><div class="countdown-label">时</div></div>
+    <div class="countdown-item"><div class="countdown-num" id="cd-mins">--</div><div class="countdown-label">分</div></div>
+    <div class="countdown-item"><div class="countdown-num" id="cd-secs">--</div><div class="countdown-label">秒</div></div>
+  </div>
+
+  <div class="hero-scroll" onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">Scroll</div>
+</section>
+
+<div class="container">
+
+<!-- === 概览 === -->
+<section id="overview" class="section-fade">
+  <h2 class="section-title">行程概览</h2>
+  <p class="section-subtitle">一张图看懂这趟旅行</p>
+
+  <div class="route-banner">
+    <div class="route-steps">
+      <span class="route-step">成都</span>
+      <span class="route-arrow">→</span>
+      <span class="route-step">奥斯陆</span>
+      <span class="route-arrow">→</span>
+      <span class="route-step">Tromsø</span>
+      <span class="route-arrow">→</span>
+      <span class="route-step">罗弗敦</span>
+      <span class="route-arrow">→</span>
+      <span class="route-step">回国</span>
+    </div>
+    <div class="route-meta">
+      <span>📅 <strong>9.25 — 10.7</strong></span>
+      <span>💰 <strong>¥18,000–22,000</strong> / 人</span>
+      <span>✈️ <strong>请 3–4 天</strong>年休</span>
+    </div>
+  </div>
+</section>
+
+<!-- === 准备清单 === -->
+<section id="checklist" class="section-fade">
+  <h2 class="section-title">出发准备清单</h2>
+  <p class="section-subtitle">按时间线勾掉每一项</p>
+
+  <div class="progress-stats" id="progress-stats">
+    <span>已完成 <strong id="progress-count">0</strong> / <strong id="progress-total">0</strong></span>
+    <span>进度 <strong id="progress-pct">0%</strong></span>
+  </div>
+
+  <div class="card" id="checklist-app">
+    <div class="checklist-group">
+      <div class="checklist-group-header">6 月 · 抢票</div>
+      <label class="checklist-item" data-key="flight"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">买国际机票（盯 Google Flights）</span></label>
+      <label class="checklist-item" data-key="apps"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">下载必备 App</span></label>
+    </div>
+    <div class="checklist-group">
+      <div class="checklist-group-header">6–7 月 · 住宿与活动</div>
+      <label class="checklist-item" data-key="hotel"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">订 Tromsø 酒店（可免费取消）</span></label>
+      <label class="checklist-item" data-key="aurora-tour"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">订极光团（Chasing Lights）</span></label>
+    </div>
+    <div class="checklist-group">
+      <div class="checklist-group-header">7–8 月 · 证件与通信</div>
+      <label class="checklist-item" data-key="visa"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">办申根签证</span></label>
+      <label class="checklist-item" data-key="insurance"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">买旅行保险</span></label>
+      <label class="checklist-item" data-key="sim"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">买欧洲电话卡 / eSIM</span></label>
+      <label class="checklist-item" data-key="currency"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">换挪威克朗（NOK 2,000–3,000）</span></label>
+    </div>
+    <div class="checklist-group">
+      <div class="checklist-group-header">8–9 月 · 行前准备</div>
+      <label class="checklist-item" data-key="norwegian"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">学基础挪威语（10 句）</span></label>
+      <label class="checklist-item" data-key="gear"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">买保暖装备（迪卡侬 / 优衣库）</span></label>
+      <label class="checklist-item" data-key="final"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">最终确认 · 在线值机 · 打包</span></label>
+    </div>
+  </div>
+</section>
+
+<!-- === 逐日行程 === -->
+<section id="itinerary" class="section-fade">
+  <h2 class="section-title">逐日行程</h2>
+  <p class="section-subtitle">13 天 · 从成都到北极圈</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">DAY 1 · 9/25 周五</div>
+      <div class="timeline-title">成都出发 ✈️</div>
+      <div class="timeline-desc">晚上从成都起飞，开启极光之旅</div>
+    </div>
+    <div class="timeline-item special">
+      <div class="timeline-date">DAY 2 · 9/26 周六</div>
+      <div class="timeline-title">抵达 Tromsø 🛬</div>
+      <div class="timeline-desc">到达北极圈。超市采购、港口散步、倒时差</div>
+    </div>
+    <div class="timeline-item special">
+      <div class="timeline-date">DAY 3 · 9/27 周日 · 中秋🎑</div>
+      <div class="timeline-title">Tromsø 市区探索</div>
+      <div class="timeline-desc">北极教堂 → 缆车登顶 → 极地博物馆。中秋在北极过</div>
+    </div>
+    <div class="timeline-item aurora">
+      <div class="timeline-date">DAY 4 · 9/28 周一</div>
+      <div class="timeline-title">第一次追极光 ✨</div>
+      <div class="timeline-desc">白天市区自由探索，晚上 20:00 跟团追极光</div>
+    </div>
+    <div class="timeline-item aurora">
+      <div class="timeline-date">DAY 5 · 9/29 周二</div>
+      <div class="timeline-title">峡湾游 + 第二次追极光 ✨</div>
+      <div class="timeline-desc">白天狗拉雪橇或峡湾游，晚上继续追光</div>
+    </div>
+    <div class="timeline-item aurora">
+      <div class="timeline-date">DAY 6 · 9/30 周三</div>
+      <div class="timeline-title">自由日 / 补追极光 ✨</div>
+      <div class="timeline-desc">自由活动，视天气补追第三次极光</div>
+    </div>
+    <div class="timeline-item special">
+      <div class="timeline-date">DAY 7 · 10/1 周四 · 国庆🎉</div>
+      <div class="timeline-title">飞往罗弗敦群岛</div>
+      <div class="timeline-desc">从 Tromsø 飞 Svolvær，入住海景小木屋</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">DAY 8 · 10/2 周五</div>
+      <div class="timeline-title">罗弗敦 · 渔村漫游</div>
+      <div class="timeline-desc">E10 公路自驾，探访 Å 渔村和 Henningsvær 足球场</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">DAY 9 · 10/3 周六</div>
+      <div class="timeline-title">罗弗敦 · 徒步与出海</div>
+      <div class="timeline-desc">Reinebringen 登山徒步，或出海钓鱼</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">DAY 10 · 10/4 周日</div>
+      <div class="timeline-title">罗弗敦 → 奥斯陆</div>
+      <div class="timeline-desc">离开罗弗敦，飞往奥斯陆</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">DAY 11 · 10/5 周一</div>
+      <div class="timeline-title">奥斯陆 → 返程</div>
+      <div class="timeline-desc">奥斯陆市区游览或直接转机回国</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">DAY 12 · 10/6 周二</div>
+      <div class="timeline-title">转机中</div>
+      <div class="timeline-desc">飞行途中，回味北极圈的一切</div>
+    </div>
+    <div class="timeline-item special">
+      <div class="timeline-date">DAY 13 · 10/7 周三</div>
+      <div class="timeline-title">抵达成都 🏠</div>
+      <div class="timeline-desc">到家，整理照片和回忆</div>
+    </div>
+  </div>
+</section>
+
+<!-- === 极光装备 === -->
+<section id="gear" class="section-fade">
+  <h2 class="section-title">极光装备清单</h2>
+  <p class="section-subtitle">洋葱式穿法，勾掉打包</p>
+
+  <div class="card">
+    <div class="gear-grid" id="gear-list">
+      <label class="checklist-item" data-key="g-base"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">HEATTECH 保暖内衣</span></label>
+      <label class="checklist-item" data-key="g-merino"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">美利奴羊毛打底衫</span></label>
+      <label class="checklist-item" data-key="g-fleece"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">抓绒衣 / 羊毛衫</span></label>
+      <label class="checklist-item" data-key="g-puffy"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">薄羽绒服</span></label>
+      <label class="checklist-item" data-key="g-shell"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">防风防水冲锋衣</span></label>
+      <label class="checklist-item" data-key="g-long"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">长款羽绒服（追极光穿）</span></label>
+      <label class="checklist-item" data-key="g-pants"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">防风防水冲锋裤</span></label>
+      <label class="checklist-item" data-key="g-leggings"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">加绒打底裤</span></label>
+      <label class="checklist-item" data-key="g-socks"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">美利奴羊毛袜 3–4 双</span></label>
+      <label class="checklist-item" data-key="g-gloves"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">防水保暖手套</span></label>
+      <label class="checklist-item" data-key="g-hat"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">毛线帽（盖耳款）</span></label>
+      <label class="checklist-item" data-key="g-scarf"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">围巾 / Buff 面罩</span></label>
+      <label class="checklist-item" data-key="g-boots"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">防水防滑靴</span></label>
+      <label class="checklist-item" data-key="g-thermos"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">保温杯 500ml+</span></label>
+      <label class="checklist-item" data-key="g-warmer"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">暖宝宝 10–20 片</span></label>
+      <label class="checklist-item" data-key="g-bank"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">充电宝 10,000mAh+</span></label>
+      <label class="checklist-item" data-key="g-adapter"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">欧标转换插头 C/F 型</span></label>
+      <label class="checklist-item" data-key="g-skincare"><input type="checkbox"><span class="checkbox-custom"></span><span class="check-label">保湿护肤品 + 润唇膏</span></label>
+    </div>
+  </div>
+</section>
+
+<!-- === 追光策略 === -->
+<section id="aurora" class="section-fade">
+  <h2 class="section-title">追光策略</h2>
+  <p class="section-subtitle">极光不是等的，是追的</p>
+
+  <div class="strategy-grid">
+    <div class="strategy-card recommend">
+      <div class="strategy-badge">★ 推荐方案</div>
+      <div class="strategy-rate">75–80%</div>
+      <div class="strategy-detail">成功率 · 2 次团 · ¥2,000–2,600</div>
+    </div>
+    <div class="strategy-card secure">
+      <div class="strategy-badge">保险方案</div>
+      <div class="strategy-rate">≈ 95%</div>
+      <div class="strategy-detail">成功率 · 3 次团 · ¥3,000–4,000</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <div class="card-title">推荐旅行社</div>
+    <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:12px;">
+      <strong style="color:var(--aurora-green);">Chasing Lights</strong> — 极光摄影团，领队帮拍照，
+      口碑最好的极光团之一。价格 NOK 1,500–2,000 / 次。
+    </p>
+    <div class="card-title" style="font-size:0.9rem;margin-bottom:8px;">极光预测 App</div>
+    <div class="app-pills">
+      <span class="app-pill">My Aurora Forecast</span>
+      <span class="app-pill">yr.no（云量预报）</span>
+      <span class="app-pill">Space Weather Live</span>
+      <span class="app-pill">Windy（云层图）</span>
+    </div>
+  </div>
+</section>
+
+<!-- === 预算 === -->
+<section id="budget" class="section-fade">
+  <h2 class="section-title">预算概览</h2>
+  <p class="section-subtitle">人均花费明细</p>
+
+  <div class="card">
+    <div class="budget-item">
+      <span class="budget-label">国际机票</span>
+      <span class="budget-value">¥7,500–8,500</span>
+    </div>
+    <div class="budget-item">
+      <span class="budget-label">挪威境内交通</span>
+      <span class="budget-value">¥2,000–2,500</span>
+    </div>
+    <div class="budget-item">
+      <span class="budget-label">住宿（8 晚）</span>
+      <span class="budget-value">¥3,000–4,000</span>
+    </div>
+    <div class="budget-item">
+      <span class="budget-label">极光团（2 次）</span>
+      <span class="budget-value">¥1,500–2,000</span>
+    </div>
+    <div class="budget-item">
+      <span class="budget-label">餐饮（13 天）</span>
+      <span class="budget-value">¥2,000–2,500</span>
+    </div>
+    <div class="budget-item">
+      <span class="budget-label">交通 + 景点</span>
+      <span class="budget-value">¥500–1,000</span>
+    </div>
+    <div class="budget-item">
+      <span class="budget-label">签证 + 保险</span>
+      <span class="budget-value">¥1,000–1,500</span>
+    </div>
+    <div class="budget-item total">
+      <span class="budget-label">总计（不含装备）</span>
+      <span class="budget-value">≈ ¥18,000–22,000</span>
+    </div>
+    <div class="budget-bar">
+      <div class="budget-bar-fill" id="budget-bar"></div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- === Footer === -->
+<footer class="site-footer">
+  <p class="footer-quote">"中秋在北极看极光，国庆在罗弗敦看海"</p>
+  <p>编制日期：2026 年 5 月 · 出发前请重新确认航班与价格</p>
+</footer>
+
+<script>
+// --- Countdown ---
+(function() {
+  const departure = new Date('2026-09-25T20:00:00+08:00');
+  function update() {
+    const now = new Date();
+    const diff = departure - now;
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '00';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent = '00';
+      document.getElementById('cd-secs').textContent = '00';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+  }
+  update();
+  setInterval(update, 1000);
+})();
+
+// --- Starfield ---
+(function() {
+  const canvas = document.getElementById('starfield');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = document.body.scrollHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const count = 200;
+  for (let i = 0; i < count; i++) {
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.5 + 0.3,
+      a: Math.random() * 0.8 + 0.2,
+      speed: Math.random() * 0.02 + 0.005
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (const s of stars) {
+      s.a += (Math.random() - 0.5) * s.speed;
+      s.a = Math.max(0.1, Math.min(1, s.a));
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${s.a})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  // Re-generate stars on scroll resize
+  let scrollTimeout;
+  window.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      canvas.height = document.body.scrollHeight;
+    }, 300);
+  });
+})();
+
+// --- Checklists (localStorage) ---
+(function() {
+  function loadChecklist(prefix) {
+    const items = document.querySelectorAll(`[data-key^="${prefix}"]`);
+    let count = 0;
+    items.forEach(item => {
+      const key = item.dataset.key;
+      const saved = localStorage.getItem(key);
+      const cb = item.querySelector('input[type="checkbox"]');
+      if (saved === 'true') {
+        cb.checked = true;
+        count++;
+      }
+      cb.addEventListener('change', () => {
+        localStorage.setItem(key, cb.checked);
+        updateProgress();
+      });
+    });
+    return { total: items.length, done: count };
+  }
+
+  function updateProgress() {
+    const allItems = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+    const checked = document.querySelectorAll('.checklist-item input[type="checkbox"]:checked');
+    const total = allItems.length;
+    const done = checked.length;
+    const pct = total > 0 ? Math.round(done / total * 100) : 0;
+
+    const countEl = document.getElementById('progress-count');
+    const totalEl = document.getElementById('progress-total');
+    const pctEl = document.getElementById('progress-pct');
+    if (countEl) countEl.textContent = done;
+    if (totalEl) totalEl.textContent = total;
+    if (pctEl) pctEl.textContent = pct + '%';
+  }
+
+  // Load all checklists
+  document.querySelectorAll('.checklist-item').forEach(item => {
+    const key = item.dataset.key;
+    const saved = localStorage.getItem(key);
+    const cb = item.querySelector('input[type="checkbox"]');
+    if (saved === 'true') {
+      cb.checked = true;
+    }
+    cb.addEventListener('change', () => {
+      localStorage.setItem(key, cb.checked);
+      updateProgress();
+    });
+  });
+
+  updateProgress();
+})();
+
+// --- Budget bar ---
+(function() {
+  const bar = document.getElementById('budget-bar');
+  if (bar) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          bar.style.width = '78%';
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(bar);
+  }
+})();
+
+// --- Scroll fade observer ---
+(function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.section-fade').forEach(el => observer.observe(el));
+})();
+</script>
+
+</body>
+</html>

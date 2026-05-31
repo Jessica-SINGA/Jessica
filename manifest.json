@@ -1,0 +1,17 @@
+{
+  "name": "首尔旅行计划",
+  "short_name": "首尔计划",
+  "description": "韩国首尔夏日旅行计划 2026.7-8 · 5天4晚",
+  "start_url": "norway-travel/seoul_plan.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FBF5F3",
+  "theme_color": "#F5E6E8",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇰🇷</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}
