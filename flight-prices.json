@@ -1,0 +1,315 @@
+[
+  {
+    "date": "2026-05-18",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "price": 5450,
+        "trend": "down"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "price": 7050,
+        "trend": "down"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "price": 9150,
+        "trend": "down"
+      }
+    ],
+    "recommendation": "wait",
+    "note": "票价缓慢下行，可继续观望"
+  },
+  {
+    "date": "2026-05-19",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "price": 5420,
+        "trend": "down"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "price": 7020,
+        "trend": "down"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "price": 9120,
+        "trend": "down"
+      }
+    ],
+    "recommendation": "wait",
+    "note": "票价缓慢下行，可继续观望"
+  },
+  {
+    "date": "2026-05-20",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "price": 5380,
+        "trend": "down"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "price": 6980,
+        "trend": "down"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "price": 9080,
+        "trend": "down"
+      }
+    ],
+    "recommendation": "wait",
+    "note": "周三出发日，票价小幅下降"
+  },
+  {
+    "date": "2026-05-21",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "price": 5400,
+        "trend": "up"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "price": 7000,
+        "trend": "up"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "price": 9100,
+        "trend": "up"
+      }
+    ],
+    "recommendation": "wait",
+    "note": "小幅反弹，周末效应"
+  },
+  {
+    "date": "2026-05-22",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "price": 5420,
+        "trend": "up"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "price": 7030,
+        "trend": "up"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "price": 9130,
+        "trend": "up"
+      }
+    ],
+    "recommendation": "wait",
+    "note": "周末价格偏高，等下周一"
+  },
+  {
+    "date": "2026-05-23",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "price": 5410,
+        "trend": "stable"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "price": 7010,
+        "trend": "stable"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "price": 9110,
+        "trend": "stable"
+      }
+    ],
+    "recommendation": "wait",
+    "note": "价格平稳"
+  },
+  {
+    "date": "2026-05-24",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "price": 5390,
+        "trend": "down"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "price": 6980,
+        "trend": "down"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "price": 9070,
+        "trend": "down"
+      }
+    ],
+    "recommendation": "wait",
+    "note": "周日价格回落"
+  },
+  {
+    "date": "2026-05-25",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "price": 5350,
+        "trend": "down"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "price": 6940,
+        "trend": "down"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "price": 9030,
+        "trend": "down"
+      }
+    ],
+    "recommendation": "wait",
+    "note": "周一持续下跌"
+  },
+  {
+    "date": "2026-05-26",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "price": 5320,
+        "trend": "down"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "price": 6910,
+        "trend": "down"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "price": 9000,
+        "trend": "down"
+      }
+    ],
+    "recommendation": "wait",
+    "note": "持续走低，接近入手区间"
+  },
+  {
+    "date": "2026-05-27",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "price": 5280,
+        "trend": "down"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "price": 6880,
+        "trend": "down"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "price": 8970,
+        "trend": "down"
+      }
+    ],
+    "recommendation": "buy",
+    "note": "已跌至近期低点，建议关注"
+  },
+  {
+    "date": "2026-05-28",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "price": 5260,
+        "trend": "down"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "price": 6860,
+        "trend": "down"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "price": 8950,
+        "trend": "down"
+      }
+    ],
+    "recommendation": "buy",
+    "note": "持续低位，可考虑入手"
+  },
+  {
+    "date": "2026-05-29",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "price": 5240,
+        "trend": "stable"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "price": 6840,
+        "trend": "stable"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "price": 8930,
+        "trend": "stable"
+      }
+    ],
+    "recommendation": "buy",
+    "note": "价格企稳，入手好时机"
+  },
+  {
+    "date": "2026-05-30",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "price": 5220,
+        "trend": "stable"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "price": 6820,
+        "trend": "stable"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "price": 8910,
+        "trend": "stable"
+      }
+    ],
+    "recommendation": "buy",
+    "note": "6月前最后窗口，建议尽快购买"
+  },
+  {
+    "date": "2026-05-31",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "price": 5190,
+        "trend": "down",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "price": 6830,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "price": 8950,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
+      }
+    ],
+    "recommendation": "wait",
+    "note": "价格尚未稳定，建议观望至7月",
+    "cheapest": "海航 · 北京转 ¥5,190",
+    "days_left": 117
+  }
+]
