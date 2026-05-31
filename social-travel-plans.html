@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#050a1a">
+<title>挪威极光旅行 · 社交媒体攻略汇总</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --bg-deep: #050a1a;
+  --bg-card: rgba(13, 27, 42, 0.75);
+  --bg-card-hover: rgba(20, 40, 65, 0.85);
+  --aurora-green: #39ff14;
+  --aurora-purple: #b44dff;
+  --ice-blue: #7dd3fc;
+  --amber-warn: #fb923c;
+  --red-warn: #ef4444;
+  --gold: #ffd700;
+  --text-primary: #e8edf5;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-subtle: rgba(125, 211, 252, 0.1);
+  --border-glow: rgba(57, 255, 20, 0.15);
+  --glass-blur: blur(16px);
+  --radius: 14px;
+  --radius-sm: 8px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Aurora BG ===== */
+.aurora-bg {
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.aurora-bg .orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.5;
+}
+.aurora-bg .orb-1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(57,255,20,0.12), transparent 70%);
+  top: -200px; right: -200px;
+  animation: aurora-drift 14s ease-in-out infinite alternate;
+}
+.aurora-bg .orb-2 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(180,77,255,0.10), transparent 70%);
+  bottom: 10%; left: -150px;
+  animation: aurora-drift 18s ease-in-out infinite alternate-reverse;
+}
+.aurora-bg .orb-3 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(125,211,252,0.06), transparent 70%);
+  top: 40%; left: 30%;
+  animation: aurora-drift 22s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(80px, 50px) scale(1.2); }
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--aurora-green); border-radius: 2px; }
+
+/* ===== Layout ===== */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 18px;
+  position: relative;
+  z-index: 1;
+}
+section {
+  padding: 48px 0;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  background: linear-gradient(135deg, var(--aurora-green), var(--ice-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  margin-top: 4px;
+  font-weight: 300;
+}
+
+/* ===== Hero ===== */
+.hero {
+  text-align: center;
+  padding: 80px 0 50px;
+  position: relative;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: linear-gradient(135deg, var(--aurora-green), var(--ice-blue), var(--aurora-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero .subtitle {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-top: 8px;
+  font-weight: 300;
+}
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+.hero-stat {
+  text-align: center;
+}
+.hero-stat .num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--aurora-green);
+}
+.hero-stat .lbl {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 6px 16px;
+  transition: all 0.3s;
+}
+.back-link:hover {
+  border-color: var(--aurora-green);
+  color: var(--aurora-green);
+}
+
+/* ===== Platform filter ===== */
+.platform-filters {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.platform-pill {
+  font-size: 0.68rem;
+  padding: 4px 12px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: rgba(255,255,255,0.04);
+  color: var(--text-secondary);
+}
+.platform-pill:hover, .platform-pill.active {
+  border-color: var(--aurora-green);
+  color: var(--aurora-green);
+  background: rgba(57,255,20,0.08);
+}
+.platform-badge {
+  display: inline-block;
+  font-size: 0.6rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+.platform-xhs { background: rgba(255, 82, 82, 0.15); color: #ff5252; }
+.platform-zhihu { background: rgba(0, 102, 255, 0.15); color: #0066ff; }
+.platform-smzdm { background: rgba(224, 50, 50, 0.15); color: #e03232; }
+.platform-mafengwo { background: rgba(255, 170, 0, 0.15); color: #ffaa00; }
+.platform-douyin { background: rgba(0, 0, 0, 0.3); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+.platform-tiktok { background: rgba(0, 242, 234, 0.12); color: #00f2ea; }
+
+/* ===== Blogger Card ===== */
+.blogger-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+  transition: all 0.3s;
+}
+.blogger-card:active { transform: scale(0.99); }
+.blogger-card.hidden { display: none; }
+
+.blogger-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.blogger-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+.blogger-date {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+.blogger-title {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+/* Route mini bar */
+.blogger-route {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 0.7rem;
+  color: var(--ice-blue);
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: rgba(125,211,252,0.05);
+  border-radius: var(--radius-sm);
+}
+
+/* Stats row */
+.blogger-stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.blogger-stats .stat {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+.blogger-stats .stat strong {
+  color: var(--aurora-green);
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+}
+
+/* Day-by-day itinerary */
+.blogger-itinerary {
+  margin-bottom: 12px;
+}
+.itinerary-toggle {
+  font-size: 0.7rem;
+  color: var(--aurora-green);
+  cursor: pointer;
+  background: rgba(57,255,20,0.06);
+  border: 1px solid rgba(57,255,20,0.15);
+  border-radius: var(--radius-sm);
+  padding: 6px 14px;
+  display: inline-block;
+  transition: all 0.3s;
+  user-select: none;
+}
+.itinerary-toggle:hover { background: rgba(57,255,20,0.12); }
+.itinerary-days {
+  margin-top: 10px;
+  display: none;
+}
+.itinerary-days.open { display: block; }
+.day-row {
+  font-size: 0.72rem;
+  padding: 6px 0 6px 14px;
+  border-left: 2px solid rgba(57,255,20,0.15);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.day-row .day-num {
+  color: var(--aurora-green);
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+/* Tips */
+.blogger-tips {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tip {
+  font-size: 0.7rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(57,255,20,0.04);
+  color: var(--text-secondary);
+  border-left: 2px solid var(--aurora-green);
+}
+
+/* Source */
+.blogger-source {
+  margin-top: 12px;
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  padding-top: 10px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* ===== Cost Comparison ===== */
+.cost-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.cost-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.7rem;
+  min-width: 500px;
+}
+.cost-table th {
+  text-align: left;
+  padding: 10px 12px;
+  color: var(--aurora-green);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(57,255,20,0.2);
+  white-space: nowrap;
+}
+.cost-table td {
+  padding: 10px 12px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+.cost-table tr:last-child td {
+  font-weight: 600;
+  color: var(--aurora-green);
+  border-top: 1px solid rgba(57,255,20,0.2);
+}
+.cost-best { color: var(--aurora-green) !important; font-weight: 600; }
+.cost-worst { color: var(--red-warn) !important; }
+
+/* ===== Tour Review Cards ===== */
+.tour-review-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tour-review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tour-review-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+.tour-review-price {
+  font-size: 0.72rem;
+  color: var(--aurora-green);
+  font-weight: 600;
+}
+.tour-review-meta {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.tour-review-comment {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding: 8px 10px;
+  background: rgba(57,255,20,0.04);
+  border-radius: 6px;
+  border-left: 2px solid var(--aurora-green);
+}
+
+/* ===== Warn Cards ===== */
+.warn-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.warn-card {
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--red-warn);
+  background: rgba(239,68,68,0.06);
+}
+.warn-card.amber { border-left-color: var(--amber-warn); background: rgba(251,146,60,0.06); }
+.warn-card .warn-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.warn-card .warn-desc {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.warn-card .warn-source {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ===== Photo Tips ===== */
+.photo-tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.photo-tip-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+}
+.photo-tip-card .pt-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--aurora-green);
+  margin-bottom: 6px;
+}
+.photo-tip-card .pt-value {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: 'Playfair Display', serif;
+}
+.photo-tip-card .pt-note {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ===== Budget Tier Cards ===== */
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+.tier-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+}
+.tier-card.budget { border-top: 2px solid var(--aurora-green); }
+.tier-card.mid { border-top: 2px solid var(--ice-blue); }
+.tier-card.luxury { border-top: 2px solid var(--aurora-purple); }
+.tier-card .tier-name {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+.tier-card .tier-cost {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--aurora-green);
+  margin: 6px 0;
+}
+.tier-card .tier-detail {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ===== Template section ===== */
+.template-block {
+  background: rgba(125,211,252,0.04);
+  border: 1px dashed rgba(125,211,252,0.2);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-top: 16px;
+  font-size: 0.7rem;
+}
+.template-block summary {
+  cursor: pointer;
+  color: var(--ice-blue);
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+}
+.template-block pre {
+  background: rgba(0,0,0,0.4);
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 40px 0 24px;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+.footer a {
+  color: var(--aurora-green);
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+/* ===== Animations ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .container { padding: 0 14px; }
+  .hero { padding: 60px 0 36px; }
+  .hero-stats { gap: 20px; }
+  .blogger-stats { gap: 12px; }
+  .blogger-header { gap: 6px; }
+  section { padding: 36px 0; }
+}
+@media (max-width: 480px) {
+  .blogger-route { font-size: 0.65rem; gap: 4px; }
+  .hero-stats { gap: 12px; }
+  .hero-stat .num { font-size: 1.3rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="aurora-bg">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- ===== Hero ===== -->
+<div class="container">
+  <section class="hero fade-in">
+    <h1>挪威极光旅行 · 社交媒体攻略汇总</h1>
+    <p class="subtitle">来自小红书、知乎、什么值得买、马蜂窝等平台的真实旅行者经验汇编</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num" id="entry-count">9</div><div class="lbl">旅行者分享</div></div>
+      <div class="hero-stat"><div class="num">4</div><div class="lbl">内容平台</div></div>
+      <div class="hero-stat"><div class="num">¥9.8k-25k</div><div class="lbl">人均花费区间</div></div>
+    </div>
+    <a href="travel_plan_v2.html" class="back-link">&larr; 返回旅行计划主页</a>
+  </section>
+
+  <!-- ===== Platform Filter ===== -->
+  <div class="platform-filters fade-in">
+    <span class="platform-pill active" data-filter="all">全部平台</span>
+    <span class="platform-pill" data-filter="xiaohongshu">小红书</span>
+    <span class="platform-pill" data-filter="zhihu">知乎</span>
+    <span class="platform-pill" data-filter="smzdm">什么值得买</span>
+    <span class="platform-pill" data-filter="mafengwo">马蜂窝/TikTok</span>
+    <span class="platform-pill" data-filter="douyin">抖音</span>
+  </div>
+
+  <!-- ===== Blogger Diaries ===== -->
+  <section class="fade-in" id="blogger-diaries">
+    <div class="section-header">
+      <h2 class="section-title">旅行者日记 · 行程与花费</h2>
+      <p class="section-subtitle">每位旅行者的真实路线、每日行程和实际开销</p>
+    </div>
+    <div id="blogger-entries"></div>
+  </section>
+
+  <!-- ===== Cost Comparison ===== -->
+  <section class="fade-in">
+    <div class="section-header">
+      <h2 class="section-title">花费对比 · 一目了然</h2>
+      <p class="section-subtitle">同项花费横向对比，帮你做预算决策</p>
+    </div>
+    <div class="card cost-table-wrap">
+      <table class="cost-table">
+        <thead>
+          <tr><th>旅行者</th><th>总花费</th><th>国际机票</th><th>住宿/晚</th><th>极光团</th><th>餐饮/天</th><th>交通</th><th>风格</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>@李行家sirius</td>
+            <td class="cost-best">¥9,759</td>
+            <td>不含（另3-5k）</td>
+            <td>¥400-600</td>
+            <td>未参加</td>
+            <td>¥80-120</td>
+            <td>大巴+公交</td>
+            <td>穷游</td>
+          </tr>
+          <tr>
+            <td>@北极圈追光者</td>
+            <td class="cost-worst">¥22,000</td>
+            <td>¥6,800</td>
+            <td>¥1,500-2,500</td>
+            <td>¥1,900</td>
+            <td>¥200-300</td>
+            <td>飞机+租车</td>
+            <td>舒适</td>
+          </tr>
+          <tr>
+            <td>@罗弗敦老司机</td>
+            <td>¥18,000</td>
+            <td>¥5,500</td>
+            <td>¥1,200-2,000</td>
+            <td>¥1,400</td>
+            <td>¥150-250</td>
+            <td>全程租车</td>
+            <td>自驾</td>
+          </tr>
+          <tr>
+            <td>@北欧自由行攻略</td>
+            <td>¥15,000</td>
+            <td>¥5,200</td>
+            <td>¥800-1,200</td>
+            <td>¥1,300</td>
+            <td>¥100-180</td>
+            <td>公交+步行</td>
+            <td>经济</td>
+          </tr>
+          <tr>
+            <td>@中国胃游北欧</td>
+            <td>¥25,000</td>
+            <td>¥7,500</td>
+            <td>¥2,000-3,500</td>
+            <td>¥2,000</td>
+            <td>¥300-500</td>
+            <td>飞机+租车</td>
+            <td>不将就</td>
+          </tr>
+          <tr>
+            <td>@什么值得买</td>
+            <td>¥19,000</td>
+            <td>¥6,000</td>
+            <td>¥1,000-1,800</td>
+            <td>¥1,600</td>
+            <td>¥180-250</td>
+            <td>混合</td>
+            <td>性价比</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== Tour Operator Reviews ===== -->
+  <section class="fade-in">
+    <div class="section-header">
+      <h2 class="section-title">极光团真实评价 · 来自社交媒体</h2>
+      <p class="section-subtitle">各大极光团在小红书/知乎上的真实口碑</p>
+    </div>
+    <div class="tour-review-card">
+      <div class="tour-review-header">
+        <span class="tour-review-name">Hello Tromso</span>
+        <span class="tour-review-price">约 ¥1,400-1,900/次</span>
+      </div>
+      <div class="tour-review-meta">
+        <span>折扣码: EN-JOY-25 享75折</span>
+        <span>评分: ★★★★☆</span>
+        <span>来源: 小红书多位博主</span>
+      </div>
+      <div class="tour-review-comment">
+        "小红书最热推的极光团之一。小巴团15人以内，向导专业，提供热饮和三脚架。有折扣码真心划算。不过旺季一定要提前3个月以上预订，否则根本抢不到。"
+      </div>
+    </div>
+    <div class="tour-review-card">
+      <div class="tour-review-header">
+        <span class="tour-review-name">Arctic GM</span>
+        <span class="tour-review-price">约 ¥1,600-2,000/次</span>
+      </div>
+      <div class="tour-review-meta">
+        <span>成功率: 99%</span>
+        <span>评分: ★★★★★</span>
+        <span>来源: 知乎 @北欧旅行家</span>
+      </div>
+      <div class="tour-review-comment">
+        "猎人世家传承的极光向导团队，宣称99%成功率。会开车到芬兰境内追光，所以必须带护照。价格偏高但体验一流，适合追求高成功率的旅行者。"
+      </div>
+    </div>
+    <div class="tour-review-card">
+      <div class="tour-review-header">
+        <span class="tour-review-name">NorthernShots Tours</span>
+        <span class="tour-review-price">1,300 NOK起（约¥900起）</span>
+      </div>
+      <div class="tour-review-meta">
+        <span>专业摄影</span>
+        <span>评分: ★★★★☆</span>
+        <span>来源: 小红书 @极光摄影师</span>
+      </div>
+      <div class="tour-review-comment">
+        "性价比最高的专业摄影极光团。价格从1,300 NOK起，包含专业人像拍摄，出片率高。适合想要极光合影的旅行者。"
+      </div>
+    </div>
+    <div class="tour-review-card">
+      <div class="tour-review-header">
+        <span class="tour-review-name">GetYourGuide 小巴团</span>
+        <span class="tour-review-price">约 ¥1,200-1,600/次</span>
+      </div>
+      <div class="tour-review-meta">
+        <span>含篝火/热饮</span>
+        <span>评分: ★★★☆☆</span>
+        <span>来源: 马蜂窝多篇游记</span>
+      </div>
+      <div class="tour-review-comment">
+        "GetYourGuide平台上的小巴团，15人以内，包含篝火和热饮。价格适中，适合第一次追极光的新手。不过追光位置比较固定，不如专业团灵活。"
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Pitfall Warnings ===== -->
+  <section class="fade-in">
+    <div class="section-header">
+      <h2 class="section-title">避坑警告 · 真实踩雷经历</h2>
+      <p class="section-subtitle">每一条警告背后都有一个旅行者的血泪教训</p>
+    </div>
+    <div class="warn-grid">
+      <div class="warn-card">
+        <div class="warn-title">奥斯陆别打出租车</div>
+        <div class="warn-desc">出租车价格极度虚高，机场到市区可能花费2,000+ NOK。一定用Uber或Bolt，价格可差3-5倍。</div>
+        <div class="warn-source">来源: 小红书 @北欧自由行攻略、多名博主确认</div>
+      </div>
+      <div class="warn-card">
+        <div class="warn-title">极光团钓鱼网站 Real Ninja</div>
+        <div class="warn-desc">该网站冒充知名极光团运营商，收取定金后消失。预订极光团务必通过官网或GetYourGuide/Viator等正规平台。</div>
+        <div class="warn-source">来源: 知乎 @北欧自由行攻略</div>
+      </div>
+      <div class="warn-card">
+        <div class="warn-title">极光团必带护照</div>
+        <div class="warn-desc">很多极光团会跨境到芬兰追光（车程仅1-2小时），不带护照无法过境，直接错过整趟追光。</div>
+        <div class="warn-source">来源: 小红书多条追光经验帖</div>
+      </div>
+      <div class="warn-card amber">
+        <div class="warn-title">罗弗敦住宿隔音差</div>
+        <div class="warn-desc">传统Rorbu木屋浪漫但隔音普遍不行。带一副好耳塞，或选择新建的现代公寓。</div>
+        <div class="warn-source">来源: 小红书 @罗弗敦老司机</div>
+      </div>
+      <div class="warn-card amber">
+        <div class="warn-title">国庆罗弗敦自驾堵车</div>
+        <div class="warn-desc">2025年国庆实测：峡湾公路10:00-16:00拥堵严重，Reinebringen登山路段10月已有冰。建议早出晚归，备好冰爪。</div>
+        <div class="warn-source">来源: 小红书 @罗弗敦老司机 (2025年10月实况)</div>
+      </div>
+      <div class="warn-card amber">
+        <div class="warn-title">挪威油价24元/升</div>
+        <div class="warn-desc">挪威油价全球最高之一，租车一定要加超级全险（含轮胎和底盘），异地还车费用翻倍。</div>
+        <div class="warn-source">来源: 什么值得买 @极光专题</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Budget Tier Breakdown ===== -->
+  <section class="fade-in">
+    <div class="section-header">
+      <h2 class="section-title">三档预算 · 总有一档适合你</h2>
+      <p class="section-subtitle">来自抖音/TikTok/小红书博主真实花费数据汇总（2025-2026年，人均，不含国际机票）</p>
+    </div>
+    <div class="tier-grid">
+      <div class="tier-card budget">
+        <div class="tier-name">穷游党</div>
+        <div class="tier-cost">¥1.2-1.5万</div>
+        <div class="tier-detail">
+          村外民宿 1,000克朗/晚<br>
+          海鲜市场自炊 150克朗/天<br>
+          免费极光观测点+徒步<br>
+          公交+大巴为主<br>
+          俄罗斯摩尔曼斯克更省<br>
+          （8千起，跟团免签）
+        </div>
+      </div>
+      <div class="tier-card mid">
+        <div class="tier-name">轻奢党</div>
+        <div class="tier-cost">¥2.0-2.5万</div>
+        <div class="tier-detail">
+          景区民宿 1,500克朗/晚<br>
+          中餐馆+海鲜加工 300克朗/天<br>
+          极光团2-3次 + 狗拉雪橇<br>
+          租车自驾（轿车即可）<br>
+          芬兰玻璃屋同级预算<br>
+          （1.8万起，亲子友好）
+        </div>
+      </div>
+      <div class="tier-card luxury">
+        <div class="tier-name">豪华党</div>
+        <div class="tier-cost">¥3.0-3.5万</div>
+        <div class="tier-detail">
+          海景别墅 3,000克朗/晚<br>
+          私人海鲜宴 1,000克朗/次<br>
+          私人极光摄影团+直升机<br>
+          全程专车+向导<br>
+          冰岛同级预算<br>
+          （2.5万起，异域地貌）
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:14px;font-size:0.68rem;color:var(--text-muted);text-align:center;">
+      数据来源：抖音 #极光旅行 话题 · TikTok Norway Travel · 小红书 2025国庆挪威实测 · 什么值得买极光专题<br>
+      所有价格均为2025-2026年参考价，实际以预订时为准
+    </div>
+  </section>
+
+  <!-- ===== Photography Tips ===== -->
+  <section class="fade-in">
+    <div class="section-header">
+      <h2 class="section-title">极光拍摄参数 · 社媒摄影师合集</h2>
+      <p class="section-subtitle">来自TikTok/小红书极光摄影博主的实战参数</p>
+    </div>
+    <div class="photo-tips-grid">
+      <div class="photo-tip-card">
+        <div class="pt-title">镜头</div>
+        <div class="pt-value">14-24mm f/2-2.8</div>
+        <div class="pt-note">广角大光圈镜头，越广越好</div>
+      </div>
+      <div class="photo-tip-card">
+        <div class="pt-title">ISO</div>
+        <div class="pt-value">800-3200</div>
+        <div class="pt-note">极光强用低ISO，弱极光用高ISO。起始设2000再下调</div>
+      </div>
+      <div class="photo-tip-card">
+        <div class="pt-title">快门速度</div>
+        <div class="pt-value">2-10秒</div>
+        <div class="pt-note">快速舞动的极光用2-3秒，微弱静止的用8-10秒</div>
+      </div>
+      <div class="photo-tip-card">
+        <div class="pt-title">对焦</div>
+        <div class="pt-value">手动对焦∞</div>
+        <div class="pt-note">Live View对准最亮星星手动对焦，用胶带固定对焦环</div>
+      </div>
+      <div class="photo-tip-card">
+        <div class="pt-title">白平衡</div>
+        <div class="pt-value">3500-4000K</div>
+        <div class="pt-note">偏冷色调能更好地还原极光绿色</div>
+      </div>
+      <div class="photo-tip-card">
+        <div class="pt-title">必备配件</div>
+        <div class="pt-value">三脚架 + 暖宝宝</div>
+        <div class="pt-note">三脚架不可妥协！暖宝宝贴电池防掉电，红色头灯保护夜视</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Add Your Own Entry Template ===== -->
+  <section class="fade-in">
+    <div class="section-header">
+      <h2 class="section-title">添加你的旅行记录</h2>
+      <p class="section-subtitle">复制下方模板，填入你的数据即可添加到页面</p>
+    </div>
+    <div class="template-block">
+      <details>
+        <summary>展开查看数据模板</summary>
+        <pre>{
+  id: 'your-id',
+  platform: 'xiaohongshu',  // xiaohongshu | zhihu | smzdm | mafengwo
+  platformName: '小红书',
+  blogger: '@你的昵称',
+  date: '2026年X月',
+  title: '挪威X天花了X元 · 一句话总结',
+  route: ['出发城市', '奥斯陆', '特罗姆瑟', '罗弗敦'],
+  duration: '9天',
+  totalCost: 15000,
+  costNote: '人均花费说明（含/不含机票等）',
+  auroraSeen: true,
+  days: [
+    { day: 1, loc: '城市', desc: '当日行程描述，去了哪里、做了什么、花了多少钱、用了多少时间' },
+    { day: 2, loc: '城市', desc: '...' },
+    // ... 继续添加每一天
+  ],
+  tips: [
+    '旅行小贴士1',
+    '旅行小贴士2',
+  ],
+  warnings: [
+    '踩过的坑或注意事项',
+  ],
+  sourceUrl: '原帖链接（可选）',
+  category: 'budget'  // budget | comfort | selfdrive | economy
+}</pre>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <div class="footer">
+    <a href="travel_plan_v2.html">旅行计划</a>
+    <a href="norway-news-archive.html">资讯归档</a>
+    <a href="#">回到顶部</a>
+    <p style="margin-top:8px;">内容整理自小红书、知乎、什么值得买、马蜂窝等平台 · 仅供参考</p>
+  </div>
+</div>
+
+<script>
+// ===== Blogger Entry Data =====
+const bloggerEntries = [
+  {
+    id: 'lxjsirius',
+    platform: 'xiaohongshu',
+    platformName: '小红书',
+    blogger: '@李行家sirius',
+    date: '2025年10月',
+    title: '挪威9天只花了9759元！不含国际机票的穷游省钱路线，奥斯陆→卑尔根→特罗姆瑟→罗弗敦',
+    route: ['奥斯陆', '卑尔根', '特罗姆瑟', '罗弗敦'],
+    duration: '9天',
+    totalCost: 9759,
+    costNote: '落地后花费，不含国际机票（机票另需3,000-5,000元）',
+    auroraSeen: true,
+    days: [
+      { day: 1, loc: '奥斯陆', desc: '抵达奥斯陆 · 购买24h交通日票（约110 NOK）· 市区公交免费+免费进博物馆 · 住宿青旅约300元' },
+      { day: 2, loc: '奥斯陆→卑尔根', desc: '大巴前往卑尔根（约181元）· 沿途峡湾风景线 · 全程约7小时 · 抵达后逛布吕根码头' },
+      { day: 3, loc: '卑尔根', desc: '卑尔根市区一日 · 弗洛伊恩山缆车（约160 NOK）· 鱼市午餐 · 傍晚飞特罗姆瑟（约600元）' },
+      { day: 4, loc: '特罗姆瑟', desc: '特罗姆瑟市区 · 北极大教堂 · 缆车上山观全景（约250 NOK）· 夜寻极光（免费步行点）' },
+      { day: 5, loc: '特罗姆瑟', desc: '白天狗拉雪橇体验（约1,800 NOK）· 傍晚超市采购三文鱼甜虾自炊 · Kiwi超市性价比最高' },
+      { day: 6, loc: '特罗姆瑟→罗弗敦', desc: '坐邮轮从特罗姆瑟到罗弗敦 · 夜间甲板可能看到极光爆发 · 邮轮票价约800 NOK' },
+      { day: 7, loc: '罗弗敦', desc: '抵达罗弗敦群岛 · 租车自驾（约600元/天含全险）· Reinebringen徒步 · 住Eliassen Rorbuer红木屋' },
+      { day: 8, loc: '罗弗敦', desc: 'Hamnøy拍照 · 渔村Å i Lofoten · 白沙滩 · 夜追极光 · 住宿约800元/晚' },
+      { day: 9, loc: '罗弗敦→返程', desc: '还车 · 从Leknes机场飞奥斯陆转机回国 · Leknes→Oslo机票约1,200元' }
+    ],
+    tips: [
+      '住带厨房的民宿，去Kiwi或Coop超市买三文鱼甜虾自炊，一顿饭能省100+元',
+      '天巡APP比价租车全险，注意别选异地还车（贵一倍）',
+      '大巴代替短途飞机：奥斯陆→卑尔根大巴比飞机便宜一半，风景还更好',
+      '罗弗敦坐邮轮到特罗姆瑟，夜晚甲板上可能直接看到极光爆发'
+    ],
+    warnings: [
+      '费用不含国际机票，实际全部花费约12,000-15,000元',
+      '穷游需要接受青旅和自炊，不适合追求舒适度的旅行者'
+    ],
+    sourceUrl: '小红书原帖',
+    category: 'budget'
+  },
+  {
+    id: 'zhuiguangzhe',
+    platform: 'xiaohongshu',
+    platformName: '小红书',
+    blogger: '@北极圈追光者',
+    date: '2025年10月',
+    title: '花了2万2，机票买贵了！含泪整理挪威13天极光之旅真实花费',
+    route: ['成都', '奥斯陆', '特罗姆瑟', '罗弗敦', '纳尔维克', '奥斯陆'],
+    duration: '13天',
+    totalCost: 22000,
+    costNote: '全部花费含国际机票，机票买贵了多花3,000元',
+    auroraSeen: true,
+    days: [
+      { day: 1, loc: '成都→奥斯陆', desc: '国际航班成都出发 · 转机一次 · 机票6,800元（买贵了，6月初买能省3,000+）' },
+      { day: 2, loc: '奥斯陆', desc: '抵达奥斯陆 · 机场快线到市区（约230 NOK）· 市区步行游览 · 住宿约1,200元' },
+      { day: 3, loc: '奥斯陆→特罗姆瑟', desc: '飞特罗姆瑟（约1,200元）· 入住Airbnb（约1,500元/晚）· 晚上第一次极光团' },
+      { day: 4, loc: '特罗姆瑟', desc: '白日活动：驯鹿雪橇（约1,500 NOK）· 下午休息 · 晚上第二次极光团 · 成功看到KP 5爆发' },
+      { day: 5, loc: '特罗姆瑟', desc: '市区休闲日 · 极地博物馆 · 缆车观全景 · 品尝北极甜虾 · 住宿约1,200元' },
+      { day: 6, loc: '特罗姆瑟', desc: '狗拉雪橇全日体验 · 约2,000 NOK · 含午餐篝火烧烤 · 晚上自由追光' },
+      { day: 7, loc: '特罗姆瑟', desc: '备用追光日 · 白天逛市区 · 晚上第三次极光团（不同方向）· 住宿约1,200元' },
+      { day: 8, loc: '特罗姆瑟→罗弗敦', desc: '飞Leknes或坐邮轮 · 抵达后租车（约800元/天含全险）· 住Reine Rorbuer约3,500元/晚' },
+      { day: 9, loc: '罗弗敦', desc: '自驾罗弗敦 · Reinebringen登山 · Hamnøy拍照 · 白沙滩 · 住宿约2,500元' },
+      { day: 10, loc: '罗弗敦', desc: '自驾北部 · Nusfjord渔村 · Å村 · 夜追极光 · 住宿约2,500元' },
+      { day: 11, loc: '罗弗敦→纳尔维克', desc: '自驾E10公路北上 · 注意10月路面可能有冰 · 纳尔维克住宿约1,000元' },
+      { day: 12, loc: '纳尔维克→奥斯陆', desc: '还车 · 飞奥斯陆（约1,000元）· 购物纪念品 · 住宿约1,200元' },
+      { day: 13, loc: '奥斯陆→成都', desc: '奥斯陆机场退税 · 回国 · 全程花费结算共约22,000元' }
+    ],
+    tips: [
+      '国际机票6月初买最便宜，国庆出发9月再买贵3,000+',
+      '极光团提前3个月预订，旺季（10月-3月）临时订基本满团',
+      '特罗姆瑟至少住4晚，极光概率才够高（约80%）',
+      '罗弗敦租车一定要全险，E10公路10月已经有暗冰'
+    ],
+    warnings: [
+      '机票买贵了！成都往返奥斯陆合理价格在4,500-5,500元',
+      '罗弗敦住宿一晚3,500元超出预期，建议提前半年预订能便宜30%'
+    ],
+    sourceUrl: '小红书原帖',
+    category: 'comfort'
+  },
+  {
+    id: 'lofotendriver',
+    platform: 'xiaohongshu',
+    platformName: '小红书',
+    blogger: '@罗弗敦老司机',
+    date: '2025年10月（国庆）',
+    title: '国庆罗弗敦自驾实况：美是真的美，但堵车和冰路差点翻车',
+    route: ['奥斯陆', '博德', '罗弗敦（自驾环岛）', '特罗姆瑟'],
+    duration: '10天',
+    totalCost: 18000,
+    costNote: '全程含自驾租车和全险，人均花费',
+    auroraSeen: true,
+    days: [
+      { day: 1, loc: '奥斯陆→博德', desc: '飞博德（约1,100元）· 博德过渡一晚 · 住宿约1,000元' },
+      { day: 2, loc: '博德→罗弗敦', desc: '渡轮3-4小时至Moskenes · 取车（提前在Sixt预订，约700元/天）· 驶向Reine' },
+      { day: 3, loc: '罗弗敦南部', desc: 'Reinebringen登山 · 10月已有暗冰，没带冰爪差点滑倒 · 山顶俯瞰峡湾绝美' },
+      { day: 4, loc: '罗弗敦南部', desc: 'Hamnøy · Sakrisøy · 白沙滩 · 夜追极光 · 注意10:00-16:00峡湾公路拥堵' },
+      { day: 5, loc: '罗弗敦中部', desc: '自驾至Nusfjord · 世界遗产渔村 · 加油24元/升心痛 · 住宿约1,800元' },
+      { day: 6, loc: '罗弗敦北部', desc: 'Svolvær · 极光夜追 · 北部光污染更少适合追光 · 住宿约1,500元' },
+      { day: 7, loc: '罗弗敦→特罗姆瑟', desc: '自驾E10到纳尔维克还车 · 注意异地还车贵一倍！· 飞特罗姆瑟约800元' },
+      { day: 8, loc: '特罗姆瑟', desc: '极光团（Hello Tromso约1,400元）· 市区休整 · 住宿约1,300元' },
+      { day: 9, loc: '特罗姆瑟', desc: '备用追光日 · 极地水族馆 · 缆车夜景 · 住宿约1,300元' },
+      { day: 10, loc: '特罗姆瑟→返程', desc: '飞奥斯陆转机回国 · 退税 · 全程结算人均约18,000元' }
+    ],
+    tips: [
+      '10月罗弗敦自驾一定要带冰爪，Reinebringen有暗冰',
+      '早8点前或下午4点后出发避开堵车（国庆实测）',
+      '加油用App比价，不同加油站价差可达10%',
+      '租车别选异地还车，同点还车便宜一半'
+    ],
+    warnings: [
+      'E10公路10月路面可能有冰，慢行！',
+      '峡湾公路10:00-16:00堵车严重，合理安排出发时间',
+      '挪威油价24元/升，加油预算要留够'
+    ],
+    sourceUrl: '小红书原帖（2025年10月国庆实况）',
+    category: 'selfdrive'
+  },
+  {
+    id: 'beiouself',
+    platform: 'zhihu',
+    platformName: '知乎',
+    blogger: '@北欧自由行攻略',
+    date: '2025年',
+    title: '挪威自由行避坑全指南：从签证到极光团，这些坑我帮你踩过了',
+    route: ['奥斯陆', '特罗姆瑟', '罗弗敦'],
+    duration: '8天',
+    totalCost: 15000,
+    costNote: '经济型预算，人均花费（含国际机票约5,200元）',
+    auroraSeen: true,
+    days: [
+      { day: 1, loc: '抵达奥斯陆', desc: '机场用Bolt打车到市区约400 NOK（不要打车租车！）· 住宿约800元' },
+      { day: 2, loc: '奥斯陆', desc: '奥斯陆一日 · 维格兰雕塑公园（免费）· 歌剧院屋顶（免费）· 蒙克美术馆（约180 NOK）' },
+      { day: 3, loc: '奥斯陆→特罗姆瑟', desc: '飞特罗姆瑟（约800元）· 入住市区酒店约1,000元 · 晚上自由追光' },
+      { day: 4, loc: '特罗姆瑟', desc: '极光团（NorthernShots Tours 1,300 NOK起）· 白天市区 · 住宿约1,000元' },
+      { day: 5, loc: '特罗姆瑟→罗弗敦', desc: '飞Harstad/Narvik或坐巴士 · 抵达罗弗敦 · 住宿约1,200元' },
+      { day: 6, loc: '罗弗敦', desc: '公共交通+步行游览 · Reine · Hamnøy · 住宿约1,000元' },
+      { day: 7, loc: '罗弗敦', desc: 'Å村 · 白沙滩 · 最后一日罗弗敦 · 住宿约1,000元' },
+      { day: 8, loc: '返程', desc: 'Leknes飞奥斯陆转机回国 · 全程人均约15,000元' }
+    ],
+    tips: [
+      '奥斯陆交通用Ruter APP买票，单次票1小时有效',
+      '极光团务必带护照（可能跨境到芬兰）',
+      '挪威自来水可直饮，不用买矿泉水',
+      'SAS航空和Norwegian比价，后者经常有特价'
+    ],
+    warnings: [
+      '奥斯陆不要打出租车！Uber/Bolt便宜3-5倍',
+      '极光团钓鱼网站"Real Ninja"是骗局，只在官网或GetYourGuide预订',
+      '机场巴士比出租车合理得多，或坐火车到市中心'
+    ],
+    sourceUrl: '知乎 @北欧自由行攻略 专栏',
+    category: 'economy'
+  },
+  {
+    id: 'chinesestomach',
+    platform: 'xiaohongshu',
+    platformName: '小红书',
+    blogger: '@中国胃游北欧',
+    date: '2025年',
+    title: '在挪威吃了一周冷三明治后，我总结的保命吃喝攻略',
+    route: ['奥斯陆', '特罗姆瑟', '罗弗敦', '卑尔根'],
+    duration: '12天',
+    totalCost: 25000,
+    costNote: '不亏待自己的预算，含全程美食体验',
+    auroraSeen: true,
+    days: [
+      { day: 1, loc: '奥斯陆', desc: '抵达 · 入住The Thief酒店（约3,500元/晚）· 晚餐Maaemo（米其林三星，约3,500 NOK/人）' },
+      { day: 2, loc: '奥斯陆', desc: 'Mathallen美食市场 · 挪威三文鱼刺身 · 亚洲超市买泡面囤货 · 住宿约2,500元' },
+      { day: 3, loc: '奥斯陆→特罗姆瑟', desc: '飞特罗姆瑟 · 入住市区酒店 · 晚餐Fiskekompaniet海鲜餐厅（人均约400 NOK）' },
+      { day: 4, loc: '特罗姆瑟', desc: '极光团（Arctic GM 约2,000元）· 午餐Emma's Dream Kitchen · 住宿约2,500元' },
+      { day: 5, loc: '特罗姆瑟', desc: '白天驯鹿肉体验 · 晚上第二次极光团 · 中餐"北极小厨"需提前微信预约（人均约300 NOK）' },
+      { day: 6, loc: '特罗姆瑟', desc: '备用追光日 · 超市补给：Kiwi买三文鱼、甜虾、面包 · 住宿约2,500元' },
+      { day: 7, loc: '特罗姆瑟→罗弗敦', desc: '飞Leknes · 入住Eliassen Rorbuer（约3,500元/晚）· 自炊晚餐（超市采购）' },
+      { day: 8, loc: '罗弗敦', desc: 'Reine · Hamnøy · 午餐Anita's Seafood（鱼汤约180 NOK）· 住宿约3,000元' },
+      { day: 9, loc: '罗弗敦', desc: '自驾环岛 · 午餐Å村 · 晚餐自炊（泡面+超市食材）· 住宿约3,000元' },
+      { day: 10, loc: '罗弗敦→卑尔根', desc: '飞卑尔根 · 入住市区酒店 · 鱼市晚餐（帝王蟹腿约500 NOK）· 住宿约2,000元' },
+      { day: 11, loc: '卑尔根', desc: '布吕根码头 · 缆车 · 午餐鱼市 · 晚餐Lysverket（北欧创意菜）· 住宿约2,000元' },
+      { day: 12, loc: '卑尔根→返程', desc: '机场退税回国 · 全程人均约25,000元 · "吃得好才有力气追极光"' }
+    ],
+    tips: [
+      '自带泡面、螺蛳粉、老干妈！挪威中餐少且贵',
+      'Kiwi超市三文鱼（约60 NOK/100g）比国内便宜还新鲜，自炊绝佳',
+      '特罗姆瑟中餐馆"北极小厨"需提前微信预约，walk-in基本没位',
+      '罗弗敦住宿带厨房的Rorbu虽然贵但可以自炊，算下来反而省钱',
+      '挪威麦当劳约140 NOK（95元），和国内比贵但和挪威其他餐厅比算便宜'
+    ],
+    warnings: [
+      '罗弗敦Rorbu木屋隔音普遍差，带耳塞！',
+      '不要指望挪威餐厅的中餐，贵且不正宗',
+      '随身带些零食，景点之间距离远且几乎没有补给点'
+    ],
+    sourceUrl: '小红书 @中国胃游北欧 系列',
+    category: 'comfort'
+  },
+  {
+    id: 'smzdm-aurora',
+    platform: 'smzdm',
+    platformName: '什么值得买',
+    blogger: '@什么值得买 · 极光专题',
+    date: '2026年',
+    title: '2026极光黄金年全攻略：Solar Cycle 25峰值年，错过等11年',
+    route: ['科学科普', '费用测算', '最佳时间', '必备装备'],
+    duration: '科普专题',
+    totalCost: 19000,
+    costNote: '基于多位值友分享的性价比测算',
+    auroraSeen: true,
+    days: [
+      { day: '科学', loc: '太阳周期', desc: '2025-2026正值Solar Cycle 25峰值，KP 4-6级爆发每月多次。肉眼看到的极光是灰白色的（不是网上荧光绿），相机长曝光才出绿色效果。' },
+      { day: '时机', loc: '最佳月份', desc: '10月：黑夜约16小时足够长，气温-5℃~5℃不极端寒冷，国庆假期完美匹配。12-2月极夜更长但气温-20℃以下太冷。' },
+      { day: '费用', loc: '预算拆解', desc: '国际机票4,500-6,800元 + 极光团900-1,900元/次 × 2-3次 + 住宿每晚800-3,500元 + 餐饮每天100-500元 + 租车每天600-800元。性价比预算约19,000元/人。' },
+      { day: '签证', loc: '申根+新规', desc: '2026年新变化：EES数字化入境系统（指纹+照片）、Digitoll海关申报App。申根签证需提前2-3个月办理，建议7月提交。' },
+      { day: '装备', loc: '穿搭清单', desc: '三层法：美丽诺羊毛内衣+抓绒+防风防水外套。防水防滑雪地靴必备，暖宝宝（贴手机和相机电池），触屏手套（拍照用），保温杯（零下喝热水救命）。' },
+      { day: '避坑', loc: '血泪总结', desc: '眼见极光是灰白的不是荧光绿（管理预期）、预订提前3-6个月（旺季抢空）、出租车用app不用路边拦、带护照跟极光团、租车全险别省、油价24元/升预算留够。' }
+    ],
+    tips: [
+      '极光肉眼看起来是灰白色的，相机长曝光才呈现绿色——管理好预期',
+      '提前3-6个月预订住宿和极光团，旺季（10-3月）临时根本订不到',
+      '三层穿衣法最科学：美丽诺羊毛打底 + 抓绒中层 + 防风防水外层',
+      '暖宝宝贴在手机和相机电池位置，零下温度电池掉电飞快',
+      '2026错过要等2035-2037年下一个太阳周期'
+    ],
+    warnings: [
+      '网上极光照片都是长曝光+后期，肉眼不是那样的',
+      'EES新系统2026年上线，过关可能需要更长时间',
+      'Digitoll APP需提前下载注册，海关申报用'
+    ],
+    sourceUrl: '什么值得买 · 极光专题',
+    category: 'economy'
+  },
+  {
+    id: 'nationalday2025',
+    platform: 'xiaohongshu',
+    platformName: '小红书/搜狐',
+    blogger: '@2025国庆罗弗敦现场播报',
+    date: '2025年10月（国庆）',
+    title: '罗弗敦群岛被中国人"占领"了！峡湾公路堵成早高峰，中餐馆排队绕半条街',
+    route: ['奥斯陆', '埃沃内斯', '斯沃尔韦尔', '雷讷', '亨宁斯维尔', '奥镇'],
+    duration: '8天7晚',
+    totalCost: 18000,
+    costNote: '国庆旺季价格上浮约30%，人均花费（含所有费用）',
+    auroraSeen: true,
+    days: [
+      { day: 1, loc: '国内→奥斯陆', desc: '北京/上海直飞约10小时 · 转飞埃沃内斯（约1.5小时）· 抵达北极圈门户' },
+      { day: 2, loc: '埃沃内斯→斯沃尔韦尔', desc: '取车（普通轿车500克朗/天，SUV贵50%）· 必须具备雪地胎 · 下载离线地图（山区无信号）' },
+      { day: 3, loc: '斯沃尔韦尔→雷讷', desc: 'E10公路南下游览 · Nusfjord古老渔村 · Ramberg白沙滩 · 国庆实测：10:00-16:00堵车严重' },
+      { day: 4, loc: '雷讷地区', desc: 'Reinebringen登山（10月已有暗冰需冰爪）· Hamnøy桥（孤独星球封面取景地）· 晚上免费极光石观测点追光' },
+      { day: 5, loc: '雷讷→亨宁斯维尔', desc: '亨宁斯维尔"世界尽头的足球场"打卡 · 海鲜市场买鳕鱼150克朗/斤、帝王蟹腿300克朗/份 · 海鲜加工费50克朗/份' },
+      { day: 6, loc: '奥镇（Å）', desc: 'E10公路终点 · 世界最短地名小镇 · Red渔屋+雪山经典拍摄 · 国庆全是中文摄影师的三脚架' },
+      { day: 7, loc: '罗弗敦→返程', desc: '还车 · Leknes/埃沃内斯飞奥斯陆 · 注意：异地还车费用翻倍！退税预留2小时' },
+      { day: 8, loc: '奥斯陆→国内', desc: '奥斯陆机场退税 · 回国 · 全程结算人均约18,000-22,000元（国庆溢价）' }
+    ],
+    tips: [
+      '租车选普通轿车不选SUV：挪威公路窄，轿车更灵活，SUV贵50%/天纯属浪费',
+      '找中文服务租车行：提供中文合同+中文导航+景点中文地图，省心太多',
+      '提前3天订车省20%，国庆期间临时订会涨价',
+      '下载Google Maps离线包或Maps.me：山区信号不好',
+      '海鲜去亨宁斯维尔市场买，比景区便宜30%，挑"眼睛亮、鳃鲜红"的新鲜货',
+      '用银联卡消费很多商家有9折，提前在国内换挪威克朗比机场换划算',
+      '中餐馆"北极小厨"（雷讷）：东北老板，酸菜白肉锅+饺子人均200克朗，微信提前1小时预约'
+    ],
+    warnings: [
+      '国庆罗弗敦全是中国人！峡湾公路堵出早高峰，合理安排出行时间',
+      '别信"保证看到极光"的高价团（1000克朗/人），去免费极光石观测点+提前查极光指数（>3级再去）',
+      '住宿别选景区海景房（2000克朗/晚），选村外民宿（1000克朗/晚）走路10分钟就到',
+      '中餐馆别点"高价套餐"（500克朗/人的极光套餐），单点更划算',
+      '路边禁止随意停车（尤其弯道窄路），挪威执法严格'
+    ],
+    sourceUrl: '搜狐 · 2025国庆罗弗敦实况报道 + 小红书多篇国庆游记',
+    category: 'selfdrive'
+  },
+  {
+    id: 'tiktok-hacks',
+    platform: 'mafengwo',
+    platformName: 'TikTok/马蜂窝',
+    blogger: '@TikTok极光猎人 · 挪威省钱黑科技',
+    date: '2025-2026',
+    title: '挪威追极光居然可以免费住？Worldpackers换宿+Tromsø极光团免费重订攻略',
+    route: ['Tromsø（特罗姆瑟）', 'Kvaløya岛', 'Sommarøy', 'Ersfjordbotn峡湾', 'Lofoten'],
+    duration: '9天',
+    totalCost: 12000,
+    costNote: '含免费住宿黑科技，不含国际机票（约5,000-7,000元）',
+    auroraSeen: true,
+    days: [
+      { day: 1, loc: '抵达Tromsø', desc: '飞抵北极之门 · 机场大巴到市区约100 NOK · 入住Worldpackers换宿民宿（免费，每天工作3-4小时）' },
+      { day: 2, loc: 'Tromsø第一夜追光', desc: '预订极光小巴团（约1,400 NOK）· 关键：安排在第一晚或第二晚！没看到可免费重订或30%折扣重新预订' },
+      { day: 3, loc: 'Tromsø市区', desc: 'Fjellheisen缆车（blue hour 16:00-18:00绝美）· 最北麦当劳打卡 · 租保暖服约€15/天（不要买！）' },
+      { day: 4, loc: 'Kvaløya岛+Sommarøy', desc: '自驾Kvaløya岛追光（光污染极少）· Sommarøy"无时间之岛" · Ersfjordbotn峡湾极光拍摄点' },
+      { day: 5, loc: 'Tromsø→Lofoten', desc: '飞Leknes（约1,200元）或坐邮轮 · 入住TrustedHousesitters换宿（免费照看宠物/房子换免费住宿）' },
+      { day: 6, loc: 'Lofoten南部', desc: 'Reine · Hamnøy · 冬季海钓+北极冲浪（Unstad Beach）· 住宿：Worldpackers农场换宿' },
+      { day: 7, loc: 'Lofoten北部', desc: 'Henningsvær足球场 · Svolvær出海观白尾海雕 · 晚上极光摄影（参数见摄影攻略）' },
+      { day: 8, loc: 'Lofoten→返程', desc: '还车 · Leknes飞Oslo · 注意：挪威严格执行工作签证规定，换宿需确认签证要求' },
+      { day: 9, loc: '回国', desc: 'Oslo机场退税 · 全程人均约12,000-15,000元（含免费住宿黑科技节省约5,000元住宿费）' }
+    ],
+    tips: [
+      'Worldpackers / WWOOF Norway：在农场/民宿每天工作3-4小时换免费住宿，Lofoten/Tromsø地区都有',
+      'TrustedHousesitters（约€119/年会员费）：照看宠物/房子换免费住宿，有些有热水浴缸+峡湾view',
+      '极光团订在第一晚或第二晚！没看到的话很多团免费重订或给30%折扣重新预订',
+      '保暖服租不买：Tromsø租保暖服约€15/天，比买一套2,000+元划算太多',
+      '欧洲内飞Tromsø淡季可低至€100往返，多关注SAS和Norwegian折扣',
+      'Træna岛的Dugnad旅游：参与社区志愿项目换免费住宿'
+    ],
+    warnings: [
+      '非欧盟公民换宿需确认工作签证要求！挪威执法严格，违规可能被遣返+申根区入境禁令',
+      '冬季自驾需4WD+雪地胎，E10公路部分路段信号弱，必须下载离线地图',
+      '极光摄影必须带三脚架（不可妥协），手温暖宝宝贴在相机电池上（低温电池掉电飞快）'
+    ],
+    sourceUrl: 'TikTok @norwayaurora · Trip.com Moments · Worldpackers · TrustedHousesitters',
+    category: 'budget'
+  },
+  {
+    id: 'douyin-compare',
+    platform: 'douyin',
+    platformName: '抖音/什么值得买',
+    blogger: '@抖音比价王 · 北欧三国极光大PK',
+    date: '2025-2026',
+    title: '挪威2.2万 vs 芬兰1.8万 vs 俄罗斯8千：三国极光性价比终极对比，看完不再纠结',
+    route: ['预算对比', '体验对比', '舒适度对比', '出片对比', '最终推荐'],
+    duration: '分析贴',
+    totalCost: 22000,
+    costNote: '三国横向对比：俄罗斯8千起、芬兰1.8万起、挪威2万起（人均全部花费）',
+    auroraSeen: true,
+    days: [
+      { day: '挪威', loc: '2.0-3.5万元/人', desc: '优势：峡湾+极光复合景观（全球独一份），罗弗敦红渔村+极光=封神构图。气温受北大西洋暖流影响，冬季约-1°C，比同纬度温和。白天有足够光线游览。劣势：住宿贵（1,000-3,500元/晚），餐饮贵（麦当劳95元），租车油价24元/升。适合：摄影发烧友、自驾爱好者、预算≥2万的旅行者。' },
+      { day: '芬兰', loc: '1.8-3.0万元/人', desc: '优势：玻璃屋躺看极光（Kakslauttanen Igloos），晴夜率高于挪威，亲子友好，活动丰富（哈士奇雪橇、圣诞老人村）。气温更低（-15°C至-30°C）但设施完备。劣势：景观较单调（平原+森林），没有峡湾。适合：家庭出游、追光新手、重视舒适度的旅行者。预算控制在2.5万内。' },
+      { day: '俄罗斯', loc: '0.8-1.5万元/人', desc: '优势：性价比之王！摩尔曼斯克跟团免签，人均8千起。2026年1月实测KP 5+极光爆发成功。劣势：体验不如北欧（没有峡湾/玻璃屋/红渔村），基础设施一般，餐饮选择有限。适合：预算有限的学生党、想快速实现极光梦的旅行者。结论：1.5万以内只有俄罗斯能做到。' },
+      { day: '冰岛', loc: '2.5-4.0万元/人', desc: '优势：外星地貌+极光（黑沙滩、冰河湖、蓝冰洞），独一无二的异域感。劣势：天气极不稳定（"如果你不喜欢冰岛的天气，等5分钟"），消费北欧最高，自驾风险大（暴风雪+暗冰）。适合：追求极致自然风光、有丰富自驾经验的旅行者。' },
+      { day: '最终建议', loc: '按需求对号入座', desc: '只要极光（最省钱）→ 俄罗斯摩尔曼斯克8千起。舒服看极光（带家人）→ 芬兰玻璃屋1.8万起。出片+极光（摄影党）→ 挪威峡湾+红渔村2万起。异域冒险（硬核玩家）→ 冰岛环岛2.5万起。2026年是太阳活动峰值年尾声，错过等到2035年。' }
+    ],
+    tips: [
+      '挪威核心优势：峡湾+极光=全球独一份画面，红色渔村做前景的极光照片没有第二个地方能拍',
+      '芬兰核心优势：玻璃屋躺着看极光，零下30度不用出门，舒适度完胜',
+      '俄罗斯核心优势：价格只要北欧的1/3-1/2，跟团免签省心，2026实测追光成功率高',
+      '2026年特别提醒：太阳活动峰值年进入尾声，极光活跃度仍显著高于历史平均，仍是追光好时机',
+      '防寒装备预留约2,000元预算（不要依赖现场租赁），带艳色冲锋衣拍照出片'
+    ],
+    warnings: [
+      '1.5万以内看极光只有俄罗斯做得到，北欧根本不适合这个预算',
+      '挪威冬天E10公路自驾风险高，新手建议公交+邮轮或包车',
+      '满月前后3天月光会严重压制极光可见度，出发前查好月相',
+      '极光是概率事件！至少留3晚追光，不要只订1-2晚',
+      '网上极光照片大多是长曝光+后期，肉眼看到的是灰白色，管理好预期'
+    ],
+    sourceUrl: '抖音 #极光旅行 话题 · 什么值得买 @极光专题 · 微信多篇对比攻略',
+    category: 'economy'
+  }
+];
+
+// ===== Render Blogger Entries =====
+function renderEntries(entries) {
+  const container = document.getElementById('blogger-entries');
+  container.innerHTML = '';
+
+  entries.forEach(entry => {
+    const card = document.createElement('div');
+    card.className = 'blogger-card fade-in';
+    card.dataset.platform = entry.platform;
+
+    const daysHtml = entry.days.map(d => {
+      const num = typeof d.day === 'number' ? `Day ${d.day}` : d.day;
+      return `<div class="day-row"><span class="day-num">${num}</span> <strong>${d.loc}</strong> · ${d.desc}</div>`;
+    }).join('');
+
+    const tipsHtml = entry.tips.map(t => `<div class="tip">${t}</div>`).join('');
+
+    card.innerHTML = `
+      <div class="blogger-header">
+        <span class="platform-badge ${entry.platform === 'xiaohongshu' ? 'platform-xhs' : entry.platform === 'zhihu' ? 'platform-zhihu' : entry.platform === 'smzdm' ? 'platform-smzdm' : entry.platform === 'douyin' ? 'platform-douyin' : entry.platform === 'tiktok' ? 'platform-tiktok' : 'platform-mafengwo'}">${entry.platformName}</span>
+        <span class="blogger-name">${entry.blogger}</span>
+        <span class="blogger-date">${entry.date}</span>
+      </div>
+      <div class="blogger-title">${entry.title}</div>
+      <div class="blogger-route">${entry.route.join(' → ')}</div>
+      <div class="blogger-stats">
+        <div class="stat">时长 <strong>${entry.duration}</strong></div>
+        <div class="stat">花费 <strong>¥${entry.totalCost.toLocaleString()}</strong></div>
+        <div class="stat">极光 <strong>${entry.auroraSeen ? '✓ 看到' : '—'}</strong></div>
+        <div class="stat" style="font-size:0.65rem;color:var(--text-muted);">${entry.costNote}</div>
+      </div>
+      <div class="blogger-itinerary">
+        <span class="itinerary-toggle" onclick="toggleItinerary(this)">展开行程明细 (${entry.days.length}天) ▾</span>
+        <div class="itinerary-days">${daysHtml}</div>
+      </div>
+      <div class="blogger-tips">${tipsHtml}</div>
+      <div class="blogger-source">来源: ${entry.sourceUrl}</div>
+    `;
+
+    container.appendChild(card);
+  });
+
+  // Trigger fade-in for new cards
+  setTimeout(() => {
+    document.querySelectorAll('.blogger-card.fade-in').forEach(el => {
+      el.classList.add('visible');
+    });
+  }, 100);
+
+  // Update entry count
+  document.getElementById('entry-count').textContent = entries.length;
+}
+
+// ===== Toggle Itinerary =====
+function toggleItinerary(btn) {
+  const days = btn.nextElementSibling;
+  const isOpen = days.classList.contains('open');
+  days.classList.toggle('open');
+  btn.textContent = isOpen
+    ? `展开行程明细 (${days.querySelectorAll('.day-row').length}天) ▾`
+    : `收起行程明细 ▴`;
+}
+
+// ===== Platform Filter =====
+document.querySelectorAll('.platform-pill').forEach(pill => {
+  pill.addEventListener('click', function() {
+    document.querySelectorAll('.platform-pill').forEach(p => p.classList.remove('active'));
+    this.classList.add('active');
+
+    const filter = this.dataset.filter;
+    document.querySelectorAll('.blogger-card').forEach(card => {
+      if (filter === 'all' || card.dataset.platform === filter) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    // Update visible count
+    const visible = document.querySelectorAll('.blogger-card:not(.hidden)').length;
+    document.getElementById('entry-count').textContent = visible;
+  });
+});
+
+// ===== Intersection Observer for Fade-in =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+// Observe section-level fade-in elements
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ===== Initial Render =====
+renderEntries(bloggerEntries);
+
+// Re-observe dynamically added cards
+setTimeout(() => {
+  document.querySelectorAll('.blogger-card.fade-in').forEach(el => observer.observe(el));
+}, 200);
+</script>
+
+</body>
+</html>
