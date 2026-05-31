@@ -1,10 +1,10 @@
 {
   "builds": [
-    { "src": "seoul_plan.html", "use": "@vercel/static" },
-    { "src": "study.html", "use": "@vercel/static" }
+    { "src": "norway-travel/seoul_plan.html", "use": "@vercel/static" },
+    { "src": "study-app/study.html", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/study", "dest": "/study.html" },
-    { "src": "/(.*)", "dest": "/seoul_plan.html" }
+    { "src": "/study", "dest": "/study-app/study.html" },
+    { "src": "/(.*)", "dest": "/norway-travel/seoul_plan.html" }
   ]
 }

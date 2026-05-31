@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>换乘恋爱 ENHYPEN Edition — Day 1</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap');
+  :root {
+    --bg: #0a0a14; --surface: #111122; --card: #18182d;
+    --gold: #c9a96e; --gold-dim: #8a7348; --cream: #f0ebe3; --cream-dim: #9e968a;
+    --muted: #5a5560; --letter-bg: #1c1c2e; --danger: #a04040;
+    --font-serif: 'Noto Serif SC','SimSun','STSong',serif;
+    --font-sans: 'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+  }
+  * { margin:0;padding:0;box-sizing:border-box; }
+  body {
+    background:var(--bg);color:var(--cream);font-family:var(--font-sans);
+    min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;
+    background-image:radial-gradient(ellipse at 50% 0%,rgba(201,169,110,0.04) 0%,transparent 60%),radial-gradient(ellipse at 80% 100%,rgba(201,169,110,0.03) 0%,transparent 50%);
+  }
+  #app { width:100%;max-width:560px;min-height:85vh;position:relative;overflow:hidden; }
+  #scene-container {
+    background:var(--surface);border-radius:16px;padding:40px 32px 32px;min-height:500px;
+    position:relative;border:1px solid rgba(201,169,110,0.12);
+    box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 1px rgba(201,169,110,0.15);
+    transition:opacity 0.4s ease,transform 0.4s ease;
+  }
+  #scene-container.fading { opacity:0;transform:translateY(12px); }
+  #progress { display:flex;gap:6px;margin-bottom:24px;align-items:center; }
+  #progress .dot { width:6px;height:6px;border-radius:50%;background:var(--muted);transition:all 0.4s ease; }
+  #progress .dot.active { background:var(--gold);box-shadow:0 0 8px rgba(201,169,110,0.5);width:8px;height:8px; }
+  #progress .dot.done { background:var(--gold-dim); }
+  #day-badge { position:absolute;top:16px;right:24px;font-family:var(--font-serif);font-size:0.75rem;letter-spacing:0.15em;color:var(--gold-dim);text-transform:uppercase; }
+  .scene-label { font-size:0.7rem;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;font-weight:500; }
+  .scene-text { font-size:0.95rem;line-height:1.85;color:var(--cream-dim);margin-bottom:20px;font-weight:300; }
+  .scene-text em { color:var(--cream);font-style:italic; }
+  .scene-text strong { color:var(--gold);font-weight:500; }
+  .character-name { font-family:var(--font-serif);color:var(--gold);font-weight:600;font-size:1rem; }
+  .narration { color:var(--cream-dim);font-style:italic;border-left:2px solid var(--gold-dim);padding-left:16px;margin:20px 0;font-size:0.9rem;line-height:1.7; }
+  .choices { display:flex;flex-direction:column;gap:10px;margin-top:24px; }
+  .choice-btn {
+    background:transparent;border:1px solid rgba(201,169,110,0.25);color:var(--cream);
+    padding:14px 20px;border-radius:10px;font-family:var(--font-sans);font-size:0.88rem;
+    cursor:pointer;text-align:left;transition:all 0.25s ease;line-height:1.5;
+    opacity:0;transform:translateY(8px);animation:fadeInUp 0.4s forwards;
+  }
+  .choice-btn:nth-child(1){animation-delay:0.05s}.choice-btn:nth-child(2){animation-delay:0.12s}
+  .choice-btn:nth-child(3){animation-delay:0.19s}.choice-btn:nth-child(4){animation-delay:0.26s}
+  @keyframes fadeInUp { to{opacity:1;transform:translateY(0)} }
+  .choice-btn:hover { border-color:var(--gold);background:rgba(201,169,110,0.08);box-shadow:0 0 20px rgba(201,169,110,0.1);transform:translateX(4px); }
+  .choice-btn:active { background:rgba(201,169,110,0.14);transform:scale(0.985); }
+  .choice-btn .choice-letter { color:var(--gold);font-family:var(--font-serif);margin-right:8px;font-weight:600; }
+  .letter-card {
+    background:var(--letter-bg);border-radius:8px;padding:28px 24px;margin:20px 0;
+    font-family:var(--font-serif);font-size:0.92rem;line-height:2;color:var(--cream);
+    border:1px solid rgba(201,169,110,0.15);position:relative;
+  }
+  .letter-card::before { content:'"';position:absolute;top:8px;left:16px;font-size:3rem;color:rgba(201,169,110,0.1);font-family:var(--font-serif);line-height:1; }
+  .sms-notification { background:#1a1a2e;border:1px solid rgba(201,169,110,0.2);border-radius:14px;padding:20px;margin:16px 0;text-align:center;animation:smsPop 0.5s cubic-bezier(0.175,0.885,0.32,1.275); }
+  @keyframes smsPop { from{opacity:0;transform:scale(0.9) translateY(10px)} to{opacity:1;transform:scale(1) translateY(0)} }
+  .sms-notification .sms-label { font-size:0.7rem;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase;margin-bottom:8px; }
+  .sms-notification .sms-body { font-family:var(--font-serif);font-size:0.9rem;color:var(--cream);line-height:1.7;margin:12px 0; }
+  .sms-notification .sms-result { font-family:var(--font-serif);font-size:1.1rem;color:var(--gold);font-weight:600;margin-top:10px;padding-top:10px;border-top:1px solid rgba(201,169,110,0.12); }
+  .sms-result.not-chosen { color:var(--danger); }
+  .end-stats { margin:20px 0;padding:20px;background:rgba(201,169,110,0.04);border-radius:10px;border:1px solid rgba(201,169,110,0.1); }
+  .end-stats .stat-row { display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dotted rgba(201,169,110,0.1);font-size:0.85rem; }
+  .end-stats .stat-row:last-child { border-bottom:none; }
+  .end-stats .stat-label { color:var(--cream-dim); }
+  .end-stats .stat-value { color:var(--gold);font-weight:500; }
+  #next-btn { display:block;margin:24px auto 0;background:transparent;border:1px solid rgba(201,169,110,0.3);color:var(--cream-dim);padding:10px 32px;border-radius:20px;font-family:var(--font-sans);font-size:0.8rem;cursor:pointer;transition:all 0.3s ease; }
+  #next-btn:hover { border-color:var(--gold);color:var(--cream); }
+  .title-screen { display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:500px;text-align:center;cursor:pointer; }
+  .title-screen .show-title { font-family:var(--font-serif);font-size:2.2rem;color:var(--gold);letter-spacing:0.08em;margin-bottom:8px;font-weight:700; }
+  .title-screen .show-subtitle { font-size:0.85rem;color:var(--cream-dim);letter-spacing:0.25em;margin-bottom:40px; }
+  .title-screen .start-hint { font-size:0.75rem;color:var(--muted);animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+  .scene-divider { text-align:center;margin:16px 0;color:var(--gold-dim);font-size:0.7rem;letter-spacing:0.3em; }
+  .pheromone-hint { display:inline-block;color:var(--gold-dim);font-style:italic;font-size:0.82rem;background:rgba(201,169,110,0.06);padding:2px 10px;border-radius:4px; }
+</style>
+</head>
+<body>
+<div id="app"><div id="scene-container"></div></div>
+
+<script>
+const game={sunooTension:0,sunghoonWarmth:0,armorCracked:false,smsTarget:null,sceneIndex:0};
+const totalScenes=10;
+
+const scenes=[
+  // 0: TITLE
+  {render(){return `<div class="title-screen" onclick="advanceScene()"><div class="show-subtitle">ENHYPEN EDITION</div><div class="show-title">换乘恋爱</div><div class="show-subtitle" style="margin-top:4px">DAY 1 · 入住日</div><div class="start-hint" style="margin-top:48px">轻触屏幕开始</div></div>`;}},
+
+  // 1: INTRO — minimal arrivals
+  {render(){return `<div class="scene-label">入住</div>
+    <div class="scene-text">二月的首尔。共享屋是一栋浅奶油色的两层别墅，院子里有棵没发芽的柿子树。厨房的中岛台上整整齐齐摆着<span style="color:var(--gold)">八只马克杯</span>，颜色各不相同。</div>
+    <div class="scene-text"><span class="character-name">韩智恩</span>第一个到。29岁，济州岛来的咖啡店老板。她推开门的瞬间，风铃响了。然后是<span class="character-name">沈载伦</span>——ENHYPEN成员，笑起来总有后半句。再然后是<span class="character-name">崔秀雅</span>和<span class="character-name">梁祯元</span>。秀雅是建筑设计师，祯元是ENHYPEN的队长。四个人礼貌地打过招呼，各自安顿。</div>
+    <div class="scene-text"><span class="character-name">姜艺琳</span>和<span class="character-name">朴成训</span>先后到达。艺琳是《W Korea》主编，成训是ENHYPEN成员——安静的Alpha，走进客厅像一棵移动的冷杉。客厅里六个人了，气氛客气而安静。</div>
+    <div style="text-align:center;margin-top:24px"><button id="next-btn" onclick="advanceScene()">继续</button></div>`;}},
+
+  // 2: SUNOO ARRIVES
+  {render(){return `<div class="scene-label">入住 · 第七位</div>
+    <div class="scene-text">风铃又响了。</div>
+    <div class="scene-text"><span class="character-name">金善禹</span>推门进来，像是有人把春天的温度提前带进了房间。米白色针织开衫，刘海柔软地搭在额前，笑起来眼睛弯成月牙——然后用手背捂住嘴。</div>
+    <div class="scene-text">"大家好！我是善禹。" 他和大家简短打了招呼。他的<span class="pheromone-hint">雪松威士忌信息素</span>很克制，像是习惯性地收着。但他站在那里环顾客厅的样子，像在找什么——或者找谁。</div>
+    <div class="narration">他没有找到。第七个杯子还在厨房台面上。第八个人还没到。</div>
+    <div style="text-align:center;margin-top:24px"><button id="next-btn" onclick="advanceScene()">继续</button></div>`;}},
+
+  // 3: XIAOCHA'S ENTRANCE (Choice 1)
+  {isChoice:true,choiceId:1,
+    render(){return `<div class="scene-label">入住 · 第八位</div>
+    <div class="scene-text">门开了。客厅里七个人同时转头。</div>
+    <div class="scene-text">门口站着一个棕色齐肩短发的女生，米白色大衣，围巾绕了两圈。她身后是三月的冷风和快要落山的太阳。</div>
+    <div class="scene-text"><span class="character-name">小茶</span>——最后一个入住者。她的视线扫过所有人——然后停在了<span style="color:var(--gold)">那个人</span>身上。</div>
+    <div class="scene-text">金善禹站在沙发旁边。他看到她的一瞬间，身体微微往后退了半步。空气里那股<span class="pheromone-hint">雪松威士忌</span>的味道突然变了——不是变浓，是变乱了。像是有人搅动了一杯本来平静的酒。</div>
+    <div class="narration">四个月前，他不告而别。没有解释，没有回复，什么都没有。现在他站在这里，穿着那件米白色针织衫，用她见过一千次的眼神看着她——像是想说什么，又什么都说不出来。</div>
+    <div class="scene-text" style="color:var(--gold);font-weight:500;text-align:center;margin-top:20px">你走进客厅。所有人都在等你开口。</div>`;},
+    choices:[
+      {letter:'A',text:'职业微笑，对每个人平等地问候——仿佛善禹只是这间房间里又一个陌生人。',hint:'不卑不亢。谁也不得罪。谁也不靠近。',tension:0,warmth:0},
+      {letter:'B',text:'对每个人温暖地笑——但当目光扫到善禹时，笑意刚好凉了三度。不多不少，刚好够他察觉。',hint:'精确的冷淡。他知道你是故意的。但他说不出来。',tension:2,warmth:0},
+      {letter:'C',text:'"成训欧巴！" 第一个招呼给成训，笑容灿烂。只在转身的时候，余光轻轻掠过善禹——像他不值得一个正眼。',hint:'一把刀。两个伤口。',tension:3,warmth:3}
+    ]},
+
+  // 4: SETTLING IN (Choice 2)
+  {isChoice:true,choiceId:2,
+    render(){const t=game.sunooTension;let extra='';
+    if(t>=2) extra=`<div class="narration">善禹在你进门之后一直没怎么说话。他手里的马克杯——深蓝色的那只——水没怎么少。视线偶尔飘向你，但每一次都在你注意到之前移开。雪松威士忌时浓时淡，像是他在反复练习怎么呼吸。</div>`;
+    return `<div class="scene-label">安顿 · 厨房</div>
+    <div class="scene-text">收拾完行李，你走出来倒水。厨房里只有一个人——<span class="character-name">朴成训</span>，靠在水槽边。他安静地把你面前的空杯子推近了一点。</div><div class="scene-text">夕阳从窗外照进来，把厨房岛台染成蜂蜜色。</div>`+extra;},
+    choices:[
+      {letter:'A',text:'点头道谢，拿杯倒水，转身走人。今天不是社交的日子。',hint:'水是凉的。你也是。',tension:0,warmth:0},
+      {letter:'B',text:'"成训欧巴，你本人比演唱会上还帅诶。" 语气轻快得像在聊天气。粉丝的台词，安全的距离。',hint:'用粉丝身份包裹的距离感。很像真的。',tension:0,warmth:2},
+      {letter:'C',text:'站到他旁边的台沿，歪头看他："你还记得我吗？上次演唱会……内场第三排。" 不是粉丝问答。是确认。',hint:'危险近了一步。走廊里有脚步声。',tension:1,warmth:3}
+    ]},
+
+  // 5: X LETTER TIME (Choice 3)
+  {isChoice:true,choiceId:3,
+    render(){return `<div class="scene-label">夜晚 · X信件</div>
+    <div class="scene-text">客厅灯光调暗了。壁炉的仿焰火在每个人脸上跳动。大家围坐在沙发和地毯上，每人手里一个白色信封。没有署名。只有一张纸的重量。</div>
+    <div class="scene-text">主持人说明规则：<em>"以'致我的前任'开头。不署名。不暴露身份信息。"</em></div>
+    <div class="scene-divider">✦</div>
+    <div class="scene-text">其他人逐一读了信。艺琳声线镇定但信纸边缘被捏出了折痕。智恩读完后笑了，酒窝很深。秀雅的语调始终平稳，念完后安静地折好信纸，像签完一份文件。</div>
+    <div class="scene-divider">✦</div>
+    <div class="scene-text">现在轮到你了。</div>
+    <div class="scene-text">你打开信封。纸上是善禹的笔迹——你认得。每一个弯钩、每一笔收尾，你都认得。</div>
+    <div class="letter-card">致我的前任：<br><br>和你在一起的每一天，我都记得你笑的样子。记得你生气时嘴巴会说狠话，但眼睛不会。记得你工作到很晚，我发消息叫你吃饭，你总是回"知道了"，然后继续加班。<br><br>谢谢你让我知道——原来被一个人真心对待是这样的感觉。<br><br><em>对不起，我那时候不够勇敢。</em></div>
+    <div class="scene-text">客厅很安静。七双眼睛看着你。但只有一个人的眼睛——<span style="color:var(--gold)">第六感告诉你是斜对角那一双</span>——热得像要烧穿手中的信纸。</div>`;},
+    choices:[
+      {letter:'A',text:'平静地读完。每个字都清晰。每个音节都克制。放下的信纸像一张收据——公正，冰冷，付讫。',hint:'盔甲完整。没有人看到你的手在抖。但有人听到你的声音太稳了——稳得不正常。',cracked:false,tension:1},
+      {letter:'B',text:'一路平稳地读下去。直到最后一句——"对不起，我那时候不够勇敢"——你停了。停了不到一秒。但够了。',hint:'盔甲裂了一道缝。很小。但斜对面那个人看到了。他的呼吸也停了。',cracked:true,tension:0},
+      {letter:'C',text:'微笑着读完。语气轻松得像在读菜单。"写得挺好的。" 你把它整整齐齐折好，塞回信封。像处理一封垃圾邮件。',hint:'表演满分。但生气比冷淡更暴露。他知道你在生气——生气意味着你还在乎。',cracked:false,tension:2}
+    ]},
+
+  // 6: DINNER (Choice 4)
+  {isChoice:true,choiceId:4,
+    render(){const cracked=game.armorCracked;let note='';
+    if(cracked) note=`<div class="narration">你读信时的那个停顿——不到一秒——斜对面的那个人捕捉到了。他之后一直没敢看你。但他的信息素<strong>回暖了</strong>。雪松威士忌不再是紊乱的冷调，而像是有人在壁炉边倒了一杯，慢慢回温。</div>`;
+    else note=`<div class="narration">你的信读完之后，善禹在看窗外。窗外什么都没有，只有暗下来的山脊线。但他看了很久。</div>`;
+    return `<div class="scene-label">晚餐 · 长餐桌</div>
+    <div class="scene-text">长餐桌上点着蜡烛。大酱汤、烤牛肉、几碟小菜——简单但用心。大家陆续走进餐厅。你站在餐桌旁——<strong>选一个位置</strong>。</div>`+note;},
+    choices:[
+      {letter:'A',text:'走到餐桌另一端，自然地坐在成训旁边。和他中间隔了一个空位，刚刚好的距离。安全。',hint:'成训在用筷子调整小菜碟的位置——他在等你坐下。',tension:0,warmth:1},
+      {letter:'B',text:'随便坐。不在意谁在左边谁在右边。正好祯元在你旁边。你们聊了聊设计和领导力。很愉快的闲聊。',hint:'平静的一餐。唯一的问题是——太自然了。自然到像是在逃避。',tension:0,warmth:0},
+      {letter:'C',text:'你坐下的那一刻才意识到——正对面就是善禹。他抬起头。你看他一眼。然后低头铺好餐巾。',hint:'每一口食物。每一口呼吸。都在他的视线里。',tension:2,warmth:0}
+    ]},
+
+  // 7: SMS TIME (Choice 5)
+  {isChoice:true,choiceId:5,
+    render(){const t=game.sunooTension,w=game.sunghoonWarmth;let extra='';
+    if(t>=3&&w>=3) extra=`<div class="narration">晚餐很热闹。但你有种感觉——今晚的匿名短信，不管发给谁，都像是一个选择。</div>`;
+    else if(t>=4) extra=`<div class="narration">晚餐的气氛可以用一把刀切开。善禹今晚说的话比今天其他所有时间加起来都多——但他一句话都没对你说。你也是。你们之间的沉默有重量。</div>`;
+    else extra=`<div class="narration">晚餐在平和的气氛中结束。善禹还是那个爱笑的人——笑的时候用手背捂嘴。你记得那个动作。记得太清楚了。</div>`;
+    return `<div class="scene-label">21:00 · 匿名短信</div>
+    <div class="scene-text">你回到房间。手机亮了。节目组的短信系统开了。<em>"请选择一位参与者发送匿名短信。"</em></div>`+extra;},
+    choices:[
+      {letter:'A',text:'发给<strong>朴成训</strong>：<em>"谢谢你今天递给我的那杯水。和你聊天很轻松。晚安。"</em>',hint:'安全牌。温和但不含糊。成训会收到一条来自"某个人"的好感信号。',tension:0,warmth:1,sms:'sunghoon'},
+      {letter:'B',text:'发给<strong>金善禹</strong>：<em>"你的信我收到了。字还是那么丑。"</em>',hint:'三句话。前两句是陈述。最后一句他看了一定会笑——然后收起笑容。他知道是你。',tension:2,warmth:0,sms:'sunoo'},
+      {letter:'C',text:'<strong>不发给任何人。</strong> 弃权。你还没有准备好把任何一个字放进任何人手里。',hint:'沉默也是一种短信。只是接收者是所有人——包括你自己。',tension:1,warmth:0,sms:'none'}
+    ]},
+
+  // 8: RESULT + END (Choice 6)
+  {isChoice:true,choiceId:6,isFinal:true,
+    render(){const to=game.smsTarget,cracked=game.armorCracked,t=game.sunooTension;
+    let sunooSentToHer=true;if(!cracked&&t>=3)sunooSentToHer=false;
+    let smsSection='',resultClass='';
+    if(to==='sunoo'&&sunooSentToHer){smsSection=`<div class="sms-notification"><div class="sms-label">📩 收到一条匿名短信</div><div class="sms-body">"你的声音没有变。念那封信的时候……谢谢你读完了它。"</div><div class="sms-result">你的X选择了你</div></div><div class="narration">你们互相选择了。但谁也不能说。节目规则下，这句话是你们今晚能说的最重的话。你盯着屏幕上的六个字，盯了很久。然后锁屏。</div>`;}
+    else if(to==='sunoo'&&!sunooSentToHer){resultClass='not-chosen';smsSection=`<div class="sms-notification"><div class="sms-label">📩 没有收到短信</div><div class="sms-result not-chosen">你的X没有选择你</div></div><div class="narration">你鼓起勇气发了那条短信。他收到了——但他没有发回来。你盯着"你的X没有选择你"盯到屏幕自动熄灭。也许他也害怕。也许你的冷漠真的有效了——他以为你不在乎了。</div>`;}
+    else if(to==='sunghoon'&&sunooSentToHer){smsSection=`<div class="sms-notification"><div class="sms-label">📩 收到一条匿名短信</div><div class="sms-body">"你的声音没有变。念那封信的时候……谢谢你读完了它。"</div><div class="sms-result">你的X选择了你</div></div><div class="narration">你的短信飞向了另一个人。但X的短信还是来了——穿过你的冷漠、穿过你刻意的微笑、穿过你今晚所有的表演，还是来了。你给出去的和收到的，不在同一个人身上。<em>这就是换乘恋爱。</em></div>`;}
+    else if(to==='sunghoon'&&!sunooSentToHer){resultClass='not-chosen';smsSection=`<div class="sms-notification"><div class="sms-label">📩 没有收到短信</div><div class="sms-result not-chosen">你的X没有选择你</div></div><div class="narration">你的短信去了成训那里。X没有选你。也许你今晚的表现真的让他以为你彻底走出来了。你成功了——成功到连自己都骗过去了。但为什么看到那七个字的时候，还是觉得胸腔里有什么东西往下坠？</div>`;}
+    else if(to==='none'&&sunooSentToHer){smsSection=`<div class="sms-notification"><div class="sms-label">📩 收到一条匿名短信</div><div class="sms-body">"你的声音没有变。念那封信的时候……谢谢你读完了它。"</div><div class="sms-result">你的X选择了你</div></div><div class="narration">你选择了沉默。但他没有。在他不知道你会不会选他的时候——他还是选了。雪松威士忌的味道从门缝里飘进来。隔壁房间。很近。他没有敲门。你也没有开门。但你们之间隔着的，已经不是四个月前那堵看不见的墙了。</div>`;}
+    else {resultClass='not-chosen';smsSection=`<div class="sms-notification"><div class="sms-label">📩 没有收到短信</div><div class="sms-result not-chosen">你的X没有选择你</div></div><div class="narration">两个人都沉默了。沉默是今晚的主题。沉默占据了这栋房子、以及你们之间四个月没有说过一句话的距离。沉默不会说谎。但你也不知道沉默的答案是什么。</div>`;}
+    const gazeCount=(t>=4?'很多次。但他总是先移开视线。':(t>=2?'几次。每次都很短。但每次都很重。':'不多。但他知道你在哪里。从头到尾都知道。'));
+    const warmthDesc=(game.sunghoonWarmth>=4?'很高。你今晚递出了不止一杯水的距离。':(game.sunghoonWarmth>=2?'温和。成训记得你的名字了。':'普通。点头之交。'));
+    const armorDesc=(cracked?'裂了一道缝。很小。但空气从缝里漏进来了。':'完好。但它很重。');
+    return `<div class="scene-label">深夜 · 后采</div><div class="scene-text">单人沙发。对面是一台固定摄像机。红色的录制灯亮着。</div><div class="scene-text">"第一天结束了。你觉得怎么样？"</div>${smsSection}
+    <div class="end-stats"><div style="text-align:center;font-family:var(--font-serif);color:var(--gold);margin-bottom:12px">录制日记 · DAY 1</div>
+    <div class="stat-row"><span class="stat-label">善禹的目光落在你身上</span><span class="stat-value">${gazeCount}</span></div>
+    <div class="stat-row"><span class="stat-label">成训与你互动的温度</span><span class="stat-value">${warmthDesc}</span></div>
+    <div class="stat-row"><span class="stat-label">你的盔甲</span><span class="stat-value">${armorDesc}</span></div>
+    <div class="stat-row"><span class="stat-label">明天的第一次约会</span><span class="stat-value">你不能选择X。</span></div></div>
+    <div class="scene-divider" style="margin-top:24px">✦</div>
+    <div class="scene-text" style="text-align:center;color:var(--cream-dim)">DAY 1 结束。<br>第二天的太阳会照常升起。<br>柿子树还是秃的。风铃还会响。</div>`;},
+    choices:[
+      {letter:'A',text:'"我做对了吗？"——对着摄像机，也对着自己。不确定。不安。但今晚已经结束了。',hint:'',final:true},
+      {letter:'B',text:'"他的字还是那么丑。"——说完自己笑了。然后又沉默了。',hint:'',final:true},
+      {letter:'C',text:'"明天……是新的一天。"——深呼吸。把信纸放进抽屉最底层。关灯。',hint:'',final:true},
+      {letter:'D',text:'[什么都不说。直接关灯。]——黑暗里只有窗外远处山脊线的轮廓。',hint:'',final:true}
+    ]}
+];
+
+function renderProgress(){let h='<div id="progress">';for(let i=0;i<=totalScenes;i++){let c='';if(i<game.sceneIndex)c='done';else if(i===game.sceneIndex)c='active';h+=`<div class="dot ${c}"></div>`;}h+='</div>';return h;}
+
+function renderScene(){const c=document.getElementById('scene-container'),s=scenes[game.sceneIndex];c.classList.add('fading');setTimeout(()=>{let h=renderProgress()+'<div id="day-badge">DAY 1</div>';h+=s.render();if(s.isChoice){h+='<div class="choices">';s.choices.forEach((ch,i)=>{h+=`<button class="choice-btn" onclick="makeChoice(${i})"><span class="choice-letter">${ch.letter}</span>${ch.text}<br><small style="color:var(--cream-dim);font-size:0.78rem">${ch.hint}</small></button>`;});h+='</div>';}c.innerHTML=h;c.classList.remove('fading');},300);}
+
+function advanceScene(){if(game.sceneIndex<totalScenes){game.sceneIndex++;renderScene();}}
+
+function makeChoice(idx){const s=scenes[game.sceneIndex],ch=s.choices[idx];
+  if(s.choiceId===1){game.sunooTension+=ch.tension;game.sunghoonWarmth+=ch.warmth;}
+  else if(s.choiceId===2){game.sunooTension+=ch.tension;game.sunghoonWarmth+=ch.warmth;if((idx===1||idx===2)&&game.sunooTension<4)game.sunooTension+=1;}
+  else if(s.choiceId===3){game.armorCracked=ch.cracked;game.sunooTension+=ch.tension;}
+  else if(s.choiceId===4){game.sunooTension+=ch.tension;game.sunghoonWarmth+=ch.warmth;}
+  else if(s.choiceId===5){game.sunooTension+=ch.tension;game.sunghoonWarmth+=ch.warmth;game.smsTarget=ch.sms;}
+  else if(s.choiceId===6){document.getElementById('scene-container').innerHTML=renderProgress()+'<div id="day-badge">DAY 1</div>'+scenes[game.sceneIndex].render().replace(/<div class="choices">[\s\S]*?<\/div>/,'')+'<div style="text-align:center;margin-top:28px;color:var(--muted);font-size:0.8rem">感谢试玩 Day 1。<br>完整版 14 天请使用 Prompt 在 Claude Code 中继续。</div>';return;}
+  if(game.sceneIndex<totalScenes){game.sceneIndex++;renderScene();}
+}
+
+renderScene();
+document.addEventListener('click',function(e){if(e.target.closest('.title-screen')&&game.sceneIndex===0)advanceScene();});
+</script>
+</body>
+</html>
