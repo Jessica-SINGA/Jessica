@@ -20,6 +20,8 @@
 !study-app/*
 !transit-love-sim/
 !transit-love-sim/*
+!transit-love-sim/剧情存档/
+!transit-love-sim/剧情存档/*
 !cpa/
 !cpa/*
 !images/
