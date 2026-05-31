@@ -85,10 +85,11 @@
 <script>
 const game={sunooTension:0,sunghoonWarmth:0,armorCracked:false,smsTarget:null,sceneIndex:0};
 const totalScenes=10;
+const SAVE_KEY="transit-love-d1";function saveGame(){const d={sunooTension:game.sunooTension,sunghoonWarmth:game.sunghoonWarmth,armorCracked:game.armorCracked,smsTarget:game.smsTarget,sceneIndex:game.sceneIndex};localStorage.setItem(SAVE_KEY,JSON.stringify(d));}function loadGame(){const r=localStorage.getItem(SAVE_KEY);if(!r)return false;const d=JSON.parse(r);Object.assign(game,d);return true;}function hasSave(){return localStorage.getItem(SAVE_KEY)!==null;}function clearSave(){localStorage.removeItem(SAVE_KEY);}
 
 const scenes=[
   // 0: TITLE
-  {render(){return `<div class="title-screen" onclick="advanceScene()"><div class="show-subtitle">ENHYPEN EDITION</div><div class="show-title">换乘恋爱</div><div class="show-subtitle" style="margin-top:4px">DAY 1 · 入住日</div><div class="start-hint" style="margin-top:48px">轻触屏幕开始</div></div>`;}},
+  {render(){const saveHTML=hasSave()?'<div style="margin-top:24px"><button onclick="event.stopPropagation();loadGame();renderScene();" style="background:rgba(201,169,110,0.1);border:1px solid var(--gold);color:var(--gold);padding:10px 36px;border-radius:20px;font-family:var(--font-sans);font-size:0.85rem;cursor:pointer;margin-right:12px">继续上次进度</button><button onclick="event.stopPropagation();clearSave();renderScene();" style="background:transparent;border:1px solid var(--muted);color:var(--cream-dim);padding:10px 24px;border-radius:20px;font-family:var(--font-sans);font-size:0.85rem;cursor:pointer">重新开始</button></div>':'';return '<div class="title-screen" onclick="advanceScene()"><div class="show-subtitle">ENHYPEN EDITION</div><div class="show-title">换乘恋爱</div><div class="show-subtitle" style="margin-top:4px">DAY 1 · 入住日</div><div class="start-hint" style="margin-top:48px">轻触屏幕开始</div>'+saveHTML+'</div>';}},
 
   // 1: INTRO — minimal arrivals
   {render(){return `<div class="scene-label">入住</div>
@@ -207,11 +208,11 @@ const scenes=[
     ]}
 ];
 
-function renderProgress(){let h='<div id="progress">';for(let i=0;i<=totalScenes;i++){let c='';if(i<game.sceneIndex)c='done';else if(i===game.sceneIndex)c='active';h+=`<div class="dot ${c}"></div>`;}h+='</div>';return h;}
+function renderProgress(){let h='<div id="progress" style="display:flex;justify-content:space-between;align-items:center">';h+='<div style="display:flex;gap:6px;align-items:center">';for(let i=0;i<=totalScenes;i++){let c='';if(i<game.sceneIndex)c='done';else if(i===game.sceneIndex)c='active';h+=`<div class="dot ${c}"></div>`;}h+='</div>';if(game.sceneIndex>0&&game.sceneIndex<totalScenes)h+='<button onclick="resetGame()" style="background:transparent;border:1px solid rgba(255,255,255,0.1);color:var(--muted);padding:3px 10px;border-radius:10px;font-size:0.65rem;cursor:pointer;font-family:var(--font-sans)">重新开始</button>';h+='</div>';return h;}
 
 function renderScene(){const c=document.getElementById('scene-container'),s=scenes[game.sceneIndex];c.classList.add('fading');setTimeout(()=>{let h=renderProgress()+'<div id="day-badge">DAY 1</div>';h+=s.render();if(s.isChoice){h+='<div class="choices">';s.choices.forEach((ch,i)=>{h+=`<button class="choice-btn" onclick="makeChoice(${i})"><span class="choice-letter">${ch.letter}</span>${ch.text}<br><small style="color:var(--cream-dim);font-size:0.78rem">${ch.hint}</small></button>`;});h+='</div>';}c.innerHTML=h;c.classList.remove('fading');},300);}
 
-function advanceScene(){if(game.sceneIndex<totalScenes){game.sceneIndex++;renderScene();}}
+function advanceScene(){if(game.sceneIndex<totalScenes){game.sceneIndex++;saveGame();renderScene();}}
 
 function makeChoice(idx){const s=scenes[game.sceneIndex],ch=s.choices[idx];
   if(s.choiceId===1){game.sunooTension+=ch.tension;game.sunghoonWarmth+=ch.warmth;}
@@ -220,11 +221,12 @@ function makeChoice(idx){const s=scenes[game.sceneIndex],ch=s.choices[idx];
   else if(s.choiceId===4){game.sunooTension+=ch.tension;game.sunghoonWarmth+=ch.warmth;}
   else if(s.choiceId===5){game.sunooTension+=ch.tension;game.sunghoonWarmth+=ch.warmth;game.smsTarget=ch.sms;}
   else if(s.choiceId===6){document.getElementById('scene-container').innerHTML=renderProgress()+'<div id="day-badge">DAY 1</div>'+scenes[game.sceneIndex].render().replace(/<div class="choices">[\s\S]*?<\/div>/,'')+'<div style="text-align:center;margin-top:28px;color:var(--muted);font-size:0.8rem">感谢试玩 Day 1。<br>完整版 14 天请使用 Prompt 在 Claude Code 中继续。</div>';return;}
-  if(game.sceneIndex<totalScenes){game.sceneIndex++;renderScene();}
+  if(game.sceneIndex<totalScenes){game.sceneIndex++;saveGame();renderScene();}
 }
 
 renderScene();
 document.addEventListener('click',function(e){if(e.target.closest('.title-screen')&&game.sceneIndex===0)advanceScene();});
+function resetGame(){if(confirm('确定要重新开始吗？当前进度将丢失。')){clearSave();location.reload();}}
 </script>
 </body>
 </html>
