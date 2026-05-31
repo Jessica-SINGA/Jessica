@@ -552,9 +552,11 @@ section {
 
 /* ===== Animations ===== */
 .fade-in {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.animate-hidden {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 .fade-in.visible {
   opacity: 1;
@@ -930,8 +932,7 @@ section {
 
   <!-- ===== Footer ===== -->
   <div class="footer">
-    <a href="travel_plan_v2.html">旅行计划</a>
-    <a href="travel_plan_v2.html">旅行计划</a>
+    <a href="travel_plan_v2.html">旅行计划主页</a>
     <a href="#">回到顶部</a>
     <p style="margin-top:8px;">内容整理自小红书、知乎、什么值得买、马蜂窝等平台 · 仅供参考</p>
   </div>
@@ -1291,7 +1292,7 @@ function renderEntries(entries) {
 
   entries.forEach(entry => {
     const card = document.createElement('div');
-    card.className = 'blogger-card fade-in';
+    card.className = 'blogger-card fade-in animate-hidden';
     card.dataset.platform = entry.platform;
 
     const daysHtml = entry.days.map(d => {
@@ -1369,8 +1370,11 @@ document.querySelectorAll('.platform-pill').forEach(pill => {
 });
 
 // ===== Intersection Observer for Fade-in =====
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+// First mark all fade-in elements as hidden (only when JS is running)
+document.querySelectorAll('.fade-in').forEach(el => el.classList.add('animate-hidden'));
+
+const observer = new IntersectionObserver((observed) => {
+  observed.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
     }
