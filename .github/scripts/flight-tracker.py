@@ -35,16 +35,24 @@ def estimate_price(base_price, days_left, airline):
     return round(price / 10) * 10
 
 routes = [
-    {"airline": "海航 · 北京转", "base": 5200, "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"},
-    {"airline": "国航 · 北京转", "base": 6800, "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"},
-    {"airline": "汉莎 · 法兰克福转", "base": 8900, "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"},
+    {"airline": "海航 · 北京转", "base": 5200, "tax": 990, "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"},
+    {"airline": "国航 · 北京转", "base": 6800, "tax": 1030, "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"},
+    {"airline": "汉莎 · 法兰克福转", "base": 8900, "tax": 1750, "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"},
 ]
 
 prices = []
 for r in routes:
-    p = estimate_price(r["base"], days_left, r["airline"])
-    prev = r["base"]
-    prices.append({"airline": r["airline"], "price": p, "trend": "up" if p > prev else "down" if p < prev else "stable", "search_url": r["search_url"]})
+    base_fare = estimate_price(r["base"] - r["tax"], days_left, r["airline"])
+    total = base_fare + r["tax"]
+    prev_total = r["base"]
+    prices.append({
+        "airline": r["airline"],
+        "baseFare": base_fare,
+        "tax": r["tax"],
+        "price": total,
+        "trend": "up" if total > prev_total else "down" if total < prev_total else "stable",
+        "search_url": r["search_url"]
+    })
 
 if days_left > 90:
     recommendation = "wait"
@@ -135,9 +143,14 @@ route_html = ""
 for p in prices:
     arrow = "↑" if p["trend"] == "up" else "↓" if p["trend"] == "down" else "→"
     arrow_color = "var(--red-warn)" if p["trend"] == "up" else "var(--aurora-green)" if p["trend"] == "down" else "var(--text-muted)"
-    route_html += f"""<div style="display:flex;justify-content:space-between;align-items:center;font-size:0.65rem;padding:3px 0;">
-      <span style="color:var(--text-secondary);"><a href="{p['search_url']}" target="_blank" style="color:var(--text-secondary);text-decoration:none;">{p['airline']}</a></span>
-      <span style="color:var(--text-primary);font-weight:600;">¥{p['price']:,} <span style="color:{arrow_color};font-size:0.55rem;">{arrow}</span></span>
+    route_html += f"""<div style="padding:4px 0;border-bottom:1px solid rgba(148,163,184,0.06);">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:0.65rem;color:var(--text-secondary);"><a href="{p['search_url']}" target="_blank" style="color:var(--text-secondary);text-decoration:none;">{p['airline']}</a></span>
+        <span style="font-size:0.68rem;color:var(--text-primary);font-weight:700;">¥{p['price']:,} <span style="color:{arrow_color};font-size:0.5rem;">{arrow}</span></span>
+      </div>
+      <div style="display:flex;justify-content:flex-end;gap:8px;font-size:0.5rem;color:var(--text-muted);margin-top:1px;">
+        <span>票价 ¥{p['baseFare']:,}</span><span>+ 税费 ¥{p['tax']:,}</span>
+      </div>
     </div>"""
 
 card = f"""<!-- FLIGHT_PRICES_START -->
@@ -157,7 +170,8 @@ card = f"""<!-- FLIGHT_PRICES_START -->
         <span style="font-size:0.5rem;color:var(--text-muted);margin-top:2px;">14天趋势（海航）</span>
       </div>
     </div>
-    <div style="margin-top:6px;display:flex;justify-content:space-between;align-items:center;font-size:0.55rem;color:var(--text-muted);border-top:1px solid rgba(148,163,184,0.1);padding-top:5px;">
+    <div style="margin-top:4px;font-size:0.5rem;color:var(--text-muted);padding:2px 0;">税费含：机建费 ¥90 + 燃油附加费 + 转机国税费</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.55rem;color:var(--text-muted);border-top:1px solid rgba(148,163,184,0.1);padding-top:5px;">
       <span>{note} · 距出发{days_left}天</span>
       <a href="https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25&curr=CNY" target="_blank" style="color:var(--aurora-green);text-decoration:none;font-size:0.55rem;">Google Flights搜索 →</a>
     </div>
