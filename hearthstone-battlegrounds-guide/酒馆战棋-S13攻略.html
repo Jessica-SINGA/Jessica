@@ -210,19 +210,19 @@ const TRIBES = [
    finalBoard:[
      c('demons','饥饿的魔蝠','5本·全体吞食引擎','BG21_005'),
      c('demons','食力征服者','6本·吞食buff酒馆','BG35_153'),
+     c('demons','布莱恩·铜须','泛用·双倍战吼','BG_LOE_077'),
      c('demons','狂蝠恐惧卫士','6本·法术吞食联动','BG31_871'),
      c('demons','提克迪奥斯','5本·受伤+3/+2','BG26_523'),
      c('demons','萨格拉斯的勇士','7本·全体+5/+5','BG27_016'),
      c('demons','扭曲的愤怒卫士','6本·出售产饲料','BG35_155'),
-     c('demons','布莱恩·铜须','泛用·双倍战吼','BG_LOE_077')
    ], finalBoardAlt:[
      c('demons','饥饿的魔蝠','5本·全体吞食引擎','BG21_005'),
      c('demons','食力征服者','6本·吞食buff酒馆','BG35_153'),
+     c('demons','布莱恩·铜须','泛用·双倍战吼','BG_LOE_077'),
      c('demons','狂蝠恐惧卫士','6本·法术吞食联动','BG31_871'),
      c('demons','提克迪奥斯','5本·受伤+3/+2','BG26_523'),
      c('demons','魔焰执行者','4本·吞食成长','BG34_500'),
      c('demons','扭曲的愤怒卫士','6本·出售产饲料','BG35_155'),
-     c('demons','布莱恩·铜须','泛用·双倍战吼','BG_LOE_077')
    ], winConditionAlt:'无7本版本：魔焰执行者代替萨格拉斯的勇士，吞噬成长节奏更快。魔蝠+食力征服者核心不变，每回合全体数值指数级增长。', winCondition:'饲料→吞食→食力征服者buff酒馆→酒馆随从越来越大→吞食获得更多属性。每回合恶魔全体数值指数级增长，配合提克迪奥斯受伤+3/+2同步成长。萨格拉斯的勇士额外+5/+5终结。核心是一张饥饿的魔蝠启动无限吞食循环。'},
 
   {id:'elementals', icon:'🔥', name:'元素流', rank:'T1', rc:'rank-t1',
@@ -271,12 +271,12 @@ const TRIBES = [
    ], slogan:'前期蓄势主唱 → 多彩龙+卡雷苟斯 → 后期火铸唤魔师',
    finalBoard:[
      c('dragons','奥术守护者卡雷苟斯','5本·战吼成长引擎','BGS_041'),
+     c('dragons','布莱恩·铜须','泛用·双倍战吼','BG_LOE_077'),
      c('dragons','火铸唤魔师','6本·法术成长引擎','BG32_822'),
      c('dragons','珍稀增强幼龙','4本·战斗+4/+4','BG21_014'),
      c('dragons','执念诗心龙','4本·圣盾保留','BG29_813'),
      c('dragons','泰蕾苟萨','2本·保留战斗加成','BG21_015'),
      c('dragons','绿色多彩幼龙','龙+2/+4','BG34_636t'),
-     c('dragons','布莱恩·铜须','泛用·双倍战吼','BG_LOE_077')
    ], winCondition:'每触发一次战吼→全体龙永久+2/+2(卡雷苟斯)，铜须翻倍。珍稀增强幼龙战斗开始全体+4/+4，执念诗心龙+泰蕾苟萨保留战斗加成回合间累积。火铸唤魔师配合酒馆法术叠层。核心是铜须+卡雷苟斯双核驱动，每回合buy战吼随从→全体龙无限成长。'},
 
   {id:'quilboar', icon:'🐗', name:'野猪人流', rank:'T2', rc:'rank-t2',
@@ -555,8 +555,11 @@ document.getElementById('tribe-content').innerHTML = TRIBES.map(t => {
         '</div>';
     }).join('')+
     (t.finalBoard ? '<div class="final-comp">'+
-      '<h4>🏆 最终成型阵容（7人满编）</h4>'+
-      '<div class="card-grid">'+t.finalBoard.map(c => cardHTML(c, true)).join('')+'</div>'+
+      '<h4>🏆 最终成型阵容</h4>'+
+      '<h5 style="color:var(--gold);margin:0.5rem 0 0.3rem;font-size:0.9rem;">⚡ 核心组件（必备）</h5>'+
+      '<div class="card-grid">'+t.finalBoard.slice(0,4).map(c => cardHTML(c, true)).join('')+'</div>'+
+      '<h5 style="color:var(--text-dim);margin:0.3rem 0;font-size:0.85rem;">🔄 灵活替换位（视对局调整）</h5>'+
+      '<div class="card-grid">'+t.finalBoard.slice(4).map(c => cardHTML(c, true)).join('')+'</div>'+
       '<div class="win-condition">'+
         '<h5>⚡ 吃鸡核心 · 成长体系</h5>'+
         '<p>'+t.winCondition+'</p>'+
@@ -564,7 +567,10 @@ document.getElementById('tribe-content').innerHTML = TRIBES.map(t => {
       '</div>' : '')+
     (t.finalBoardAlt ? '<div class="final-comp final-comp-alt">'+
       '<h4>🔄 无7本版本（替代阵容）</h4>'+
-      '<div class="card-grid">'+t.finalBoardAlt.map(c => cardHTML(c, true)).join('')+'</div>'+
+      '<h5 style="color:#4a9eff;margin:0.5rem 0 0.3rem;font-size:0.9rem;">⚡ 核心组件（必备）</h5>'+
+      '<div class="card-grid">'+t.finalBoardAlt.slice(0,4).map(c => cardHTML(c, true)).join('')+'</div>'+
+      '<h5 style="color:var(--text-dim);margin:0.3rem 0;font-size:0.85rem;">🔄 灵活替换位</h5>'+
+      '<div class="card-grid">'+t.finalBoardAlt.slice(4).map(c => cardHTML(c, true)).join('')+'</div>'+
       '<div class="win-condition">'+
         '<h5>📌 备选说明</h5>'+
         '<p>'+t.winConditionAlt+'</p>'+
