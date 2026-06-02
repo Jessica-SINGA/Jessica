@@ -21,6 +21,13 @@ novel-writing/     — 相遇 interactive fiction + analysis docs
 transit-love-sim/  — ENHYPEN 换乘恋爱 simulator prompt
   换乘恋爱-ENHYPEN-simulator.md
 
+换乘恋爱-冬日之约/  — ENHYPEN 换乘恋爱同人小说（ABO世界观，非互动/纯叙事）
+  剧情存档/
+    换乘恋爱-冬日之约-Day1-3.txt     Day 1-3 完整剧情
+    换乘恋爱-冬日之约-Day1-6.txt     Day 1-6 完整剧情（写作中）
+    角色设定.txt                    人物设定参数
+    游戏机制说明.txt                 世界观/状态变量逻辑
+
 norway-travel/     — Norway aurora travel plans + Seoul plan
   travel_plan_v2.html, travel_plan.html, seoul_plan.html
   *.docx (travel plans), generate_travel_plan.py
