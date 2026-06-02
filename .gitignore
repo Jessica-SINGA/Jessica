@@ -28,6 +28,7 @@
 !hearthstone-battlegrounds-guide/*
 !hearthstone-battlegrounds-guide/screenshots/
 !hearthstone-battlegrounds-guide/screenshots/*
+!hearthstone-battlegrounds-guide/screenshots/**/*
 !images/
 !images/sunoo/
 !images/sunoo/*
