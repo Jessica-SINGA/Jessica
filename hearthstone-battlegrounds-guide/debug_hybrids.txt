@@ -1,9 +1,0 @@
-document.getElementById('hybrids-content').innerHTML = HYBRIDS.map(h => {
-  return '<div class="hybrid-item">'+
-    '<div class="hybrid-header">'+
-      '<span class="hybrid-icon">'+h.icon+'</span>'+
-      '<h4>'+h.name+' <span class="hybrid-meta">'+h.difficulty+' · '+h.primary+' · 转型节点：'+h.pivot+'</span></h4>'+
-    '</div>'+
-    '<div class="hybrid-synergy">✨ '+h.synergy+'</div>'+
-    '<div class="hybrid-desc">'+h.desc+'</div>'+
-    '<h4 style="margin:0.5rem 0 0.3rem;font-size:0.9rem;color:var(
