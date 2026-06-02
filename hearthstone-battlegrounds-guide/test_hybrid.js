@@ -1,176 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>炉石传说酒馆战棋 S13「灾变降临」全流派攻略</title>
-<style>
-  :root {
-    --bg: #0d0d1a; --surface: #1a1a2e; --surface2: #16213e;
-    --accent: #c9a84c; --gold: #ffd700; --text: #e0d5c1;
-    --text-dim: #8b7d6b; --border: #2a2a4a;
-    --t0: #ff4444; --t1: #ff8c00; --t2: #4a9eff; --t3: #8b8b8b;
-    --early: #5b8c5a; --mid: #c9a84c; --late: #c0392b;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
-    background: var(--bg); color: var(--text); line-height: 1.7;
-  }
-  header {
-    background: linear-gradient(135deg, #1a0a2e, #16213e, #0d0d1a);
-    border-bottom: 2px solid var(--accent);
-    padding: 2rem 1rem; text-align: center; position: relative; overflow: hidden;
-  }
-  header::before {
-    content: ''; position: absolute; top:0; left:0; right:0; bottom:0;
-    background: radial-gradient(ellipse at center, rgba(201,168,76,0.08) 0%, transparent 70%);
-  }
-  header h1 {
-    font-size: clamp(1.6rem,4vw,2.6rem); color: var(--gold);
-    text-shadow: 0 0 30px rgba(255,215,0,0.3); position: relative;
-  }
-  header p { color: var(--text-dim); margin-top: 0.5rem; font-size: 0.95rem; position: relative; }
-  nav {
-    display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center;
-    padding: 0.8rem; background: var(--surface); border-bottom: 1px solid var(--border);
-    position: sticky; top: 0; z-index: 100;
-  }
-  nav a {
-    color: var(--text-dim); text-decoration: none; padding: 0.3rem 0.6rem;
-    border-radius: 4px; font-size: 0.82rem; transition: all 0.2s; border: 1px solid transparent;
-  }
-  nav a:hover { color: var(--gold); border-color: var(--accent); background: rgba(201,168,76,0.1); }
-  .container { max-width: 960px; margin: 0 auto; padding: 1rem; }
-  .section {
-    background: var(--surface); border-radius: 10px; border: 1px solid var(--border);
-    margin: 1.5rem 0; padding: 1.5rem;
-  }
-  .section h2 { font-size: 1.4rem; color: var(--gold); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
-  .tribe-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
-  .tribe-icon { font-size: 2.5rem; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; background: var(--surface2); border-radius: 12px; border: 1px solid var(--border); flex-shrink: 0; }
-  .tribe-info h3 { margin: 0; font-size: 1.3rem; }
-  .tribe-rank { display: inline-block; padding: 0.15rem 0.6rem; border-radius: 4px; font-weight: bold; font-size: 0.8rem; margin-left: 0.5rem; }
-  .rank-t0 { background: rgba(255,68,68,0.2); color: var(--t0); border: 1px solid rgba(255,68,68,0.3); }
-  .rank-t1 { background: rgba(255,140,0,0.2); color: var(--t1); border: 1px solid rgba(255,140,0,0.3); }
-  .rank-t2 { background: rgba(74,158,255,0.2); color: var(--t2); border: 1px solid rgba(74,158,255,0.3); }
-  .rank-t3 { background: rgba(139,139,139,0.2); color: var(--t3); border: 1px solid rgba(139,139,139,0.3); }
-  .tribe-mechanic { background: var(--surface2); padding: 0.8rem; border-radius: 6px; margin: 0.8rem 0; font-size: 0.95rem; border-left: 3px solid var(--accent); }
 
-  .phase-table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; }
-  .phase-table th { background: var(--surface2); color: var(--gold); padding: 0.5rem 0.8rem; text-align: left; font-size: 0.9rem; border: 1px solid var(--border); }
-  .phase-table td { padding: 0.5rem 0.8rem; border: 1px solid var(--border); font-size: 0.9rem; vertical-align: top; }
-  .phase-table .phase-label { white-space: nowrap; font-weight: bold; width: 60px; }
-  .phase-table .phase-round { white-space: nowrap; width: 80px; color: var(--text-dim); }
-  .phase-early .phase-label { color: var(--early); }
-  .phase-mid .phase-label { color: var(--mid); }
-  .phase-late .phase-label { color: var(--late); }
-
-  .phase-block { margin: 1.2rem 0; }
-  .phase-block h4 { font-size: 1rem; margin-bottom: 0.5rem; padding-left: 0.5rem; border-left: 3px solid var(--accent); }
-  .phase-block h4 .phase-tag { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 3px; font-size: 0.75rem; margin-right: 0.5rem; }
-  .phase-tag-early { background: rgba(91,140,90,0.3); color: var(--early); border: 1px solid rgba(91,140,90,0.3); }
-  .phase-tag-mid { background: rgba(201,168,76,0.3); color: var(--mid); border: 1px solid rgba(201,168,76,0.3); }
-  .phase-tag-late { background: rgba(192,57,43,0.3); color: var(--late); border: 1px solid rgba(192,57,43,0.3); }
-
-  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.8rem; margin: 0.5rem 0 1rem; }
-  .card-item { text-align: center; padding: 0.5rem; background: var(--surface2); border-radius: 8px; border: 1px solid var(--border); transition: transform 0.2s; }
-  .card-item:hover { transform: translateY(-2px); border-color: var(--accent); }
-  .card-item img { width: 100%; aspect-ratio: 2.8/4; object-fit: contain; border-radius: 4px; display: block; }
-  .card-item .card-name { font-size: 0.82rem; margin-top: 0.3rem; color: var(--text); line-height: 1.3; font-weight: bold; }
-  .card-item .card-role { font-size: 0.7rem; color: var(--accent); opacity: 0.8; margin-top: 0.1rem; }
-  .card-item .card-desc { font-size: 0.72rem; color: var(--text-dim); margin-top: 0.3rem; line-height: 1.35; text-align: left; }
-
-  .slogan { text-align: center; font-style: italic; color: var(--gold); padding: 0.8rem; margin: 0.8rem 0 0; background: rgba(201,168,76,0.05); border-radius: 6px; font-size: 0.95rem; border: 1px dashed rgba(201,168,76,0.2); }
-
-  /* 最终阵容样式 */
-  .final-comp { margin-top: 1.2rem; padding-top: 1rem; border-top: 2px solid var(--gold); }
-  .final-comp h4 { font-size: 1.1rem; color: var(--gold); margin-bottom: 0.5rem; text-align: center; }
-  .final-comp .card-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
-  .final-comp-alt { border-top-color: #4a9eff; margin-top: 0.8rem; padding-top: 0.8rem; }
-  .final-comp-alt h4 { color: #4a9eff; }
-  .final-comp-alt .final-card { border-color: rgba(74,158,255,0.3); background: linear-gradient(135deg, rgba(74,158,255,0.08), rgba(0,100,200,0.02)); }
-  .final-comp .final-card { border-color: rgba(255,215,0,0.3); background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(255,215,0,0.02)); }
-  .win-condition { background: linear-gradient(135deg, rgba(255,68,68,0.08), rgba(201,168,76,0.05)); border: 1px solid rgba(255,215,0,0.25); border-radius: 8px; padding: 1rem; margin: 0.8rem 0; }
-  .win-condition h5 { color: var(--t0); font-size: 0.95rem; margin-bottom: 0.3rem; }
-  .win-condition p { font-size: 0.9rem; color: var(--text); line-height: 1.6; }
-
-  .overview-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-  .overview-table th, .overview-table td { padding: 0.5rem 0.8rem; border: 1px solid var(--border); text-align: left; font-size: 0.9rem; }
-  .overview-table th { background: var(--surface2); color: var(--gold); }
-  .tip-box { background: linear-gradient(135deg, rgba(201,168,76,0.05), rgba(255,215,0,0.02)); border: 1px solid rgba(201,168,76,0.2); border-radius: 8px; padding: 1rem; margin: 0.8rem 0; }
-  .tip-box h4 { color: var(--gold); margin-bottom: 0.3rem; font-size: 0.9rem; }
-  html { scroll-behavior: smooth; }
-  /* 混合流派样式 */
-  .hybrid-item { background: var(--surface2); border-radius: 8px; padding: 1rem; margin: 1rem 0; border: 1px solid var(--border); }
-  .hybrid-item:nth-child(even) { border-color: rgba(201,168,76,0.15); }
-  .hybrid-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem; }
-  .hybrid-icon { font-size: 1.8rem; }
-  .hybrid-header h4 { font-size: 1.1rem; color: var(--gold); margin: 0; }
-  .hybrid-meta { font-size: 0.78rem; color: var(--text-dim); display: block; margin-top: 0.15rem; }
-  .hybrid-synergy { background: rgba(201,168,76,0.08); padding: 0.5rem 0.8rem; border-radius: 6px; margin: 0.5rem 0; font-size: 0.9rem; border-left: 3px solid var(--accent); }
-  .hybrid-desc { font-size: 0.88rem; color: var(--text); margin: 0.5rem 0; line-height: 1.6; }
-  .hybrid-strategy { background: linear-gradient(135deg, rgba(74,158,255,0.06), rgba(201,168,76,0.03)); border: 1px solid rgba(74,158,255,0.15); border-radius: 6px; padding: 0.6rem 0.8rem; margin: 0.5rem 0; font-size: 0.85rem; line-height: 1.6; }
-  .hybrid-strategy strong { color: var(--accent); }
-  .hybrid-item .card-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
-  /* 卡片点击放大 */
-  .card-item { cursor: pointer; }
-  .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 9999; justify-content: center; align-items: center; }
-  .modal-overlay.active { display: flex; }
-  .modal-box { background: var(--surface); border: 2px solid var(--accent); border-radius: 12px; padding: 1.5rem; max-width: 360px; width: 90%; text-align: center; position: relative; }
-  .modal-box img { width: 100%; border-radius: 8px; }
-  .modal-box .card-name { font-size: 1.1rem; color: var(--gold); margin-top: 0.8rem; font-weight: bold; }
-  .modal-box .card-role { font-size: 0.9rem; color: var(--accent); opacity: 0.8; margin-top: 0.2rem; }
-  .modal-box .card-desc { font-size: 0.9rem; color: var(--text); margin-top: 0.6rem; line-height: 1.6; text-align: left; background: var(--surface2); padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); }
-  .modal-close { position: absolute; top: 0.5rem; right: 0.8rem; font-size: 1.5rem; color: var(--text-dim); cursor: pointer; transition: color 0.2s; }
-  .modal-close:hover { color: var(--gold); }
-  @media (max-width: 600px) { .card-grid { grid-template-columns: repeat(2, 1fr); } .phase-table .phase-round { display: none; } }
-</style>
-</head>
-<body>
-<header>
-  <h1>⚔ 酒馆战棋 S13「灾变降临」</h1>
-  <p>版本 35.4.2 · 2026年5月 · 全流派前中后期玩法攻略 · 数据来自官方卡池</p>
-</header>
-<nav>
-  <a href="#overview">📊概况</a><a href="#demons">😈恶魔</a><a href="#elementals">🔥元素</a><a href="#dragons">🐉龙</a><a href="#quilboar">🐗野猪人</a><a href="#nagas">🐍纳迦</a><a href="#beasts">🐻野兽</a><a href="#pirates">🏴‍☠️海盗</a><a href="#undead">💀亡灵</a><a href="#mechs">⚙️机械</a><a href="#murlocs">🐟鱼人</a>
-<a href="#hybrids">🔀混合</a>
-	</nav>
-<div class="container">
-<section id="overview" class="section">
-<h2>📊 版本概况</h2>
-<div class="tribe-mechanic">S13 灾变降临（35.4.2补丁）：饰品系统回归，恶魔新增饲料机制，龙族新增多彩幼龙体系，大量随从轮换。恶魔/元素T0强势，龙/野猪人/纳迦T1，海盗/机械加强后回暖。</div>
-<table class="overview-table">
-<tr><th>评级</th><th>流派</th><th>特点</th></tr>
-<tr><td><span class="tribe-rank rank-t0">T0</span></td><td>恶魔、元素</td><td>数值指数级增长，吃鸡率最高</td></tr>
-<tr><td><span class="tribe-rank rank-t1">T1</span></td><td>龙、野猪人、纳迦</td><td>成型稳定，有明确成长引擎</td></tr>
-<tr><td><span class="tribe-rank rank-t2">T2</span></td><td>野兽、海盗、亡灵</td><td>特定对局强，需要天胡或特定饰品</td></tr>
-<tr><td><span class="tribe-rank rank-t3">T3</span></td><td>机械、鱼人</td><td>烂分稳定，吃鸡需要天胡+完美运营</td></tr>
-</table>
-</section>
-<div id="tribe-content"></div>
-<section id="hybrids" class="section">
-<h2>🔀 混合流派（跨种族阵容）</h2>
-<div id="hybrids-content"></div>
-</section>
-	<section class="section">
-<h2>💡 运营建议</h2>
-<div class="tip-box"><h4>万金油节奏</h4>1-3回正常买怪，4回上3本，5-7回上4本搜核心，8-9回上5本补强，10回+上6本找终结牌。</div>
-<div class="tip-box"><h4>优质泛用随从</h4>布莱恩·铜须(战吼翻倍)、提图斯·瑞文戴尔(亡语翻倍)、达卡莱附魔师(回合结束翻倍)—多数流派可用。</div>
-</section>
-</div>
-
-<div id="cardModal" class="modal-overlay" onclick="closeModal()">
-  <div class="modal-box" onclick="event.stopPropagation()">
-    <span class="modal-close" onclick="closeModal()">&times;</span>
-    <img id="modalImg" src="" alt="">
-    <div id="modalName" class="card-name"></div>
-    <div id="modalRole" class="card-role"></div>
-    <div id="modalDesc" class="card-desc"></div>
-  </div>
-</div>
-
-<script>
 const TEXTS = {"BG26_174":"在你的英雄 受到伤害后，回溯该伤害并使本随从获得 +1生命值。","BG24_009":"战吼：随机吞食酒馆中的一个随从，获得其属性值。","BGS_004":"在你使用一张恶魔牌后，对你的英雄造成1点伤害并获得+2/+1。","BG25_520":"购买本随从会消耗生命值，而非铸币。","BG_GVG_100":"每当你的英雄在你的回合受到伤害，便获得+2/+2。","BG35_150":"战吼：在你的下3次刷新中各添加一个恶魔饲料。","BG26_524":"每回合中，有两次刷新会消耗生命值，而非铸币。（还剩2次！）","BG26_525":"战吼： 发现一张恶魔牌，对你的英雄造成等同于其等级的伤害。","BG34_500":"在你的回合结束时，吞食酒馆中生命值最高的随从以获得其 属性值。","BG35_151":"在你的回合结束时，在你的下3次刷新中各添加一个恶魔饲料。","BG21_005":"在你的回合结束时，你的恶魔各吞食酒馆中的一个随从，获得其属性值。","BG26_523":"在你的英雄受到伤害后，使你的恶魔获得+3/+2。","BG28_905":"每回合中，有一张酒馆法术牌可用生命值购买，而非铸币。（还剩1张！）","BG32_873":"在你的英雄受到伤害后，回溯该伤害并使酒馆中的随从在本回合中获得+1/+1。","BG35_152":"战吼：在本局对战中，使酒馆中等级3或以下的随从获得+3/+3。","BG31_871":"在你施放一个酒馆法术后，另一个友方恶魔会吞食 酒馆中的一个随从以获得其属性值。","BG35_153":"每当一个随从被吞食，在本回合中使酒馆中的随从获得+1/+1。","BG35_155":"在你出售一个随从后，在你的下一次刷新中添加一个恶魔饲料。","BG27_016":"战吼，亡语：在本局对战中，酒馆中的随从拥有+5/+5。","BG_LOE_077":"你的战吼会触发 两次。","BG25_008":"在本局对战中，每有一个友方永恒骑士死亡，便拥有+4/+2（无论本随从在哪）。","BG25_354":"你的亡语额外触发一次。","BG26_ICC_901":"你的回合结束效果会触发两次。","BG31_815":"战吼：使酒馆中的元素在本局对战中获得+1/+1。","BGS_119":"圣盾，风怒","BG31_816":"当你出售本随从时，使你的随从获得+1攻击力。提升你此后投球手的效果。1当你出售本随从时，使你的随从获得+1/+0。提升你此后投球手的效果。","BG31_818":"当你出售本随从时，使你的随从获得+1生命值。提升你此后投球手的效果。0当你出售本随从时，使你的随从获得+0/+1。提升你此后投球手的效果。","BGS_115":"当你出售 本随从时，获取一张3/3的元素牌。","BG25_041":"战吼：使酒馆中的随从在本局对战中获得+2/+1。","BG34_856":"亡语：在本局对战中，在酒馆刷新后，使酒馆中一个随机随从获得+3/+3。","BGS_126":"在本随从攻击并消灭一个随从后，对一个相邻的随从造成超过目标生命值的伤害。","BG31_812":"圣盾 每当你使用一张元素牌，直到下个回合，使其获得圣盾。","BG34_865":"战吼：在本局对战中，在酒馆刷新后，使酒馆中一个随机随从获得+7/+7。","BG35_881":"战吼，亡语：获取一张奥术吸收。","BGS_116":"战吼：获得2次免费的刷新。","BGS_123":"战吼：随机获取一张元素牌。","BG28_707":"每当你施放一个酒馆法术，使酒馆中的元素在本局对战中获得+3/+2。","BG34_858":"在你花掉7枚铸币后，施放乘借东风。（还剩7枚！）","BG35_882":"战吼：获取一张 燃焰。","BG26_175":"圣盾。可以与任意元素三连。","BG31_810":"战斗开始时：使你的其他元素获得+3/+2。（在你使用一张元素牌后提升！）","BG34_950":"在你购买一个随从后，使其获得+10/+10并使其属性值翻倍。（每回合一次。）","BG26_529":"每3个回合，在回合结束时，随机获取一张龙牌。（还剩3回合！）3每3个回合，在回合结束时，随机获取一张龙牌。（就是这回合！）","BG34_630":"亡语：召唤一条3/3并立即发起攻击的 雏龙。","BG35_814":"一旦本随从的攻击力达到6点，获得圣盾。6一旦本随从的攻击力达到6点，获得圣盾。（已完成！）","BG21_015":"本随从可永久保留战斗阶段获得的额外关键词和属性值。","BG25_040":"在你触发一个战吼后，获得+1/+1。","BG33_241":"进击：使本随从右边的随从获得+2/+2。","BG24_500":"嘲讽。战斗开始时：使另一条友方的龙获得+2/+2和圣盾。","BG29_816":"每当另一条友方的龙攻击时，使其获得+3/+1。","BG34_634t":"战吼：随机获取一张消耗2枚铸币的酒馆法术牌。","BG34_635t":"战吼： 在本局对战中，你的酒馆法术使随从额外获得+1生命值。","BG34_636t":"战吼：使你的其他龙获得+2/+4。","BG34_637t":"战吼：使你的其他龙获得+4/+2。","BG34_638t":"战吼： 在本局对战中，你的酒馆法术使随从额外获得+1攻击力。","BG21_014":"战斗开始时：使你的龙获得+4/+4。","BG29_813":"圣盾。相邻的龙可永久保留战斗阶段获得的额外关键词和属性值。","BG34_632":"复仇（3）：随机获取一张多彩幼龙。","BG34_731":"亡语：召唤2条暮光龙崽并使其获得嘲讽。","BG32_821":"在你的回合结束时，你的酒馆法术在本局对战中使随从额外获得+1/+1。","BG34_633":"战吼，亡语：随机获取一张多彩幼龙。","BGS_041":"在你触发一个战吼后，使你的龙获得+2/+2。","BG28_595":"在你的回合结束时，随机获取2张 酒馆法术牌。","BG29_815":"嘲讽。亡语：使2个不同的友方随从获得本随从的攻击力。","BG32_822":"战斗开始时：使你的龙获得+2/+1。在你施放一个酒馆法术后永久提升此效果。","BG27_017":"进击：对目标及一个相邻的随从造成等同于本随从攻击力的伤害。","BG20_100":"战吼：获取2张 鲜血宝石。","BG20_301":"当你出售本随从时，获取2张鲜血宝石。","BG32_430":"亡语：召唤两个1/1并具有嘲讽的野猪人。本随从对其使用一张鲜血宝石。","BG35_432":"嘲讽。亡语：获取一张鲜血宝石。该宝石还能使野猪人获得 嘲讽。","BG24_707":"在一个友方嘲讽随从死亡后，获取一张鲜血宝石。","BG25_039":"每当法术被施放在本随从身上，直到下个回合，获得烈毒。","BG26_159":"战吼：在本局对战中，你的鲜血宝石会额外获得+1生命值。","BG26_160":"亡语：在本局对战中，你的鲜血宝石会额外获得+1攻击力。","BG32_434":"嘲讽。亡语：本随从对相邻的随从各使用一张永久的鲜血宝石。","BG28_583":"圣盾。每当一张鲜血宝石被用于本随从时，本随从对一个不同的友方随从使用一张鲜血宝石。","BG30_123":"抉择：在本局对战中，你的鲜血宝石使随从额外获得+1/+1；或者获取4张鲜血宝石。","BG32_433":"复仇（3）：在本局对战中，你的鲜血宝石使随从额外获得+1生命值。3复仇（3）：在本局对战中，你的鲜血宝石使随从额外获得+1攻击力。（下回合切换为生命值！）","BG35_433":"在你的回合结束时，获取一张鲜血宝石。该宝石还能使野猪人获得复生。","BG35_434":"每回合一次：在鲜血宝石被用于本随从后，获得2枚铸币。","BG23_018":"每当你花掉8枚铸币，本随从对你的所有野猪人各使用两张鲜血宝石。（还剩8枚！）","BG25_155":"战吼：本随从对你的所有其他随从各使用2张鲜血宝石。","BG26_867":"亡语：本随从对你的所有野猪人各使用3张鲜血宝石。","BG30_121":"从你手牌中使用 的鲜血宝石会额外施放一次。","BG26_157":"复仇（2）：本随从对你的所有野猪人各使用2张鲜血宝石。","BG35_431":"风怒。在你的回合结束时，对你的所有随从各使用一张鲜血宝石。本随从每拥有一个额外关键词，重复一次。","BG35_437":"在一个友方亡语随从死亡后，你的鲜血宝石会在本局对战中使随从额外获得+1攻击力。","BG23_017":"战吼，亡语：在本局对战中，你的鲜血宝石使随从额外获得+1/+1。","BG27_004":"塑造法术：直到下个回合，使一个随从获得\"亡语：召唤一只3/2的螃蟹\"。","BG31_330":"战吼：你购买的下一张酒馆法术牌消耗的铸币减少（1）枚。","BG23_002":"战吼：获取 一张酒馆币。","BG23_009":"每回合从手牌对本随从使用的第一张塑造法术的法术牌永久有效。（还剩1张！）","BG26_501":"塑造法术：直到下个回合，使一个随从获得等同于你当前等级的属性值。","BG34_920":"嘲讽。亡语：对一个相邻的随从施放变换之潮。","BG23_004":"塑造法术：直到下个回合，使一个随从获得+2/+6和嘲讽。","BG26_502":"塑造法术：直到下个回合，使一个随从获得+2/+2。提升你此后的深沉蓝调效果。","BG23_007":"塑造法术：使一个随从获得+2/+2。如果该随从是纳迦，还会使其获得直到下回合的风怒。","BG26_505":"每回合一次：当塑造法术的法术被用于本随从时，获取它的一张新复制。","BG33_319":"塑造法术：随机获取一张能使随从获得属性值的酒馆法术牌。","BG34_925":"进击：对本随从右边的随从施放主厨 甄选。","BG35_921":"圣盾。在本局对战中，你每施放一个酒馆法术，便拥有+1/+1。","BG23_008":"嘲讽，塑造法术：直到下个回合，使一个随从获得圣盾。","BG31_920":"塑造法术：随机获取一张等级1的纳迦牌。（每回合都会提升！）","BG32_835":"塑造法术：在本局对战中，你的酒馆法术使随从额外获得+1/+1。","BG34_922":"在战斗中，你的 酒馆法术会额外施放一次。","BG23_013":"每当你施放一个法术，使你的所有纳迦永久获得+1/+1。","BG31_035":"在你使用一张纳迦牌后，获得+1/+1。（在本局对战中，你每施放4个法术都会提升！）4在你使用一张纳迦牌后，获得+1/+1。（施放0/4个法术即可提升！）","BG34_921":"每当一个友方随从 攻击时，施放闪亮的戒指。","BG34_926":"战吼，亡语，进击：施放女王的命令。","BG27_514":"塑造法术：选择酒馆中一个不同的随从，获取一张复制。","BG26_800":"亡语：召唤两只0/1并具有嘲讽的豹宝宝。","BG19_010":"亡语：召唤一只2/3并具有嘲讽的龟。","BG26_805":"战斗开始时：在本场战斗的剩余时间内，你的野兽拥有+1攻击力。","BG25_806":"亡语：随机召唤一只野兽，其属性值变为6/6。","BG27_084":"抉择：使一只野兽获得+1/+1和复生；或者+4攻击力和风怒。","BG34_312":"嘲讽。每当本随从受到伤害，使你的其他随从获得+1/+1。","BG26_801":"嘲讽。亡语：触发一个相邻随从的战吼。","BG26_802":"在战斗中，在你召唤一只野兽后，使其攻击力翻倍。","BG29_807":"每当另一只友方野兽受到伤害时，永久获得+2生命值。","BG33_840":"进击：使你的其他野兽获得+3攻击力和此进击效果。3进击：使你的其他野兽获得+3/+0和此进击效果。","BG34_523":"战吼： 发现一张野兽牌。","BG35_601":"每当本随从受到伤害，获得一次免费的刷新。（每回合限3次。）3每当本随从受到伤害，获得一次免费的刷新。（还剩3次！）","BGS_078":"进击：触发你最左边的亡语（本随从的除外）。","BG29_806":"每当一只友方野兽受到伤害时，使该受伤野兽之外的一只友方野兽永久获得+3/+2。","BG29_808":"嘲讽。复生 亡语：使你的随从获得+1生命值并对其造成1点伤害。","BG35_602":"每当你召唤野兽时，使其获得+2攻击力并永久提升此效果。","BG35_604":"亡语：召唤两只下水道老鼠。下水道老鼠能召唤2/3并具有嘲讽的乌龟。","BG34_321":"在你使用一张野兽牌后，使你的野兽获得+3/+3并对它们造成1点伤害。","BGS_018":"亡语：在本场战斗的剩余时间内，你的野兽拥有+8/+8。","BG34_322":"在战斗中，在你召唤 一个随从后，使其获得本随从的最大属性值。（每场战斗限3次。）3在战斗中，在你召唤一个随从后，使其获得本随从的最大属性值。（还剩3次！）","BG26_135":"战吼：下回合获得1枚铸币。","BG32_236":"圣盾。战吼：使本随从变为金色。","BG21_018":"每当本随从通过其他来源获得攻击力时，获得+1生命值。0每当本随从通过其他来源获得攻击力时，获得+0/+1。","BG32_235":"在你的回合结束时，使相邻的随从获得+1攻击力。每有一个友方金色随从，重复一次。1在你的回合结束时，使相邻的随从获得+1/+0。每有一个友方金色随从，重复一次。","BGS_049":"出售本随从可以获得3枚铸币。","BG25_032":"每当一张卡牌被置入你的手牌，使另一个友方海盗获得+2/+1。","BG26_810":"每当你花掉 6枚铸币，使你的海盗获得+2攻击力。（还剩6枚！）6每当你花掉6枚铸币，使你的海盗获得+2/+0。（还剩6枚！）","BG27_005":"每当你施放一个酒馆法术，使你的随从获得+1攻击力。1每当你施放一个酒馆法术，使你的随从获得+1/+0。","BG33_820":"嘲讽。在你的回合结束时，随机获取一张悬赏令。","BG26_814":"战吼：使一个海盗获得+1生命值。（在本回合中你每花费一枚铸币都会提升！）","BG26_817":"同时对其攻击目标相邻的随从造成伤害。","BG31_824":"每当你花掉5枚铸币，使两个友方海盗 获得+3/+4。 （还剩5枚！）","BG33_822":"进击：随机获取一张悬赏令。","BG35_702":"战吼：使一个友方随从获得+2/+2。（在本回合中，你每施放过一个酒馆法术都会提升！）","BG33_821":"战吼，亡语：随机获取一张悬赏令。","BG33_825":"你的悬赏令会施放 两次。","BG35_701":"在你的回合结束时，使你最左边的海盗获得+3/+3。在本回合中你每使用过一张牌，重复一次。（重复0次）","BG32_234":"每当你获取一张海盗牌，使你的随从获得+2/+2，金色随从改为+6/+6。","BG33_823":"在你花掉9枚铸币后，随机获取一张悬赏令。（还剩9枚！）","BG33_828":"亡语：使你的随从获得+8/+8，金色随从可永久保留此效果。","BG35_700":"进击：召唤一个具有本随从攻击力的空中海盗，并使其率先攻击目标。","BG25_034":"战吼：使一个等级6或以下的友方随从变为金色。","BG25_001":"嘲讽，复生","BG25_013":"在本场战斗中，每有一个友方随从死亡，便拥有+1攻击力。","BG28_300":"亡语：召唤两个1/1的骷髅。","BG25_022":"复生。亡语：使一个友方亡灵获得+1/+2。","BG34_231":"当本随从在你手牌中时，在15个友方随从死亡后，将本随从变为金色。（还剩15个！）","BG25_010":"亡语：召唤一只2/1并具有复生的手。","BG28_309":"亡语：使一个不同的友方亡灵获得复生。","BG30_125":"亡语：召唤三个1/1的骷髅。","BG33_323":"进击：在本局对战中，你的亡灵拥有+1攻击力（无论它们在哪）。","BG32_880":"亡语：在本局对战中，你酒馆法术使随从额外获得+1攻击力。","BG34_690":"亡语：在本局对战中，你的亡灵拥有+2攻击力，无论它们在哪。（如果本随从在战斗之外死亡，改为+4！）","BG24_005":"复生。本随从复生时会具有所有属性值和额外关键词。","BG30_129":"每当你即将召唤随从且你的战队放不下时，使你的随从永久获得+2/+2。","BG32_324":"复仇（3）：获取一张宰割。","BG34_403":"复仇（5）：召唤一个永恒骑士并使其立即发起攻击。","BG34_694":"亡语：获取一张惊扰墓穴。","BG35_334":"在你的回合结束时，使你的随从获得+1/+1。复仇（2）：永久提升此效果。","BG25_009":"复生。亡语：召唤1个永恒骑士。","BG31_835":"复仇（4）：随机获取一张亡灵牌。亡语：从你的手牌中召唤它，其登场仅限本场战斗。","BG34_692":"在你施放一个酒馆法术后，你的亡灵在本局对战中拥有+2攻击力（无论它们 在哪）。","BG31_999":"战斗开始时：消灭本随从左边的随从。亡语：召唤被消灭随从的完全相同的复制。（缝合回收者除外。）","BG29_611":"圣盾。亡语：召唤一个1/1的微型机器人。","BG_GVG_085":"嘲讽 圣盾","BG32_170":"亡语：获取一张尖利箭矢。","BG35_340":"嘲讽。亡语：你购买的下一张酒馆法术牌消耗的铸币减少 （1）枚。","BG_TTN_401":"在本局对战中，你每召唤过一个其他星元自动机，便拥有+3/+2（无论本随从在哪）。","BG26_147":"磁力。在你的回合开始时，获得1枚铸币。","BG31_859":"磁力。可以磁力吸附在机械和元素上。","BG_BOT_911":"磁力 圣盾 嘲讽","BGS_071":"圣盾 在战斗阶段中，每当你召唤一个机械，便获得+2攻击力和圣盾。","BG31_175":"进击：随机获取一张磁力机械牌。","BG31_178":"在你的回合结束时，随机获取一张酒馆法术牌。","BG32_172":"磁力。亡语：召唤一个星元自动机。","BG35_341":"磁力。你的酒馆法术使随从额外获得+1/+1。","BG_DEEP_015":"磁力。复生 可以磁力吸附在机械或亡灵上。","BG26_148":"亡语：随机获取一张磁力机械牌。","BG28_741":"圣盾。每当你施放一个酒馆法术时，使你具有圣盾的随从获得+4攻击力。","BG33_809":"嘲讽。圣盾。亡语：获取一张圣洁庇护。","BG31_171":"在你的回合结束时，获取两张6/6的磁力卫星并提升此效果。","BG33_371":"复仇（5）：获得圣盾并立即发起攻击。","BG34_175":"在你磁力吸附一个随从后，使你的随从获得+5/+5。","BG35_342":"圣盾。在本局对战中，你每触发过一次亡语，便拥有+4/+2（无论本随从在哪）。","BG26_149":"每当你对一个不同的随从磁力吸附时，还会对本随从磁力吸附。","BG32_330":"战斗开始时：如果本随从在你的手牌中，召唤一个它的复制。","BG33_140":"当你出售本随从时，随机获取一张等级1的随从牌。","BG22_202":"当你出售本随从时，随机获取一张鱼人牌。","BG29_300":"嘲讽。每当本随从受到伤害，使你手牌中的一张随从牌获得+2/+1。","BG34_140":"进击：召唤你手牌中攻击力最高的随从，其登场仅限本场战斗。","BG26_360":"亡语：随机使你手牌中的一张随从牌获得+7/+7。","BG32_860":"当你出售本随从时，你的酒馆法术在本局对战中使随从额外获得+1/+1。","BG35_140":"战吼：使你的其他鱼人获得+2攻击力。（在本局对战中你每使用过一张莫格顿家的鱼人牌都会提升！）","BG35_141":"战吼：使你的其他鱼人获得+2生命值。（在本局对战中你每使用过一张莫格顿家的鱼人牌都会提升！）","BG26_137":"当本牌在你手牌中时，在你使用一张鱼人牌后，获得+5/+5。","BG27_556":"战斗开始时：当你有空位时，召唤你手牌中攻击力最高的鱼人，其登场仅限本场战斗。","BG35_143":"战吼，亡语：获取一张深水族群。","BGS_030":"战吼：使你手牌中和场上的所有其他鱼人获得+4/+4。","BG30_122":"在你使用一张鱼人牌后，使一个友方随从和你手牌中的一张随从牌获得+5/+5。","BG33_318":"烈毒。进击：使另一个友方鱼人获得烈毒。","BG35_142":"在你的回合结束时，获取一张莫格顿大妈或莫格顿老爹。","BGS_020":"战吼：如果你控制着其他鱼人，发现一张鱼人牌。","BG26_354":"战斗开始时：获得你手牌中所有随从牌的属性值。","BG33_891":"每回合一次。在你购买一个酒馆法术后，获取一张1/1的鱼人并教会它该法术。（还剩1次！）","BG33_893":"在你使用一张等级3或以下的牌后，使你的鱼人获得+1/+2。","BG34_145":"在你的回合结束时，使你手牌中最左边的随从牌获得本随从的属性值。","BGS_078":"进击：触发你最左边的亡语（本随从的除外）。","BG25_011":"战吼：在本局对战中，你的亡灵拥有+1攻击力（无论它们在哪）。"};
 
 function c(folder, name, role, id) {
@@ -600,6 +428,17 @@ function closeModal() {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeModal();
 });
-</script>
-</body>
-</html>
+
+
+try {
+    var result = HYBRIDS.map(function(h) { 
+        var altHtml = '';
+        if (h.cardsAlt) {
+            altHtml = 'ALT_OK_' + h.cardsAlt.length;
+        }
+        return altHtml || 'NO_ALT';
+    });
+    console.log('TEST:', JSON.stringify(result));
+} catch(e) {
+    console.log('ERROR:', e.message);
+}
