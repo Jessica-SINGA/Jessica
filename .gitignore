@@ -4,6 +4,7 @@
 !.github/workflows
 !.github/scripts
 !CLAUDE.md
+!index.html
 !manifest.json
 !vercel.json
 !norway-travel/

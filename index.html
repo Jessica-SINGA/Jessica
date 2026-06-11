@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jessica</title>
+  <script>
+    // 检测设备类型并跳转到对应页面
+    (function() {
+      var ua = navigator.userAgent;
+      var isMobile = /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+      // 优先跳转 seoul_plan（作为主页），移动端用 norway-travel/seoul_plan.html
+      window.location.replace(isMobile
+        ? 'norway-travel/seoul_plan.html'
+        : 'norway-travel/travel_plan_v2.html');
+    })();
+  </script>
+</head>
+<body>
+  <p>跳转中… <a href="norway-travel/seoul_plan.html">首尔旅行计划</a></p>
+</body>
+</html>
