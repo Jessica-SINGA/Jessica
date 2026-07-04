@@ -4,8 +4,8 @@ import json, os, re, random
 from datetime import date, datetime
 
 DEPARTURE_DATE = date(2026, 9, 25)
-HTML_FILE = "travel_plan_v3.html"
-PRICE_FILE = "flight-prices.json"
+HTML_FILE = "norway-travel/travel_plan_v3.html"
+PRICE_FILE = "flight-tracker/flight-prices.json"
 MARKER_START = "<!-- FLIGHT_PRICES_START -->"
 MARKER_END = "<!-- FLIGHT_PRICES_END -->"
 

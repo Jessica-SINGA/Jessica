@@ -3,7 +3,7 @@
 import json, urllib.request, urllib.parse, re, os, html as html_mod
 from datetime import date, datetime
 
-ARCHIVE_FILE = "norway-news-data.json"
+ARCHIVE_FILE = "norway-travel/norway-news-data.json"
 
 today = date.today().isoformat()
 
