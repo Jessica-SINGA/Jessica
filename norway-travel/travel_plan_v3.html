@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Norway+Iceland">
+<meta name="theme-color" content="#050a1a">
+<link rel="apple-touch-icon" sizes="180x180" href="norway-icon.svg">
+<title>2026 挪威+冰岛 极光优先版</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --bg-deep: #050a1a;
+  --bg-card: rgba(13, 27, 42, 0.75);
+  --bg-card-hover: rgba(20, 40, 65, 0.85);
+  --aurora-green: #39ff14;
+  --aurora-purple: #b44dff;
+  --ice-blue: #7dd3fc;
+  --amber-warn: #fb923c;
+  --red-warn: #ef4444;
+  --text-primary: #e8edf5;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-subtle: rgba(125, 211, 252, 0.1);
+  --border-glow: rgba(57, 255, 20, 0.15);
+  --glass-blur: blur(16px);
+  --radius: 14px;
+  --radius-sm: 8px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Aurora BG ===== */
+.aurora-bg {
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.aurora-bg .orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.5;
+}
+.aurora-bg .orb-1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(57,255,20,0.12), transparent 70%);
+  top: -200px; right: -200px;
+  animation: aurora-drift 14s ease-in-out infinite alternate;
+}
+.aurora-bg .orb-2 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(180,77,255,0.10), transparent 70%);
+  bottom: 10%; left: -150px;
+  animation: aurora-drift 18s ease-in-out infinite alternate-reverse;
+}
+.aurora-bg .orb-3 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(125,211,252,0.06), transparent 70%);
+  top: 40%; left: 30%;
+  animation: aurora-drift 22s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(80px, 50px) scale(1.2); }
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--aurora-green); border-radius: 2px; }
+
+/* ===== Layout ===== */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 18px;
+  position: relative;
+  z-index: 1;
+}
+section {
+  padding: 56px 0;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  background: linear-gradient(135deg, var(--aurora-green), var(--ice-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  margin-top: 4px;
+  font-weight: 300;
+}
+
+/* ===== Hero ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 18px;
+  position: relative;
+}
+.hero .refresh-btn {
+  position: fixed;
+  top: 16px; right: 16px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(15,23,42,0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  color: rgba(255,255,255,0.7);
+  transition: transform 0.3s, background 0.2s;
+}
+.hero .refresh-btn:active { transform: rotate(180deg); background: rgba(15,23,42,0.8); }
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 8vw, 4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  background: linear-gradient(135deg, var(--aurora-green) 0%, var(--ice-blue) 40%, var(--aurora-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+.hero-sub {
+  font-size: clamp(0.85rem, 2.5vw, 1.05rem);
+  color: var(--text-secondary);
+  letter-spacing: 0.06em;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+.hero-countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto 28px;
+}
+.cd-item {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px 4px;
+}
+.cd-num {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--aurora-green);
+  font-family: 'Playfair Display', serif;
+  line-height: 1.2;
+}
+.cd-label {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(57, 255, 20, 0.08);
+  border: 1px solid rgba(57, 255, 20, 0.2);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.72rem;
+  color: var(--aurora-green);
+  margin-bottom: 20px;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--aurora-green);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.scroll-hint {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  animation: bounce-arrow 2s infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.scroll-hint svg { width: 20px; height: 20px; }
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ===== CSS Aurora Wave ===== */
+.aurora-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.aurora-wave::before,
+.aurora-wave::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  border-radius: 45% 55% 40% 60% / 60% 40% 60% 40%;
+  opacity: 0.15;
+}
+.aurora-wave::before {
+  background: var(--aurora-green);
+  animation: wave-flow 8s ease-in-out infinite alternate;
+}
+.aurora-wave::after {
+  background: var(--aurora-purple);
+  animation: wave-flow 10s ease-in-out 1s infinite alternate-reverse;
+}
+@keyframes wave-flow {
+  0% { transform: translateX(0) scaleY(1); border-radius: 45% 55% 40% 60% / 60% 40% 60% 40%; }
+  50% { transform: translateX(5%) scaleY(1.2); border-radius: 55% 45% 60% 40% / 40% 60% 40% 60%; }
+  100% { transform: translateX(10%) scaleY(0.9); border-radius: 40% 60% 50% 50% / 50% 50% 60% 40%; }
+}
+
+/* ===== Cards ===== */
+.card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 14px;
+  transition: all 0.3s ease;
+}
+.card:active { transform: scale(0.98); }
+
+/* ===== Route ===== */
+.route-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 0;
+}
+.route-stop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 50px;
+}
+.route-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--aurora-green);
+  box-shadow: 0 0 10px var(--aurora-green);
+}
+.route-dot.visited { background: var(--ice-blue); box-shadow: 0 0 10px var(--ice-blue); }
+.route-label {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.route-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--aurora-green), var(--aurora-purple));
+  min-width: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.route-line .arrow {
+  position: absolute;
+  font-size: 0.85rem;
+  color: var(--aurora-purple);
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 1;
+}
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+}
+.stat-item {
+  text-align: center;
+}
+.stat-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--aurora-green);
+  font-family: 'Playfair Display', serif;
+}
+.stat-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+/* ===== Quotes ===== */
+.quote-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.quote-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.quote-card::before {
+  content: '"';
+  position: absolute;
+  top: -4px; left: 8px;
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--aurora-green);
+  opacity: 0.2;
+  line-height: 1;
+}
+.quote-text {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  padding-left: 12px;
+  color: var(--text-primary);
+}
+.quote-source {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  padding-left: 12px;
+}
+.quote-tag {
+  display: inline-block;
+  font-size: 0.6rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-right: 6px;
+}
+.quote-tag.cost { background: rgba(57,255,20,0.12); color: var(--aurora-green); }
+.quote-tag.warn { background: rgba(239,68,68,0.12); color: var(--red-warn); }
+.quote-tag.tip { background: rgba(125,211,252,0.12); color: var(--ice-blue); }
+
+/* ===== Timeline ===== */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--aurora-green), var(--aurora-purple), var(--ice-blue));
+  opacity: 0.3;
+}
+.timeline-day {
+  position: relative;
+  margin-bottom: 14px;
+}
+.timeline-day::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 18px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--aurora-green);
+  box-shadow: 0 0 8px var(--aurora-green);
+  z-index: 1;
+}
+.timeline-day.aurora::before { background: var(--aurora-purple); box-shadow: 0 0 12px var(--aurora-purple); }
+.timeline-day.flight::before { background: var(--ice-blue); box-shadow: 0 0 8px var(--ice-blue); }
+.day-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  padding: 6px 0;
+}
+.day-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--aurora-green);
+  min-width: 28px;
+}
+.day-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.day-location {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+}
+.day-toggle {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  transition: transform 0.3s;
+}
+.day-toggle.open { transform: rotate(180deg); }
+.day-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+.day-body.open {
+  max-height: 800px;
+  opacity: 1;
+}
+.day-content {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding: 6px 0 8px 28px;
+}
+.day-content strong { color: var(--text-primary); }
+.day-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 12px;
+  margin: 6px 0 8px 28px;
+  padding: 8px 10px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 6px;
+  font-size: 0.78rem;
+}
+.day-info-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-secondary);
+}
+.day-info-item .label { color: var(--text-muted); min-width: 32px; }
+.day-info-item .val { color: var(--text-primary); }
+
+/* ===== Tour Compare ===== */
+.tour-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.tour-info { flex: 1; }
+.tour-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.tour-meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.tour-price {
+  text-align: right;
+  flex-shrink: 0;
+}
+.tour-price .amount {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--aurora-green);
+  font-family: 'Playfair Display', serif;
+}
+.tour-price .unit {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+.tour-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.72rem;
+  color: var(--amber-warn);
+}
+.discount-badge {
+  display: inline-block;
+  background: rgba(57,255,20,0.12);
+  color: var(--aurora-green);
+  font-size: 0.6rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 4px;
+}
+
+/* ===== Budget ===== */
+.budget-bar {
+  margin-bottom: 12px;
+}
+.budget-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  margin-bottom: 4px;
+}
+.budget-label .name { color: var(--text-primary); }
+.budget-label .val { color: var(--text-secondary); }
+.budget-track {
+  height: 8px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.budget-fill {
+  height: 100%;
+  border-radius: 4px;
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: linear-gradient(90deg, var(--aurora-green), var(--ice-blue));
+}
+.budget-fill.animate { /* width set by JS */ }
+.budget-total {
+  text-align: center;
+  padding: 16px;
+  margin-top: 12px;
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+}
+.budget-total .total-amount {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(135deg, var(--aurora-green), var(--aurora-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.budget-total .total-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.toggle-switch {
+  display: flex;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 3px;
+  margin-bottom: 16px;
+  max-width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.toggle-opt {
+  flex: 1;
+  text-align: center;
+  padding: 5px 12px;
+  border-radius: 17px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.3s;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.toggle-opt.active {
+  background: rgba(57,255,20,0.15);
+  color: var(--aurora-green);
+}
+
+/* ===== Warnings ===== */
+.warn-card {
+  background: rgba(239,68,68,0.06);
+  border: 1px solid rgba(239,68,68,0.2);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.warn-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.warn-content { flex: 1; }
+.warn-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--red-warn);
+  margin-bottom: 2px;
+}
+.warn-desc {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.warn-card.amber {
+  background: rgba(251,146,60,0.06);
+  border-color: rgba(251,146,60,0.2);
+}
+.warn-card.amber .warn-title { color: var(--amber-warn); }
+
+/* ===== Checklist ===== */
+.checklist-progress {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.checklist-progress .pct {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  color: var(--aurora-green);
+}
+.checklist-progress .sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.checklist-item:last-child { border-bottom: none; }
+.checkbox {
+  width: 20px; height: 20px;
+  border: 2px solid var(--text-muted);
+  border-radius: 5px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s;
+  font-size: 0.65rem;
+}
+.checklist-item.checked .checkbox {
+  background: var(--aurora-green);
+  border-color: var(--aurora-green);
+  color: var(--bg-deep);
+}
+.checklist-item.checked .check-text {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+.check-text {
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+.check-cat {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--ice-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-subtle);
+}
+.check-cat:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+
+/* ===== FAQ ===== */
+.faq-item {
+  border-bottom: 1px solid var(--border-subtle);
+}
+.faq-q {
+  padding: 14px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  gap: 12px;
+}
+.faq-q-text {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  flex: 1;
+}
+.faq-toggle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+.faq-toggle.open { transform: rotate(180deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.25s;
+  opacity: 0;
+}
+.faq-a.open {
+  max-height: 300px;
+  opacity: 1;
+}
+.faq-a-inner {
+  padding: 0 0 14px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 48px 18px 32px;
+}
+.footer-tagline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+.footer-meta {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+.footer-meta a { color: var(--ice-blue); text-decoration: none; }
+
+/* ===== Animations ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.stagger > *.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Tablet ===== */
+@media (min-width: 768px) {
+  .container { max-width: 720px; padding: 0 32px; }
+  section { padding: 72px 0; }
+  .section-title { font-size: 2rem; }
+  .quote-grid { flex-direction: row; flex-wrap: wrap; }
+  .quote-card { flex: 1 1 calc(50% - 6px); }
+  .warn-card { flex: 1 1 calc(50% - 6px); }
+  .warn-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+  .warn-grid .warn-card { margin-bottom: 0; }
+}
+
+/* ===== Desktop ===== */
+@media (min-width: 1024px) {
+  .container { max-width: 800px; padding: 0 40px; }
+  section { padding: 88px 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="aurora-bg">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <button class="refresh-btn" id="refreshBtn" aria-label="刷新">↻</button>
+  <div class="hero-badge" style="opacity:0.6;border-color:rgba(255,255,255,0.1);background:rgba(255,255,255,0.03);">✎ 小茶 · Jessica</div>
+  <h1 class="hero-title">2026 挪威 + 冰岛</h1>
+  <p class="hero-sub" style="margin-bottom:8px;">极光优先版 · 成都出发 · 13天双国追光 · 特罗姆瑟 + 冰岛环线</p>
+  <div class="hero-countdown" id="countdown">
+    <div class="cd-item"><div class="cd-num" id="cd-days">--</div><div class="cd-label">天</div></div>
+    <div class="cd-item"><div class="cd-num" id="cd-hours">--</div><div class="cd-label">时</div></div>
+    <div class="cd-item"><div class="cd-num" id="cd-mins">--</div><div class="cd-label">分</div></div>
+    <div class="cd-item"><div class="cd-num" id="cd-secs">--</div><div class="cd-label">秒</div></div>
+  </div>
+  <div style="margin-top:4px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;">
+    <span style="font-size:0.65rem;background:rgba(255,215,0,0.12);color:#ffd700;border:1px solid rgba(255,215,0,0.25);border-radius:12px;padding:3px 10px;">✦ 2026极光黄金年</span>
+    <span style="font-size:0.65rem;background:rgba(125,211,252,0.1);color:var(--ice-blue);border:1px solid rgba(125,211,252,0.2);border-radius:12px;padding:3px 10px;">挪威 + 冰岛双国</span>
+    <span style="font-size:0.65rem;background:rgba(57,255,20,0.1);color:var(--aurora-green);border:1px solid rgba(57,255,20,0.2);border-radius:12px;padding:3px 10px;">极光 + 冰河湖 + 蓝湖</span>
+  </div>
+
+  <!-- ===== TODAY IN TROMSØ ===== -->
+  <div id="todayWidget" style="width:100%;max-width:420px;margin:12px auto 0;background:var(--bg-card);backdrop-filter:var(--glass-blur);border:1px solid rgba(125,211,252,0.2);border-radius:var(--radius-sm);padding:14px;text-align:left;opacity:0;transition:opacity 0.6s ease;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+      <span style="font-size:0.75rem;font-weight:600;color:var(--ice-blue);">🇳🇴 今日特罗姆瑟 · <span id="norwayDate">--</span></span>
+      <span id="norwayTime" style="font-size:0.6rem;color:var(--text-secondary);font-variant-numeric:tabular-nums;"></span>
+    </div>
+    <div id="weatherContent" style="display:flex;align-items:center;gap:12px;">
+      <div id="weatherIcon" style="font-size:2rem;line-height:1;">🌡️</div>
+      <div style="flex:1;">
+        <div id="weatherTemp" style="font-size:1.1rem;font-weight:700;color:var(--text-primary);">--°C</div>
+        <div id="weatherDesc" style="font-size:0.65rem;color:var(--text-secondary);">加载中...</div>
+      </div>
+      <div style="text-align:right;font-size:0.6rem;color:var(--text-secondary);line-height:1.6;">
+        <div>体感 <span id="feelsLike">--</span>°C</div>
+        <div>风速 <span id="windSpeed">--</span>m/s</div>
+      </div>
+    </div>
+    <div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(148,163,184,0.15);display:flex;gap:6px;flex-wrap:wrap;">
+      <span id="auroraVibe" style="font-size:0.6rem;padding:3px 10px;border-radius:12px;background:rgba(57,255,20,0.1);border:1px solid rgba(57,255,20,0.2);color:var(--aurora-green);">🌌 极光指数: --</span>
+      <span id="daylightInfo" style="font-size:0.6rem;padding:3px 10px;border-radius:12px;background:rgba(125,211,252,0.08);border:1px solid rgba(125,211,252,0.15);color:var(--ice-blue);">☀️ 日照: --</span>
+      <span id="exchangeRate" style="font-size:0.6rem;padding:3px 10px;border-radius:12px;background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.15);color:#ffd700;">💱 汇率: --</span>
+      <span id="seasonFact" style="font-size:0.6rem;padding:3px 10px;border-radius:12px;background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.15);color:#ffd700;">🌍 --</span>
+    </div>
+  </div>
+  <!-- ===== HERO TIMELINE ===== -->
+  <div class="hero-timeline" style="width:100%;max-width:420px;margin:14px auto 0;background:var(--bg-card);backdrop-filter:var(--glass-blur);border:1px solid rgba(255,215,0,0.3);border-left:3px solid var(--amber-warn);border-radius:var(--radius-sm);padding:10px 14px;text-align:left;">
+    <div style="font-size:0.7rem;font-weight:600;color:var(--amber-warn);margin-bottom:6px;">⏰ 时间提醒 · 距出发还有 <span id="monthsLeft" style="color:#fff;font-weight:700;">--</span> 个月</div>
+    <div style="display:flex;flex-direction:column;gap:5px;">
+      <div style="display:flex;align-items:center;gap:8px;font-size:0.68rem;">
+        <span style="color:var(--red-warn);font-weight:600;min-width:70px;">🔥 7月中前</span>
+        <span style="color:var(--text-secondary);">国际机票最低价窗口（TFU→OSL往返+冰岛联程）</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:0.68rem;">
+        <span style="color:var(--amber-warn);font-weight:600;min-width:70px;">⚠️ 7月底前</span>
+        <span style="color:var(--text-secondary);">申根签证 · 成都领区提前2个月办</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:0.68rem;">
+        <span style="color:var(--amber-warn);font-weight:600;min-width:70px;">⚠️ 8月前</span>
+        <span style="color:var(--text-secondary);">冰岛租车预订（自动挡紧俏）+ 极光团预约</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:0.68rem;">
+        <span style="color:var(--aurora-green);font-weight:600;min-width:70px;">✅ 8月底前</span>
+        <span style="color:var(--text-secondary);">住宿全订（Vik/Selfoss房源紧张）+ Blue Lagoon</span>
+      </div>
+    </div>
+  </div>
+  <!-- FLIGHT_PRICES_START -->
+  <div style="width:100%;max-width:420px;margin:8px auto 130px;background:var(--bg-card);backdrop-filter:var(--glass-blur);border:1px solid rgba(57,255,20,0.2);border-left:3px solid var(--aurora-green);border-radius:var(--radius-sm);padding:10px 14px;text-align:left;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+      <span style="font-size:0.7rem;font-weight:600;color:var(--aurora-green);">✈️ 分段机票价格 · 成都⇄挪威 + 冰岛联程</span>
+    </div>
+    <div style="display:flex;gap:12px;align-items:stretch;">
+      <div style="flex:1;min-width:0;">
+        <div style="padding:4px 0;border-bottom:1px solid rgba(148,163,184,0.06);">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:0.65rem;color:var(--text-secondary);">TFU → OSL（经BKK）</span>
+        <span style="font-size:0.68rem;color:var(--text-primary);font-weight:700;">¥5,808</span>
+      </div>
+      <div style="display:flex;justify-content:flex-end;font-size:0.5rem;color:var(--text-muted);">成都→曼谷→奥斯陆</div>
+    </div><div style="padding:4px 0;border-bottom:1px solid rgba(148,163,184,0.06);">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:0.65rem;color:var(--text-secondary);">OSL → TOS</span>
+        <span style="font-size:0.68rem;color:var(--text-primary);font-weight:700;">¥988</span>
+      </div>
+      <div style="display:flex;justify-content:flex-end;font-size:0.5rem;color:var(--text-muted);">奥斯陆→特罗姆瑟（含23kg）</div>
+    </div><div style="padding:4px 0;border-bottom:1px solid rgba(148,163,184,0.06);">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:0.65rem;color:var(--text-secondary);">TOS → KEF</span>
+        <span style="font-size:0.68rem;color:var(--text-primary);font-weight:700;">¥1,950</span>
+      </div>
+      <div style="display:flex;justify-content:flex-end;font-size:0.5rem;color:var(--text-muted);">特罗姆瑟→雷克雅未克（经OSL）</div>
+    </div><div style="padding:4px 0;border-bottom:1px solid rgba(148,163,184,0.06);">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:0.65rem;color:var(--text-secondary);">KEF → OSL</span>
+        <span style="font-size:0.68rem;color:var(--text-primary);font-weight:700;">¥1,641</span>
+      </div>
+      <div style="display:flex;justify-content:flex-end;font-size:0.5rem;color:var(--text-muted);">雷克雅未克→奥斯陆</div>
+    </div><div style="padding:4px 0;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:0.65rem;color:var(--text-secondary);">OSL → TFU（经BKK）</span>
+        <span style="font-size:0.68rem;color:var(--text-primary);font-weight:700;">¥6,497</span>
+      </div>
+      <div style="display:flex;justify-content:flex-end;font-size:0.5rem;color:var(--text-muted);">奥斯陆→曼谷→成都</div>
+    </div>
+      </div>
+      <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+        <div style="font-size:1.8rem;font-weight:700;font-family:'Playfair Display',serif;color:var(--aurora-green);">¥16,884</div>
+        <span style="font-size:0.55rem;color:var(--text-muted);">全程机票/人</span>
+      </div>
+    </div>
+    <div style="margin-top:4px;font-size:0.5rem;color:var(--text-muted);padding:2px 0;">税费含：机建费+燃油附加费+转机国税费</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.55rem;color:var(--text-muted);border-top:1px solid rgba(148,163,184,0.1);padding-top:5px;">
+      <span>已查询价格，建议7月对比后入手</span>
+      <a href="https://www.google.com/travel/flights" target="_blank" style="color:var(--aurora-green);text-decoration:none;font-size:0.55rem;">Google Flights搜索 →</a>
+    </div>
+  </div>
+<!-- FLIGHT_PRICES_END -->
+  <div class="aurora-wave"></div>
+  <div class="scroll-hint">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+  </div>
+</section>
+
+<!-- ===== ROUTE ===== -->
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">路线概览</h2>
+    <p class="section-subtitle">挪威追光 + 冰岛环线，一次玩两国</p>
+  </div>
+  <div class="card">
+    <div class="route-bar">
+      <div class="route-stop"><div class="route-dot"></div><span class="route-label">成都</span></div>
+      <div class="route-line"><span class="arrow">✈</span></div>
+      <div class="route-stop"><div class="route-dot"></div><span class="route-label">奥斯陆</span></div>
+      <div class="route-line"><span class="arrow">✈</span></div>
+      <div class="route-stop"><div class="route-dot"></div><span class="route-label">特罗姆瑟</span></div>
+      <div class="route-line"><span class="arrow">✈</span></div>
+      <div class="route-stop"><div class="route-dot"></div><span class="route-label">雷克雅未克</span></div>
+      <div class="route-line"><span class="arrow">🚗</span></div>
+      <div class="route-stop"><div class="route-dot"></div><span class="route-label">冰岛</span></div>
+      <div class="route-line"><span class="arrow">✈</span></div>
+      <div class="route-stop"><div class="route-dot"></div><span class="route-label">回国</span></div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-value">9.25→10.7</div><div class="stat-label">行程日期</div></div>
+      <div class="stat-item"><div class="stat-value">13天</div><div class="stat-label">全程</div></div>
+      <div class="stat-item"><div class="stat-value">≈35,000</div><div class="stat-label">预算/人</div></div>
+      <div class="stat-item"><div class="stat-value">中秋+国庆</div><div class="stat-label">假期</div></div>
+    </div>
+  </div>
+  <div class="card" style="border-color:rgba(255,215,0,0.2);background:rgba(255,215,0,0.03);">
+    <div style="display:flex;gap:12px;align-items:flex-start;">
+      <div style="font-size:1.5rem;flex-shrink:0;">🌌</div>
+      <div>
+        <div style="font-size:0.88rem;font-weight:600;color:#ffd700;margin-bottom:4px;">极光优先 · 双国设计理念</div>
+        <div style="font-size:0.78rem;color:var(--text-secondary);line-height:1.6;">
+          挪威特罗姆瑟（69°N）追光3晚 + 冰岛环线自驾极光观测。最大化极光概率的同时，体验冰岛黄金圈、南岸黑沙滩、冰河湖。减少搬酒店次数：特罗姆瑟连住3晚，Vik连住2晚。<br>
+          <strong style="color:var(--text-primary);">2026极光黄金年 + 国庆长假 = 一次玩转挪威+冰岛的绝佳窗口。</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 小红书真实声音 ===== -->
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">小红书的真实声音</h2>
+    <p class="section-subtitle">2025-2026年挪威+冰岛真实游客的经验与教训</p>
+  </div>
+  <div class="quote-grid stagger" id="quoteGrid">
+    <div class="quote-card">
+      <div class="quote-text">"特罗姆瑟连住3晚跟了2次团，两晚都看到了极光！KP4肉眼可见绿色，太震撼了"</div>
+      <div class="quote-source"><span class="quote-tag tip">2026实测</span> @极光猎人小北 · 2026.03</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"冰岛自驾10月初极光概率很高！在冰河湖看到极光在冰川上空舞动，比照片震撼一百倍"</div>
+      <div class="quote-source"><span class="quote-tag cost">双国实测</span> @流浪北欧 · 2025.10</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"冰岛10月风大到车门打不开！租车一定买全险，砂石险一定要加，挡风玻璃被小石子砸了个坑"</div>
+      <div class="quote-source"><span class="quote-tag warn">冰岛必看</span> @冰岛老司机 · 2025.10</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"冰岛蓝湖和Sky Lagoon选一个就行。Sky Lagoon便宜且人少，7步疗法体验超棒"</div>
+      <div class="quote-source"><span class="quote-tag cost">真实对比</span> @泡遍北欧 · 2025.11</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"Sami驯鹿体验比极光团还难忘！在帐篷里听萨米人讲故事喝热茶，驯鹿在身边走来走去"</div>
+      <div class="quote-source"><span class="quote-tag tip">特罗姆瑟必去</span> @文化体验派 · 2025.12</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"冰岛南岸Vik教堂山顶看日落绝了！黑沙滩的浪真的大，一定背对大海别被卷走"</div>
+      <div class="quote-source"><span class="quote-tag warn">安全提醒</span> @冰岛浪游记 · 2025.09</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"国内飞奥斯陆建议分段买比联程便宜！TFU→BKK→OSL比直挂便宜近2000"</div>
+      <div class="quote-source"><span class="quote-tag cost">省钱攻略</span> @机票猎人小王 · 2026.01</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"冰岛10月白天大概8-9小时，9点日出5点日落。自驾要规划好白天时间，天黑后路况复杂"</div>
+      <div class="quote-source"><span class="quote-tag tip">冰岛攻略</span> @环岛自驾族 · 2025.10</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"带泡面和螺蛳粉！冰岛外食人均300-500RMB，超市自己煮能省三分之二"</div>
+      <div class="quote-source"><span class="quote-tag tip">实用贴士</span> @中国胃游北欧 · 2025.11</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"冰岛冰川徒步一定要跟团！自己别乱走，有冰缝。向导会提供冰爪头盔等装备"</div>
+      <div class="quote-source"><span class="quote-tag warn">安全第一</span> @冰川徒步爱好者 · 2025.08</div>
+    </div>
+    <div class="quote-card" style="border-color:rgba(255,215,0,0.3);">
+      <div class="quote-text">"特罗姆瑟极光团推荐Arctic GM，中文向导，开到芬兰边境追晴空，成功率99%"</div>
+      <div class="quote-source"><span class="quote-tag tip">极光团推荐</span> @小红书极光攻略 · 2026.02</div>
+    </div>
+    <div class="quote-card" style="border-color:rgba(255,215,0,0.3);">
+      <div class="quote-text">"挪威缩影（Oslo→Bergen火车）世界最美铁路线之一，但我们的行程已经够丰富了，留给下次吧"</div>
+      <div class="quote-source"><span class="quote-tag tip">取舍建议</span> @北欧旅行规划师 · 2025.10</div>
+    </div>
+    <div class="quote-card" style="border-color:rgba(255,215,0,0.3);">
+      <div class="quote-text">"冰岛10月风巨大！穿冲锋衣比羽绒服实用。备好防风防水全套，暖宝宝贴脚底"</div>
+      <div class="quote-source"><span class="quote-tag tip">装备指南</span> @冰岛穿搭日记 · 2025.10</div>
+    </div>
+    <div class="quote-card" style="border-color:rgba(255,215,0,0.3);">
+      <div class="quote-text">"挪威和冰岛都基本不用现金，全程刷卡。带一张Visa一张MasterCard最保险"</div>
+      <div class="quote-source"><span class="quote-tag cost">支付攻略</span> @无现金旅行 · 2025.09</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ITINERARY ===== -->
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">逐日行程</h2>
+    <p class="section-subtitle">点击展开每日详情 · 含航班/住宿/驾驶/极光/预算</p>
+  </div>
+  <div class="timeline" id="timeline">
+    <!-- Days generated by JS -->
+  </div>
+</section>
+
+<!-- ===== AURORA TOURS ===== -->
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">极光团 & 活动对比</h2>
+    <p class="section-subtitle">2025-2026小红书真实评分 · 挪威冰岛精选</p>
+  </div>
+  <div style="font-size:0.72rem;font-weight:600;color:var(--ice-blue);margin-bottom:8px;">🇳🇴 特罗姆瑟极光团</div>
+  <div class="tour-card">
+    <div class="tour-info">
+      <div class="tour-name">Arctic GM 猎人世家 <span class="discount-badge" style="background:rgba(180,77,255,0.12);color:var(--aurora-purple);">99%成功率</span></div>
+      <div class="tour-meta">无限里程 · 6-10小时 · 中文向导 · 开到芬兰边境追晴空</div>
+    </div>
+    <div class="tour-price">
+      <div class="amount">≈2,088</div>
+      <div class="unit">NOK/人</div>
+      <div class="tour-rating">★★★★★ 5.0</div>
+    </div>
+  </div>
+  <div class="tour-card">
+    <div class="tour-info">
+      <div class="tour-name">Hello Tromsø</div>
+      <div class="tour-meta">含接送 · 太空衣 · 篝火烤肠 · 专业拍照 · 7折折扣码可用</div>
+    </div>
+    <div class="tour-price">
+      <div class="amount">≈1,400</div>
+      <div class="unit">NOK/人（折后）</div>
+      <div class="tour-rating">★★★★★ 4.9</div>
+    </div>
+  </div>
+  <div class="tour-card">
+    <div class="tour-info">
+      <div class="tour-name">GetYourGuide 小巴团（篝火版）</div>
+      <div class="tour-meta">15人小团 · 开到芬兰边境 · 篝火烤棉花糖 · 91%满分</div>
+    </div>
+    <div class="tour-price">
+      <div class="amount">≈1,800</div>
+      <div class="unit">NOK/人</div>
+      <div class="tour-rating">★★★★☆ 4.7</div>
+    </div>
+  </div>
+  <div style="font-size:0.72rem;font-weight:600;color:var(--amber-warn);margin:12px 0 8px;">🇮🇸 冰岛特色活动</div>
+  <div class="tour-card">
+    <div class="tour-info">
+      <div class="tour-name">冰河湖游船（Jökulsárlón）</div>
+      <div class="tour-meta">水陆两用车 · 穿行浮冰之间 · 约1h</div>
+    </div>
+    <div class="tour-price">
+      <div class="amount">≈7,900</div>
+      <div class="unit">ISK/人</div>
+      <div class="tour-rating">★★★★★ 4.9</div>
+    </div>
+  </div>
+  <div class="tour-card">
+    <div class="tour-info">
+      <div class="tour-name">冰川徒步（南岸）</div>
+      <div class="tour-meta">3h体验 · 含装备 · 专业向导</div>
+    </div>
+    <div class="tour-price">
+      <div class="amount">≈11,000</div>
+      <div class="unit">ISK/人</div>
+      <div class="tour-rating">★★★★★ 4.8</div>
+    </div>
+  </div>
+  <div class="tour-card">
+    <div class="tour-info">
+      <div class="tour-name">Blue Lagoon 蓝湖温泉</div>
+      <div class="tour-meta"> Comfort票 · 含面膜+毛巾+1杯饮品 · 提前1月订</div>
+    </div>
+    <div class="tour-price">
+      <div class="amount">≈7,500</div>
+      <div class="unit">ISK/人</div>
+      <div class="tour-rating">★★★★☆ 4.5</div>
+    </div>
+  </div>
+  <div style="font-size:0.72rem;color:var(--text-muted);text-align:center;margin-top:6px;">
+    💡 建议特罗姆瑟参加2次不同极光团 + 冰岛选1-2项特色活动
+  </div>
+</section>
+
+<!-- ===== BUDGET ===== -->
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">预算清单</h2>
+    <p class="section-subtitle">计划 vs 真实花费 vs 精简版</p>
+  </div>
+  <div class="toggle-switch" id="budgetToggle">
+    <div class="toggle-opt active" data-mode="plan">舒适版</div>
+    <div class="toggle-opt" data-mode="real">真实参考</div>
+    <div class="toggle-opt" data-mode="budget">精简版</div>
+  </div>
+  <div id="budgetContainer"></div>
+  <div class="budget-total">
+    <div class="total-label">人均总预算（含全程机票）</div>
+    <div class="total-amount" id="budgetTotal">¥35,000</div>
+  </div>
+</section>
+
+<!-- ===== WARNINGS ===== -->
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">避坑警告</h2>
+    <p class="section-subtitle">小红书评论区高频踩雷汇总 · 挪威+冰岛</p>
+  </div>
+  <div class="warn-grid">
+    <div class="warn-card">
+      <div class="warn-icon">💨</div>
+      <div class="warn-content">
+        <div class="warn-title">冰岛10月狂风</div>
+        <div class="warn-desc">车门被吹坏是常事！下车用身体顶住门。租车必加砂石险，挡风玻璃被飞石打碎概率高</div>
+      </div>
+    </div>
+    <div class="warn-card amber">
+      <div class="warn-icon">🌊</div>
+      <div class="warn-content">
+        <div class="warn-title">黑沙滩离岸流</div>
+        <div class="warn-desc">浪比人高，背对大海拍照极危险。保持距离，永远不要背对海浪！每年都有游客被卷走</div>
+      </div>
+    </div>
+    <div class="warn-card">
+      <div class="warn-icon">🚕</div>
+      <div class="warn-content">
+        <div class="warn-title">奥斯陆出租车诈骗</div>
+        <div class="warn-desc">10分钟车程收229美元。用 Uber/Bolt 或公共交通，价格透明</div>
+      </div>
+    </div>
+    <div class="warn-card amber">
+      <div class="warn-icon">🧊</div>
+      <div class="warn-content">
+        <div class="warn-title">冰岛路面结冰</div>
+        <div class="warn-desc">10月初北部/高海拔路段可能结冰。租车选四驱+冬季胎，车速放慢，避免夜间驾驶</div>
+      </div>
+    </div>
+    <div class="warn-card">
+      <div class="warn-icon">🎣</div>
+      <div class="warn-content">
+        <div class="warn-title">极光团钓鱼网站</div>
+        <div class="warn-desc">认准 GetYourGuide、Viator 或当地官网预订，别在非正规平台付款</div>
+      </div>
+    </div>
+    <div class="warn-card amber">
+      <div class="warn-icon">🍜</div>
+      <div class="warn-content">
+        <div class="warn-title">中国胃预警</div>
+        <div class="warn-desc">挪威+冰岛外食极贵（人均200-500RMB）。带泡面/螺蛳粉，Bonus超市采购自炊</div>
+      </div>
+    </div>
+    <div class="warn-card">
+      <div class="warn-icon">🪪</div>
+      <div class="warn-content">
+        <div class="warn-title">极光团必带护照</div>
+        <div class="warn-desc">很多特罗姆瑟团会开到芬兰边境追晴空，没护照过不了境，当场退款不带你</div>
+      </div>
+    </div>
+    <div class="warn-card amber">
+      <div class="warn-icon">⛽</div>
+      <div class="warn-content">
+        <div class="warn-title">冰岛加油站自助</div>
+        <div class="warn-desc">大部分加油站自助无人工。用信用卡插卡加油（需输PIN码），或去N1/Ólis买预付卡</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HONEST WARNINGS ===== -->
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">说实话：这些坑你可能也会遇到</h2>
+    <p class="section-subtitle">计划很完美，但现实可能有出入</p>
+  </div>
+  <div class="card" style="border-color:rgba(239,68,68,0.15);background:rgba(239,68,68,0.03);">
+    <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;">
+      <div style="font-size:1.2rem;flex-shrink:0;">🌌</div>
+      <div>
+        <div style="font-size:0.85rem;font-weight:600;color:var(--red-warn);margin-bottom:2px;">极光不是100% guaranteed</div>
+        <div style="font-size:0.78rem;color:var(--text-secondary);">9月底极光季刚开始，黑夜不够长。特罗姆瑟3晚+冰岛6晚加起来有9晚追光机会，概率很高但无绝对。放平心态：看到是惊喜，看不到也是旅行。冰岛冰河湖那晚即使没有极光，星空+冰川本身就很美。</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;">
+      <div style="font-size:1.2rem;flex-shrink:0;">💰</div>
+      <div>
+        <div style="font-size:0.85rem;font-weight:600;color:var(--amber-warn);margin-bottom:2px;">双国预算偏高</div>
+        <div style="font-size:0.78rem;color:var(--text-secondary);">全程机票约16,884元/人，加上住宿+租车+活动，人均35,000左右。冰岛段消费高（租车+油费+活动费），比纯挪威线贵不少。建议预算留20%余量。</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;">
+      <div style="font-size:1.2rem;flex-shrink:0;">⏰</div>
+      <div>
+        <div style="font-size:0.85rem;font-weight:600;color:var(--amber-warn);margin-bottom:2px;">转机日较多，体力消耗大</div>
+        <div style="font-size:0.78rem;color:var(--text-secondary);">Day1 成都→曼谷→奥斯陆，Day2 奥斯陆→特罗姆瑟，Day5 特罗姆瑟→奥斯陆→雷克雅未克，Day11 冰岛→奥斯陆，Day12 奥斯陆→曼谷→成都。跨5个航段转机，加上冰岛自驾每天200-400km，整体节奏偏紧。</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;">
+      <div style="font-size:1.2rem;flex-shrink:0;">❓</div>
+      <div>
+        <div style="font-size:0.85rem;font-weight:600;color:var(--amber-warn);margin-bottom:2px;">冰岛自驾注意多</div>
+        <div style="font-size:0.78rem;color:var(--text-secondary);">10月冰岛日照约8-9h，天黑后路况复杂。1号公路整体好开，但南岸风大沙多。加油站自助需PIN码，部分国内信用卡不支持，建议带芯片卡。用Google Maps离线下载冰岛地图。</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;align-items:flex-start;">
+      <div style="font-size:1.2rem;flex-shrink:0;">🪪</div>
+      <div>
+        <div style="font-size:0.85rem;font-weight:600;color:var(--red-warn);margin-bottom:2px;">签证需要申根两次入境</div>
+        <div style="font-size:0.78rem;color:var(--text-secondary);">行程涉及挪威(申根)→冰岛(申根)→挪威(转机回国)，同属申根区不需要多次入境签。但注意：首站入境国为挪威，停留时间最长的国家也是挪威，应向挪威使馆递交申根签。建议提前2个月办理。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHECKLIST ===== -->
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">行前清单</h2>
+    <p class="section-subtitle">点击勾选 · 自动保存进度</p>
+  </div>
+  <div class="checklist-progress">
+    <div class="pct" id="checkPct">0%</div>
+    <div class="sub" id="checkSub">0 / 0 项已完成</div>
+  </div>
+  <div class="card" id="checklistContainer"></div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="fade-in">
+  <div class="section-header">
+    <h2 class="section-title">评论区 FAQ</h2>
+    <p class="section-subtitle">小红书高频问题 · 挪威+冰岛真实回答</p>
+  </div>
+  <div class="card" id="faqContainer">
+    <div class="faq-item"><div class="faq-q"><span class="faq-q-text">9月底特罗姆瑟能看到极光吗？</span><span class="faq-toggle">▼</span></div><div class="faq-a"><div class="faq-a-inner">可以！9月下旬极光季已开始，日照约12h→9h快速缩短。特罗姆瑟连住3晚参加2次极光团，KP≥3且无云时肉眼可见。2026是极光高峰年，KP4-6级爆发频繁，概率比往年更高。</div></div></div>
+    <div class="faq-item"><div class="faq-q"><span class="faq-q-text">冰岛10月初自驾安全吗？</span><span class="faq-toggle">▼</span></div><div class="faq-a"><div class="faq-a-inner">1号公路（环岛主干道）整体安全，但南岸风大沙多，北岸可能结冰。建议：①租四驱车 ②确认配冬季胎 ③每天规划白天驾驶（8:00-17:00）④下载离线地图 ⑤加满砂石险。冰岛10月平均气温0-8°C，还不至于大雪封路。</div></div></div>
+    <div class="faq-item"><div class="faq-q"><span class="faq-q-text">挪威+冰岛一次玩会不会太赶？</span><span class="faq-toggle">▼</span></div><div class="faq-a"><div class="faq-a-inner">确实紧凑，但设计上已尽量减少搬酒店：特罗姆瑟连住3晚，Vik连住2晚。冰岛段只走黄金圈+南岸+冰河湖，不环全岛。转机日安排合理（Day1/2/5/11）。如果时间充裕建议加到15-16天，但13天也完全可行。</div></div></div>
+    <div class="faq-item"><div class="faq-q"><span class="faq-q-text">冰岛和挪威哪个消费更高？</span><span class="faq-toggle">▼</span></div><div class="faq-a"><div class="faq-a-inner">冰岛略高。挪威克朗(NOK)≈0.68CNY，冰岛克朗(ISK)≈0.052CNY。直观对比：挪威超市三明治≈120NOK(82元)，冰岛≈1,500ISK(78元)差不多。但冰岛租车+油费+活动费更高，整体冰岛段日均消费比挪威高约20%。</div></div></div>
+    <div class="faq-item"><div class="faq-q"><span class="faq-q-text">要不要带冰爪？</span><span class="faq-toggle">▼</span></div><div class="faq-a"><div class="faq-a-inner">建议带！10月特罗姆瑟和冰岛冰川附近路面可能结冰。轻便冰爪淘宝20-30元一对，在冰岛当地买要200+。冰川徒步向导会提供专业冰爪，但你日常在停车场/观景台走路时轻便冰爪很好用。</div></div></div>
+    <div class="faq-item"><div class="faq-q"><span class="faq-q-text">冰岛加油怎么付？</span><span class="faq-toggle">▼</span></div><div class="faq-a"><div class="faq-a-inner">冰岛加油站大部分自助无人工。方法1：用芯片信用卡插卡，输入PIN码（部分国内卡不支持，出发前确认）。方法2：去N1/Ólis超市买预付加油卡（告诉店员你要多少金额）。方法3：找有人工服务的加油站（较少）。推荐带一张Visa/MasterCard芯片卡。</div></div></div>
+    <div class="faq-item"><div class="faq-q"><span class="faq-q-text">穿什么衣服够？</span><span class="faq-toggle">▼</span></div><div class="faq-a"><div class="faq-a-inner">三层洋葱式穿衣法：①美丽诺羊毛内衣 ②抓绒/羊毛衫 ③防风防水冲锋衣/薄羽绒。防水防滑靴必备！冰岛风大，冲锋衣比羽绒服实用。暖宝宝+触屏手套+保温杯。特罗姆瑟追极光那晚会更冷（-5°C左右），备好热帖。</div></div></div>
+    <div class="faq-item"><div class="faq-q"><span class="faq-q-text">为什么2026是极光黄金年？</span><span class="faq-toggle">▼</span></div><div class="faq-a"><div class="faq-a-inner">太阳活动有11年周期，2025-2026年正值Solar Cycle 25的峰值期。极光爆发更频繁（KP4-6级每月多次）、强度更高（肉眼可见红色/紫色极光概率增大），错过要等到2035年以后。我们的行程9.25-10.7正好卡在峰值窗口内！</div></div></div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer fade-in">
+  <div class="footer-tagline">"挪威追极光，冰岛看冰川——一次旅行，两种北极"</div>
+  <div class="footer-meta">
+    最后更新：2026年7月 · 基于小红书/知乎/马蜂窝等平台真实用户反馈整理<br>
+    <a href="social-travel-plans.html">社交媒体攻略汇总</a><br>
+    <span style="font-size:0.65rem;">请出行前再次核实所有信息，祝旅途愉快 ✦</span>
+  </div>
+</footer>
+
+</div><!-- /container -->
+
+<script>
+/* ===== Refresh button ===== */
+document.getElementById('refreshBtn')?.addEventListener('click', () => window.location.reload(true));
+
+/* ===== Countdown ===== */
+(function(){
+  const target = new Date('2026-09-25T20:00:00+08:00').getTime();
+  function tick(){
+    const now = Date.now();
+    let diff = target - now;
+    if(diff < 0) diff = 0;
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+/* ===== Months until departure ===== */
+(function(){
+  const now = new Date();
+  const depart = new Date('2026-09-25T20:00:00+08:00');
+  const months = (depart.getFullYear() - now.getFullYear()) * 12 + (depart.getMonth() - now.getMonth());
+  const el = document.getElementById('monthsLeft');
+  if(el) el.textContent = months;
+})();
+
+/* ===== Timeline Data ===== */
+const days = [
+  { day:1, date:'9.25', loc:'成都 → 曼谷 → 奥斯陆', tag:'flight',
+    info:{ flight:'TFU→BKK→OSL · 全程约13-15h', hotel:'奥斯陆市区酒店', drive:'—', aurora:'❌ 在飞机上', budget:'机票 ¥5,808' },
+    detail:'<strong>✈️ 飞行：</strong>成都→曼谷→奥斯陆（推荐泰国航空/国航经曼谷转机）<br><strong>🏨 住宿：</strong>奥斯陆市区酒店<br><strong>💡 提示：</strong>到达后Uber/Bolt到市区（别打出租车）。入住后早点休息调整时差' },
+  { day:2, date:'9.26', loc:'奥斯陆 → 特罗姆瑟', tag:'flight',
+    info:{ flight:'OSL→TOS · 约2h · ¥988/人（含23kg）', hotel:'特罗姆瑟市区酒店（连住3晚）', drive:'—', aurora:'🌌 KP 2-3 · 刚到适应', budget:'机票 ¥988 + 住宿 ≈¥800' },
+    detail:'<strong>✈️ 飞行：</strong>奥斯陆飞特罗姆瑟约2h（SAS/Norwegian航空）<br><strong>🚌 接驳：</strong>机场大巴到市区约20min<br><strong>🌆 到达：</strong>入住后超市采购（Coop Extra步行可达）· 市区散步适应北极圈<br><strong>📸 打卡：</strong>最北麦当劳、特罗姆瑟图书馆' },
+  { day:3, date:'9.27', loc:'特罗姆瑟 · 极光团首战', tag:'aurora',
+    info:{ flight:'—', hotel:'特罗姆瑟市区酒店', drive:'—', aurora:'🌌 KP 3-4 · 极光团出发！', budget:'极光团 ≈1,400NOK + 住宿 ≈¥800' },
+    detail:'<strong>🚶 白天：</strong>北极大教堂 · 极光科学馆（360°极光秀）· Fjellheisen缆车登顶俯瞰城市<br><strong>🌙 晚上20:00：</strong>极光团出发！推荐Arctic GM或Hello Tromsø（6-10h）<br><strong>📸 包含：</strong>接送+保暖太空衣+篝火烤肠+专业单反拍照<br><strong>🪪 注意：</strong>随身带护照！可能开到芬兰边境追晴空' },
+  { day:4, date:'9.28', loc:'特罗姆瑟 · 驯鹿 + Sami文化', tag:'aurora',
+    info:{ flight:'—', hotel:'特罗姆瑟市区酒店', drive:'—', aurora:'🌌 KP 3-4 · 第二次追光', budget:'Sami体验 ≈1,200NOK + 住宿 ≈¥800' },
+    detail:'<strong>🦌 白天：</strong>Sami驯鹿体验+传统篝火午餐（距市区30min车程）· 在帐篷里听萨米人讲故事喝热茶<br><strong>🌙 晚上：</strong>换一家极光团再战！提高成功率（两晚不同团，看到概率翻倍）<br><strong>💡 节省时间：</strong>狗拉雪橇本次行程来不及，放下次挪威之行' },
+  { day:5, date:'9.29', loc:'特罗姆瑟 → 奥斯陆 → 雷克雅未克', tag:'flight',
+    info:{ flight:'TOS→OSL→KEF · ¥1,950/人', hotel:'雷克雅未克市区酒店', drive:'🚗 KEF取车→雷市(50km · 45min)', aurora:'🌌 KP 2-3 · 刚到冰岛', budget:'机票 ¥1,950 + 租车开始 + 住宿 ≈¥900' },
+    detail:'<strong>✈️ 转机：</strong>特罗姆瑟→奥斯陆（约2h）→ 转机1-2h → 奥斯陆→雷克雅未克（约3h）<br><strong>🚗 冰岛租车开始：</strong>KEF机场取车，推荐Lotus或Blue Car Rental（自动挡+全险+砂石险）<br><strong>🏨 住宿：</strong>雷克雅未克市区<br><strong>🌆 晚上：</strong>雷市散步，哈尔帕音乐厅打卡，托宁湖看天鹅' },
+  { day:6, date:'9.30', loc:'黄金圈 · Þingvellir → Geysir → Gullfoss', tag:'',
+    info:{ flight:'—', hotel:'Selfoss住宿', drive:'🚗 雷市→黄金圈→Selfoss · 约230km', aurora:'🌌 KP 3-4 · 黄金圈光污染少', budget:'住宿 ≈¥600 + 油费 ≈¥200' },
+    detail:'<strong>🚗 黄金圈三大景点：</strong><br>① Þingvellir国家公园（欧美板块裂缝+冰岛议会旧址）<br>② Geysir间歇泉（每5-10分钟喷发一次）<br>③ Gullfoss黄金瀑布（双段跌落，10月水量充沛）<br><strong>🏨 住宿：</strong>Selfoss小镇（到南岸的中间点）<br><strong>🌙 晚上：</strong>Selfoss周边光污染少，可尝试追极光' },
+  { day:7, date:'10.1', loc:'冰岛南岸 · Seljalandsfoss → Skógafoss → Vik', tag:'',
+    info:{ flight:'—', hotel:'Vik住宿（连住2晚）', drive:'🚗 Selfoss→Vik · 约180km', aurora:'🌌 KP 3-4 · 黑沙滩夜空', budget:'住宿 ≈¥700 + 油费 ≈¥150' },
+    detail:'<strong>🚗 南岸精华：</strong><br>① Seljalandsfoss瀑布（可以走到水帘后面）<br>② Skógafoss瀑布（晴天有彩虹）<br>③ Reynisfjara黑沙滩（⚠️ 注意离岸流！背对海危险）<br>④ Vik教堂山顶看日落<br><strong>🏨 住宿：</strong>Vik小镇（冰岛南岸最大定居点）<br><strong>🍽️ 美食：</strong>Vik超市Bonus采购自炊' },
+  { day:8, date:'10.2', loc:'冰河湖 · Jökulsárlón + 钻石沙滩', tag:'',
+    info:{ flight:'—', hotel:'回到Vik（同一家，不换酒店）', drive:'🚗 Vik→冰河湖→Vik · 约400km往返', aurora:'🌌 KP 3-4 · 冰河湖上空极光' , budget:'油费 ≈¥300' },
+    detail:'<strong>🚗 往返约4h车程，值得！</strong><br>① Jökulsárlón冰河湖 — 浮冰在潟湖中漂浮， seals在冰上休息<br>② 钻石沙滩 — 冰块被海浪冲上黑沙滩，在阳光下如钻石般闪耀<br>③ 可选：冰川徒步或冰河湖游船<br><strong>🏨 住宿：</strong>回到Vik同一家酒店（不用换酒店收拾行李）<br><strong>🌙 晚上：</strong>冰河湖是极佳极光观测点——冰川+极光同框' },
+  { day:9, date:'10.3', loc:'Vik → 雷克雅未克', tag:'',
+    info:{ flight:'—', hotel:'雷克雅未克市区酒店（连住2晚）', drive:'🚗 Vik→雷市 · 约180km', aurora:'🌌 KP 3 · 市区近郊', budget:'住宿 ≈¥800 + 油费 ≈¥150' },
+    detail:'<strong>🚗 返程路上：</strong><br>① 补拍前一天意犹未尽的景点<br>② 塞里雅兰瀑布或斯科加瀑布二次打卡<br>③ 雷克雅未克市区还车（加满油）<br><strong>🛍️ 下午：</strong>雷市购物· Bonus超市补货· 哈尔帕音乐厅<br><strong>🏨 住宿：</strong>雷克雅未克市中心' },
+  { day:10, date:'10.4', loc:'雷克雅未克 · Blue Lagoon / Sky Lagoon', tag:'',
+    info:{ flight:'—', hotel:'雷克雅未克市区酒店', drive:'🚗 取车→蓝湖→雷市 · 约100km', aurora:'🌌 KP 2-3 · 最后一晚', budget:'蓝湖 ≈7,500ISK + 住宿 ≈¥800' },
+    detail:'<strong>♨️ 上午：</strong>Blue Lagoon蓝湖温泉（提前1个月订票，Comfort票含面膜+毛巾+饮品）<br>或Sky Lagoon（便宜+人少+7步疗法，性价比更高）<br><strong>🚗 下午：</strong>可临时租车或跟团前往（蓝湖距雷市约50km）<br><strong>🌆 晚上：</strong>雷市最后一晚 · 冰岛海鲜大餐 · 整理照片' },
+  { day:11, date:'10.5', loc:'KEF → 奥斯陆', tag:'flight',
+    info:{ flight:'KEF→OSL · ¥1,641/人', hotel:'Oslo Airport 机场酒店', drive:'🚗 雷市→KEF还车 · 50km', aurora:'❌ 在机场', budget:'机票 ¥1,641 + 住宿 ≈¥600' },
+    detail:'<strong>🚗 还车：</strong>KEF机场还车前加满油，保留加油小票<br><strong>✈️ 飞行：</strong>雷克雅未克→奥斯陆约3h<br><strong>🏨 住宿：</strong>奥斯陆机场酒店（第二天早班机）<br><strong>🛍️ 晚上：</strong>机场免税店采购（挪威户外品牌Norrøna、Bergans）' },
+  { day:12, date:'10.6', loc:'奥斯陆 → 曼谷 → 成都', tag:'flight',
+    info:{ flight:'OSL→BKK→TFU · ¥6,497/人', hotel:'飞机上', drive:'—', aurora:'❌ 飞机上', budget:'机票 ¥6,497' },
+    detail:'<strong>✈️ 飞行：</strong>奥斯陆→曼谷→成都，总耗时约13-15h<br><strong>⏰ 提示：</strong>提前3h到机场办理退税（保留退税单）<br><strong>📦 打包：</strong>检查极光/冰岛照片已备份，行李别超重' },
+  { day:13, date:'10.7', loc:'抵达成都', tag:'',
+    info:{ flight:'—', hotel:'到家 🏠', drive:'—', aurora:'—', budget:'—' },
+    detail:'<strong>🏠 到家：</strong>调整时差，开始修图发朋友圈 ✨<br><strong>💡 总结：</strong>挪威3晚极光 + 冰岛7天自驾环线，一次旅行两大北极目的地。期待极光在冰川上空舞动的画面！' }
+];
+
+const timeline = document.getElementById('timeline');
+days.forEach(d => {
+  const el = document.createElement('div');
+  el.className = 'timeline-day' + (d.tag ? ' ' + d.tag : '');
+  let infoHtml = '';
+  if (d.info) {
+    infoHtml = `<div class="day-info-grid">
+      <div class="day-info-item"><span class="label">✈️</span><span class="val">${d.info.flight}</span></div>
+      <div class="day-info-item"><span class="label">🏨</span><span class="val">${d.info.hotel}</span></div>
+      <div class="day-info-item"><span class="label">🚗</span><span class="val">${d.info.drive}</span></div>
+      <div class="day-info-item"><span class="label">🌌</span><span class="val">${d.info.aurora}</span></div>
+      <div class="day-info-item" style="grid-column:1/-1;"><span class="label">💰</span><span class="val">${d.info.budget}</span></div>
+    </div>`;
+  }
+  el.innerHTML = `
+    <div class="day-header" onclick="toggleDay(this)">
+      <span class="day-num">D${d.day}</span>
+      <span class="day-date">${d.date}</span>
+      <span class="day-location">${d.loc}</span>
+      <span class="day-toggle">▼</span>
+    </div>
+    <div class="day-body"><div class="day-content">${infoHtml}${d.detail}</div></div>
+  `;
+  timeline.appendChild(el);
+});
+
+function toggleDay(header){
+  const body = header.nextElementSibling;
+  const toggle = header.querySelector('.day-toggle');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open');
+  toggle.classList.toggle('open');
+}
+
+/* ===== Budget ===== */
+const budgetData = {
+  plan: [
+    { name:'全程机票（5段）', val:16884, pct:48 },
+    { name:'住宿（9晚）', val:6500, pct:19 },
+    { name:'冰岛租车+油费', val:4000, pct:11 },
+    { name:'极光团+冰川活动', val:3500, pct:10 },
+    { name:'餐饮', val:2800, pct:8 },
+    { name:'签证+保险+其他', val:1500, pct:4 }
+  ],
+  real: [
+    { name:'全程机票（5段）', val:17000, pct:46 },
+    { name:'住宿（9晚）', val:7000, pct:19 },
+    { name:'冰岛租车+油费', val:4500, pct:12 },
+    { name:'极光团+冰川活动', val:4000, pct:11 },
+    { name:'餐饮', val:3000, pct:8 },
+    { name:'签证+保险+其他', val:1500, pct:4 }
+  ],
+  budget: [
+    { name:'全程机票（早鸟价）', val:14000, pct:47 },
+    { name:'住宿（青旅/民宿拼房）', val:4000, pct:13 },
+    { name:'冰岛租车（拼车AA）', val:3000, pct:10 },
+    { name:'极光团1次+免费追光', val:2000, pct:7 },
+    { name:'餐饮（自炊为主）', val:2000, pct:7 },
+    { name:'签证+保险+其他', val:1000, pct:3 }
+  ]
+};
+let budgetMode = 'plan';
+
+function renderBudget(mode){
+  const data = budgetData[mode];
+  const container = document.getElementById('budgetContainer');
+  const total = data.reduce((s,i) => s + i.val, 0);
+  container.innerHTML = data.map(item => `
+    <div class="budget-bar">
+      <div class="budget-label"><span class="name">${item.name}</span><span class="val">¥${item.val.toLocaleString()}</span></div>
+      <div class="budget-track"><div class="budget-fill" style="width:${item.pct}%"></div></div>
+    </div>
+  `).join('');
+  document.getElementById('budgetTotal').textContent = '¥' + total.toLocaleString();
+}
+renderBudget('plan');
+
+document.querySelectorAll('.toggle-opt').forEach(el => {
+  el.addEventListener('click', function(){
+    document.querySelectorAll('.toggle-opt').forEach(o => o.classList.remove('active'));
+    this.classList.add('active');
+    budgetMode = this.dataset.mode;
+    renderBudget(budgetMode);
+  });
+});
+
+/* ===== Checklist ===== */
+const checkItems = [
+  { cat:'📋 出发前', items:[
+    { text:'申根签证办理（提前2个月，挪威使馆）', key:'visa' },
+    { text:'全程机票预订（5段，7月锁定）', key:'flight' },
+    { text:'特罗姆瑟住宿3晚', key:'hotel_tromso' },
+    { text:'冰岛住宿预订（Selfoss+Vik+雷市）', key:'hotel_iceland' },
+    { text:'极光团预约（Arctic GM / Hello Tromsø）', key:'aurora_tour' },
+    { text:'冰岛租车预订（自动挡+全险+砂石险）', key:'rental' },
+    { text:'Blue Lagoon / Sky Lagoon预订', key:'bluelagoon' },
+    { text:'旅行保险购买（含医疗救援+航班延误）', key:'insure' }
+  ]},
+  { cat:'🎒 打包清单', items:[
+    { text:'保暖内衣（美丽诺羊毛）', key:'base' },
+    { text:'抓绒衣+羊毛衫', key:'mid' },
+    { text:'防风防水冲锋衣/羽绒服', key:'outer' },
+    { text:'防水防滑雪地靴', key:'boots' },
+    { text:'触屏手套+防水手套', key:'gloves' },
+    { text:'暖宝宝（多带！当地贵）', key:'warmers' },
+    { text:'保温杯', key:'cup' },
+    { text:'三脚架+相机/手机夹', key:'tripod' },
+    { text:'欧标转换插头（Type F）', key:'plug' },
+    { text:'泡面/螺蛳粉/小锅', key:'noodles' },
+    { text:'充电宝（低温掉电快）', key:'powerbank' },
+    { text:'Visa+MasterCard芯片信用卡（确认PIN码）', key:'card' },
+    { text:'冰爪（淘宝20元，冰岛卖200+）', key:'crampons' },
+    { text:'离线下载冰岛Google地图', key:'offline_map' }
+  ]}
+];
+
+function renderChecklist(){
+  const container = document.getElementById('checklistContainer');
+  let html = '';
+  let total = 0, done = 0;
+  checkItems.forEach(group => {
+    html += `<div class="check-cat">${group.cat}</div>`;
+    group.items.forEach(item => {
+      const checked = localStorage.getItem('check_' + item.key) === '1';
+      if(checked) done++;
+      total++;
+      html += `<div class="checklist-item${checked ? ' checked' : ''}" data-key="${item.key}" onclick="toggleCheck(this)">
+        <div class="checkbox">${checked ? '✓' : ''}</div>
+        <span class="check-text">${item.text}</span>
+      </div>`;
+    });
+  });
+  container.innerHTML = html;
+  updateCheckPct(done, total);
+}
+function toggleCheck(el){
+  const key = el.dataset.key;
+  const now = localStorage.getItem('check_' + key) === '1';
+  localStorage.setItem('check_' + key, now ? '0' : '1');
+  renderChecklist();
+}
+function updateCheckPct(done, total){
+  const pct = total > 0 ? Math.round(done/total*100) : 0;
+  document.getElementById('checkPct').textContent = pct + '%';
+  document.getElementById('checkSub').textContent = done + ' / ' + total + ' 项已完成';
+}
+renderChecklist();
+
+/* ===== FAQ ===== */
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', function(){
+    const a = this.nextElementSibling;
+    const t = this.querySelector('.faq-toggle');
+    const isOpen = a.classList.contains('open');
+    a.classList.toggle('open');
+    t.classList.toggle('open');
+  });
+});
+
+/* ===== Scroll Animations ===== */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+const staggerObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const children = entry.target.children;
+      Array.from(children).forEach((child, i) => {
+        setTimeout(() => child.classList.add('visible'), i * 100);
+      });
+    }
+  });
+}, { threshold: 0.1 });
+
+const quoteGrid = document.getElementById('quoteGrid');
+if(quoteGrid) staggerObserver.observe(quoteGrid);
+
+/* ===== Today in Tromsø Widget ===== */
+(function(){
+  const widget = document.getElementById('todayWidget');
+  if(!widget) return;
+  const LAT=69.6496, LON=18.956, TZ='Europe/Berlin';
+  const WMO={0:['☀️','晴空'],1:['🌤️','少云'],2:['⛅','多云'],3:['☁️','阴天'],45:['🌫️','雾'],48:['🌫️','雾凇'],51:['🌦️','小毛毛雨'],53:['🌦️','毛毛雨'],55:['🌧️','大毛毛雨'],61:['🌧️','小雨'],63:['🌧️','中雨'],65:['🌧️','大雨'],71:['🌨️','小雪'],73:['🌨️','中雪'],75:['❄️','大雪'],77:['❄️','雪粒'],80:['🌦️','阵雨'],85:['🌨️','小阵雪'],86:['🌨️','大阵雪'],95:['⛈️','雷暴']};
+  const SEASONS=[
+    {m:5,f:'🌙 午夜太阳将近 · 夏季极昼'},{m:6,f:'🌙 极昼季 · 午夜太阳高挂'},{m:7,f:'🌙 盛夏极昼 · 凌晨天仍亮'},
+    {m:8,f:'🌙 夏末 · 黑夜逐渐回归'},{m:9,f:'🌌 极光季开始！9月底出发刚刚好'},{m:10,f:'🌌 极光旺季 · 黑夜漫长'},
+    {m:11,f:'🌌 极光高频期 · 漫天星辰'},{m:12,f:'🌌 极夜 · 24小时看极光的机会'},{m:1,f:'🌌 极夜尾声 · 极光依然活跃'},
+    {m:2,f:'🌌 冬末 · 极光+滑雪黄金期'},{m:3,f:'🌌 春分极光 · 地磁活动高峰'},{m:4,f:'🌙 春季 · 白天渐长'}
+  ];
+  function updateTime(){
+    const now=new Date();
+    document.getElementById('norwayDate').textContent=new Intl.DateTimeFormat('zh-CN',{timeZone:TZ,year:'numeric',month:'long',day:'numeric',weekday:'long'}).format(now);
+    document.getElementById('norwayTime').textContent='⏰ '+new Intl.DateTimeFormat('zh-CN',{timeZone:TZ,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(now);
+  }
+  updateTime(); setInterval(updateTime,1000);
+  fetch(`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,cloud_cover&timezone=${TZ}`)
+    .then(r=>r.json()).then(d=>{
+      const c=d.current; if(!c)return;
+      const w=WMO[c.weather_code]||['🌡️','未知'];
+      document.getElementById('weatherIcon').textContent=w[0];
+      document.getElementById('weatherTemp').textContent=Math.round(c.temperature_2m)+'°C';
+      document.getElementById('weatherDesc').textContent=w[1];
+      document.getElementById('feelsLike').textContent=Math.round(c.apparent_temperature);
+      document.getElementById('windSpeed').textContent=c.wind_speed_10m;
+      let vibe,vC;
+      if(c.cloud_cover<20){vibe='最佳观测 ☀️';vC='#39ff14';}
+      else if(c.cloud_cover<50){vibe='有机会 🌤️';vC='#fb923c';}
+      else if(c.cloud_cover<80){vibe='有云遮挡 ☁️';vC='#94a3b8';}
+      else{vibe='云层较厚 ❌';vC='#ef4444';}
+      const av=document.getElementById('auroraVibe');
+      av.textContent='🌌 极光可见度: '+vibe; av.style.color=vC; av.style.borderColor=vC;
+      const s=SEASONS.find(s=>s.m===new Date().getMonth()+1);
+      if(s) document.getElementById('seasonFact').textContent=s.f;
+      const di=document.getElementById('daylightInfo');
+      const dy=(new Date()-new Date(new Date().getFullYear(),0,0))/86400000;
+      const hr=LAT*Math.PI/180, dc=23.44*Math.PI/180*Math.cos(2*Math.PI/365*(dy-173));
+      const ha=Math.acos(-Math.tan(hr)*Math.tan(dc));
+      if(!isNaN(ha)){const dl=2*ha*180/Math.PI/15, sr=12-dl/2, ss=12+dl/2;
+        di.textContent=`☀️ 日出 ${Math.floor(sr)}:${Math.round((sr%1)*60).toString().padStart(2,'0')} · 日落 ${Math.floor(ss)}:${Math.round((ss%1)*60).toString().padStart(2,'0')} · 昼长 ${Math.floor(dl)}h${Math.round((dl%1)*60)}min`;
+      }else{
+        di.textContent=23.44*Math.cos(2*Math.PI/365*(dy-173))>90-LAT?'☀️ 极昼 · 24小时白昼':'🌙 极夜 · 24小时黑夜';
+      }
+      widget.style.opacity='1';
+    }).catch(()=>{widget.style.opacity='1';
+      document.getElementById('weatherDesc').textContent='天气数据暂不可用';
+    });
+
+  // Fetch exchange rate NOK→CNY
+  fetch('https://api.exchangerate-api.com/v4/latest/NOK')
+    .then(r=>r.json())
+    .then(d=>{
+      const cny=d.rates.CNY, usd=d.rates.USD;
+      document.getElementById('exchangeRate').textContent=`💱 1 NOK = ${cny} CNY · ${usd} USD`;
+    })
+    .catch(()=>{
+      document.getElementById('exchangeRate').textContent='💱 1 NOK ≈ 0.68 CNY';
+    });
+})();
+</script>
+</body>
+</html>
