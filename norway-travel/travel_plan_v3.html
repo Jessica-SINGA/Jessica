@@ -962,6 +962,10 @@ section {
     <span style="margin-left:auto;"><a href="https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+TFU+from+OSL+2026-10-06&curr=CNY" target="_blank" style="color:var(--aurora-green);text-decoration:none;">Google Flights →</a></span>
   </div>
 
+  <div style="text-align:right;font-size:0.55rem;color:var(--text-muted);padding:2px 4px 8px;">
+    最后更新：<span id="updateTime">加载中...</span>
+  </div>
+
 <!-- FLIGHT_PRICES_START -->
   <div style="width:100%;max-width:420px;margin:8px auto 130px;background:var(--bg-card);backdrop-filter:var(--glass-blur);border:1px solid rgba(57,255,20,0.2);border-left:3px solid var(--aurora-green);border-radius:var(--radius-sm);padding:10px 14px;text-align:left;">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
@@ -1182,6 +1186,7 @@ section {
   <div class="section-header">
     <h2 class="section-title">北欧境内航段 · 实时比价</h2>
     <p class="section-subtitle">✅ 申根区内无需过境签 · 🧳 托运行李额视票价等级而定</p>
+    <div style="text-align:right;font-size:0.52rem;color:var(--text-muted);margin-top:-18px;">最后更新：<span id="updateTime2">加载中...</span></div>
   </div>
 
   <!-- quick summary -->
@@ -1730,6 +1735,23 @@ document.getElementById('refreshBtn')?.addEventListener('click', () => window.lo
   const months = (depart.getFullYear() - now.getFullYear()) * 12 + (depart.getMonth() - now.getMonth());
   const el = document.getElementById('monthsLeft');
   if(el) el.textContent = months;
+})();
+
+/* ===== Update Time Display ===== */
+(function(){
+  const ids = ['updateTime', 'updateTime2'];
+  const now = new Date();
+  const cn = new Date(now.toLocaleString('en-US', {timeZone:'Asia/Shanghai'}));
+  const y = cn.getFullYear();
+  const m = String(cn.getMonth()+1).padStart(2,'0');
+  const d = String(cn.getDate()).padStart(2,'0');
+  const h = String(cn.getHours()).padStart(2,'0');
+  const min = String(cn.getMinutes()).padStart(2,'0');
+  const text = y + '年' + m + '月' + d + '日 ' + h + ':' + min;
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.textContent = text;
+  });
 })();
 
 /* ===== Timeline Data ===== */
