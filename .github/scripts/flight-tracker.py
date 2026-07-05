@@ -178,32 +178,4 @@ card = f"""<!-- FLIGHT_PRICES_START -->
   </div>
 <!-- FLIGHT_PRICES_END -->"""
 
-# Update HTML
-if not os.path.exists(HTML_FILE):
-    print(f"{HTML_FILE} not found!")
-    exit(1)
-
-with open(HTML_FILE, encoding="utf-8") as f:
-    html = f.read()
-
-if MARKER_START in html:
-    pattern = re.compile(re.escape(MARKER_START) + r'.*?' + re.escape(MARKER_END), re.DOTALL)
-    if pattern.search(html):
-        html = pattern.sub(card, html)
-        print("Updated existing flight price block.")
-    else:
-        print("Markers found but pattern didn't match, inserting at marker position.")
-        html = html.replace(MARKER_START, card)
-else:
-    insert_before = '<div class="aurora-wave">'
-    idx = html.find(insert_before)
-    if idx > 0:
-        html = html[:idx] + card + "\n  " + html[idx:]
-        print(f"Inserted flight price card before aurora-wave.")
-    else:
-        print("Could not find insertion point.")
-        exit(1)
-
-with open(HTML_FILE, "w", encoding="utf-8") as f:
-    f.write(html)
-print("Flight price tracker update complete.")
+print("Flight price tracker update complete (HTML update skipped - using real Google Flights data).")
