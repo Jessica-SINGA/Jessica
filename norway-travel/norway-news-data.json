@@ -1,5 +1,35 @@
 [
   {
+    "date": "2026-07-07",
+    "kp": "0.0",
+    "kp_label": "平静",
+    "kp_color": "#94a3b8",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.691 CNY / 1 NOK = 0.102 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "13 条最佳北极光巡游：2026-27 专家指南 - 泰晤士报",
+          "desc": "<a href=\" target=\"_blank\">13 条最佳北极光巡游：2026-27 年专家指南</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">《泰晤士报》</font>"
+        },
+        {
+          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
+          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
+        },
+        {
+          "title": "我已经看过 50 次北极光了——以下是我在旺季之后观赏北极光的 5 个重要秘诀 - 旅行 + 休闲",
+          "desc": "<a href=\" target=\"_blank\">我已经看过北极光 50 次了——以下是我在旺季后观赏北极光的 5 个重要秘诀</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">旅行 + 休闲</font>"
+        }
+      ],
+      "Google News CN": [
+        {
+          "title": "挪威 Science and Technology Located in Trondheim Gjøvik - Baha'is of the United States",
+          "desc": "<a href=\" target=\"_blank\">挪威 Science and Technology Located in Trondheim Gjøvik</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Baha'is of the United States</font>"
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-07-06",
     "kp": "1.0",
     "kp_label": "平静",
