@@ -1,5 +1,51 @@
 [
   {
+    "date": "2026-07-13",
+    "kp": "2.0",
+    "kp_label": "平静",
+    "kp_color": "#94a3b8",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.696 CNY / 1 NOK = 0.102 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
+          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
+        },
+        {
+          "title": "13 条最佳北极光巡游：2026-27 专家指南 - 泰晤士报",
+          "desc": "<a href=\" target=\"_blank\">13 条最佳北极光巡游：2026-27 年专家指南</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">《泰晤士报》</font>"
+        },
+        {
+          "title": "极光追逐者的北极光指南 - BBC",
+          "desc": "<a href=\" target=\"_blank\">极光追逐者的北极光指南</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font>"
+        }
+      ],
+      "Google News CN": [
+        {
+          "title": "新疆深度定制包车旅游攻略 报价预定路线签约全讲解 - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">新疆深度定制包车旅游攻略 报价预定路线签约全讲解</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "2026山西4天3晚好友出游攻略｜山西博物院人文探秘+历山山水纯玩，不绕路省心路线 - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">2026山西4天3晚好友出游攻略｜山西博物院人文探秘+历山山水纯玩，不绕路省心路线</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "新疆10天9晚跟团纯玩攻略：含行程表+费用明细，跟团游攻略 - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">新疆10天9晚跟团纯玩攻略：含行程表+费用明细，跟团游攻略</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "毕业旅行八月下旬去哪？冰岛vs挪威半自助避暑人少，3个维度说清+FAQ - 新浪旅游",
+          "desc": "<a href=\" target=\"_blank\">毕业旅行八月下旬去哪？冰岛vs挪威半自助避暑人少，3个维度说清+FAQ</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">新浪旅游</font>"
+        },
+        {
+          "title": "毕业旅行八月下旬半自助避暑人少好去处洲际 - 新浪网",
+          "desc": "<a href=\" target=\"_blank\">毕业旅行八月下旬半自助避暑人少好去处洲际</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">新浪网</font>"
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-07-12",
     "kp": "2.0",
     "kp_label": "平静",
