@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-07-16",
+    "kp": "3.0",
+    "kp_label": "中等 ✅",
+    "kp_color": "#39ff14",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.7 CNY / 1 NOK = 0.103 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "挪威 7 次北极光游轮：如何像专业人士一样观赏北极光 - TravelAwaits",
+          "desc": "<a href=\" target=\"_blank\">挪威 7 次北极光巡游：如何像专业人士一样观赏北极光</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">TravelAwaits</font>"
+        },
+        {
+          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
+          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
+        },
+        {
+          "title": "我已经看过 50 次北极光了——以下是我在旺季之后观赏北极光的 5 个重要秘诀 - 旅行 + 休闲",
+          "desc": "<a href=\" target=\"_blank\">我已经看过北极光 50 次了——以下是我在旺季后观赏北极光的 5 个重要秘诀</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">旅行 + 休闲</font>"
+        }
+      ],
+      "Google News CN": [
+        {
+          "title": "旺季出行｜2026川西旅行社服务明细梳理，暑期择优选型攻略 - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">旺季出行｜2026川西旅行社服务明细梳理，暑期择优选型攻略</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "新疆老年出游优质攻略，2026正规纯玩导游，高口碑舒适慢出行 - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">新疆老年出游优质攻略，2026正规纯玩导游，高口碑舒适慢出行</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "昆明2026年最新攻略，亲子游必看路线，自由行费用全解析 - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">昆明2026年最新攻略，亲子游必看路线，自由行费用全解析</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "毕业旅行八月下旬去哪？冰岛vs挪威半自助避暑人少，3个维度说清+FAQ - 新浪旅游",
+          "desc": "<a href=\" target=\"_blank\">毕业旅行八月下旬去哪？冰岛vs挪威半自助避暑人少，3个维度说清+FAQ</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">新浪旅游</font>"
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-07-15",
     "kp": "2.0",
     "kp_label": "平静",
