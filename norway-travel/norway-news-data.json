@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-07-18",
+    "kp": "1.0",
+    "kp_label": "平静",
+    "kp_color": "#94a3b8",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.702 CNY / 1 NOK = 0.104 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
+          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
+        },
+        {
+          "title": "13 条最佳北极光巡游：2026-27 专家指南 - 泰晤士报",
+          "desc": "<a href=\" target=\"_blank\">13 条最佳北极光巡游：2026-27 年专家指南</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">《泰晤士报》</font>"
+        },
+        {
+          "title": "我已经看过 50 次北极光了——以下是我在旺季之后观赏北极光的 5 个重要秘诀 - 旅行 + 休闲",
+          "desc": "<a href=\" target=\"_blank\">我已经看过北极光 50 次了——以下是我在旺季后观赏北极光的 5 个重要秘诀</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">旅行 + 休闲</font>"
+        }
+      ],
+      "Google News CN": [
+        {
+          "title": "旺季出行｜2026川西旅行社服务明细梳理，暑期择优选型攻略 - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">旺季出行｜2026川西旅行社服务明细梳理，暑期择优选型攻略</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "2026年天山号价格及报名费用详解，附南北疆旅游攻略 - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">2026年天山号价格及报名费用详解，附南北疆旅游攻略</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "新疆老年康养游攻略，2026正规纯玩导游，贴心慢游全程无忧 - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">新疆老年康养游攻略，2026正规纯玩导游，贴心慢游全程无忧</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "毕业旅行八月下旬去哪？冰岛vs挪威半自助避暑人少，3个维度说清+FAQ - 新浪旅游",
+          "desc": "<a href=\" target=\"_blank\">毕业旅行八月下旬去哪？冰岛vs挪威半自助避暑人少，3个维度说清+FAQ</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">新浪旅游</font>"
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-07-17",
     "kp": "0.0",
     "kp_label": "平静",
