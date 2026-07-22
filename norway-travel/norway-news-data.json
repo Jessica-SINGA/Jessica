@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-07-22",
+    "kp": "3.0",
+    "kp_label": "中等 ✅",
+    "kp_color": "#39ff14",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.702 CNY / 1 NOK = 0.104 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "2026 年北极光：观赏极光的最佳地点和时间 - 福斯塔夫",
+          "desc": "<a href=\" target=\"_blank\">2026 年北极光：观赏极光的最佳地点和时间</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">福斯塔夫</font>"
+        },
+        {
+          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
+          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
+        },
+        {
+          "title": "挪威 7 次北极光游轮：如何像专业人士一样观赏北极光 - TravelAwaits",
+          "desc": "<a href=\" target=\"_blank\">挪威 7 次北极光巡游：如何像专业人士一样观赏北极光</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">TravelAwaits</font>"
+        }
+      ],
+      "Google News CN": [
+        {
+          "title": "2026最新青甘大环线跟团7日游攻略！懒人专属西北全景出行指南！ - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">2026最新青甘大环线跟团7日游攻略！懒人专属西北全景出行指南！</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "2026 首次到桂林旅游如何选导游？正规预约渠道、费用判断与 4 位纯玩向导推荐 - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">2026 首次到桂林旅游如何选导游？正规预约渠道、费用判断与 4 位纯玩向导推荐</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "山东半岛五天四晚旅游哪家好？2026纯玩不踩雷攻略来了 - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">山东半岛五天四晚旅游哪家好？2026纯玩不踩雷攻略来了</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "不怕冷的游客都去南北极看极光跨年了！阿姨爷叔南极扎堆，年轻人爱去北极 - 上观新闻",
+          "desc": "<a href=\" target=\"_blank\">不怕冷的游客都去南北极看极光跨年了！阿姨爷叔南极扎堆，年轻人爱去北极</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">上观新闻</font>"
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-07-21",
     "kp": "2.0",
     "kp_label": "平静",
