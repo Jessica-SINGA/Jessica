@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-07-28",
+    "kp": "1.0",
+    "kp_label": "平静",
+    "kp_color": "#94a3b8",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.704 CNY / 1 NOK = 0.104 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "2026 年北极光：观赏极光的最佳地点和时间 - 福斯塔夫",
+          "desc": "<a href=\" target=\"_blank\">2026 年北极光：观赏极光的最佳地点和时间</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">福斯塔夫</font>"
+        },
+        {
+          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
+          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
+        },
+        {
+          "title": "13 条最佳北极光巡游：2026-27 专家指南 - 泰晤士报",
+          "desc": "<a href=\" target=\"_blank\">13 条最佳北极光巡游：2026-27 年专家指南</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">《泰晤士报》</font>"
+        }
+      ],
+      "Google News CN": [
+        {
+          "title": "2026最新青甘大环线跟团7日游攻略！懒人专属西北全景出行指南！ - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">2026最新青甘大环线跟团7日游攻略！懒人专属西北全景出行指南！</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "青海自由行全攻略，2026年最新路线规划，预算明细一目了然 - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">青海自由行全攻略，2026年最新路线规划，预算明细一目了然</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "2026年贵州口碑好的旅行社前10名，实测正规靠谱排名中港国际旅行社纯玩团行程费用全公开 - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">2026年贵州口碑好的旅行社前10名，实测正规靠谱排名中港国际旅行社纯玩团行程费用全公开</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "不怕冷的游客都去南北极看极光跨年了！阿姨爷叔南极扎堆，年轻人爱去北极 - 上观新闻",
+          "desc": "<a href=\" target=\"_blank\">不怕冷的游客都去南北极看极光跨年了！阿姨爷叔南极扎堆，年轻人爱去北极</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">上观新闻</font>"
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-07-27",
     "kp": "1.0",
     "kp_label": "平静",
