@@ -1,5 +1,43 @@
 [
   {
+    "date": "2026-08-05",
+    "kp": "0.0",
+    "kp_label": "平静",
+    "kp_color": "#94a3b8",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.709 CNY / 1 NOK = 0.105 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "2026 年北极光：观赏极光的最佳地点和时间 - 福斯塔夫",
+          "desc": "<a href=\" target=\"_blank\">2026 年北极光：观赏极光的最佳地点和时间</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">福斯塔夫</font>"
+        },
+        {
+          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
+          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
+        },
+        {
+          "title": "13 条最佳北极光巡游：2026-27 专家指南 - 泰晤士报",
+          "desc": "<a href=\" target=\"_blank\">13 条最佳北极光巡游：2026-27 年专家指南</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">《泰晤士报》</font>"
+        }
+      ],
+      "Google News CN": [
+        {
+          "title": "2026年暑假：带父母进山避暑7天路线、费用、交通、预约和避坑全攻略 - finance.sina.com.cn",
+          "desc": "<a href=\" target=\"_blank\">2026年暑假：带父母进山避暑7天路线、费用、交通、预约和避坑全攻略</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">finance.sina.com.cn</font>"
+        },
+        {
+          "title": "去北极旅游费用大概是多少？2026 最新报价明细及省钱攻略详解 - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">去北极旅游费用大概是多少？2026 最新报价明细及省钱攻略详解</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "不怕冷的游客都去南北极看极光跨年了！阿姨爷叔南极扎堆，年轻人爱去北极 - shobserver.cn",
+          "desc": "<a href=\" target=\"_blank\">不怕冷的游客都去南北极看极光跨年了！阿姨爷叔南极扎堆，年轻人爱去北极</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">shobserver.cn</font>"
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-08-04",
     "kp": "2.0",
     "kp_label": "平静",
