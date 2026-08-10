@@ -1,5 +1,45 @@
 [
   {
+    "date": "2026-08-10",
+    "kp": "0.0",
+    "kp_label": "平静",
+    "kp_color": "#94a3b8",
+    "forecast": [],
+    "exchange_rate": "Hui rate N/A",
+    "news": {
+      "Google News": [
+        {
+          "title": "冰岛的北极光 - 何时何地观赏极光 - 冰岛指南",
+          "desc": "<a href=\" target=\"_blank\">冰岛的北极光 - 何时何地观赏极光</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">冰岛指南</font>"
+        },
+        {
+          "title": "2026 年北极光：观赏极光的最佳地点和时间 - 福斯塔夫",
+          "desc": "<a href=\" target=\"_blank\">2026 年北极光：观赏极光的最佳地点和时间</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">福斯塔夫</font>"
+        },
+        {
+          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
+          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
+        }
+      ],
+      "Google News CN": [
+        {
+          "title": "2026年暑假：带父母进山避暑7天路线、费用、交通、预约和避坑全攻略 - 新浪财经",
+          "desc": "<a href=\" target=\"_blank\">2026年暑假：带父母进山避暑7天路线、费用、交通、预约和避坑全攻略</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">新浪财经</font>"
+        },
+        {
+          "title": "不怕冷的游客都去南北极看极光跨年了！阿姨爷叔南极扎堆，年轻人爱去北极 - shobserver.cn",
+          "desc": "<a href=\" target=\"_blank\">不怕冷的游客都去南北极看极光跨年了！阿姨爷叔南极扎堆，年轻人爱去北极</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">shobserver.cn</font>"
+        }
+      ],
+      "Bing News": [
+        {
+          "title": "介绍：挪威极光的形成机制",
+          "desc": "- 太阳持续向外喷射带电粒子（主要是电子和质子），形成太阳风。 - 地球拥有磁场，其磁场线在两极附近汇聚，形成磁层。 - 太阳风中的带电粒子被地球磁场引导，沿着磁场线向两极方向运动。"
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-08-09",
     "kp": "0.0",
     "kp_label": "平静",
