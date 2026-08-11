@@ -1,5 +1,41 @@
 [
   {
+    "date": "2026-08-11",
+    "kp": "0.0",
+    "kp_label": "平静",
+    "kp_color": "#94a3b8",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.712 CNY / 1 NOK = 0.105 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "冰岛的北极光 - 何时何地观赏极光 - 冰岛指南",
+          "desc": "<a href=\" target=\"_blank\">冰岛的北极光 - 何时何地观赏极光</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">冰岛指南</font>"
+        },
+        {
+          "title": "2026 年北极光：观赏极光的最佳地点和时间 - 福斯塔夫",
+          "desc": "<a href=\" target=\"_blank\">2026 年北极光：观赏极光的最佳地点和时间</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">福斯塔夫</font>"
+        },
+        {
+          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
+          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
+        }
+      ],
+      "Google News CN": [
+        {
+          "title": "2026年暑假：带父母进山避暑7天路线、费用、交通、预约和避坑全攻略 - 新浪财经",
+          "desc": "<a href=\" target=\"_blank\">2026年暑假：带父母进山避暑7天路线、费用、交通、预约和避坑全攻略</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">新浪财经</font>"
+        }
+      ],
+      "Bing News": [
+        {
+          "title": "斯堪的纳维亚雷达阵列将探索极光之谜",
+          "desc": "瑞典境内的天线阵列。 本报讯 2017年，挪威斯瓦尔巴群岛上空出现一道道微小的绿色光斑，悬浮在极光周边。这些碎片状类极光辐射跨度仅几千米，持续时间不足一分钟，且似乎不受磁力线的约束 ..."
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-08-10",
     "kp": "0.0",
     "kp_label": "平静",
