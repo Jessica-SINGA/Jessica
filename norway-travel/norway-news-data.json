@@ -1,5 +1,41 @@
 [
   {
+    "date": "2026-08-18",
+    "kp": "4.0",
+    "kp_label": "中等 ✅",
+    "kp_color": "#39ff14",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.716 CNY / 1 NOK = 0.106 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "冰岛的北极光 - 何时何地观赏极光 - 冰岛指南",
+          "desc": "<a href=\" target=\"_blank\">冰岛的北极光 - 何时何地观赏极光</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">冰岛指南</font>"
+        },
+        {
+          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
+          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
+        },
+        {
+          "title": "13 条最佳北极光巡游：2026-27 专家指南 - 泰晤士报",
+          "desc": "<a href=\" target=\"_blank\">13 条最佳北极光巡游：2026-27 年专家指南</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">《泰晤士报》</font>"
+        }
+      ],
+      "Google News CN": [
+        {
+          "title": "去北极旅游费用大概是多少？2026 最新报价明细及省钱攻略详解 - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">去北极旅游费用大概是多少？2026 最新报价明细及省钱攻略详解</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        }
+      ],
+      "Bing News": [
+        {
+          "title": "斯堪的纳维亚雷达阵列将探索极光之谜",
+          "desc": "瑞典境内的天线阵列。 本报讯 2017年，挪威斯瓦尔巴群岛上空出现一道道微小的绿色光斑，悬浮在极光周边。这些碎片状类极光辐射跨度仅几千米，持续时间不足一分钟，且似乎不受磁力线的约束 ..."
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-08-17",
     "kp": "0.0",
     "kp_label": "平静",
