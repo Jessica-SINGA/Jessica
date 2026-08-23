@@ -1,27 +1,5 @@
 [
   {
-    "date": "2026-05-22",
-    "routes": [
-      {
-        "airline": "海航 · 北京转",
-        "price": 5420,
-        "trend": "up"
-      },
-      {
-        "airline": "国航 · 北京转",
-        "price": 7030,
-        "trend": "up"
-      },
-      {
-        "airline": "汉莎 · 法兰克福转",
-        "price": 9130,
-        "trend": "up"
-      }
-    ],
-    "recommendation": "wait",
-    "note": "周末价格偏高，等下周一"
-  },
-  {
     "date": "2026-05-23",
     "routes": [
       {
@@ -1879,5 +1857,38 @@
     "note": "价格开始上涨 · 越等越贵",
     "cheapest": "海航 · 北京转 ¥5,510",
     "days_left": 34
+  },
+  {
+    "date": "2026-08-23",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "baseFare": 4330,
+        "tax": 990,
+        "price": 5320,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "baseFare": 5920,
+        "tax": 1030,
+        "price": 6950,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "baseFare": 7410,
+        "tax": 1750,
+        "price": 9160,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
+      }
+    ],
+    "recommendation": "buy",
+    "note": "价格开始上涨 · 越等越贵",
+    "cheapest": "海航 · 北京转 ¥5,320",
+    "days_left": 33
   }
 ]
