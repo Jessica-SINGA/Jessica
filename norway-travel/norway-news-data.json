@@ -1,5 +1,39 @@
 [
   {
+    "date": "2026-08-26",
+    "kp": "0.0",
+    "kp_label": "平静",
+    "kp_color": "#94a3b8",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.724 CNY / 1 NOK = 0.107 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "2026 年北极光：观赏极光的最佳地点和时间 - 福斯塔夫",
+          "desc": "<a href=\" target=\"_blank\">2026 年北极光：观赏极光的最佳地点和时间</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">福斯塔夫</font>"
+        },
+        {
+          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
+          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
+        },
+        {
+          "title": "13 条最佳北极光巡游：2026-27 专家指南 - 泰晤士报",
+          "desc": "<a href=\" target=\"_blank\">13 条最佳北极光巡游：2026-27 年专家指南</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">《泰晤士报》</font>"
+        }
+      ],
+      "Google News CN": [
+        {
+          "title": "去北极旅游费用大概是多少？2026 最新报价明细及省钱攻略详解 - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">去北极旅游费用大概是多少？2026 最新报价明细及省钱攻略详解</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "【旅·知道】签证挪威：看美妙极光 体验极昼极夜的世界_大鹏背包走天下 - 手机新浪网",
+          "desc": "<a href=\" target=\"_blank\">【旅·知道】签证挪威：看美妙极光 体验极昼极夜的世界_大鹏背包走天下</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机新浪网</font>"
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-08-25",
     "kp": "1.0",
     "kp_label": "平静",
