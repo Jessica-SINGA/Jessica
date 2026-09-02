@@ -1,38 +1,5 @@
 [
   {
-    "date": "2026-07-04",
-    "routes": [
-      {
-        "airline": "海航 · 北京转",
-        "baseFare": 4390,
-        "tax": 990,
-        "price": 5380,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
-      },
-      {
-        "airline": "国航 · 北京转",
-        "baseFare": 5820,
-        "tax": 1030,
-        "price": 6850,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
-      },
-      {
-        "airline": "汉莎 · 法兰克福转",
-        "baseFare": 7350,
-        "tax": 1750,
-        "price": 9100,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
-      }
-    ],
-    "recommendation": "buy",
-    "note": "最佳购票窗口 · 建议尽快入手",
-    "cheapest": "海航 · 北京转 ¥5,380",
-    "days_left": 83
-  },
-  {
     "date": "2026-07-05",
     "routes": [
       {
@@ -1978,5 +1945,38 @@
     "note": "临近出发，赶紧购买",
     "cheapest": "海航 · 北京转 ¥5,910",
     "days_left": 24
+  },
+  {
+    "date": "2026-09-02",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "baseFare": 4430,
+        "tax": 990,
+        "price": 5420,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "baseFare": 6170,
+        "tax": 1030,
+        "price": 7200,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "baseFare": 7550,
+        "tax": 1750,
+        "price": 9300,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
+      }
+    ],
+    "recommendation": "urgent",
+    "note": "临近出发，赶紧购买",
+    "cheapest": "海航 · 北京转 ¥5,420",
+    "days_left": 23
   }
 ]
