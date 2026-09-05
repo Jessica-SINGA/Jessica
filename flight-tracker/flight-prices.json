@@ -1,38 +1,5 @@
 [
   {
-    "date": "2026-07-07",
-    "routes": [
-      {
-        "airline": "海航 · 北京转",
-        "baseFare": 4170,
-        "tax": 990,
-        "price": 5160,
-        "trend": "down",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
-      },
-      {
-        "airline": "国航 · 北京转",
-        "baseFare": 5760,
-        "tax": 1030,
-        "price": 6790,
-        "trend": "down",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
-      },
-      {
-        "airline": "汉莎 · 法兰克福转",
-        "baseFare": 7220,
-        "tax": 1750,
-        "price": 8970,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
-      }
-    ],
-    "recommendation": "buy",
-    "note": "最佳购票窗口 · 建议尽快入手",
-    "cheapest": "海航 · 北京转 ¥5,160",
-    "days_left": 80
-  },
-  {
     "date": "2026-07-08",
     "routes": [
       {
@@ -1978,5 +1945,38 @@
     "note": "临近出发，赶紧购买",
     "cheapest": "海航 · 北京转 ¥5,820",
     "days_left": 21
+  },
+  {
+    "date": "2026-09-05",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "baseFare": 4750,
+        "tax": 990,
+        "price": 5740,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "baseFare": 6270,
+        "tax": 1030,
+        "price": 7300,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "baseFare": 7750,
+        "tax": 1750,
+        "price": 9500,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
+      }
+    ],
+    "recommendation": "urgent",
+    "note": "临近出发，赶紧购买",
+    "cheapest": "海航 · 北京转 ¥5,740",
+    "days_left": 20
   }
 ]
