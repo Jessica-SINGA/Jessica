@@ -1,5 +1,45 @@
 [
   {
+    "date": "2026-09-10",
+    "kp": "1.0",
+    "kp_label": "平静",
+    "kp_color": "#94a3b8",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.73 CNY / 1 NOK = 0.109 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "2026 年北极光：观赏极光的最佳地点和时间 - 福斯塔夫",
+          "desc": "<a href=\" target=\"_blank\">2026 年北极光：观赏极光的最佳地点和时间</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">福斯塔夫</font>"
+        },
+        {
+          "title": "挪威 7 次北极光游轮：如何像专业人士一样观赏北极光 - TravelAwaits",
+          "desc": "<a href=\" target=\"_blank\">挪威 7 次北极光巡游：如何像专业人士一样观赏北极光</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">TravelAwaits</font>"
+        },
+        {
+          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
+          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
+        }
+      ],
+      "Google News CN": [
+        {
+          "title": "芬兰旅行跟团要多少钱？芬兰2026年极光季旅游价格参考，看完再出发 - 手机网易网",
+          "desc": "<a href=\" target=\"_blank\">芬兰旅行跟团要多少钱？芬兰2026年极光季旅游价格参考，看完再出发</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">手机网易网</font>"
+        },
+        {
+          "title": "不怕冷的游客都去南北极看极光跨年了！阿姨爷叔南极扎堆，年轻人爱去北极 - shobserver.cn",
+          "desc": "<a href=\" target=\"_blank\">不怕冷的游客都去南北极看极光跨年了！阿姨爷叔南极扎堆，年轻人爱去北极</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">shobserver.cn</font>"
+        }
+      ],
+      "Bing News": [
+        {
+          "title": "斯堪的纳维亚雷达阵列将探测极光之谜",
+          "desc": "2017年拍摄的一组影像看起来很奇怪——在挪威斯瓦尔巴群岛上方苍白的冬日天空中，一道道微小的绿色光斑悬浮在极光光幕周边。这些碎片状类极光辐射跨度仅有几千米，持续时间不足一分钟。"
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-09-09",
     "kp": "1.0",
     "kp_label": "平静",
