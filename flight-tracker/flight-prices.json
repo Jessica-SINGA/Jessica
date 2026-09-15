@@ -1,38 +1,5 @@
 [
   {
-    "date": "2026-07-17",
-    "routes": [
-      {
-        "airline": "海航 · 北京转",
-        "baseFare": 4310,
-        "tax": 990,
-        "price": 5300,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
-      },
-      {
-        "airline": "国航 · 北京转",
-        "baseFare": 5860,
-        "tax": 1030,
-        "price": 6890,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
-      },
-      {
-        "airline": "汉莎 · 法兰克福转",
-        "baseFare": 7130,
-        "tax": 1750,
-        "price": 8880,
-        "trend": "down",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
-      }
-    ],
-    "recommendation": "buy",
-    "note": "最佳购票窗口 · 建议尽快入手",
-    "cheapest": "海航 · 北京转 ¥5,300",
-    "days_left": 70
-  },
-  {
     "date": "2026-07-18",
     "routes": [
       {
@@ -1978,5 +1945,38 @@
     "note": "临近出发，赶紧购买",
     "cheapest": "海航 · 北京转 ¥6,120",
     "days_left": 11
+  },
+  {
+    "date": "2026-09-15",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "baseFare": 5980,
+        "tax": 990,
+        "price": 6970,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "baseFare": 6330,
+        "tax": 1030,
+        "price": 7360,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "baseFare": 7870,
+        "tax": 1750,
+        "price": 9620,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
+      }
+    ],
+    "recommendation": "urgent",
+    "note": "临近出发，赶紧购买",
+    "cheapest": "海航 · 北京转 ¥6,970",
+    "days_left": 10
   }
 ]
