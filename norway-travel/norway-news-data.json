@@ -1,5 +1,29 @@
 [
   {
+    "date": "2026-09-18",
+    "kp": "1.0",
+    "kp_label": "平静",
+    "kp_color": "#94a3b8",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.714 CNY / 1 NOK = 0.106 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "如何计划挪威北极光之旅 - 福布斯",
+          "desc": "<a href=\" target=\"_blank\">如何计划挪威北极光之旅</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">福布斯</font>"
+        },
+        {
+          "title": "2026 年北极光：观赏极光的最佳地点和时间 - 福斯塔夫",
+          "desc": "<a href=\" target=\"_blank\">2026 年北极光：观赏极光的最佳地点和时间</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">福斯塔夫</font>"
+        },
+        {
+          "title": "挪威 7 次北极光游轮：如何像专业人士一样观赏北极光 - TravelAwaits",
+          "desc": "<a href=\" target=\"_blank\">挪威 7 次北极光巡游：如何像专业人士一样观赏北极光</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">TravelAwaits</font>"
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-09-17",
     "kp": "1.0",
     "kp_label": "平静",
