@@ -1,5 +1,35 @@
 [
   {
+    "date": "2026-09-20",
+    "kp": "1.0",
+    "kp_label": "平静",
+    "kp_color": "#94a3b8",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.712 CNY / 1 NOK = 0.106 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "2026 年北极光：观赏极光的最佳地点和时间 - 福斯塔夫",
+          "desc": "<a href=\" target=\"_blank\">2026 年北极光：观赏极光的最佳地点和时间</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">福斯塔夫</font>"
+        },
+        {
+          "title": "我已经看过 50 次北极光了——以下是我在旺季之后观赏北极光的 5 个重要秘诀 - 旅行 + 休闲",
+          "desc": "<a href=\" target=\"_blank\">我已经看过北极光 50 次了——以下是我在旺季后观赏北极光的 5 个重要秘诀</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">旅行 + 休闲</font>"
+        },
+        {
+          "title": "挪威 7 次北极光游轮：如何像专业人士一样观赏北极光 - TravelAwaits",
+          "desc": "<a href=\" target=\"_blank\">挪威 7 次北极光巡游：如何像专业人士一样观赏北极光</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">TravelAwaits</font>"
+        }
+      ],
+      "Google News CN": [
+        {
+          "title": "不怕冷的游客都去南北极看极光跨年了！阿姨爷叔南极扎堆，年轻人爱去北极 - 上观新闻",
+          "desc": "<a href=\" target=\"_blank\">不怕冷的游客都去南北极看极光跨年了！阿姨爷叔南极扎堆，年轻人爱去北极</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">上观新闻</font>"
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-09-19",
     "kp": "0.0",
     "kp_label": "平静",
