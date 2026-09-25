@@ -1,5 +1,29 @@
 [
   {
+    "date": "2026-09-25",
+    "kp": "3.0",
+    "kp_label": "中等 ✅",
+    "kp_color": "#39ff14",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.709 CNY / 1 NOK = 0.105 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "如何计划挪威北极光之旅 - forbes.com",
+          "desc": "<a href=\" target=\"_blank\">如何计划挪威北极光之旅</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">forbes.com</font>"
+        },
+        {
+          "title": "2026 年北极光：观赏极光的最佳地点和时间 - falstaff.com",
+          "desc": "<a href=\" target=\"_blank\">2026 年北极光：观赏极光的最佳地点和时间</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">falstaff.com</font>"
+        },
+        {
+          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
+          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-09-24",
     "kp": "2.0",
     "kp_label": "平静",
