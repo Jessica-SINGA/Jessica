@@ -1,5 +1,43 @@
 [
   {
+    "date": "2026-09-27",
+    "kp": "2.0",
+    "kp_label": "平静",
+    "kp_color": "#94a3b8",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.708 CNY / 1 NOK = 0.105 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "如何计划挪威北极光之旅 - forbes.com",
+          "desc": "<a href=\" target=\"_blank\">如何计划挪威北极光之旅</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">forbes.com</font>"
+        },
+        {
+          "title": "2026 年北极光：观赏极光的最佳地点和时间 - 福斯塔夫",
+          "desc": "<a href=\" target=\"_blank\">2026 年北极光：观赏极光的最佳地点和时间</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">福斯塔夫</font>"
+        },
+        {
+          "title": "我已经看过 50 次北极光了——以下是我在旺季之后观赏北极光的 5 个重要秘诀 - 旅行 + 休闲",
+          "desc": "<a href=\" target=\"_blank\">我已经看过北极光 50 次了——以下是我在旺季后观赏北极光的 5 个重要秘诀</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">旅行 + 休闲</font>"
+        }
+      ],
+      "Bing News": [
+        {
+          "title": "去北欧追极光什么时候最合适？2026 冬季北欧各类型旅行线路盘点",
+          "desc": "随着北半球进入秋季，北欧冬季旅游产品开始进入预订期。作为欧洲冬季旅游的热门板块，北欧凭借极光、冰雪活动和萨米文化等特色资源，每年都吸引大量中国游客前往。近期，多家出境旅行社陆续上线2026"
+        },
+        {
+          "title": "深蓝智库｜挪威国家旅游局市场经理冯烨：2026年1—7月中国赴挪威游客同比增长17%",
+          "desc": "8月20日，北京商报社举办2026深蓝智库出入境游沙龙。在下午出境游沙龙圆桌对话环节，挪威国家旅游局市场经理冯烨介绍，尽管挪威地处世界较北端，并非传统意义上的热门旅游目的地，但今年 ..."
+        },
+        {
+          "title": "挪威罗弗敦群岛(Lofoten)——上帝遗忘在人间的宝岛",
+          "desc": "【希望之声2025年4月4日】（编辑：陈雪）罗弗敦群岛（Lofoten），位于挪威北部大西洋的海域中，所有岛屿都位于北极圈以北，它被誉为上帝遗忘在人间的宝岛，以壮丽的山脉、奇特的峡湾、清澈 ..."
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-09-26",
     "kp": "2.0",
     "kp_label": "平静",
@@ -3458,30 +3496,6 @@
         {
           "title": "极光追逐者的北极光指南 - BBC",
           "desc": "<a href=\" target=\"_blank\">极光追逐者的北极光指南</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font>"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-05-30",
-    "kp": "3.0",
-    "kp_label": "中等 ✅",
-    "kp_color": "#39ff14",
-    "forecast": [],
-    "exchange_rate": "1 NOK = 0.733 CNY / 1 NOK = 0.108 USD",
-    "news": {
-      "Google News": [
-        {
-          "title": "13 条最佳北极光巡游：2026-27 专家指南 - 泰晤士报",
-          "desc": "//news.google.com/rss/articles/CBMilAFBVV95cUxOWG1MNWQyb1NkbnY2TVpVVWFsU2JUZ3hONGlBSmJLU09jQ1RjQmRFdUdEZmhYU1pzbWdDY0hSTndKVWlEclJFWnRWY1JVdFZKSU8xR1ZHcnU4MTZPam5pdXZ3dEptX3NDMUdsZ2FRUGJqeVVGNVJyVDRYY0dhVGdvb3VrU1ZzaF9LRFc3Q0lydzFJVTBm?oc=5\"target=\"_blank\">13 条最佳北极光巡游：20"
-        },
-        {
-          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
-          "desc": "//news.google.com/rss/articles/CBMilAFBVV95cUxPSzFEVHVjQ2JWU3Q1MlV6TEk5SEdTeTIyUGNRYktPb1MwUlJDd1ZlLUh0U05MLUJwNFBqNW9ZdGxZRzkyREkzYmEzUFNnRkhNdjU1M3RCTkN3VFIzcUotNEczM29MVjNkoOEhFZXRyX2E5eDkxdHNzVDAzdUZQZktVaVliY2JiWGNSTHVacHF3dmdyRTEz?oc=5\"target=\"_blank\">北极光已经达到顶峰。"
-        },
-        {
-          "title": "极光追逐者的北极光指南 - BBC",
-          "desc": "//news.google.com/rss/articles/CBMilAFBVV95cUxNUE9tNlJwVTdTUWM0S2s2bC1PTWIxNGREajE4bVdyZm9hVGRteV80TUNDMUliTHdEZlZlTmhEU0RhU0NmRy1yMjZXQ2NaNFRpdkN4OHFSa3Y1R2w5Nk9mcGR0QnVrcUR5RFFYbGFSa2FCU2p3cjVOaktWdngyNlg5bUROdjJGQVRzMjE2dEgyT0Zoc1dn?oc=5\"target=\"_blank\">北 L 极光追逐者指南"
         }
       ]
     }
