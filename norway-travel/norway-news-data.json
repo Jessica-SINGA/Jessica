@@ -1,5 +1,29 @@
 [
   {
+    "date": "2026-09-30",
+    "kp": "0.0",
+    "kp_label": "平静",
+    "kp_color": "#94a3b8",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.702 CNY / 1 NOK = 0.104 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "如何计划挪威北极光之旅 - 福布斯",
+          "desc": "<a href=\" target=\"_blank\">如何计划挪威北极光之旅</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">福布斯</font>"
+        },
+        {
+          "title": "2026 年北极光：观赏极光的最佳地点和时间 - 福斯塔夫",
+          "desc": "<a href=\" target=\"_blank\">2026 年北极光：观赏极光的最佳地点和时间</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">福斯塔夫</font>"
+        },
+        {
+          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
+          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-09-29",
     "kp": "0.0",
     "kp_label": "平静",
@@ -3486,30 +3510,6 @@
         {
           "title": "旅行｜第一批去俄罗斯旅游的人，后悔了吗？ - OR新媒体",
           "desc": "<a href=\" target=\"_blank\">旅行｜第一批去俄罗斯旅游的人，后悔了吗？</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">OR新媒体</font>"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-05-30",
-    "kp": "3.0",
-    "kp_label": "中等 ✅",
-    "kp_color": "#39ff14",
-    "forecast": [],
-    "exchange_rate": "1 NOK = 0.733 CNY / 1 NOK = 0.108 USD",
-    "news": {
-      "Google News": [
-        {
-          "title": "13 条最佳北极光巡游：2026-27 专家指南 - 泰晤士报",
-          "desc": "<a href=\" target=\"_blank\">13 条最佳北极光巡游：2026-27 年专家指南</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">《泰晤士报》</font>"
-        },
-        {
-          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
-          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
-        },
-        {
-          "title": "极光追逐者的北极光指南 - BBC",
-          "desc": "<a href=\" target=\"_blank\">极光追逐者的北极光指南</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font>"
         }
       ]
     }
