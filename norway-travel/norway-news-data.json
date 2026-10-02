@@ -1,5 +1,43 @@
 [
   {
+    "date": "2026-10-02",
+    "kp": "0.0",
+    "kp_label": "平静",
+    "kp_color": "#94a3b8",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.698 CNY / 1 NOK = 0.104 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "2026 年北极光：观赏极光的最佳地点和时间 - 福斯塔夫",
+          "desc": "<a href=\" target=\"_blank\">2026 年北极光：观赏极光的最佳地点和时间</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">福斯塔夫</font>"
+        },
+        {
+          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
+          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
+        },
+        {
+          "title": "极光追逐者的北极光指南 - BBC",
+          "desc": "<a href=\" target=\"_blank\">极光追逐者的北极光指南</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font>"
+        }
+      ],
+      "Bing News": [
+        {
+          "title": "去北欧追极光什么时候最合适？2026 冬季北欧各类型旅行线路盘点",
+          "desc": "随着北半球进入秋季，北欧冬季旅游产品开始进入预订期。作为欧洲冬季旅游的热门板块，北欧凭借极光、冰雪活动和萨米文化等特色资源，每年都吸引大量中国游客前往。近期，多家出境旅行社陆续上线2026"
+        },
+        {
+          "title": "深蓝智库｜挪威国家旅游局市场经理冯烨：2026年1—7月中国赴挪威游客同比增长17%",
+          "desc": "8月20日，北京商报社举办2026深蓝智库出入境游沙龙。在下午出境游沙龙圆桌对话环节，挪威国家旅游局市场经理冯烨介绍，尽管挪威地处世界较北端，并非传统意义上的热门旅游目的地，但今年 ..."
+        },
+        {
+          "title": "全球6大极光目的地怎么选？特罗姆瑟、拉普兰、冰岛、黄刀全面对比",
+          "desc": "极光旅游的核心逻辑，从来不是“抵达目的地就一定能看到极光”。极光的实际观赏效果，是极光活动强度、天气状况、云量覆盖、黑夜时长、区域光污染、停留天数、观测点位置等多重因素共同作用的结果。 很多游客出发前只盯着“极光概率”选目的地，到了当地才发现，连续几晚云层厚重，白天没有足够的特色体验填充行程，整个旅行变成了“在酒店等极光”的枯燥过程。 挪威官方旅游信息明确指出，特罗姆瑟的极光观赏窗口通常从8月底持 ..."
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-10-01",
     "kp": "0.0",
     "kp_label": "平静",
@@ -3480,40 +3518,6 @@
         {
           "title": "介绍：挪威极光的形成机制",
           "desc": "- 太阳持续向外喷射带电粒子（主要是电子和质子），形成太阳风。 - 地球拥有磁场，其磁场线在两极附近汇聚，形成磁层。 - 太阳风中的带电粒子被地球磁场引导，沿着磁场线向两极方向运动。"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-07-04",
-    "kp": "3.0",
-    "kp_label": "中等 ✅",
-    "kp_color": "#39ff14",
-    "forecast": [],
-    "exchange_rate": "1 NOK = 0.69 CNY / 1 NOK = 0.102 USD",
-    "news": {
-      "Google News": [
-        {
-          "title": "13 条最佳北极光巡游：2026-27 专家指南 - 泰晤士报",
-          "desc": "<a href=\" target=\"_blank\">13 条最佳北极光巡游：2026-27 年专家指南</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">《泰晤士报》</font>"
-        },
-        {
-          "title": "极光探险公司 (Aurora Expeditions) 推出 2026 年至 2027 年北极光航程，将冰岛、格陵兰岛、斯瓦尔巴群岛和挪威置于聚光灯下，提供高达 30% 的费用节省 - Travel And Tour World",
-          "desc": "<a href=\" target=\"_blank\">Aurora Expeditions 将冰岛、格陵兰岛、斯瓦尔巴群岛和挪威作为 2026 年北极光航程的焦点"
-        },
-        {
-          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
-          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
-        }
-      ],
-      "Google News CN": [
-        {
-          "title": "2026年暑假出国去哪玩？10天三大洲完整攻略：东南亚/欧洲/非洲路线、费用、交通、预约和避坑指南 - 新浪财经",
-          "desc": "<a href=\" target=\"_blank\">2026年暑假出国去哪玩？10天三大洲完整攻略：东南亚/欧洲/非洲路线、费用、交通、预约和避坑指南</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">新浪财经</font>"
-        },
-        {
-          "title": "挪威 Science and Technology Located in Trondheim Gjøvik - Baha'is of the United States",
-          "desc": "<a href=\" target=\"_blank\">挪威 Science and Technology Located in Trondheim Gjøvik</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Baha'is of the United States</font>"
         }
       ]
     }
