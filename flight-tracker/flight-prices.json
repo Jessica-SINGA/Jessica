@@ -1,38 +1,5 @@
 [
   {
-    "date": "2026-08-22",
-    "routes": [
-      {
-        "airline": "海航 · 北京转",
-        "baseFare": 4520,
-        "tax": 990,
-        "price": 5510,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
-      },
-      {
-        "airline": "国航 · 北京转",
-        "baseFare": 6040,
-        "tax": 1030,
-        "price": 7070,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
-      },
-      {
-        "airline": "汉莎 · 法兰克福转",
-        "baseFare": 7460,
-        "tax": 1750,
-        "price": 9210,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
-      }
-    ],
-    "recommendation": "buy",
-    "note": "价格开始上涨 · 越等越贵",
-    "cheapest": "海航 · 北京转 ¥5,510",
-    "days_left": 34
-  },
-  {
     "date": "2026-08-23",
     "routes": [
       {
@@ -1978,5 +1945,38 @@
     "note": "临近出发，赶紧购买",
     "cheapest": "海航 · 北京转 ¥6,180",
     "days_left": -25
+  },
+  {
+    "date": "2026-10-21",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "baseFare": 5770,
+        "tax": 990,
+        "price": 6760,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "baseFare": 6470,
+        "tax": 1030,
+        "price": 7500,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "baseFare": 8400,
+        "tax": 1750,
+        "price": 10150,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
+      }
+    ],
+    "recommendation": "urgent",
+    "note": "临近出发，赶紧购买",
+    "cheapest": "海航 · 北京转 ¥6,760",
+    "days_left": -26
   }
 ]
