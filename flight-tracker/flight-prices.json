@@ -1,38 +1,5 @@
 [
   {
-    "date": "2026-08-25",
-    "routes": [
-      {
-        "airline": "海航 · 北京转",
-        "baseFare": 4270,
-        "tax": 990,
-        "price": 5260,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
-      },
-      {
-        "airline": "国航 · 北京转",
-        "baseFare": 5960,
-        "tax": 1030,
-        "price": 6990,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
-      },
-      {
-        "airline": "汉莎 · 法兰克福转",
-        "baseFare": 7370,
-        "tax": 1750,
-        "price": 9120,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
-      }
-    ],
-    "recommendation": "buy",
-    "note": "价格开始上涨 · 越等越贵",
-    "cheapest": "海航 · 北京转 ¥5,260",
-    "days_left": 31
-  },
-  {
     "date": "2026-08-26",
     "routes": [
       {
@@ -1978,5 +1945,38 @@
     "note": "临近出发，赶紧购买",
     "cheapest": "海航 · 北京转 ¥5,740",
     "days_left": -28
+  },
+  {
+    "date": "2026-10-24",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "baseFare": 6020,
+        "tax": 990,
+        "price": 7010,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "baseFare": 7750,
+        "tax": 1030,
+        "price": 8780,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "baseFare": 8130,
+        "tax": 1750,
+        "price": 9880,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
+      }
+    ],
+    "recommendation": "urgent",
+    "note": "临近出发，赶紧购买",
+    "cheapest": "海航 · 北京转 ¥7,010",
+    "days_left": -29
   }
 ]
