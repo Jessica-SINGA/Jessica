@@ -1,38 +1,5 @@
 [
   {
-    "date": "2026-08-30",
-    "routes": [
-      {
-        "airline": "海航 · 北京转",
-        "baseFare": 4750,
-        "tax": 990,
-        "price": 5740,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
-      },
-      {
-        "airline": "国航 · 北京转",
-        "baseFare": 6300,
-        "tax": 1030,
-        "price": 7330,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
-      },
-      {
-        "airline": "汉莎 · 法兰克福转",
-        "baseFare": 7720,
-        "tax": 1750,
-        "price": 9470,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
-      }
-    ],
-    "recommendation": "urgent",
-    "note": "临近出发，赶紧购买",
-    "cheapest": "海航 · 北京转 ¥5,740",
-    "days_left": 26
-  },
-  {
     "date": "2026-08-31",
     "routes": [
       {
@@ -1978,5 +1945,38 @@
     "note": "临近出发，赶紧购买",
     "cheapest": "海航 · 北京转 ¥6,990",
     "days_left": -33
+  },
+  {
+    "date": "2026-10-29",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "baseFare": 5810,
+        "tax": 990,
+        "price": 6800,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "baseFare": 6570,
+        "tax": 1030,
+        "price": 7600,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "baseFare": 8830,
+        "tax": 1750,
+        "price": 10580,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
+      }
+    ],
+    "recommendation": "urgent",
+    "note": "临近出发，赶紧购买",
+    "cheapest": "海航 · 北京转 ¥6,800",
+    "days_left": -34
   }
 ]
