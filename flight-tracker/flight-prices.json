@@ -1,38 +1,5 @@
 [
   {
-    "date": "2026-09-02",
-    "routes": [
-      {
-        "airline": "海航 · 北京转",
-        "baseFare": 4430,
-        "tax": 990,
-        "price": 5420,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
-      },
-      {
-        "airline": "国航 · 北京转",
-        "baseFare": 6170,
-        "tax": 1030,
-        "price": 7200,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
-      },
-      {
-        "airline": "汉莎 · 法兰克福转",
-        "baseFare": 7550,
-        "tax": 1750,
-        "price": 9300,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
-      }
-    ],
-    "recommendation": "urgent",
-    "note": "临近出发，赶紧购买",
-    "cheapest": "海航 · 北京转 ¥5,420",
-    "days_left": 23
-  },
-  {
     "date": "2026-09-03",
     "routes": [
       {
@@ -1978,5 +1945,38 @@
     "note": "临近出发，赶紧购买",
     "cheapest": "海航 · 北京转 ¥7,060",
     "days_left": -36
+  },
+  {
+    "date": "2026-11-01",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "baseFare": 5080,
+        "tax": 990,
+        "price": 6070,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "baseFare": 7070,
+        "tax": 1030,
+        "price": 8100,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "baseFare": 8220,
+        "tax": 1750,
+        "price": 9970,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
+      }
+    ],
+    "recommendation": "urgent",
+    "note": "临近出发，赶紧购买",
+    "cheapest": "海航 · 北京转 ¥6,070",
+    "days_left": -37
   }
 ]
