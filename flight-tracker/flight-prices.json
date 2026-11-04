@@ -1,38 +1,5 @@
 [
   {
-    "date": "2026-09-05",
-    "routes": [
-      {
-        "airline": "海航 · 北京转",
-        "baseFare": 4750,
-        "tax": 990,
-        "price": 5740,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
-      },
-      {
-        "airline": "国航 · 北京转",
-        "baseFare": 6270,
-        "tax": 1030,
-        "price": 7300,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
-      },
-      {
-        "airline": "汉莎 · 法兰克福转",
-        "baseFare": 7750,
-        "tax": 1750,
-        "price": 9500,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
-      }
-    ],
-    "recommendation": "urgent",
-    "note": "临近出发，赶紧购买",
-    "cheapest": "海航 · 北京转 ¥5,740",
-    "days_left": 20
-  },
-  {
     "date": "2026-09-06",
     "routes": [
       {
@@ -1978,5 +1945,38 @@
     "note": "临近出发，赶紧购买",
     "cheapest": "海航 · 北京转 ¥5,910",
     "days_left": -39
+  },
+  {
+    "date": "2026-11-04",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "baseFare": 5870,
+        "tax": 990,
+        "price": 6860,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "baseFare": 6400,
+        "tax": 1030,
+        "price": 7430,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "baseFare": 8160,
+        "tax": 1750,
+        "price": 9910,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
+      }
+    ],
+    "recommendation": "urgent",
+    "note": "临近出发，赶紧购买",
+    "cheapest": "海航 · 北京转 ¥6,860",
+    "days_left": -40
   }
 ]
