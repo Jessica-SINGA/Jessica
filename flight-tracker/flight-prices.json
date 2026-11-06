@@ -1,38 +1,5 @@
 [
   {
-    "date": "2026-09-07",
-    "routes": [
-      {
-        "airline": "海航 · 北京转",
-        "baseFare": 4620,
-        "tax": 990,
-        "price": 5610,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
-      },
-      {
-        "airline": "国航 · 北京转",
-        "baseFare": 6380,
-        "tax": 1030,
-        "price": 7410,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
-      },
-      {
-        "airline": "汉莎 · 法兰克福转",
-        "baseFare": 7910,
-        "tax": 1750,
-        "price": 9660,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
-      }
-    ],
-    "recommendation": "urgent",
-    "note": "临近出发，赶紧购买",
-    "cheapest": "海航 · 北京转 ¥5,610",
-    "days_left": 18
-  },
-  {
     "date": "2026-09-08",
     "routes": [
       {
@@ -1978,5 +1945,38 @@
     "note": "临近出发，赶紧购买",
     "cheapest": "海航 · 北京转 ¥6,330",
     "days_left": -41
+  },
+  {
+    "date": "2026-11-06",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "baseFare": 6200,
+        "tax": 990,
+        "price": 7190,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "baseFare": 7500,
+        "tax": 1030,
+        "price": 8530,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "baseFare": 8930,
+        "tax": 1750,
+        "price": 10680,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
+      }
+    ],
+    "recommendation": "urgent",
+    "note": "临近出发，赶紧购买",
+    "cheapest": "海航 · 北京转 ¥7,190",
+    "days_left": -42
   }
 ]
