@@ -1,38 +1,5 @@
 [
   {
-    "date": "2026-09-10",
-    "routes": [
-      {
-        "airline": "海航 · 北京转",
-        "baseFare": 4540,
-        "tax": 990,
-        "price": 5530,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
-      },
-      {
-        "airline": "国航 · 北京转",
-        "baseFare": 6250,
-        "tax": 1030,
-        "price": 7280,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
-      },
-      {
-        "airline": "汉莎 · 法兰克福转",
-        "baseFare": 7560,
-        "tax": 1750,
-        "price": 9310,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
-      }
-    ],
-    "recommendation": "urgent",
-    "note": "临近出发，赶紧购买",
-    "cheapest": "海航 · 北京转 ¥5,530",
-    "days_left": 15
-  },
-  {
     "date": "2026-09-11",
     "routes": [
       {
@@ -1978,5 +1945,38 @@
     "note": "临近出发，赶紧购买",
     "cheapest": "海航 · 北京转 ¥6,630",
     "days_left": -44
+  },
+  {
+    "date": "2026-11-09",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "baseFare": 5150,
+        "tax": 990,
+        "price": 6140,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "baseFare": 6450,
+        "tax": 1030,
+        "price": 7480,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "baseFare": 8630,
+        "tax": 1750,
+        "price": 10380,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
+      }
+    ],
+    "recommendation": "urgent",
+    "note": "临近出发，赶紧购买",
+    "cheapest": "海航 · 北京转 ¥6,140",
+    "days_left": -45
   }
 ]
