@@ -1,38 +1,5 @@
 [
   {
-    "date": "2026-09-11",
-    "routes": [
-      {
-        "airline": "海航 · 北京转",
-        "baseFare": 5380,
-        "tax": 990,
-        "price": 6370,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
-      },
-      {
-        "airline": "国航 · 北京转",
-        "baseFare": 6880,
-        "tax": 1030,
-        "price": 7910,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
-      },
-      {
-        "airline": "汉莎 · 法兰克福转",
-        "baseFare": 8320,
-        "tax": 1750,
-        "price": 10070,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
-      }
-    ],
-    "recommendation": "urgent",
-    "note": "临近出发，赶紧购买",
-    "cheapest": "海航 · 北京转 ¥6,370",
-    "days_left": 14
-  },
-  {
     "date": "2026-09-12",
     "routes": [
       {
@@ -1978,5 +1945,38 @@
     "note": "临近出发，赶紧购买",
     "cheapest": "海航 · 北京转 ¥6,140",
     "days_left": -45
+  },
+  {
+    "date": "2026-11-10",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "baseFare": 4960,
+        "tax": 990,
+        "price": 5950,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "baseFare": 7310,
+        "tax": 1030,
+        "price": 8340,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "baseFare": 8750,
+        "tax": 1750,
+        "price": 10500,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
+      }
+    ],
+    "recommendation": "urgent",
+    "note": "临近出发，赶紧购买",
+    "cheapest": "海航 · 北京转 ¥5,950",
+    "days_left": -46
   }
 ]
