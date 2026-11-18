@@ -1,38 +1,5 @@
 [
   {
-    "date": "2026-09-19",
-    "routes": [
-      {
-        "airline": "海航 · 北京转",
-        "baseFare": 5660,
-        "tax": 990,
-        "price": 6650,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
-      },
-      {
-        "airline": "国航 · 北京转",
-        "baseFare": 7690,
-        "tax": 1030,
-        "price": 8720,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
-      },
-      {
-        "airline": "汉莎 · 法兰克福转",
-        "baseFare": 8110,
-        "tax": 1750,
-        "price": 9860,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
-      }
-    ],
-    "recommendation": "urgent",
-    "note": "临近出发，赶紧购买",
-    "cheapest": "海航 · 北京转 ¥6,650",
-    "days_left": 6
-  },
-  {
     "date": "2026-09-20",
     "routes": [
       {
@@ -1978,5 +1945,38 @@
     "note": "临近出发，赶紧购买",
     "cheapest": "海航 · 北京转 ¥5,970",
     "days_left": -53
+  },
+  {
+    "date": "2026-11-18",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "baseFare": 5450,
+        "tax": 990,
+        "price": 6440,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "baseFare": 7180,
+        "tax": 1030,
+        "price": 8210,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "baseFare": 8550,
+        "tax": 1750,
+        "price": 10300,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
+      }
+    ],
+    "recommendation": "urgent",
+    "note": "临近出发，赶紧购买",
+    "cheapest": "海航 · 北京转 ¥6,440",
+    "days_left": -54
   }
 ]
