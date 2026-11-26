@@ -1,38 +1,5 @@
 [
   {
-    "date": "2026-09-27",
-    "routes": [
-      {
-        "airline": "海航 · 北京转",
-        "baseFare": 5650,
-        "tax": 990,
-        "price": 6640,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
-      },
-      {
-        "airline": "国航 · 北京转",
-        "baseFare": 7310,
-        "tax": 1030,
-        "price": 8340,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
-      },
-      {
-        "airline": "汉莎 · 法兰克福转",
-        "baseFare": 8230,
-        "tax": 1750,
-        "price": 9980,
-        "trend": "up",
-        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
-      }
-    ],
-    "recommendation": "urgent",
-    "note": "临近出发，赶紧购买",
-    "cheapest": "海航 · 北京转 ¥6,640",
-    "days_left": -2
-  },
-  {
     "date": "2026-09-28",
     "routes": [
       {
@@ -1978,5 +1945,38 @@
     "note": "临近出发，赶紧购买",
     "cheapest": "海航 · 北京转 ¥5,750",
     "days_left": -61
+  },
+  {
+    "date": "2026-11-26",
+    "routes": [
+      {
+        "airline": "海航 · 北京转",
+        "baseFare": 6060,
+        "tax": 990,
+        "price": 7050,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+Hainan"
+      },
+      {
+        "airline": "国航 · 北京转",
+        "baseFare": 7440,
+        "tax": 1030,
+        "price": 8470,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+PEK+AirChina"
+      },
+      {
+        "airline": "汉莎 · 法兰克福转",
+        "baseFare": 8760,
+        "tax": 1750,
+        "price": 10510,
+        "trend": "up",
+        "search_url": "https://www.google.com/travel/flights?q=TFU+to+OSL+2026-09-25+via+FRA+Lufthansa"
+      }
+    ],
+    "recommendation": "urgent",
+    "note": "临近出发，赶紧购买",
+    "cheapest": "海航 · 北京转 ¥7,050",
+    "days_left": -62
   }
 ]
