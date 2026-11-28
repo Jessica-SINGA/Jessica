@@ -1,5 +1,45 @@
 [
   {
+    "date": "2026-11-28",
+    "kp": "1.0",
+    "kp_label": "平静",
+    "kp_color": "#94a3b8",
+    "forecast": [],
+    "exchange_rate": "1 NOK = 0.683 CNY / 1 NOK = 0.102 USD",
+    "news": {
+      "Google News": [
+        {
+          "title": "How To Plan A Northern Lights Trip To Norway - Forbes",
+          "desc": "<a href=\" target=\"_blank\">How To Plan A Northern Lights Trip To Norway</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Forbes</font>"
+        },
+        {
+          "title": "Northern Lights in 2026: The Best Places and Times to See the Aurora - Falstaff",
+          "desc": "<a href=\" target=\"_blank\">Northern Lights in 2026: The Best Places and Times to See the Aurora</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Falstaff</font>"
+        },
+        {
+          "title": "7 Aurora Borealis Cruises in Norway: How to See The Northern Lights Like a Pro - TravelAwaits",
+          "desc": "<a href=\" target=\"_blank\">7 Aurora Borealis Cruises in Norway: How to See The Northern Lights Like a Pro</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">TravelAwaits</font>"
+        }
+      ],
+      "Google News CN": [
+        {
+          "title": "不怕冷的游客都去南北极看极光跨年了！阿姨爷叔南极扎堆，年轻人爱去北极 - 上观新闻",
+          "desc": "<a href=\" target=\"_blank\">不怕冷的游客都去南北极看极光跨年了！阿姨爷叔南极扎堆，年轻人爱去北极</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">上观新闻</font>"
+        }
+      ],
+      "Bing News": [
+        {
+          "title": "北欧旅游业集体喊话中国游客：请多停留几天！",
+          "desc": "斯堪的纳维亚地区对华旅游推介已从传统的北欧经典线路，转向自然生态、四季旅游、户外体验和深度自由行，同时，持续加强与中国旅行商、航空公司及旅游内容平台的合作。 据国际旅游媒体《旅行与旅游世界》报道，斯堪的纳维亚地区（挪威、瑞典、丹麦）2025年至2026年在中国的旅游推介活动主要集中在上海、广州、北京等一线重点客源城市，推广重点也从单一的峡湾、极光拓展至森林、湖泊、徒步、滑雪、文化体验和可持续旅行。"
+        },
+        {
+          "title": "深蓝智库｜挪威国家旅游局市场经理冯烨：2026年1—7月中国赴挪威游客同比增长17%",
+          "desc": "8月20日，北京商报社举办2026深蓝智库出入境游沙龙。在下午出境游沙龙圆桌对话环节，挪威国家旅游局市场经理冯烨介绍，尽管挪威地处世界较北端，并非传统意义上的热门旅游目的地，但今年 ..."
+        }
+      ]
+    }
+  },
+  {
     "date": "2026-11-27",
     "kp": "0.0",
     "kp_label": "平静",
@@ -3353,44 +3393,6 @@
         {
           "title": "挪威罗弗敦群岛(Lofoten)——上帝遗忘在人间的宝岛",
           "desc": "【希望之声2025年4月4日】（编辑：陈雪）罗弗敦群岛（Lofoten），位于挪威北部大西洋的海域中，所有岛屿都位于北极圈以北，它被誉为上帝遗忘在人间的宝岛，以壮丽的山脉、奇特的峡湾、清澈 ..."
-        },
-        {
-          "title": "斯堪的纳维亚雷达阵列将探测极光之谜",
-          "desc": "2017年拍摄的一组影像看起来很奇怪——在挪威斯瓦尔巴群岛上方苍白的冬日天空中，一道道微小的绿色光斑悬浮在极光光幕周边。这些碎片状类极光辐射跨度仅有几千米，持续时间不足一分钟。"
-        },
-        {
-          "title": "斯堪的纳维亚雷达阵列将探索极光之谜",
-          "desc": "瑞典境内的天线阵列。 本报讯 2017年，挪威斯瓦尔巴群岛上空出现一道道微小的绿色光斑，悬浮在极光周边。这些碎片状类极光辐射跨度仅几千米，持续时间不足一分钟，且似乎不受磁力线的约束 ..."
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-08-30",
-    "kp": "2.0",
-    "kp_label": "平静",
-    "kp_color": "#94a3b8",
-    "forecast": [],
-    "exchange_rate": "1 NOK = 0.721 CNY / 1 NOK = 0.107 USD",
-    "news": {
-      "Google News": [
-        {
-          "title": "2026 年北极光：观赏极光的最佳地点和时间 - 福斯塔夫",
-          "desc": "<a href=\" target=\"_blank\">2026 年北极光：观赏极光的最佳地点和时间</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">福斯塔夫</font>"
-        },
-        {
-          "title": "北极光已经达到顶峰。以下是如何在它们消失之前看到它们。- 华盛顿邮报",
-          "desc": "<a href=\" target=\"_blank\">北极光已经达到顶峰。以下是如何在北极光消失之前看到它们。</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">华盛顿邮报</font>"
-        },
-        {
-          "title": "我已经看过 50 次北极光了——以下是我在旺季之后观赏北极光的 5 个重要秘诀 - 旅行 + 休闲",
-          "desc": "<a href=\" target=\"_blank\">我已经看过北极光 50 次了——以下是我在旺季后观赏北极光的 5 个重要秘诀</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">旅行 + 休闲</font>"
-        }
-      ],
-      "Bing News": [
-        {
-          "title": "深蓝智库｜挪威国家旅游局市场经理冯烨：2026年1—7月中国赴挪威游客同比增长17%",
-          "desc": "8月20日，北京商报社举办2026深蓝智库出入境游沙龙。在下午出境游沙龙圆桌对话环节，挪威国家旅游局市场经理冯烨介绍，尽管挪威地处世界较北端，并非传统意义上的热门旅游目的地，但今年以来截至7月，中国前往挪威的游客数量已较去年同期增长约17%，中国更跃升至挪威旅游市场第二大客源国。"
         },
         {
           "title": "斯堪的纳维亚雷达阵列将探测极光之谜",
